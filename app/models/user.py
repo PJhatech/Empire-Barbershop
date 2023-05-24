@@ -1,6 +1,7 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
-from werkzeug.security import generate_password_hash, check_password_hash
+
 from flask_login import UserMixin
+from sqlalchemy import Column, Integer, String, Float, Date, Enum, ForeignKey
 
 
 class User(db.Model, UserMixin):
@@ -10,24 +11,17 @@ class User(db.Model, UserMixin):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(40), nullable=False, unique=True)
-    email = db.Column(db.String(255), nullable=False, unique=True)
-    hashed_password = db.Column(db.String(255), nullable=False)
-
-    @property
-    def password(self):
-        return self.hashed_password
-
-    @password.setter
-    def password(self, password):
-        self.hashed_password = generate_password_hash(password)
-
-    def check_password(self, password):
-        return check_password_hash(self.password, password)
+    barber_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('barber.id')))
+    client_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('client.id')))
+    user_type = db.Column(Enum('barber', 'client', name='user_type_enum'))
+    # Relationships
+    barber = db.relationship('Barber', back_populates='users')
+    client = db.relationship('Client', back_populates='users')
 
     def to_dict(self):
         return {
             'id': self.id,
-            'username': self.username,
-            'email': self.email
+            'barber_id': self.barber_id,
+            'client_id': self.client_id,
+            'user_type': self.user_type
         }
