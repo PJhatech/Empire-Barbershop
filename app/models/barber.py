@@ -11,6 +11,7 @@ class Barber(db.Model, UserMixin):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('user.id')))
     first_name = db.Column(db.String(50), nullable=False)
     last_name = db.Column(db.String(50), nullable=False)
     phone_number = db.Column(db.Integer, nullable=False)
@@ -18,6 +19,12 @@ class Barber(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
     instagram = db.Column(db.String(100))
+
+    # Relationships
+    users = db.relationship('User', back_populates='barbers')
+    appointments = db.relationship('Appointment', back_populates='barbers')
+    cash_register = db.relationship('Cash_Register', back_populates='barbers')
+    locations = db.relationship('Location', back_populates='barbers')
 
     @property
     def password(self):
@@ -30,7 +37,7 @@ class Barber(db.Model, UserMixin):
     def check_password(self, password):
         return check_password_hash(self.password, password)
 
-    def to_dict(self):
+    def to_barber_dict(self):
         return {
             'id': self.id,
             'first_name': self.first_name,

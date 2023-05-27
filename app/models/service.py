@@ -14,8 +14,10 @@ class Service(db.Model, UserMixin):
     servce_name = db.Column(db.String(50), unique=True, nullable=False)
     price = db.Column(db.Integer, nullable=False)
     time_frame = db.Column(db.String(50), nullable=False)
+
     # Relationships
     appointments = db.relationship('Appointment', back_populates='services')
+    cash_register = db.relationship('Cash_Register', back_populates='services')
 
     def to_service_dict(self):
         return {

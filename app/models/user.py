@@ -11,12 +11,13 @@ class User(db.Model, UserMixin):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    barber_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('barber.id')))
-    client_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('client.id')))
+    # barber_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('barber.id')))
+    # client_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('client.id')))
     user_type = db.Column(Enum('barber', 'client', name='user_type_enum'))
+
     # Relationships
-    barber = db.relationship('Barber', back_populates='users')
-    client = db.relationship('Client', back_populates='users')
+    barbers = db.relationship('Barber', back_populates='users')
+    clients = db.relationship('Client', back_populates='users')
 
     def to_dict(self):
         return {
