@@ -9,7 +9,7 @@ export const fetchAllAppointments = () => async (dispatch) => {
     const response = await fetch('/api/appointments');
     if (response.ok) {
         const appointments = await response.json();
-        dispatch(getAppointment(appointment))
+        dispatch(getAppointment(appointments))
     }
 }
 

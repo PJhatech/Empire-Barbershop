@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
+import AllAppointments from "./components/Appointments/AllAppointments";
 import Navigation from "./components/Navigation";
 
 function App() {
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path="/appointments">
+              <AllAppointments />
           </Route>
         </Switch>
       )}
