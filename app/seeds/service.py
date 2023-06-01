@@ -17,8 +17,8 @@ def seed_service():
     service_3 = Service(
         service_name = "Empire Experience",
         description = "Service includes a the full clean up of the hair and beard with a hot towel shave included and facial.",
-        price = 40,
-        time_frame = 45
+        price = 100,
+        time_frame = 90
     )
 
 
