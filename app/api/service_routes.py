@@ -1,7 +1,7 @@
-from flask import Blueprint, jsonify, request, db
+from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from flask_login import current_user, login_required
-from app.models import Service
+from app.models import Service, db
 
 
 service_routes = Blueprint('services', __name__)

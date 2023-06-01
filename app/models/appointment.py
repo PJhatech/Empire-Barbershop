@@ -1,6 +1,5 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 import datetime
-from sqlalchemy.orm import Column
 from sqlalchemy import Column, Integer, String, Float, Date, Enum, ForeignKey
 from flask_login import UserMixin
 
@@ -16,7 +15,7 @@ class Appointment(db.Model, UserMixin):
     service_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('service.id')))
     date = db.Column(db.Date, unique=True, nullable=False)
     time = db.Column(db.DateTime, unique=True,  nullable=False)
-    repeat = db.Column(db.String(20))
+    repeat = db.Column(db.Boolean, default=False)
     created_at = db.Column(db.Date, default=datetime.datetime.now())
     updated_at = db.Column(db.Date, default=datetime.datetime.now())
 
