@@ -28,6 +28,7 @@ def post_new_service():
     data = request.json
     services = Service(
         service_name=data['service_name'],
+        description=data['description'],
         price=data['price'],
         time_frame=data['time_frame']
     )
@@ -45,6 +46,7 @@ def update_service(service_id):
     if not service:
         return jsonify({'error': 'Service not found'}), 404
     service.service_name = data.get('service_name', service.service_name)
+    service.description = data.get('description', service.description)
     service.price = data.get('price', service.price)
     service.time_frame = data.get('time_frame', service.time_frame)
     db.session.commit()
