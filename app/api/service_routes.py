@@ -22,7 +22,7 @@ def get_service_by_id(id):
     return service.to_service_dict()
 
 
-@service_routes.routes('/', methods=['POST'])
+@service_routes.route('/', methods=['POST'])
 @login_required
 def post_new_service():
     data = request.json

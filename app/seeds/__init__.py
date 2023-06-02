@@ -1,7 +1,8 @@
 from flask.cli import AppGroup
-from .users import seed_users, undo_users
-from .appointment import seed_appointment, undo_appointment
-from .service import seed_service, undo_service
+# from .users import seed_users, undo_users
+from .appointment import seed_appointment, undo_appointments
+from .service import seed_service, undo_services
+from .client import seed_client, undo_clients
 
 from app.models.db import db, environment, SCHEMA
 
@@ -18,10 +19,10 @@ def seed():
         # command, which will  truncate all tables prefixed with
         # the schema name (see comment in users.py undo_users function).
         # Make sure to add all your other model's undo functions below
-        undo_users()
-        undo_appointment()
-        undo_service()
-    seed_users()
+        undo_clients()
+        undo_appointments()
+        undo_services()
+    seed_client()
     seed_appointment()
     seed_service()
     # Add other seed functions here
@@ -30,7 +31,7 @@ def seed():
 # Creates the `flask seed undo` command
 @seed_commands.command('undo')
 def undo():
-    undo_users()
-    undo_appointment()
-    undo_service()
+    undo_clients()
+    undo_appointments()
+    undo_services()
     # Add other undo functions here

@@ -17,7 +17,7 @@ def seed_appointment():
     db.session.commit()
 
 
-def undo_appointment():
+def undo_appointments():
     if environment == "production":
         db.session.execute(
             f"TRUNCATE table {SCHEMA}.appointment RESTART IDENTITY CASCADE;")

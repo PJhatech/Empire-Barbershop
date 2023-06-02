@@ -13,7 +13,7 @@ def get_available_appointments():
     appointments = Appointment.query.all()
     return [appointment.to_appointment_dic() for appointment in appointments]
 
-@appointment_routes.routes('/', methods=['GET', 'POST'])
+@appointment_routes.route('', methods=['GET', 'POST'])
 @login_required
 def handle_appointments():
     if request.method == 'GET':

@@ -27,7 +27,7 @@ def seed_service():
     db.session.commit()
 
 
-def undo_service():
+def undo_services():
     if environment == "production":
         db.session.execute(
             f"TRUNCATE table {SCHEMA}.service RESTART IDENTITY CASCADE;")
