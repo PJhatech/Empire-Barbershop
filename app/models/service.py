@@ -1,5 +1,6 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 import datetime
+from sqlalchemy.orm import relationship
 from sqlalchemy import Column, Integer, String, Float, Date, Enum, ForeignKey
 from flask_login import UserMixin
 
@@ -10,7 +11,7 @@ class Service(db.Model, UserMixin):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    servce_name = db.Column(db.String(50), unique=True, nullable=False)
+    service_name = db.Column(db.String(50), unique=True, nullable=False)
     description = db.Column(db.String(300), nullable=False)
     price = db.Column(db.Integer, nullable=False)
     time_frame = db.Column(db.Integer, nullable=False)
@@ -22,7 +23,7 @@ class Service(db.Model, UserMixin):
     def to_service_dict(self):
         return {
             'id': self.id,
-            'service_name': self.servce_name,
+            'service_name': self.service_name,
             'description': self.description,
             'price': self.price,
             'time_frame': self.time_frame

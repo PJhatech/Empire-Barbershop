@@ -22,8 +22,8 @@ class Client(db.Model, UserMixin):
 
     # Relationships
     users = db.relationship('User', back_populates='clients')
-    wallets =db.relationship('Wallet', back_populates='clients', uselist=False)
-
+    wallets = db.relationship('Wallet', back_populates='clients', uselist=False)
+    appointments = db.relationship('Appointment', back_populates='clients')
 
     @property
     def password(self):

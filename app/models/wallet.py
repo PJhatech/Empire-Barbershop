@@ -12,9 +12,11 @@ class Wallet(db.Model, UserMixin):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    client_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('client.id')))
+    client_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('clients.id')))
     credit_card = db.Column(db.Integer, nullable=False)
     gift_card = db.Column(db.Integer)
+
+    clients = relationship('Client', back_populates='wallet')
 
     def to_wallet_dict(self):
         return {

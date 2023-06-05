@@ -7,10 +7,11 @@ import time
 
 def seed_appointment():
     userClient1 = Appointment(
-        barber_id=1,  client_id=1,  service_id=1,
+        barber_id=1,  client_id=1,
         date=random.seed(datetime.now().timestamp()),
         time=random.seed(time.time()),
-        repeat=True
+        repeat=True,
+        service_id=1
     )
 
     db.session.add(userClient1)

@@ -11,8 +11,8 @@ class Cash_Register(db.Model, UserMixin):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    barber_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('barber.id')))
-    service_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('service.id')))
+    barber_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('barbers.id')))
+    service_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('services.id')))
     charge = db.Column(Enum('charge', name='transaction_type_enum'))
     total_items = db.Column(db.Integer, nullable=False)
     total_price = db.Column(db.Integer, nullable=False)
