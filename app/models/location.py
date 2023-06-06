@@ -22,7 +22,7 @@ class Location(db.Model, UserMixin):
     description = db.Column(db.String(500))
 
     # Relationships
-    barbers = db.relationship('Barber', back_populates='location')
+    barbers = db.relationship('Barber', back_populates='locations')
 
     def to_locations_dic(self):
         return {

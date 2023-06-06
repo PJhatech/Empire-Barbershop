@@ -11,8 +11,8 @@ class User(db.Model, UserMixin):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    barber_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('barbers.id')))
-    client_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('clients.id')))
+    # barber_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('barbers.id')))
+    # client_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('clients.id')))
     user_type = db.Column(Enum('barber', 'client', name='user_type_enum'))
 
     # Relationships
@@ -22,7 +22,8 @@ class User(db.Model, UserMixin):
     def to_dict(self):
         return {
             'id': self.id,
-            'barber_id': self.barber_id,
-            'client_id': self.client_id,
             'user_type': self.user_type
         }
+
+            # 'barber_id': self.barber_id,
+            # 'client_id': self.client_id,

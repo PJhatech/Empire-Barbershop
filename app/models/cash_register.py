@@ -21,7 +21,7 @@ class Cash_Register(db.Model, UserMixin):
 
     #Relationships
     barbers = db.relationship('Barber', back_populates='cash_register')
-    services = db.relationship('services', back_populates='cash_register')
+    services = db.relationship('Service', back_populates='cash_register')
 
 
     def to_cash_register_dict(self):

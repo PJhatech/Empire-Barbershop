@@ -16,7 +16,7 @@ class Wallet(db.Model, UserMixin):
     credit_card = db.Column(db.Integer, nullable=False)
     gift_card = db.Column(db.Integer)
 
-    clients = relationship('Client', back_populates='wallet')
+    clients = relationship('Client', back_populates='wallets')
 
     def to_wallet_dict(self):
         return {
