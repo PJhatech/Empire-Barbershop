@@ -1,8 +1,8 @@
 const GET_APPOINTMENT = "appointment/GET_APPOINTMENT"
 
-const getAppointment = (appointment) => ({
+const getAppointment = (appointments) => ({
     type: GET_APPOINTMENT,
-    appointment
+    appointments
 })
 
 export const fetchAllAppointments = () => async (dispatch) => {
@@ -19,8 +19,13 @@ export default function appointmentReducer(state = initialState, action) {
     let newState = {}
     switch (action.type) {
         case GET_APPOINTMENT: {
-            newState[action.appointment.id] = action.appointment
-            return {...newState}
+            newState = { ...state }
+            action.appointments.forEach(appointment => {
+                newState[appointment.id] = appointment
+            })
+            return { ...newState }
+            // newState[action.appointments.id] = action.appointment
+            // return {...newState}
         }
         default:
             return state

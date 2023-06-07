@@ -7,7 +7,7 @@ appointment_routes = Blueprint('appointments', __name__)
 
 
 @appointment_routes.route('', methods=['GET'])
-@login_required
+# @login_required
 def get_available_appointments():
     print(current_user)
     appointments = Appointment.query.all()

@@ -14,8 +14,17 @@ def seed_appointment():
         repeat=True,
         service_id=1
     )
+    userClient2 = Appointment(
+        barber_id=1,
+        client_id=1,
+        date=datetime.now(),
+        time=datetime.combine(date.today(), dt_time(16, 6, 26)),
+        repeat=True,
+        service_id=1
+    )
 
     db.session.add(userClient1)
+    db.session.add(userClient2)
     db.session.commit()
 
 
