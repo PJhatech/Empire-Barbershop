@@ -10,11 +10,11 @@ def seed_client():
         email='demo@aa.io', password='password')
     jha = Client(
         first_name='jha', last_name='hutalla',
-        phone_number=1234567,  username='user1',
+        phone_number=1234567,  username='jha1',
         email='jha@.io', password='password')
     rue = Client(
         first_name='rue', last_name='ramento',
-        phone_number=1234567,  username='user2',
+        phone_number=1234567,  username='rue2',
         email='rue@.io', password='password')
 
     db.session.add(demo)

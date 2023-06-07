@@ -21,9 +21,9 @@ def seed_service():
         time_frame = 90
     )
 
-    db.sessoin.add(service_1)
-    db.sessoin.add(service_2)
-    db.sessoin.add(service_3)
+    db.session.add(service_1)
+    db.session.add(service_2)
+    db.session.add(service_3)
     db.session.commit()
 
 
