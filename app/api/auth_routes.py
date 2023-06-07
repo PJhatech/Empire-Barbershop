@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request
-from app.models import User, db
+from app.models import User, db, Client, Barber
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from flask_login import current_user, login_user, logout_user, login_required
@@ -24,7 +24,8 @@ def authenticate():
     Authenticates a user.
     """
     if current_user.is_authenticated:
-        return current_user.to_dict()
+        return current_user.to_client_dict()
+        # or current_user.to_barber_dict()
     return {'errors': ['Unauthorized']}
 
 
@@ -39,9 +40,12 @@ def login():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         # Add the user to the session, we are logged in!
-        user = User.query.filter(User.email == form.data['email']).first()
-        login_user(user)
-        return user.to_dict()
+        client = Client.query.filter(Client.email == form.data['email']).first()
+        # barber = Barber.query.filter(Barber.email == form.data['email']).first()
+        login_user(client)
+        # login_user(barber)
+        return client.to_client_dict()
+        # or barber.to_barber_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
