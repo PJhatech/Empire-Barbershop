@@ -1,7 +1,13 @@
 const GET_APPOINTMENT = "appointment/GET_APPOINTMENT"
+const ADD_APPOINTMENT = "appointment/ADD_APPOINTMENT"
 
 const getAppointment = (appointments) => ({
     type: GET_APPOINTMENT,
+    appointments
+})
+
+const addAppointment = (appointments) => ({
+    type: ADD_APPOINTMENT,
     appointments
 })
 
@@ -10,6 +16,18 @@ export const fetchAllAppointments = () => async (dispatch) => {
     if (response.ok) {
         const appointments = await response.json();
         dispatch(getAppointment(appointments))
+    };
+};
+
+export const createAppointment = (appointment) => async (dispatch) => {
+    const response = await fetch('/api/apppointments', {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(appointment)
+    });
+    if (response.ok) {
+        const transaction = await response.json()
+        dispatch(addAppointment(transaction))
     };
 };
 
@@ -24,6 +42,11 @@ export default function appointmentReducer(state = initialState, action) {
                 newState[appointment.id] = appointment
             })
             return { ...newState }
+        }
+        case ADD_APPOINTMENT: {
+            newState = { ...state }
+            newState[action.appointment.id]=action.appointment
+            return {...newState}
         }
         default:
             return state
