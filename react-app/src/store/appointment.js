@@ -10,8 +10,8 @@ export const fetchAllAppointments = () => async (dispatch) => {
     if (response.ok) {
         const appointments = await response.json();
         dispatch(getAppointment(appointments))
-    }
-}
+    };
+};
 
 const initialState = {}
 
@@ -24,8 +24,6 @@ export default function appointmentReducer(state = initialState, action) {
                 newState[appointment.id] = appointment
             })
             return { ...newState }
-            // newState[action.appointments.id] = action.appointment
-            // return {...newState}
         }
         default:
             return state

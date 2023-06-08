@@ -7,12 +7,12 @@ const AllAppointments = () => {
     const dispatch = useDispatch();
     const appointmentReducer = useSelector((state) => state.appointmentReducer)
     // const allAppointments = Object.values(appointmentReducer);
-  
+
     console.log("<-------1------->", appointmentReducer)
 
 
     useEffect(() => {
-        dispatch(fetchAllAppointments)
+        dispatch(fetchAllAppointments())
     }, [dispatch])
 
     // const userTransactions = Object.values(allTransactions).filter(
