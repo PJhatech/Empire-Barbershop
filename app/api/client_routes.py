@@ -5,7 +5,7 @@ from app.models import Client, db
 client_routes = Blueprint('clients', __name__)
 
 
-@client_routes.route('/users/')
+@client_routes.route('/')
 @login_required
 def clients():
     """
@@ -15,7 +15,7 @@ def clients():
     return {'clients': [client.to_client_dict() for client in clients]}
 
 
-@client_routes.route('/users/<int:id>')
+@client_routes.route('/<int:id>')
 @login_required
 def client(id):
     """
@@ -31,7 +31,7 @@ def get_clients():
     return [client.to_client_dic() for client in clients]
 
 
-@client_routes.route('/users/<int:id>')
+@client_routes.route('/<int:id>')
 @login_required
 def get_client_by_id(id):
     client = Client.query.get(id)
