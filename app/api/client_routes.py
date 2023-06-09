@@ -6,13 +6,16 @@ client_routes = Blueprint('clients', __name__)
 
 
 @client_routes.route('/')
-@login_required
+# @login_required
 def clients():
     """
     Query for all clients and returns them in a list of client dictionaries
     """
     clients = Client.query.all()
-    return {'clients': [client.to_client_dict() for client in clients]}
+    return [client.to_client_dict() for client in clients]
+
+    # original code
+    # return {'clients': [client.to_client_dict() for client in clients]}
 
 
 @client_routes.route('/<int:id>')
@@ -21,7 +24,7 @@ def client(id):
     """
     Query for a client by id and returns that client in a dictionary
     """
-    clients = Client.query.get(id)
+    client = Client.query.get(id)
     return client.to_barber_dict()
 
 

@@ -4,6 +4,7 @@ import session from './session'
 import appointmentReducer from './appointment'
 import serviceReducer from './service'
 import barberReducer from './barber'
+import clientReducer from './client';
 
 
 const rootReducer = combineReducers({
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   appointmentReducer,
   serviceReducer,
   barberReducer,
+  clientReducer,
 });
 
 

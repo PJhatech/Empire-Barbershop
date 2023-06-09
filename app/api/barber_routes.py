@@ -14,7 +14,10 @@ def barbers():
     # if current_user not
         # return jsonify([barber.to_barber_dic() for barber in barbers])
 
-    return {'barbers': [barber.to_barber_dict() for barber in barbers]}
+    return [barber.to_barber_dict() for barber in barbers]
+
+    # origal code. change to an array to be able to loop through
+    # return {'barbers': [barber.to_barber_dict() for barber in barbers]}
 
 # @barber_routes.route('/', methods=['GET'])
 # # @login_required
@@ -30,7 +33,7 @@ def barber(id):
     """
     Query for a barber by id and returns that barber in a dictionary
     """
-    barbers = Barber.query.get(id)
+    barber = Barber.query.get(id)
     return barber.to_barber_dict()
 
 def get_barbers():

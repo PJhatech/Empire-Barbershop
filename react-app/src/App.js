@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import Appointments from "./components/Appointments";
 import LandingPage from "./components/LandingPage";
 import Barbers from "./components/Barbers";
+import Clients from "./components/Clients";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route path="/barbers">
             <Barbers />
+          </Route>
+          <Route path="/clients">
+            <Clients />
           </Route>
           <Route path="/appointments">
             <Appointments />
