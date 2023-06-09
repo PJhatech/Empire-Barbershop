@@ -5,7 +5,8 @@ import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
-import GetAppointments from "./components/Appointments/GetAppointments";
+import Appointments from "./components/Appointments";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route path="/appointments">
-            <GetAppointments />
+            <Appointments />
           </Route>
         </Switch>
       )}

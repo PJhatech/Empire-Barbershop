@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAllAppointments } from "../../../store/appointment";
-import "./createAppointment.css"
+import "./appointments.css"
+import { fetchAppointments } from "../../store/appointment";
 
-
-const CreateAppointments = () => {
+const Appointments = () => {
     const dispatch = useDispatch();
     const appointmentReducer = useSelector((state) => state.appointmentReducer)
-    // const allAppointments = Object.values(appointmentReducer);
+    const appointments = Object.values(appointmentReducer);
 
-    console.log("<-------createAppopintment------->", appointmentReducer)
+    console.log("<-------1------->", appointments)
 
 
     useEffect(() => {
-        dispatch(fetchAllAppointments())
+        dispatch(fetchAppointments())
     }, [dispatch])
 
     // const userTransactions = Object.values(allTransactions).filter(
@@ -22,10 +21,10 @@ const CreateAppointments = () => {
 
     return (
         <>
-            <h1>CreateAppointments</h1>
+            <h1>Appointments</h1>
         </>
     )
 
 }
 
-export default CreateAppointments
+export default Appointments
