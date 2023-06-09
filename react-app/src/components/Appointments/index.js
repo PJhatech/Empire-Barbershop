@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import {NavLink} from "react-router-dom";
 import "./appointments.css"
 import { fetchAppointments } from "../../store/appointment";
+
 
 const Appointments = () => {
     const dispatch = useDispatch();
@@ -20,11 +22,13 @@ const Appointments = () => {
     // );
 
     return (
-        <>
-            <h1>Appointments</h1>
-        </>
-    )
-
+		<>
+			<h1>Appointments</h1>
+			{/* <NavLink to={`/appointments/${.id}/edit`}>
+				<button type="submit">Update</button>
+			</NavLink> */}
+		</>
+	);
 }
 
 export default Appointments

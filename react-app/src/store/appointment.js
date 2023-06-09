@@ -26,8 +26,8 @@ export const createAppointment = (appointment) => async (dispatch) => {
         body: JSON.stringify(appointment)
     });
     if (response.ok) {
-        const transaction = await response.json()
-        dispatch(addAppointment(transaction))
+        const apppointment = await response.json()
+        dispatch(addAppointment(apppointment))
     };
 };
 
