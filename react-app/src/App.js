@@ -7,7 +7,7 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import Appointments from "./components/Appointments";
 import LandingPage from "./components/LandingPage";
-
+import Barbers from "./components/Barbers";
 
 function App() {
   const dispatch = useDispatch();
@@ -29,6 +29,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path="/barbers">
+            <Barbers />
           </Route>
           <Route path="/appointments">
             <Appointments />

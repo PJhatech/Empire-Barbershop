@@ -19,6 +19,8 @@ class Client(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    relationship_type = db.Column(Enum('clients'))
+    # relationship_type = db.Column(Enum('clients'))
 
     # Relationships
     users = db.relationship('User', back_populates='clients')
@@ -43,5 +45,6 @@ class Client(db.Model, UserMixin):
             'last_name': self.last_name,
             'phone_number': self.phone_number,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'user_type': self.relationship_type.value
         }

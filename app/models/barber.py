@@ -19,6 +19,9 @@ class Barber(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
     instagram = db.Column(db.String(100))
+    relationship_type = db.Column(Enum('barbers'))
+    # relationship_type = db.Column(Enum('barbers'))
+
 
     # Relationships
     users = db.relationship('User', back_populates='barbers')
@@ -45,5 +48,6 @@ class Barber(db.Model, UserMixin):
             'phone_number': self.phone_number,
             'username': self.username,
             'email': self.email,
-            'instagram': self.instagram
+            'instagram': self.instagram,
+            'user_type': self.relationship_type.value
         }

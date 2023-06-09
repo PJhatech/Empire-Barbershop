@@ -5,3 +5,29 @@
 .hidden {
   display: none;
 }
+
+#navigation-container{
+    /* margin-left: auto; */
+    background-color: white;
+    top:0px;
+    display: flex;
+    justify-content: flex-start;
+    height: 45px;
+    width:100%;
+    border-bottom: solid #CCCCCC 2px;
+    padding: 0;
+    border-bottom: 5%;
+
+    z-index: 1;
+}
+
+
+.home-icon {
+    display: flex;
+    flex:auto;
+    margin-top: 1px;
+    margin-right: auto;
+    font-size: 30px;
+    font-weight: bolder;
+    /* font-style:italic; */
+}
