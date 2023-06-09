@@ -11,7 +11,7 @@ const addAppointment = (appointments) => ({
     appointments
 })
 
-export const fetchAllAppointments = () => async (dispatch) => {
+export const fetchAppointments = () => async (dispatch) => {
     const response = await fetch('/api/appointments');
     if (response.ok) {
         const appointments = await response.json();

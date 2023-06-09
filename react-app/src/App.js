@@ -4,8 +4,8 @@ import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
-import AllAppointments from "./components/Appointments/AllAppointments";
 import Navigation from "./components/Navigation";
+import GetAppointments from "./components/Appointments/GetAppointments";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route path="/appointments">
-              <AllAppointments />
+            <GetAppointments />
           </Route>
         </Switch>
       )}
