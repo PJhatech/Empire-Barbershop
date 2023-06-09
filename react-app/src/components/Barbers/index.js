@@ -8,9 +8,9 @@ import "./barbers.css";
 const Barbers = () => {
 	const dispatch = useDispatch();
 	const barberReducer = useSelector((state) => state.barberReducer);
-	// const appointments = Object.values(appointmentReducer);
+	const barbers = Object.values(barberReducer);
 
-	console.log("<-------1------->", barberReducer);
+	console.log("<-------1------->", barbers);
 
 	useEffect(() => {
 		dispatch(fetchBarbers());
@@ -22,7 +22,16 @@ const Barbers = () => {
 
 	return (
 		<>
-			<h1>Barbers</h1>
+			<h1>Choose Your Barber</h1>
+			<div>
+				{barbers.map((barbers) => (
+					<div key={barbers.id}>
+						{barbers.first_name}
+						{/* <NavLink exact to={`/barbers/${barbers.id}`}>
+						</NavLink> */}
+					</div>
+				))}
+			</div>
 			{/* <NavLink to={`/appointments/${.id}/edit`}>
 				<button type="submit">Update</button>
 			</NavLink> */}
