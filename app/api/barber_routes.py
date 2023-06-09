@@ -5,7 +5,7 @@ from app.models import Barber, db, Client
 barber_routes = Blueprint('barbers', __name__)
 
 @barber_routes.route('/')
-@login_required
+# @login_required
 def barbers():
     """
     Query for all barbers and returns them in a list of barber dictionaries
