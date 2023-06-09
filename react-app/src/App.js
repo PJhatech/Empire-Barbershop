@@ -6,6 +6,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import Appointments from "./components/Appointments";
+import LandingPage from "./components/LandingPage";
 
 
 function App() {
@@ -20,6 +21,9 @@ function App() {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
+          <Route exact path="/" >
+            <LandingPage />
+          </Route>
           <Route path="/login" >
             <LoginFormPage />
           </Route>
