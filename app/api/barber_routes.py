@@ -27,7 +27,7 @@ def barbers():
 #     return jsonify([barber.to_barber_dic() for barber in barbers])
 
 
-@barber_routes.route('/<int:id>')
+@barber_routes.route('/<int:id>', methods=['GET', 'POST'])
 @login_required
 def barber(id):
     """

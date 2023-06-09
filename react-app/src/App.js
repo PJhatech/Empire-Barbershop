@@ -9,6 +9,8 @@ import Appointments from "./components/Appointments";
 import LandingPage from "./components/LandingPage";
 import Barbers from "./components/Barbers";
 import Clients from "./components/Clients";
+import BarberById from "./components/Barber:id";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -31,8 +33,11 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path="/barbers">
+          <Route exact path="/barbers">
             <Barbers />
+          </Route>
+          <Route exact path="/barbers/:id">
+            <BarberById />
           </Route>
           <Route path="/clients">
             <Clients />

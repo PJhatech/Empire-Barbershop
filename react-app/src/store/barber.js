@@ -1,23 +1,38 @@
 const GET_BARBER = "barber/GET_BARBER";
+const GET_BARBER_BY_ID = "barber/GET_BARBER_BY_ID";
 const ADD_BARBER = "barber/ADD_BARBER";
 
-const getBarber = (barbers) => ({
+const getBarbers = (barbers) => ({
 	type: GET_BARBER,
 	barbers,
 });
 
-const addBarber = (barbers) => ({
+const getBarberById = (barber) => ({
+	type: GET_BARBER_BY_ID,
+	barber,
+});
+
+const addBarber = (barber) => ({
 	type: ADD_BARBER,
-	barbers,
+	barber,
 });
 
 export const fetchBarbers = () => async (dispatch) => {
 	const response = await fetch("/api/barbers");
 	if (response.ok) {
 		const barbers = await response.json();
-		dispatch(getBarber(barbers));
+		dispatch(getBarbers(barbers));
     }
-    console.log("<--------here-------->", response)
+    // console.log("<--------here-------->", response)
+};
+
+export const fetchBarberById = (id) => async (dispatch) => {
+	const response = await fetch(`/api/barbers/${id}`);
+	if (response.ok) {
+		const barber = await response.json();
+		dispatch(getBarberById(barber));
+	}
+	console.log(response)
 };
 
 export const createBarber = (barber) => async (dispatch) => {
@@ -44,6 +59,11 @@ export default function barberReducer(state = initialState, action) {
 			});
 			return {...newState};
 		}
+		case GET_BARBER_BY_ID: {
+            newState = {...state}
+            newState[action.barber.id] = action.barber
+            return {...newState}
+        }
 		case ADD_BARBER: {
 			newState = {...state};
 			newState[action.barber.id] = action.barber;
