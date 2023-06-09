@@ -46,5 +46,4 @@ class Client(db.Model, UserMixin):
             'phone_number': self.phone_number,
             'username': self.username,
             'email': self.email,
-            'user_type': self.relationship_type.value
         }

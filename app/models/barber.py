@@ -49,5 +49,4 @@ class Barber(db.Model, UserMixin):
             'username': self.username,
             'email': self.email,
             'instagram': self.instagram,
-            'user_type': self.relationship_type.value
         }
