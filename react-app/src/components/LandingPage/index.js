@@ -7,8 +7,9 @@ const LandingPage = () => {
 	// const dispatch = useDispatch();
 	// const appointmentReducer = useSelector((state) => state.appointmentReducer);
 	// const appointments = Object.values(appointmentReducer);
+	const client = useSelector((state) => state.session.user)
 
-	// console.log("<-------1------->", appointments);
+	console.log("<-------check------->", client);
 
 	// useEffect(() => {
 	// 	dispatch(fetchAppointments());

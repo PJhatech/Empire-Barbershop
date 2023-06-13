@@ -6,9 +6,9 @@ const getAppointment = (appointments) => ({
     appointments
 })
 
-const addAppointment = (appointments) => ({
+const addAppointment = (appointment) => ({
     type: ADD_APPOINTMENT,
-    appointments
+    appointment
 })
 
 export const fetchAppointments = () => async (dispatch) => {

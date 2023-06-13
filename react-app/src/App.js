@@ -10,6 +10,7 @@ import LandingPage from "./components/LandingPage";
 import Barbers from "./components/Barbers";
 import Clients from "./components/Clients";
 import BarberById from "./components/Barber:id";
+import CreateAppointmentAsClient from "./components/CreateAppointmentAsClient";
 
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route exact path="/barbers">
+          <Route path="/barbers">
             <Barbers />
           </Route>
           <Route exact path="/barbers/:id">
@@ -44,6 +45,7 @@ function App() {
           </Route>
           <Route path="/appointments">
             <Appointments />
+            <CreateAppointmentAsClient />
           </Route>
         </Switch>
       )}

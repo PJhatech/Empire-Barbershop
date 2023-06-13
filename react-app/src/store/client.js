@@ -17,7 +17,7 @@ export const fetchClients = () => async (dispatch) => {
 		const clients = await response.json();
 		dispatch(getClient(clients));
 	}
-	// console.log("<--------here-------->", response);
+	console.log("<--------here-------->", response);
 };
 
 export const createClient = (client) => async (dispatch) => {

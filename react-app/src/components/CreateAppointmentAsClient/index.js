@@ -1,21 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAppointments } from "../../store/appointment";
-import "./createAppointment.css"
+import "./createAppointmentAsClient.css"
 
 
 
-const CreateAppointments = () => {
+const CreateAppointmentAsClient = () => {
     const dispatch = useDispatch();
     const appointmentReducer = useSelector((state) => state.appointmentReducer)
+    const client = useSelector(state => state.session)
     // const allAppointments = Object.values(appointmentReducer);
 
-    console.log("<-------createAppopintment------->", appointmentReducer)
+    // const barbe
+
+    console.log("<-------createAppopintment------->", client)
 
 
     useEffect(() => {
         dispatch(fetchAppointments())
     }, [dispatch])
+
 
     // const userTransactions = Object.values(allTransactions).filter(
     //     (transaction) => transaction.user_id === userId
@@ -23,10 +27,10 @@ const CreateAppointments = () => {
 
     return (
         <>
-            <h1>CreateAppointments</h1>
+            <h1>CreateAppointment</h1>
         </>
     )
 
 }
 
-export default CreateAppointments
+export default CreateAppointmentAsClient
