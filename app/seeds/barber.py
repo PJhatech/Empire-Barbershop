@@ -4,22 +4,22 @@ from sqlalchemy.sql import text
 
 # Adds a demo user, you can add other users here if you want
 def seed_barber():
-    Demo = Barber(
+    demo = Barber(
         first_name='Demo2', last_name='demo2',
         phone_number=1234567,  username='demo2',
-        email='demo2@aa.io', password='password')
-    Chris = Barber(
+        email='demo2@aa.io', password='password', instagram='example')
+    chris = Barber(
         first_name='chris', last_name='Chavez',
         phone_number=1234567,  username='chavez1',
-        email='chris@.io', password='password')
-    Aaron = Barber(
-        first_name='Aaron', last_name='Smith',
+        email='chris@.io', password='password', instagram='examplee')
+    aaron = Barber(
+        first_name='aaron', last_name='Smith',
         phone_number=1234567,  username='smith2',
-        email='aaron@.io', password='password')
+        email='aaron@.io', password='password', instagram='exampleee')
 
-    db.session.add(Demo)
-    db.session.add(Chris)
-    db.session.add(Aaron)
+    db.session.add(demo)
+    db.session.add(chris)
+    db.session.add(aaron)
     db.session.commit()
 
 

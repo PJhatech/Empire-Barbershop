@@ -6,7 +6,7 @@ client_routes = Blueprint('clients', __name__)
 
 
 @client_routes.route('/')
-@login_required
+# @login_required
 def clients():
     """
     Query for all clients and returns them in a list of client dictionaries

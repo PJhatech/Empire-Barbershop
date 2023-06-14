@@ -11,10 +11,10 @@ def barbers():
     Query for all barbers and returns them in a list of barber dictionaries
     """
     barbers = Barber.query.all()
+    return [barber.to_barber_dict() for barber in barbers]
     # if current_user not
         # return jsonify([barber.to_barber_dic() for barber in barbers])
 
-    return [barber.to_barber_dict() for barber in barbers]
 
     # origal code. change to an array to be able to loop through
     # return {'barbers': [barber.to_barber_dict() for barber in barbers]}
