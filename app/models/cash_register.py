@@ -20,7 +20,7 @@ class Cash_Register(db.Model, UserMixin):
     updated_at = db.Column(db.Date, default=datetime.datetime.now())
 
     #Relationships
-    barbers = db.relationship('Barber', back_populates='cash_register')
+    users = db.relationship('User', back_populates='cash_register')
     services = db.relationship('Service', back_populates='cash_register')
 
 

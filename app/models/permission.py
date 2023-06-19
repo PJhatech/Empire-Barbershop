@@ -5,23 +5,20 @@ from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
-class Wallet(db.Model, UserMixin):
-    __tablename__ = "wallet"
+class Permission(db.Model, UserMixin):
+    __tablename__ = "permissions"
 
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('clients.id')))
-    credit_card = db.Column(db.Integer, nullable=False)
-    gift_card = db.Column(db.Integer)
+    type = db.Column(db.String(50), nullable=False)
 
-    users = relationship('User', back_populates='wallets')
+    # Relationships
+    users = db.relationship('User', back_populates='permissions')
 
-    def to_wallet_dict(self):
+    def to_client_dict(self):
         return {
             'id': self.id,
-            'client_id': self.client_id,
-            'credit_card': self.credit_card,
-            'gift_card': self.gift_card
+            'type': self.type,
         }
