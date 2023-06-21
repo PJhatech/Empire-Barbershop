@@ -11,7 +11,7 @@ class Cash_Register(db.Model, UserMixin):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    barber_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('barbers.id')))
+    barber_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
     service_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('services.id')))
     charge = db.Column(Enum('charge', name='transaction_type_enum'))
     total_items = db.Column(db.Integer, nullable=False)
@@ -20,7 +20,7 @@ class Cash_Register(db.Model, UserMixin):
     updated_at = db.Column(db.Date, default=datetime.datetime.now())
 
     #Relationships
-    users = db.relationship('User', back_populates='cash_register')
+    barber = db.relationship('User', foreign_keys=[ barber_id], back_populates='cash_register')
     services = db.relationship('Service', back_populates='cash_register')
 
 

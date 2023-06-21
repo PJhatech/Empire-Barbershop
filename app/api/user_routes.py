@@ -1,6 +1,6 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import User
+from app.models import User, User_Type, db
 
 user_routes = Blueprint('users', __name__)
 
@@ -23,3 +23,56 @@ def user(id):
     """
     user = User.query.get(id)
     return user.to_dict()
+
+
+@user_routes.route('/user-types')
+def get_user_types():
+    user_types = User_Type.query.all()
+    return jsonify([user_type.to_user_type_dict() for user_type in user_types])
+
+
+@user_routes.route('/user-types/<int:user_type_id>')
+def get_user_type(user_type_id):
+    user_type = User_Type.query.get(user_type_id)
+    if user_type:
+        return jsonify(user_type.to_user_type_dict())
+    else:
+        return jsonify({'error': 'User type not found'}), 404
+
+
+@user_routes.route('/users', methods=['POST'])
+def create_user():
+    data = request.get_json()
+
+
+    first_name = data.get('first_name')
+    last_name = data.get('last_name')
+    phone_number = data.get('phone_number')
+    username = data.get('username')
+    email = data.get('email')
+    password = data.get('password')
+    user_type_id = data.get('user_type_id')
+
+
+    user_type = User_Type.query.get(user_type_id)
+    if not user_type:
+        return jsonify({'error': 'Invalid user type'}), 400
+
+    user = User(
+        first_name=first_name,
+        last_name=last_name,
+        phone_number=phone_number,
+        username=username,
+        email=email,
+        password=password,
+        user_type=user_type
+    )
+
+ 
+    user.password = password
+
+    # Add the user to the database
+    db.session.add(user)
+    db.session.commit()
+
+    return jsonify({'message': 'User created successfully'}), 201

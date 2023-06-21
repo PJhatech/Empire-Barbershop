@@ -1,7 +1,7 @@
 from flask import Flask, Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from flask_login import current_user, login_required
-from app.models import Appointment, Barber, Service, db
+from app.models import Appointment, Service, db, User
 
 appointment_routes = Blueprint('appointments', __name__)
 
@@ -18,7 +18,7 @@ def get_appointments():
 @login_required
 def handle_appointments():
     if request.method == 'GET':
-        barber_appointments = Appointment.query.filter_by(barber_id=Barber.id).first()
+        barber_appointments = Appointment.query.filter_by(barber_id=User.id).first()
         if barber_appointments is None:
             pass
         else:
@@ -27,7 +27,7 @@ def handle_appointments():
     if request.method == 'POST':
         data = request.json
         barber_appointments = Appointment(
-            barber_id=Barber.id,
+            barber_id=User.id,
             client_id=current_user.id,
             service_id=Service.id,
             date=data['date'],

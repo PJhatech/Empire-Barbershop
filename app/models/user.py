@@ -17,14 +17,15 @@ class User(db.Model, UserMixin):
     phone_number = db.Column(db.Integer, nullable=False)
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
-    permission = db.Column(db.ForeignKey(add_prefix_for_prod('permissions.id')))
+    user_type = db.Column(db.ForeignKey(add_prefix_for_prod('user_types.id')))
     hashed_password = db.Column(db.String(255), nullable=False)
 
     # Relationships
-    permissions = db.relationship('Permission', back_populates='users')
-    appointments = db.relationship('Appointment', back_populates='users')
-    wallets = db.relationship('Wallet', back_populates='users', uselist=False)
-    cash_register = db.relationship('Cash_Register', back_populates='users')
+    user_types = db.relationship('User_Type', back_populates='users')
+    appointments_as_barber = db.relationship('Appointment', foreign_keys='Appointment.barber_id', back_populates='barber')
+    appointments_as_client = db.relationship('Appointment', foreign_keys='Appointment.client_id', back_populates='client')
+    client_wallet = db.relationship('Wallet', foreign_keys='Wallet.client_id', back_populates='client', uselist=False)
+    cash_register = db.relationship('Cash_Register', foreign_keys='Cash_Register.barber_id', back_populates='barber')
     locations = db.relationship('Location', back_populates='users')
 
 
@@ -47,5 +48,5 @@ class User(db.Model, UserMixin):
             'phone_number': self.phone_number,
             'username': self.username,
             'email': self.email,
-            'permission': self.permission
+            'user_type': self.permission
         }

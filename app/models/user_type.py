@@ -5,8 +5,8 @@ from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
 
-class Permission(db.Model, UserMixin):
-    __tablename__ = "permissions"
+class User_Type(db.Model, UserMixin):
+    __tablename__ = "user_types"
 
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
@@ -15,9 +15,9 @@ class Permission(db.Model, UserMixin):
     type = db.Column(db.String(50), nullable=False)
 
     # Relationships
-    users = db.relationship('User', back_populates='permissions')
-
-    def to_client_dict(self):
+    users = db.relationship('User', back_populates='user_types')
+    
+    def to_user_type_dict(self):
         return {
             'id': self.id,
             'type': self.type,

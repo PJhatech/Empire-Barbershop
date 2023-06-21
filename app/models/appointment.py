@@ -11,8 +11,8 @@ class Appointment(db.Model, UserMixin):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    barber_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('barbers.id')))
-    client_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('clients.id')))
+    barber_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
+    client_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
     service_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('services.id')))
     date = db.Column(db.Date, nullable=False)
     time = db.Column(db.DateTime,  nullable=False)
@@ -21,10 +21,9 @@ class Appointment(db.Model, UserMixin):
     updated_at = db.Column(db.Date, default=datetime.datetime.now())
 
     #Relationships
-    barbers = db.relationship('Barber', back_populates='appointments')
-    clients = db.relationship('Client', back_populates='appointments')
+    barber = db.relationship('User', foreign_keys=[barber_id], back_populates='appointments_as_barber')
+    client = db.relationship('User', foreign_keys=[client_id], back_populates='appointments_as_client')
     services = db.relationship('Service', back_populates='appointments')
-
 
     def to_appointment_dic(self):
         return {

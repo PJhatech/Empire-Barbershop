@@ -6,8 +6,6 @@ from flask_wtf.csrf import CSRFProtect, generate_csrf
 from flask_login import LoginManager
 from .models import db, User
 from .api.user_routes import user_routes
-from .api.client_routes import client_routes
-from .api.barber_routes import barber_routes
 from .api.auth_routes import auth_routes
 from .api.appointment_routes import appointment_routes
 from .api.service_routes import service_routes
@@ -34,8 +32,6 @@ app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(appointment_routes, url_prefix='/api/appointments')
 app.register_blueprint(service_routes, url_prefix='/api/services')
-app.register_blueprint(client_routes, url_prefix='/api/clients')
-app.register_blueprint(barber_routes, url_prefix='/api/barbers')
 db.init_app(app)
 Migrate(app, db)
 
