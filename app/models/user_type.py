@@ -16,7 +16,7 @@ class User_Type(db.Model, UserMixin):
 
     # Relationships
     users = db.relationship('User', back_populates='user_types')
-    
+
     def to_user_type_dict(self):
         return {
             'id': self.id,

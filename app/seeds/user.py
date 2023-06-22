@@ -14,7 +14,7 @@ def seed_user():
         phone_number='1234567890',
         username='barber',
         email='barber@example.com',
-        user_type=barber,
+        user_type=barber.type,
         password='password'
     )
     Christian = User(
@@ -23,7 +23,7 @@ def seed_user():
         phone_number='1234567890',
         username='chaveez',
         email='chavez@example.com',
-        user_type=barber,
+        user_type=barber.type,
         password='password'
     )
     Aaron = User(
@@ -32,7 +32,7 @@ def seed_user():
         phone_number='1234567890',
         username='ronesmith',
         email='ronesmith@example.com',
-        user_type=barber,
+        user_type=barber.type,
         password='password'
     )
     # Clients
@@ -42,7 +42,7 @@ def seed_user():
         phone_number='9876543210',
         username='jha123',
         email='client@example.com',
-        user_type=client,
+        user_type=client.type,
         password='password'
     )
     Jake = User(
@@ -51,7 +51,7 @@ def seed_user():
         phone_number='9876543210',
         username='jake123',
         email='jake@example.com',
-        user_type=client,
+        user_type=client.type,
         password='password'
     )
     Justin = User(
@@ -60,13 +60,9 @@ def seed_user():
         phone_number='9876543210',
         username='bondoc123',
         email='justin@example.com',
-        user_type=client,
+        user_type=client.type,
         password='password'
     )
-
-    # Add user_types to users
-    DemoBarber.user_types.append(barber)
-    Jha.user_types.append(client)
 
     # Add users to the session and commit changes to the database
     db.session.add(barber)
@@ -78,6 +74,7 @@ def seed_user():
     db.session.add(Jake)
     db.session.add(Justin)
     db.session.commit()
+
 
 
 def undo_users():
