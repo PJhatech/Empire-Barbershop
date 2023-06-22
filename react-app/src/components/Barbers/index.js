@@ -10,7 +10,7 @@ const Barbers = () => {
 	const barberReducer = useSelector((state) => state.barberReducer);
 	const barbers = Object.values(barberReducer);
 
-	console.log("<-------1------->", barbers);
+	console.log("<-------BarbersComponenet------->", barbers);
 
 	useEffect(() => {
 		dispatch(fetchBarbers());

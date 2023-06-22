@@ -1,18 +1,18 @@
 from flask import Blueprint, jsonify, request
-from flask_login import login_required
+from flask_login import login_required, login_manager
 from app.models import User, User_Type, db
 
 user_routes = Blueprint('users', __name__)
 
 
 @user_routes.route('/')
-@login_required
+# @login_required
 def users():
     """
     Query for all users and returns them in a list of user dictionaries
     """
     users = User.query.all()
-    return {'users': [user.to_dict() for user in users]}
+    return jsonify([user.to_dict() for user in users])
 
 
 @user_routes.route('/<int:id>')
@@ -24,11 +24,11 @@ def user(id):
     user = User.query.get(id)
     return user.to_dict()
 
-
-@user_routes.route('/user-types')
+# Fetch All Barbers
+@user_routes.route('/barbers')
 def get_user_types():
-    user_types = User_Type.query.all()
-    return jsonify([user_type.to_user_type_dict() for user_type in user_types])
+    barbers = User.query.filter_by(user_type='barber').all()
+    return jsonify([user.to_dict() for user in barbers])
 
 
 @user_routes.route('/user-types/<int:user_type_id>')
@@ -68,7 +68,7 @@ def create_user():
         user_type=user_type
     )
 
- 
+
     user.password = password
 
     # Add the user to the database

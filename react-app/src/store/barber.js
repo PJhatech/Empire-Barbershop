@@ -18,12 +18,12 @@ const addBarber = (barber) => ({
 });
 
 export const fetchBarbers = () => async (dispatch) => {
-	const response = await fetch("/api/barbers");
+	const response = await fetch("/api/users/barbers");
 	if (response.ok) {
 		const barbers = await response.json();
 		dispatch(getBarbers(barbers));
     }
-    // console.log("<--------here-------->", response)
+    console.log("<--------fetchBarbers-------->", response)
 };
 
 export const fetchBarberById = (id) => async (dispatch) => {
