@@ -48,5 +48,5 @@ class User(db.Model, UserMixin):
             'phone_number': self.phone_number,
             'username': self.username,
             'email': self.email,
-            'user_type': self.permission
+            'user_type': self.user_type
         }
