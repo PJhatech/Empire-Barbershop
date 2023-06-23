@@ -8,9 +8,11 @@ import Navigation from "./components/Navigation";
 import Appointments from "./components/Appointments";
 import LandingPage from "./components/LandingPage";
 import Barbers from "./components/Barbers";
+import BarberIndex from "./components/BarberIndex";
 import Clients from "./components/Clients";
-import BarberById from "./components/Barber:id";
-import CreateAppointmentAsClient from "./components/CreateAppointmentAsClient";
+import CreateAppointmentForm from "./components/CreateAppointment";
+import ServiceForm from "./components/ServiceForm";
+// import CreateAppointmentAsClient from "./components/CreateAppointmentAsClient";
 
 
 function App() {
@@ -34,18 +36,21 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path="/barbers">
+          <Route exact path="/barbers">
             <Barbers />
           </Route>
           <Route exact path="/barbers/:id">
-            <BarberById />
+            <BarberIndex />
           </Route>
           <Route path="/clients">
             <Clients />
           </Route>
           <Route path="/appointments">
             <Appointments />
-            <CreateAppointmentAsClient />
+            <CreateAppointmentForm />
+          </Route>
+          <Route path="/services">
+            <ServiceForm />
           </Route>
         </Switch>
       )}

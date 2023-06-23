@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {NavLink} from "react-router-dom";
-import { fetchBarbers } from "../../store/barber";
+import { fetchBarberIndex, fetchBarbers } from "../../store/barber";
 import "./barbers.css";
 
 
@@ -14,6 +14,7 @@ const Barbers = () => {
 
 	useEffect(() => {
 		dispatch(fetchBarbers());
+		dispatch(fetchBarberIndex());
 	}, [dispatch]);
 
 	// const userTransactions = Object.values(allTransactions).filter(

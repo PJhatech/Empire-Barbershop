@@ -20,7 +20,8 @@ export const fetchServices = () => async (dispatch) => {
 };
 
 export const createService = (service) => async (dispatch) => {
-	const response = await fetch("/api/services", {
+	console.log('<----createService---->', service)
+	const response = await fetch(`/api/services`, {
 		method: "POST",
 		headers: {"Content-Type": "application/json"},
 		body: JSON.stringify(service),
@@ -44,7 +45,6 @@ export default function serviceReducer(state = initialState, action) {
 			return {...newState};
 		}
 		case ADD_SERVICE: {
-			newState = {...state};
 			newState[action.service.id] = action.service;
 			return {...newState};
 		}

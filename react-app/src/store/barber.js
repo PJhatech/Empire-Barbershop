@@ -26,13 +26,14 @@ export const fetchBarbers = () => async (dispatch) => {
     console.log("<--------fetchBarbers-------->", response)
 };
 
-export const fetchBarberById = (id) => async (dispatch) => {
-	const response = await fetch(`/api/barbers/${id}`);
+export const fetchBarberIndex = (id) => async (dispatch) => {
+	const response = await fetch(`/api/users/barbers/${id}`);
 	if (response.ok) {
 		const barber = await response.json();
 		dispatch(getBarberById(barber));
 	}
-	console.log(response)
+
+	console.log("<--------fetchBarberIndex-------->", response)
 };
 
 export const createBarber = (barber) => async (dispatch) => {

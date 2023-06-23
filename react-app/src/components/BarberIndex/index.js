@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {NavLink} from "react-router-dom";
-import { fetchBarberById } from "../../store/barber";
+import { fetchBarberIndex } from "../../store/barber";
 import "./barberIndex.css";
 
 const BarberIndex = () => {
@@ -9,10 +9,10 @@ const BarberIndex = () => {
 	const barberReducer = useSelector((state) => state.barberReducer);
 	const barber = Object.values(barberReducer);
 
-	console.log("<-------1------->", barberReducer);
+	console.log("<-------BarberIndex------->", barberReducer);
 
 	useEffect(() => {
-		dispatch(fetchBarberById());
+		dispatch(fetchBarberIndex());
 	}, [dispatch]);
 
 	// const userTransactions = Object.values(allTransactions).filter(
@@ -21,7 +21,7 @@ const BarberIndex = () => {
 
 	return (
         <>
-            barber
+            BarberIndex
             <h1>{barber.first_name}</h1>
 			<div>
 				{barber.map((barber) => (
