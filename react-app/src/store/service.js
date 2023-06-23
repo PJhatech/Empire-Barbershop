@@ -56,7 +56,8 @@ export const createService = (service) => async (dispatch) => {
 };
 
 export const destroyService = (id) => async (dispatch) => {
-	const response = await fetch(`/api/service/${id}`, {
+	console.log(id)
+	const response = await fetch(`/api/services/${id}`, {
 		method: "DELETE",
 	});
 	if (response.ok) {
