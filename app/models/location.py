@@ -24,7 +24,7 @@ class Location(db.Model, UserMixin):
     # Relationships
     users = db.relationship('User', back_populates='locations')
 
-    def to_locations_dic(self):
+    def to_locations_dict(self):
         return {
             'id': self.id,
             'barber_id': self.barber_id,

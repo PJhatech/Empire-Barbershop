@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 import { createAppointment, fetchAppointments } from "../../store/appointment";
 import {createService} from "../../store/service"
 
-const CreateAppointmentForm = () => {
+const AppointmentForm = () => {
 	const dispatch = useDispatch();
 	const appointmentReducer = useSelector((state) => state.appointmentReducer);
     const serviceReducer = useSelector((state) => state.serviceReducer)
@@ -82,4 +82,4 @@ const CreateAppointmentForm = () => {
 	);
 };
 
-export default CreateAppointmentForm;
+export default AppointmentForm;

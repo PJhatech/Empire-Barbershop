@@ -26,7 +26,7 @@ def get_service_by_id(id):
 @service_routes.route('/', methods=['POST'])
 # @login_required
 def post_new_service():
-    data = request.json()
+    data = request.json
     service = Service(
         service_name=data['service_name'],
         description=data['description'],
@@ -35,7 +35,7 @@ def post_new_service():
     )
     db.session.add(service)
     db.session.commit()
-    return jsonify(service.to_service_dic()), 201
+    return jsonify(service.to_service_dict()), 201
 
 
 @service_routes.route('/<int:service_id>', methods=['PUT'])

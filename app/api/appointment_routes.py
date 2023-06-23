@@ -12,7 +12,7 @@ def get_appointments():
     print(current_user)
     appointments = Appointment.query.all()
     # print(appointments)
-    return jsonify([appointment.to_appointment_dic() for appointment in appointments])
+    return jsonify([appointment.to_appointment_dict() for appointment in appointments])
 
 @appointment_routes.route('/', methods=['GET', 'POST'])
 @login_required

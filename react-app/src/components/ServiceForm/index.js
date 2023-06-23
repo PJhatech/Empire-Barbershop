@@ -30,6 +30,10 @@ const ServiceForm = () => {
 		};
 		const newService = await dispatch(createService(service));
 
+		if (newService) {
+			// redirect to new service (serviceIndex)
+		}
+
 		// history.push(`/spots/${newService.id}`);
 		// dispatch(spotIndexThunk(newService.id));
 	};

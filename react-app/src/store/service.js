@@ -45,7 +45,7 @@ export default function serviceReducer(state = initialState, action) {
 			return {...newState};
 		}
 		case ADD_SERVICE: {
-			newState[action.service.id] = action.service;
+			newState[action.services.id] = action.services;
 			return {...newState};
 		}
 		default:

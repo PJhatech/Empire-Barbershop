@@ -25,7 +25,7 @@ class Appointment(db.Model, UserMixin):
     client = db.relationship('User', foreign_keys=[client_id], back_populates='appointments_as_client')
     services = db.relationship('Service', back_populates='appointments')
 
-    def to_appointment_dic(self):
+    def to_appointment_dict(self):
         return {
             'id': self.id,
             'barber_id': self.barber_id,
