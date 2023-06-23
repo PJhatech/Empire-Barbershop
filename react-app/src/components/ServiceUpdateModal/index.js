@@ -1,41 +1,39 @@
 import React, {useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {NavLink} from "react-router-dom";
-import {fetchServices, createService} from "../../store/service";
+import {fetchServices, createService, updateService} from "../../store/service";
+import {useModal} from "../../context/Modal";
 
-
-const ServiceForm = () => {
+const ServiceUpdateModal = (selectedService) => {
 	const dispatch = useDispatch();
 	const serviceReducer = useSelector((state) => state.serviceReducer);
-	const services = Object.values(serviceReducer);
+	const service= Object.values(selectedService);
+	const {closeModal} = useModal();
 
-	// console.log("<-------CreateServiceComponent------->", services);
+	console.log("<-------CreateServiceComponent------->", service[0]);
 
-	useEffect(() => {
-		// dispatch(fetchServices());
-		dispatch(createService());
-	}, [dispatch]);
+	// useEffect(() => {
+	// 	dispatch(updateService());
+	// 	dispatch(fetchServices());
+	// }, [dispatch]);
 
-	const [serviceName, setServiceName] = useState("");
-	const [description, setDescription] = useState("");
-	const [price, setPrice] = useState();
-	const [timeFrame, setTimeFrame] = useState("");
+	const [serviceName, setServiceName] = useState(service.service_name);
+	const [description, setDescription] = useState(service.description);
+	const [price, setPrice] = useState(service.price);
+	const [timeFrame, setTimeFrame] = useState(service.time_frame);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		const service = {
+		const serviceData = {
 			service_name: serviceName,
-			description, price,
-			time_frame: timeFrame
+			description: description,
+			price: price,
+			time_frame: timeFrame,
 		};
-		const newService = await dispatch(createService(service));
 
-		if (newService) {
-			// redirect to new service (serviceIndex)
-		}
-
-		// history.push(`/spots/${newService.id}`);
-		// dispatch(spotIndexThunk(newService.id));
+		await dispatch(updateService(service[0].id, serviceData));
+		fetchServices();
+		closeModal();
 	};
 
 	return (
@@ -94,9 +92,9 @@ const ServiceForm = () => {
 				required
 			/> */}
 
-			<button type="submit">Submit</button>
+			<button type="submit">Update Service</button>
 		</form>
 	);
 };
 
-export default ServiceForm;
+export default ServiceUpdateModal;

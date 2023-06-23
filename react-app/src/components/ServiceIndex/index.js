@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {NavLink, useParams} from "react-router-dom";
 import {fetchServices,  fetchServicekById} from "../../store/service";
+import OpenModalButton from "../OpenModalButton";
+import ServiceUpdateModal from "../ServiceUpdateModal";
 
 
 const ServiceIndex = () => {
@@ -27,13 +29,15 @@ const ServiceIndex = () => {
 			<div>
 				{service.map((service) => (
 					<div key={service.id}>
-                        {service.service_name}
-                        {service.description}
-
+						{service.service_name}
+						{service.description}
+						<OpenModalButton
+							buttonText="Update"
+							modalComponent={<ServiceUpdateModal prop={service} />}
+						/>
 					</div>
 				))}
 			</div>
-
 		</>
 	);
 };

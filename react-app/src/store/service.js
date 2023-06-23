@@ -1,7 +1,8 @@
 const GET_SERVICES = "service/GET_SERVICES";
 const GET_SERVICE_BY_ID = "service/GET_SERVICE_BY_ID";
 const ADD_SERVICE = "service/ADD_SERVICE";
-const DELETE_SERVICE = "service/DELETE_SERVICE"
+const DELETE_SERVICE = "service/DELETE_SERVICE";
+const UPDATE_SERVICE = "service/UPDATE_SERVICE";
 
 const getService = (services) => ({
 	type: GET_SERVICES,
@@ -20,6 +21,11 @@ const addService = (services) => ({
 
 const deleteService = (service) => ({
 	type: DELETE_SERVICE,
+	service
+})
+
+const reviseService = (service) => ({
+	type: UPDATE_SERVICE,
 	service
 })
 
@@ -65,6 +71,18 @@ export const destroyService = (id) => async (dispatch) => {
 	}
 };
 
+export const updateService = (id, serviceData) => async (dispatch) => {
+	const response = await fetch(`/api/services/${id}`, {
+		method: "PUT",
+		headers: {"Content-Type": "application/json"},
+		body: JSON.stringify(serviceData),
+	});
+	if (response.ok) {
+		const service = await response.json();
+		dispatch(reviseService(service));
+	}
+};
+
 const initialState = {};
 
 export default function serviceReducer(state = initialState, action) {
@@ -85,6 +103,10 @@ export default function serviceReducer(state = initialState, action) {
 		}
 		case ADD_SERVICE: {
 			newState[action.services.id] = action.services;
+			return {...newState};
+		}
+		case UPDATE_SERVICE: {
+			newState[action.service.id] = action.service;
 			return {...newState};
 		}
 		case DELETE_SERVICE: {

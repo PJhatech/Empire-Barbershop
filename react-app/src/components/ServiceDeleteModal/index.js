@@ -27,10 +27,10 @@ const DeleteService = (service) => {
                 Are you sure you want to delete this Service?
             </p>
             <button className="button-class-submit" type="submit" onClick={handleSubmit}>
-                Yes(Delete Service)
+                Delete Service
             </button>
             <button onClick={closeModal}>
-                No(Keep Service)
+                Keep Service)
             </button>
         </div>
     )
