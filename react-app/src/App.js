@@ -10,8 +10,10 @@ import LandingPage from "./components/LandingPage";
 import Barbers from "./components/Barbers";
 import BarberIndex from "./components/BarberIndex";
 import Clients from "./components/Clients";
-import CreateAppointmentForm from "./components/CreateAppointment";
+import AppointmentForm from "./components/AppointmentForm";
+import Services from "./components/Services";
 import ServiceForm from "./components/ServiceForm";
+import ServiceIndex from "./components/ServiceIndex";
 // import CreateAppointmentAsClient from "./components/CreateAppointmentAsClient";
 
 
@@ -47,10 +49,14 @@ function App() {
           </Route>
           <Route path="/appointments">
             <Appointments />
-            <CreateAppointmentForm />
+            <AppointmentForm />
           </Route>
-          <Route path="/services">
+          <Route exact path="/services">
+            <Services />
             <ServiceForm />
+          </Route>
+          <Route exact path="/services/:id">
+            <ServiceIndex />
           </Route>
         </Switch>
       )}

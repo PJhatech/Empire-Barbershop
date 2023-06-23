@@ -7,13 +7,12 @@ from app.models import Service, db
 service_routes = Blueprint('services', __name__)
 
 
-
-@service_routes.route('')
+@service_routes.route('/')
 # @login_required
 def get_services():
-    print(current_user)
+    # print(current_user)
     services = Service.query.all()
-    return [service.to_service_dic() for service in services]
+    return [service.to_service_dict() for service in services]
 
 
 @service_routes.route('/<int:id>')
@@ -54,12 +53,12 @@ def update_service(service_id):
     return jsonify(service.to_service_dict())
 
 
-@service_routes.route('/<int:service_id>', methods=['DELETE'])
+@service_routes.route('/<int:id>', methods=['DELETE'])
 # @login_required
-def delete_service(service_id):
-    service = Service.query.get(service_id)
-    if not service:
-        return jsonify({'error': 'Service not found'}), 404
-    db.session.delete(service)
-    db.session.commit()
-    return jsonify({'message': 'Service deleted successfully'}), 204
+def delete_service(id):
+    service = Service.query.get(id)
+    if service:
+        db.session.delete(service)
+        db.session.commit()
+        return jsonify({'message': 'Service deleted successfully'}), 204
+    return jsonify({'message': 'Service not found'}), 404

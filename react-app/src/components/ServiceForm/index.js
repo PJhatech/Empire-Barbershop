@@ -9,7 +9,7 @@ const ServiceForm = () => {
 	const serviceReducer = useSelector((state) => state.serviceReducer);
 	const services = Object.values(serviceReducer);
 
-	console.log("<-------CreateServiceComponent------->", services);
+	// console.log("<-------CreateServiceComponent------->", services);
 
 	useEffect(() => {
 		// dispatch(fetchServices());
