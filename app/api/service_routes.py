@@ -7,6 +7,7 @@ from app.models import Service, db
 service_routes = Blueprint('services', __name__)
 
 
+
 @service_routes.route('')
 # @login_required
 def get_services():

@@ -23,7 +23,9 @@ def authenticate():
     """
     Authenticates a user
     """
-    if current_user.user_type == 'barber':
+    # if current_user.user_type == 'barber':
+    #     return current_user.to_dict()
+    if current_user.is_authenticated:
         return current_user.to_dict()
     return {'errors': ['Unauthorized']}
 
