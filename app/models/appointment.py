@@ -14,9 +14,9 @@ class Appointment(db.Model, UserMixin):
     barber_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
     client_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
     service_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('services.id')))
-    date = db.Column(db.Date, nullable=False)
-    time = db.Column(db.DateTime,  nullable=False)
-    repeat = db.Column(db.Boolean, default=False)
+    date = db.Column(db.String(50), nullable=False)
+    time = db.Column(db.String(50),  nullable=False)
+    repeat = db.Column(db.String())
     created_at = db.Column(db.Date, default=datetime.datetime.now())
     updated_at = db.Column(db.Date, default=datetime.datetime.now())
 

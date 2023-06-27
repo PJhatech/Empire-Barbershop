@@ -25,15 +25,49 @@ def handle_appointments():
             return barber_appointments.to_appointment_dict()
 
     if request.method == 'POST':
+        if 'barber_id' not in data or 'client_id' not in data or 'service_id' not in data or 'date' not in data or 'time' not in data:
+            return {"error": "Missing necessary field"}, 400
+
         data = request.json
         barber_appointments = Appointment(
             barber_id=current_user.id,
-            client_id=['client'],
-            service_id=Service.service_name,
+            client_id=data['client_id'],
+            service_id=data['service_id'],
             date=data['date'],
             time=data['time'],
-            repeat=data['false'],
+            repeat=data.get('repeat', False)
+            # barber_id=current_user.id,
+            # client_id=User.id,
+            # service_id=Service.id,
+            # date=data['date'],
+            # time=data['time'],
+            # repeat=data['None'],
         )
         db.session.add(barber_appointments)
         db.session.commit()
-        return jsonify(barber_appointments.to_appointment_dic()), 201
+        return jsonify(barber_appointments.to_appointment_dict()), 201
+
+
+# @appointment_routes.route('/api/appointments', methods=['POST'])
+# def create_appointment():
+#     # Extract the JSON data from the request
+#     data = request.get_json()
+
+#     # Check that the necessary data is provided
+#     if 'barber_id' not in data or 'client_id' not in data or 'service_id' not in data or 'date' not in data or 'time' not in data:
+#         return {"error": "Missing necessary field"}, 400
+
+#     # Create a new appointment object
+#     appointment = Appointment(
+#         barber_id=data['barber_id'],
+#         client_id=data['client_id'],
+#         service_id=data['service_id'],
+#         date=data['date'],
+#         time=data['time'],
+#         # Optional field; if it's not provided, default to False
+#         repeat=data.get('repeat', False)
+#     )
+
+#     # Add the appointment to the session and commit it to save it to the database
+#     db.session.add(appointment)
+#     db.session.commit()

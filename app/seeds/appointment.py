@@ -9,9 +9,9 @@ def seed_appointment():
     userClient1 = Appointment(
         barber_id=1,
         client_id=1,
-        date=datetime.now(),
-        time=datetime.combine(date.today(), dt_time(17, 7, 25)),
-        repeat=True,
+        date="November 2, 2023",
+        time="10:45",
+        repeat='1 Week',
         service_id=1
     )
 

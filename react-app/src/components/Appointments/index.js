@@ -18,7 +18,7 @@ const Appointments = () => {
 
     // const userTransactions = Object.values(allTransactions).filter(
     //     (transaction) => transaction.user_id === userId
-    // );
+    // ); w
 
     return (
 		<>
