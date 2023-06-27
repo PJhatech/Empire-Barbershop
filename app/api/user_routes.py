@@ -79,3 +79,11 @@ def create_user():
     db.session.commit()
 
     return jsonify({'message': 'User created successfully'}), 201
+
+
+
+# Clients
+@user_routes.route('/clients')
+def get_clients():
+    clients = User.query.filter_by(user_type='client').all()
+    return jsonify([user.to_dict() for user in clients])

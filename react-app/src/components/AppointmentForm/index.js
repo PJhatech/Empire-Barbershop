@@ -3,7 +3,9 @@ import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {NavLink} from "react-router-dom";
 import {createAppointment, fetchAppointments} from "../../store/appointment";
-import {fetchServicekById, fetchServices} from "../../store/service";
+import { fetchServicekById, fetchServices } from "../../store/service";
+import Clients from "../Clients";
+import { fetchClients } from "../../store/client";
 
 const AppointmentForm = () => {
 	const dispatch = useDispatch();
@@ -12,27 +14,30 @@ const AppointmentForm = () => {
 	const appointmentReducer = useSelector((state) => state.appointmentReducer);
 	const serviceReducer = useSelector((state) => state.serviceReducer);
 	const appointments = Object.values(appointmentReducer);
+	const clientReducer = useSelector((state) => state.clientReducer);
+	const clients = Object.values(clientReducer);
 	const services = Object.values(serviceReducer);
 
-	console.log("<-------AppointmentComponent------->", user);
+	// console.log("<-------AppointmentComponent------->", user);
 
 	useEffect(() => {
 		dispatch(createAppointment())
 		dispatch(fetchServices());
+		dispatch(fetchClients())
 	}, [dispatch]);
 
 	const [selectedService, setSelectedService] = useState();
 	const [date, setDate] = useState("");
 	const [time, setTime] = useState("");
 	const [repeat, setRepeat] = useState("None");
-	const [client, setClient] = useState("");
+	const [client, setClient] = useState();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const appointment = {
-			barber_id: user,
-			service_id: selectedService,
-			client_id: client,
+			barber_id: user.id,
+			service_id: Number(selectedService),
+			client_id: Number(client),
 			date,
 			time,
 			repeat,
@@ -52,7 +57,7 @@ const AppointmentForm = () => {
 							onChange={(e) => setSelectedService(e.target.value)}
 						>
 							{services.map((service) => (
-								<option key={service.id} value={service.name}>
+								<option key={service.id} value={service.id}>
 									{service.service_name}
 								</option>
 							))}
@@ -62,12 +67,17 @@ const AppointmentForm = () => {
 
 				<label>
 					Client:
-					<input
-						type="text"
-						id="client"
+					<select
 						value={client}
 						onChange={(e) => setClient(e.target.value)}
-					/>
+					>
+						{clients.map((client) => (
+							<option key={client.id} value={client.id}>
+								{client.first_name}
+								{client.last_name}
+							</option>
+						))}
+					</select>
 				</label>
 
 				<label>
@@ -96,7 +106,6 @@ const AppointmentForm = () => {
 					<select
 						value={repeat}
 						onChange={(e) => setRepeat(e.target.value)}
-
 					>
 						<option value="None">None</option>
 						<option value="1 Week">1 Week</option>

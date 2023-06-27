@@ -9,7 +9,7 @@ const Appointments = () => {
     const appointmentReducer = useSelector((state) => state.appointmentReducer)
     const appointments = Object.values(appointmentReducer);
 
-    console.log("<-------AppointmentComponent------->", appointments)
+    // console.log("<-------AppointmentComponent------->", appointments)
 
 
     useEffect(() => {

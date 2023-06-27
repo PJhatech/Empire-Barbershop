@@ -12,16 +12,16 @@ const addClient = (clients) => ({
 });
 
 export const fetchClients = () => async (dispatch) => {
-	const response = await fetch("/api/clients");
+	const response = await fetch("/api/users/clients");
 	if (response.ok) {
 		const clients = await response.json();
 		dispatch(getClient(clients));
 	}
-	console.log("<--------here-------->", response);
+	console.log("<-------FetchClients-------->", response);
 };
 
 export const createClient = (client) => async (dispatch) => {
-	const response = await fetch("/api/clients", {
+	const response = await fetch("/api/users/clients", {
 		method: "POST",
 		headers: {"Content-Type": "application/json"},
 		body: JSON.stringify(client),
