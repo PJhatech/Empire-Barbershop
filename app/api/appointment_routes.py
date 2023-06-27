@@ -27,9 +27,9 @@ def handle_appointments():
     if request.method == 'POST':
         data = request.json
         barber_appointments = Appointment(
-            barber_id=User.id,
-            client_id=current_user.id,
-            service_id=Service.id,
+            barber_id=current_user.id,
+            client_id=['client'],
+            service_id=Service.service_name,
             date=data['date'],
             time=data['time'],
             repeat=data['false'],

@@ -53,7 +53,7 @@ function App() {
           <Route exact path="/services">
             <Services />
           </Route>
-          <Route exact path="/services/:id">
+          <Route  path="/services/:id">
             <ServiceIndex />
           </Route>
         </Switch>

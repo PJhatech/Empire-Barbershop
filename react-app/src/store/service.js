@@ -39,7 +39,7 @@ export const fetchServices = () => async (dispatch) => {
 	}
 };
 
-export const fetchServicekById = (id) => async (dispatch) => {
+export const fetchServiceById = (id) => async (dispatch) => {
 	const response = await fetch(`/api/services/${id}`);
 	if (response.ok) {
 		const service = await response.json();

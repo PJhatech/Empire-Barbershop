@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {NavLink, useParams} from "react-router-dom";
-import {fetchServices,  fetchServicekById} from "../../store/service";
+import {fetchServices,  fetchServiceById} from "../../store/service";
 import OpenModalButton from "../OpenModalButton";
 import ServiceUpdateModal from "../ServiceUpdateModal";
 
@@ -15,7 +15,7 @@ const ServiceIndex = () => {
 	console.log("<-------serviceIndex------->", serviceReducer);
 
 	useEffect(() => {
-		dispatch(fetchServicekById(id))
+		dispatch(fetchServiceById(id))
 	}, [dispatch, id]);
 
 	// const userTransactions = Object.values(allTransactions).filter(
@@ -31,10 +31,10 @@ const ServiceIndex = () => {
 					<div key={service.id}>
 						{service.service_name}
 						{service.description}
-						<OpenModalButton
+						{/* <OpenModalButton
 							buttonText="Update"
 							modalComponent={<ServiceUpdateModal prop={service} />}
-						/>
+						/> */}
 					</div>
 				))}
 			</div>
