@@ -28,9 +28,9 @@ class Appointment(db.Model, UserMixin):
     def to_appointment_dict(self):
         return {
             'id': self.id,
-            'barber_id': self.barber_id,
-            'client_id': self.client_id,
-            'service_id': self.service_id,
+            'barber': self.barber.to_dict() if self.barber else None,
+            'client': self.client.to_dict() if self.client else None,
+            'service': self.services.to_service_dict() if self.services else None,
             'date': self.date,
             'time': self.time,
             'repeat': self.repeat,

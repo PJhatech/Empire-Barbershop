@@ -11,23 +11,12 @@ import { fetchClientIndex, fetchClients } from "../../store/client";
 
 const Appointments = () => {
     const dispatch = useDispatch();
-    // const {id} = useParams();
     const appointmentReducer = useSelector((state) => state.appointmentReducer);
-    // const clientReducer = useSelector((state) => state.clientReducer);
 
-    // const client = Object.values(clientReducer);
     const appointment = Object.values(appointmentReducer);
-
-
-    // const appointments = appointment.map((appointment) => {
-    //     return appointment.client_id
-	// })
-
-	// const value = Object.values(appointments)
 
     useEffect(() => {
         dispatch(fetchAppointments())
-		// dispatch(fetchClientIndex(id))
     }, [dispatch])
 
     // console.log("<-------AppointmentComponent------->", clientReducer)
@@ -37,11 +26,11 @@ const Appointments = () => {
 			<h1>All Appointments</h1>
 			{appointment.map((appointment) => (
 				<div key={appointment.id}>
-					{appointment.client_id}
+					Client: {appointment.client.first_name}
 					<br />
-					{appointment.date}
+					Date: {appointment.date}
 					<br />
-					{appointment.time}
+					Time: {appointment.time}
 					<br />
 					<OpenModalButton
 						buttonText="Delete"
@@ -63,17 +52,6 @@ const Appointments = () => {
 					</div>
 				</div>
 			))}
-			<div>
-				{client.map((client) => (
-					<div key={client.id}>
-                        <NavLink exact to={`/barbers/${client.id}`}>
-							{client.first_name}
-							<br/>
-						    {client.last_name}
-						</NavLink>
-					</div>
-				))}
-			</div>
 		</>
 	);
 }
