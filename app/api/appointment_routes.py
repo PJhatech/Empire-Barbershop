@@ -17,7 +17,7 @@ def get_appointments():
 @appointment_routes.route('/')
 @login_required
 def handle_appointments():
-        barber_appointments = Appointment.query.filter_by(barber_id=current_user.id).first()
+        barber_appointments = Appointment.query.filter_by(barber=current_user.id).first()
         if barber_appointments is None:
             pass
         else:

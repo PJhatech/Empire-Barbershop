@@ -31,7 +31,7 @@ export const fetchAppointments = () => async (dispatch) => {
 	}
 };
 export const createAppointment = (appointment) => async (dispatch) => {
-	// console.log("<----createAppointmentFetch--->", appointment);
+	console.log("<----createAppointmentFetch--->", appointment);
 	console.log("Appointment data being sent:", JSON.stringify(appointment));
 	const response = await fetch("/api/appointments/", {
 		method: "POST",

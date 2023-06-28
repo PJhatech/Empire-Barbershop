@@ -19,7 +19,7 @@ const Appointments = () => {
         dispatch(fetchAppointments())
     }, [dispatch])
 
-    // console.log("<-------AppointmentComponent------->", clientReducer)
+    console.log("<-------AppointmentComponent------->", appointment)
 
     return (
 		<>
@@ -44,14 +44,14 @@ const Appointments = () => {
 							<AppointmentUpdateModal prop={appointment} />
 						}
 					/>
+				</div>
+			))}
 					<div>
 						<OpenModalButton
 							buttonText="Create New Appointment"
 							modalComponent={<AppointmentForm />}
 						/>
 					</div>
-				</div>
-			))}
 		</>
 	);
 }

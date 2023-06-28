@@ -18,7 +18,6 @@ const AppointmentForm = () => {
 	const clients = Object.values(clientReducer);
 	const services = Object.values(serviceReducer);
 
-	// console.log("<-------AppointmentComponent------->", user.id);
 
 	useEffect(() => {
 		dispatch(createAppointment())
@@ -32,6 +31,7 @@ const AppointmentForm = () => {
 	const [repeat, setRepeat] = useState("None");
 	const [client, setClient] = useState();
 
+	console.log("<-------AppointmentComponent------->", selectedService);
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const appointment = {
