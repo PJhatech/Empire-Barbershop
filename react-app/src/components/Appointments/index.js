@@ -5,7 +5,7 @@ import OpenModalButton from "../OpenModalButton";
 import { fetchAppointments } from "../../store/appointment";
 import AppointmentUpdateModal from "../AppointmentUpdateModal";
 import AppointmentDeleteModal from "../AppointmentDeleteModal";
-
+import AppointmentForm from "../AppointmentForm"
 
 const Appointments = () => {
     const dispatch = useDispatch();
@@ -28,12 +28,12 @@ const Appointments = () => {
 			<h1>All Appointments</h1>
 			{appointment.map((appointment) => (
 				<div key={appointment.id}>
-                    {appointment.client_id}
-                    <br />
+					{appointment.client_id}
+					<br />
 					{appointment.date}
-                    <br />
+					<br />
 					{appointment.time}
-                    <br />
+					<br />
 					<OpenModalButton
 						buttonText="Delete"
 						modalComponent={
@@ -42,8 +42,16 @@ const Appointments = () => {
 					/>
 					<OpenModalButton
 						buttonText="Update"
-						modalComponent={<AppointmentUpdateModal prop={appointment} />}
+						modalComponent={
+							<AppointmentUpdateModal prop={appointment} />
+						}
 					/>
+					<div>
+						<OpenModalButton
+							buttonText="Create New Appointment"
+							modalComponent={<AppointmentForm />}
+						/>
+					</div>
 				</div>
 			))}
 		</>

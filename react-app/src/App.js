@@ -48,12 +48,11 @@ function App() {
           </Route>
           <Route path="/appointments">
             <Appointments />
-            <AppointmentForm />
           </Route>
           <Route exact path="/services">
             <Services />
           </Route>
-          <Route  path="/services/:id">
+          <Route exact path="/services/:id">
             <ServiceIndex />
           </Route>
         </Switch>
