@@ -18,7 +18,7 @@ const addBarber = (barber) => ({
 });
 
 export const fetchBarbers = () => async (dispatch) => {
-	const response = await fetch("/api/users/barbers");
+	const response = await fetch("/api/users/barbers/");
 	if (response.ok) {
 		const barbers = await response.json();
 		dispatch(getBarbers(barbers));
@@ -27,7 +27,7 @@ export const fetchBarbers = () => async (dispatch) => {
 };
 
 export const fetchBarberIndex = (id) => async (dispatch) => {
-	const response = await fetch(`/api/users/barbers/${id}`);
+	const response = await fetch(`/api/users/barbers/${id}/`);
 	if (response.ok) {
 		const barber = await response.json();
 		dispatch(getBarberById(barber));
@@ -37,7 +37,7 @@ export const fetchBarberIndex = (id) => async (dispatch) => {
 };
 
 export const createBarber = (barber) => async (dispatch) => {
-	const response = await fetch("/api/barbers", {
+	const response = await fetch("/api/barbers/", {
 		method: "POST",
 		headers: {"Content-Type": "application/json"},
 		body: JSON.stringify(barber),

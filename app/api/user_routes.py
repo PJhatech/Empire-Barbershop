@@ -6,7 +6,7 @@ user_routes = Blueprint('users', __name__)
 
 
 @user_routes.route('/')
-# @login_required
+@login_required
 def users():
     """
     Query for all users and returns them in a list of user dictionaries
@@ -26,6 +26,7 @@ def users():
 
 # Fetch All Barbers
 @user_routes.route('/barbers')
+@login_required
 def get_all_barbers():
     barbers = User.query.filter_by(user_type='barber').all()
     return jsonify([user.to_dict() for user in barbers])
@@ -44,6 +45,7 @@ def get_barber_index():
 
 
 @user_routes.route('/users', methods=['POST'])
+@login_required
 def create_user():
     data = request.get_json()
 
@@ -83,7 +85,8 @@ def create_user():
 
 
 # Clients
-@user_routes.route('/clients')
+@user_routes.route('/clients/')
+@login_required
 def get_clients():
     clients = User.query.filter_by(user_type='client').all()
     return jsonify([user.to_dict() for user in clients])

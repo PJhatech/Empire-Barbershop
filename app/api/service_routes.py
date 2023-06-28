@@ -8,7 +8,7 @@ service_routes = Blueprint('services', __name__)
 
 
 @service_routes.route('/')
-# @login_required
+@login_required
 def get_services():
     # print(current_user)
     services = Service.query.all()
@@ -16,14 +16,14 @@ def get_services():
 
 
 @service_routes.route('/<int:id>')
-# @login_required
+@login_required
 def get_service_by_id(id):
     service = Service.query.get(id)
     return service.to_service_dict()
 
 
 @service_routes.route('/', methods=['POST'])
-# @login_required
+@login_required
 def post_new_service():
     data = request.json
     service = Service(
@@ -38,7 +38,7 @@ def post_new_service():
 
 
 @service_routes.route('/<int:service_id>', methods=['PUT'])
-# @login_required
+@login_required
 def update_service(service_id):
     data = request.json
     service = Service.query.get(service_id)

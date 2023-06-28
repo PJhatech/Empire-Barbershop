@@ -7,45 +7,42 @@ appointment_routes = Blueprint('appointments', __name__)
 
 
 @appointment_routes.route('/', methods=['GET'])
-# @login_required
+@login_required
 def get_appointments():
     print(current_user)
     appointments = Appointment.query.all()
     # print(appointments)
     return jsonify([appointment.to_appointment_dict() for appointment in appointments])
 
-@appointment_routes.route('/', methods=['GET', 'POST'])
+@appointment_routes.route('/')
 @login_required
 def handle_appointments():
-    if request.method == 'GET':
-        barber_appointments = Appointment.query.filter_by(barber_id=User.id).first()
+        barber_appointments = Appointment.query.filter_by(barber_id=current_user.id).first()
         if barber_appointments is None:
             pass
         else:
             return barber_appointments.to_appointment_dict()
 
-    if request.method == 'POST':
-        if 'barber_id' not in data or 'client_id' not in data or 'service_id' not in data or 'date' not in data or 'time' not in data:
-            return {"error": "Missing necessary field"}, 400
 
-        data = request.json
-        barber_appointments = Appointment(
-            barber_id=current_user.id,
-            client_id=data['client_id'],
-            service_id=data['service_id'],
-            date=data['date'],
-            time=data['time'],
-            repeat=data.get('repeat', False)
-            # barber_id=current_user.id,
-            # client_id=User.id,
-            # service_id=Service.id,
-            # date=data['date'],
-            # time=data['time'],
-            # repeat=data['None'],
-        )
-        db.session.add(barber_appointments)
-        db.session.commit()
-        return jsonify(barber_appointments.to_appointment_dict()), 201
+@appointment_routes.route('/', methods=['POST'])
+@login_required
+def post_new_appointment():
+    data = request.json
+
+        # if 'barber_id' not in data or 'client_id' not in data or 'service_id' not in data or 'date' not in data or 'time' not in data:
+        #     return {"error": "Missing necessary field"}, 400
+
+    barber_appointments = Appointment(
+        barber_id=current_user.id,
+        client_id=data['client_id'],
+        service_id=data['service_id'],
+        date=data['date'],
+        time=data['time'],
+        repeat=data.get('repeat', False)
+    )
+    db.session.add(barber_appointments)
+    db.session.commit()
+    return jsonify(barber_appointments.to_appointment_dict()), 201
 
 
 # @appointment_routes.route('/api/appointments', methods=['POST'])

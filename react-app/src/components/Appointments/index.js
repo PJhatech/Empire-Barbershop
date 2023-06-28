@@ -9,7 +9,7 @@ const Appointments = () => {
     const appointmentReducer = useSelector((state) => state.appointmentReducer)
     const appointments = Object.values(appointmentReducer);
 
-    // console.log("<-------AppointmentComponent------->", appointments)
+    console.log("<-------AppointmentComponent------->", appointments)
 
 
     useEffect(() => {
@@ -22,10 +22,12 @@ const Appointments = () => {
 
     return (
 		<>
-			<h1>Appointments</h1>
-			{/* <NavLink to={`/appointments/${.id}/edit`}>
-				<button type="submit">Update</button>
-			</NavLink> */}
+			<h1>All Appointments</h1>
+            {appointments.map((appointments) => (
+                <div key={appointments.id}>
+                    {appointments.client_id}
+                </div>
+            ))}
 		</>
 	);
 }

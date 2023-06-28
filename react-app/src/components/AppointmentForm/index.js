@@ -18,7 +18,7 @@ const AppointmentForm = () => {
 	const clients = Object.values(clientReducer);
 	const services = Object.values(serviceReducer);
 
-	// console.log("<-------AppointmentComponent------->", user);
+	// console.log("<-------AppointmentComponent------->", user.id);
 
 	useEffect(() => {
 		dispatch(createAppointment())
