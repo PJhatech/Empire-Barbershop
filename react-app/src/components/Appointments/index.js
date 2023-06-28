@@ -11,26 +11,26 @@ import { fetchClientIndex, fetchClients } from "../../store/client";
 
 const Appointments = () => {
     const dispatch = useDispatch();
-    const {id} = useParams();
+    // const {id} = useParams();
     const appointmentReducer = useSelector((state) => state.appointmentReducer);
-    const clientReducer = useSelector((state) => state.clientReducer);
+    // const clientReducer = useSelector((state) => state.clientReducer);
 
-    const client = Object.values(clientReducer);
+    // const client = Object.values(clientReducer);
     const appointment = Object.values(appointmentReducer);
 
 
-    const appointments = appointment.map((appointment) => {
-        return appointment.client_id
-	})
+    // const appointments = appointment.map((appointment) => {
+    //     return appointment.client_id
+	// })
 
-	const value = Object.values(appointments)
+	// const value = Object.values(appointments)
 
     useEffect(() => {
         dispatch(fetchAppointments())
-		dispatch(fetchClientIndex(id))
-    }, [dispatch, id])
+		// dispatch(fetchClientIndex(id))
+    }, [dispatch])
 
-    console.log("<-------AppointmentComponent------->", clientReducer)
+    // console.log("<-------AppointmentComponent------->", clientReducer)
 
     return (
 		<>
