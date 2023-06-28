@@ -33,11 +33,11 @@ export const fetchClientIndex = (id) => async (dispatch) => {
 		dispatch(getClientById(client));
 	}
 
-	console.log("<--------fetchBarberIndex-------->", response);
+	// console.log("<--------fetchClientIndex-------->", response);
 };
 
 export const createClient = (client) => async (dispatch) => {
-	const response = await fetch("/api/users/clients", {
+	const response = await fetch("/api/users/clients/", {
 		method: "POST",
 		headers: {"Content-Type": "application/json"},
 		body: JSON.stringify(client),
@@ -62,7 +62,6 @@ export default function clientReducer(state = initialState, action) {
 			return {...newState};
 		}
 		case GET_CLIENT_BY_ID: {
-			newState = {...state};
 			newState[action.client.id] = action.client;
 			return {...newState};
 		}

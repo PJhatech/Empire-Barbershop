@@ -96,8 +96,7 @@ export default function serviceReducer(state = initialState, action) {
 			return {...newState};
 		}
 		case GET_SERVICE_BY_ID: {
-			return {
-				...state,
+			return {...state,
 				[action.service.id]: action.service,
 			};
 		}

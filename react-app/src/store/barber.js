@@ -61,7 +61,6 @@ export default function barberReducer(state = initialState, action) {
 			return {...newState};
 		}
 		case GET_BARBER_BY_ID: {
-            newState = {...state}
             newState[action.barber.id] = action.barber
             return {...newState}
         }

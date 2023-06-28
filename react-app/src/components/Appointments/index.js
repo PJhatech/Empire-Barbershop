@@ -2,26 +2,35 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import OpenModalButton from "../OpenModalButton";
+import {useParams} from "react-router-dom";
 import { fetchAppointments } from "../../store/appointment";
 import AppointmentUpdateModal from "../AppointmentUpdateModal";
 import AppointmentDeleteModal from "../AppointmentDeleteModal";
 import AppointmentForm from "../AppointmentForm"
+import { fetchClientIndex, fetchClients } from "../../store/client";
 
 const Appointments = () => {
     const dispatch = useDispatch();
-    const appointmentReducer = useSelector((state) => state.appointmentReducer)
+    const {id} = useParams();
+    const appointmentReducer = useSelector((state) => state.appointmentReducer);
+    const clientReducer = useSelector((state) => state.clientReducer);
+
+    const client = Object.values(clientReducer);
     const appointment = Object.values(appointmentReducer);
 
-    console.log("<-------AppointmentComponent------->", appointment)
 
+    const appointments = appointment.map((appointment) => {
+        return appointment.client_id
+	})
+
+	const value = Object.values(appointments)
 
     useEffect(() => {
         dispatch(fetchAppointments())
-    }, [dispatch])
+		dispatch(fetchClientIndex(id))
+    }, [dispatch, id])
 
-    // const userTransactions = Object.values(allTransactions).filter(
-    //     (transaction) => transaction.user_id === userId
-    // ); w
+    console.log("<-------AppointmentComponent------->", clientReducer)
 
     return (
 		<>
@@ -54,6 +63,17 @@ const Appointments = () => {
 					</div>
 				</div>
 			))}
+			<div>
+				{client.map((client) => (
+					<div key={client.id}>
+                        <NavLink exact to={`/barbers/${client.id}`}>
+							{client.first_name}
+							<br/>
+						    {client.last_name}
+						</NavLink>
+					</div>
+				))}
+			</div>
 		</>
 	);
 }

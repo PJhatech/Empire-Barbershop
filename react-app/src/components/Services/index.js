@@ -60,19 +60,7 @@ const Services = () => {
 					/>
 				</div>
 			</div>
-			{/* <div>
-					<img
-						src={service.previewImage}
-						alt={service.city}
-					/>
-				</div> */}
-			{/* <div className="pekabo">
-					{service.city}, {service.state} <br />$
-					{service.price} night
-					<br />
-					{service.AvgRating || "NEW"}
-					<i className="fa-solid fa-star" />
-				</div> */}
+		
 		</>
 	);
 };

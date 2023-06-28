@@ -15,33 +15,33 @@ def users():
     return jsonify([user.to_dict() for user in users])
 
 
-# @user_routes.route('/<int:id>')
-# # @login_required
-# def user(id):
-#     """
-#     Query for a user by id and returns that user in a dictionary
-#     """
-#     user = User.query.get(id)
-#     return user.to_dict()
+@user_routes.route('/barbers/<int:id>/')
+@login_required
+def user(id):
+    """
+    Query for a user by id and returns that user in a dictionary
+    """
+    user = User.query.get(id)
+    return user.to_dict()
 
 # Fetch All Barbers
-@user_routes.route('/barbers')
+@user_routes.route('/barbers/')
 @login_required
 def get_all_barbers():
     barbers = User.query.filter_by(user_type='barber').all()
     return jsonify([user.to_dict() for user in barbers])
 
 
-@user_routes.route('/barbers/<int:id>')
-def get_barber_index():
-    barbers = User_Type.query.all()
-    return barbers.to_user_type_dict()
-    # # barbers = User.query.filter_by(user_type='barber').all()
-    # barberIndex = User.query.get(id)
-    # if barberIndex:
-    #     return jsonify(barberIndex.to_dict())
-    # else:
-    #     return jsonify({'error': 'User type not found'}), 404
+# @user_routes.route('/barbers/<int:id>/')
+# def get_barber_index(id):
+#     # barbers = User_Type.query.all()
+#     # return barbers.to_user_type_dict()
+#     barbers = User.query.filter_by(user_type='barber').all()
+#     barberIndex = barbers.query.get(id)
+#     if barberIndex:
+#         return jsonify(barberIndex.to_dict())
+#     else:
+#         return jsonify({'error': 'User type not found'}), 404
 
 
 @user_routes.route('/users', methods=['POST'])
@@ -90,3 +90,10 @@ def create_user():
 def get_clients():
     clients = User.query.filter_by(user_type='client').all()
     return jsonify([user.to_dict() for user in clients])
+
+
+@user_routes.route('/clients/<int:id>/')
+@login_required
+def get_client_index(id):
+    user = User.query.get(id)
+    return user.to_dict()
