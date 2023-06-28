@@ -1,7 +1,7 @@
 from flask import Flask, Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from flask_login import current_user, login_required
-from app.models import Appointment, Service, db, User
+from app.models import Appointment, db, User, Service
 
 appointment_routes = Blueprint('appointments', __name__)
 
@@ -44,6 +44,36 @@ def post_new_appointment():
     db.session.commit()
     return jsonify(barber_appointments.to_appointment_dict()), 201
 
+
+@appointment_routes.route('/<int:appointment_id>', methods=['PUT'])
+@login_required
+def update_appointment(appointment_id):
+    data = request.json
+    appointment = Appointment.query.get(appointment_id)
+
+    if not appointment:
+        return jsonify({'error': 'Appointment not found'}), 404
+
+    appointment.barber_id = data.get('barber_id', appointment.barber_id)
+    appointment.client_id = data.get('client_id', appointment.client_id)
+    appointment.service_id = data.get('service_id', appointment.service_id)
+    appointment.date = data.get('date', appointment.date)
+    appointment.time = data.get('time', appointment.time)
+    appointment.repeat = data.get('repeat', appointment.repeat)
+
+    db.session.commit()
+
+    return jsonify(appointment.to_appointment_dict())
+
+@appointment_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_appointment(id):
+    appointment = Appointment.query.get(id)
+    if appointment:
+        db.session.delete(appointment)
+        db.session.commit()
+        return jsonify({'message': 'Appointment deleted successfully'}), 204
+    return jsonify({'message': 'Appointment not found'}), 404
 
 # @appointment_routes.route('/api/appointments', methods=['POST'])
 # def create_appointment():

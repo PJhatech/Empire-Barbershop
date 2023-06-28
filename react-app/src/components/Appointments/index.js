@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import OpenModalButton from "../OpenModalButton";
 import { fetchAppointments } from "../../store/appointment";
+import AppointmentUpdateModal from "../AppointmentUpdateModal";
+import AppointmentDeleteModal from "../AppointmentDeleteModal";
 
 
 const Appointments = () => {
     const dispatch = useDispatch();
     const appointmentReducer = useSelector((state) => state.appointmentReducer)
-    const appointments = Object.values(appointmentReducer);
+    const appointment = Object.values(appointmentReducer);
 
-    console.log("<-------AppointmentComponent------->", appointments)
+    console.log("<-------AppointmentComponent------->", appointment)
 
 
     useEffect(() => {
@@ -23,11 +26,26 @@ const Appointments = () => {
     return (
 		<>
 			<h1>All Appointments</h1>
-            {appointments.map((appointments) => (
-                <div key={appointments.id}>
-                    {appointments.client_id}
-                </div>
-            ))}
+			{appointment.map((appointment) => (
+				<div key={appointment.id}>
+                    {appointment.client_id}
+                    <br />
+					{appointment.date}
+                    <br />
+					{appointment.time}
+                    <br />
+					<OpenModalButton
+						buttonText="Delete"
+						modalComponent={
+							<AppointmentDeleteModal prop={appointment.id} />
+						}
+					/>
+					<OpenModalButton
+						buttonText="Update"
+						modalComponent={<AppointmentUpdateModal prop={appointment} />}
+					/>
+				</div>
+			))}
 		</>
 	);
 }

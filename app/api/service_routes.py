@@ -54,7 +54,7 @@ def update_service(service_id):
 
 
 @service_routes.route('/<int:id>', methods=['DELETE'])
-# @login_required
+@login_required
 def delete_service(id):
     service = Service.query.get(id)
     if service:

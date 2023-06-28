@@ -30,7 +30,7 @@ const DeleteService = (service) => {
                 Delete Service
             </button>
             <button onClick={closeModal}>
-                Keep Service)
+                Keep Service
             </button>
         </div>
     )
