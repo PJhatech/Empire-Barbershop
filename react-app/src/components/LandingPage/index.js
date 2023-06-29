@@ -1,13 +1,14 @@
 import React, {useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {NavLink} from "react-router-dom";
-import "./landingPage.css"
+import "./landingPage.css";
+import logo from "../Images/shopimg.jpeg";
 
 const LandingPage = () => {
 	// const dispatch = useDispatch();
 	// const appointmentReducer = useSelector((state) => state.appointmentReducer);
 	// const appointments = Object.values(appointmentReducer);
-	const client = useSelector((state) => state.session.user)
+	const client = useSelector((state) => state.session.user);
 
 	console.log("<-------check------->", client);
 
@@ -20,9 +21,10 @@ const LandingPage = () => {
 	// );
 
 	return (
-        <div className="sign">
-        <h1>Empire Barbershop</h1>
-
+		<div className="fullPage">
+			<div className="sign">
+				<img alt="logoImg" className="logoimg" src={logo} />
+			</div>
 		</div>
 	);
 };

@@ -2,3 +2,24 @@
     display: flex;
     justify-content:center
 }
+
+body {
+    background-color: black;
+}
+
+.logoimg {
+    position:absolute;
+    bottom: 0;
+
+    width: 100%;
+
+    /* Set the height to auto */
+    height: 90%;
+    /* top: 0; */
+    /* left: 0;
+    width: 80%; */
+    /* height: ; */
+    /* width: 72%;
+    height: 72%; */
+    /* object-fit: cover; */
+}

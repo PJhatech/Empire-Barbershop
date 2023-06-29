@@ -1,33 +1,81 @@
-.profile-dropdown {
-  position: absolute;
-}
+/* .profile-dropdown {
+	position: absolute;
+} */
 
 .hidden {
-  display: none;
+	display: none;
 }
 
-#navigation-container{
-    /* margin-left: auto; */
-    background-color: white;
-    top:0px;
-    display: flex;
-    justify-content: flex-start;
-    height: 45px;
-    width:100%;
-    border-bottom: solid #CCCCCC 2px;
-    padding: 0;
-    border-bottom: 5%;
+.nav-wrapper {
 
-    z-index: 1;
+  display: flex;
+  gap: 16px;
+  /* position: fixed; */
+  /* right: 0; */
+  /* text-align: right; */
+  /* vertical-align: middle; */
 }
 
+#navigation-container {
+	margin-top: auto;
+	background-color: white;
+	/* top:0; */
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	/* justify-content: flex-start; */
+	height: 90px;
+	/* width:100%; */
+	/* border-bottom: solid #CCCCCC 2px; */
+	/* padding: 0; */
+	/* border-bottom: 5%; */
+
+	z-index: 1;
+}
 
 .home-icon {
-    display: flex;
-    flex:auto;
-    margin-top: 1px;
-    margin-right: auto;
-    font-size: 30px;
-    font-weight: bolder;
-    /* font-style:italic; */
+	font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	/* font-size: 2; */
+	/* font-weight: -5; */
+	text-transform: uppercase;
+	font-style: normal;
+	letter-spacing: 15px;
+	text-decoration: none;
+	line-height: 1.2em;
+	display: inline-flex;
+	width: 100%;
+	margin: 0 auto;
+	padding: 20px 25px;
+	/* vertical-align: middle;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box; */
+	/* box-sizing: border-box; */
+	/* position: absolute; */
+	/* right: 90%; */
+	/* margin-top: 1px; */
+	/* margin-right: 100%;
+	font-size: 30px;
+	font-weight: bolder; */
+	/* font-style:italic; */
 }
+
+.barberPole {
+	position: absolute;
+	align-content: center;
+	/* height: 60px; */
+	z-index: 1;
+	position: absolute;
+	top: 50%;
+	left: 9%;
+	transform: translate(-50%, -50%);
+	height: 85px;
+	/* you need to specify a width for this to work */
+	/* width: 50%; for example */
+}
+
+h1 {
+  color: #32cd32;
+}
+
+a:link { text-decoration: none; }
