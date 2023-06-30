@@ -3,23 +3,38 @@
     justify-content:center
 } */
 
-/* body {
-    background-color: black;
-} */
-/*
+body {
+    /* background-color: black; */
+}
+
+.bookNow {
+     width: 525px;
+    height: 400px;
+
+    /* Add these */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
 .logoimg {
-    position:absolute;
-    bottom: 0;
+    width: 525px;
+    height: 400px;
 
-    width: 100%;
+    /* Add these */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* position:absolute;
+    align-content: center;
+    width: 50;
+    height: 50%; */
+}
 
-    /* Set the height to auto */
-    /* height: 90% */
-    /* top: 0; */
-    /* left: 0;
-    width: 80%; */
-    /* height: ; */
-    /* width: 72%;
-    height: 72%; */
-    /* object-fit: cover; */
 
+h1 {
+	color: #32cd32;
+}

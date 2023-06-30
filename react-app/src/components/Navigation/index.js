@@ -16,17 +16,18 @@ function Navigation({isLoaded}) {
 					<div className="shopSign">
 					<h1>Empire BarberShop</h1>
 					</div>
-					<h2>Book</h2>
-					{/* <div> */}
 
-					{/* <NavLink exact to="/">
+					<div className="components">
+					<h2>Book</h2>
+
+					<NavLink exact to="/">
 							{isLoaded && (
 								<>
 									<ProfileButton user={sessionUser} />
 								</>
 							)}
-						</NavLink> */}
-					{/* </div> */}
+						</NavLink>
+					</div>
 				</div>
 
 				{/* <NavLink to={"/barbers"}>
