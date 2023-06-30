@@ -24,7 +24,9 @@ const LandingPage = () => {
 		<div className="fullPage">
 			<div className="bookNow">
 				<div>
-				Book Now
+					<h1>
+					Book Now
+					</h1>
 						<NavLink to={"/barbers"}>
 				<button type="button">Book Now</button>
 			</NavLink>

@@ -10,7 +10,7 @@ function Navigation({isLoaded}) {
 
 	return (
 		<div id="navigation-container">
-			<img alt="poleIcon" className="barberPole" src={barberPole} />
+			{/* <img alt="poleIcon" className="barberPole" src={barberPole} /> */}
 			<div className="nav-wrapper">
 				<div className="home-icon">
 					<div className="shopSign">
