@@ -23,7 +23,7 @@ const LandingPage = () => {
 	return (
 		<div className="fullPage">
 			<div className="sign">
-				<img alt="logoImg" className="logoimg" src={logo} />
+				{/* <img alt="logoImg" className="logoimg" src={logo} /> */}
 			</div>
 		</div>
 	);

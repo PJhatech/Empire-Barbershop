@@ -11,23 +11,23 @@ function Navigation({isLoaded}) {
 	return (
 		<div id="navigation-container">
 			<img alt="poleIcon" className="barberPole" src={barberPole} />
-			<div className="home-icon">
-				<h1>Empire BarberShop</h1>
-				<div className="nav-wrapper">
-					<div>
-						<h2>Book</h2>
-						<h2>Loggin</h2>
-						
-						<NavLink exact to="/">
+			<div className="nav-wrapper">
+				<div className="home-icon">
+					<div className="shopSign">
+					<h1>Empire BarberShop</h1>
+					</div>
+					<h2>Book</h2>
+					{/* <div> */}
+
+					{/* <NavLink exact to="/">
 							{isLoaded && (
 								<>
 									<ProfileButton user={sessionUser} />
 								</>
 							)}
-						</NavLink>
-					</div>
+						</NavLink> */}
+					{/* </div> */}
 				</div>
-
 
 				{/* <NavLink to={"/barbers"}>
 				<button type="button">Book Now</button>
