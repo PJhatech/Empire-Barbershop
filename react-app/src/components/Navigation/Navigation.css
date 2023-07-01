@@ -2,25 +2,21 @@
 	position: absolute;
 } */
 
-/* .hidden {
+.hidden {
 	display: none;
 }
 
 #navigation-container {
 	display: flex;
 	font-family: Arial, sans-serif;
-	text-transform: uppercase;
 	justify-content: flex-end;
-	padding-bottom: 20px;
-	letter-spacing: 15px;
+	padding-bottom: 8px;
 	width: 100%;
 	align-items: center;
 	background-color: white;
 	position: fixed;
 	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-	text-transform: uppercase;
 	font-style: normal;
-	letter-spacing: 15px;
 	text-decoration: none;
 	top: 0;
 	left: 0;
@@ -32,7 +28,7 @@
 	align-content: center;
 	z-index: 1;
 	top: 50%;
-	left: 20px;
+	left: 50%;
 	transform: translate(-50%, -50%);
 	height: 85px;
 }
@@ -48,21 +44,29 @@
 
 
 .shopSign {
+  color: #32cd32;
 	position: fixed;
   z-index: 1;
-  left: 40px;
-	letter-spacing: 18px;
-	font-weight: lighter;
-	padding-top: 11px;
+  left: 70px;
+  font-size: 12px;
+  letter-spacing: 10px;
+  font-style: italic;
+	/* letter-spacing: 18px; */
+	/* font-weight: lighter; */
+	padding-top: 15px;
+  /* text-transform: uppercase; */
 }
 
 .components {
 	display: flex;
+  padding-top: 38px;
+  /* flex-direction: row; */
+  font-size: 10px;
+  letter-spacing: 5px;
+  font-style: italic;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
-h1 {
-	color: #32cd32;
-}
 
 a:link {
 	text-decoration: none;
@@ -71,4 +75,4 @@ a:link {
 h2 {
 	display: flex;
 	flex-direction: row;
-} */
+}

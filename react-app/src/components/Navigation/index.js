@@ -10,17 +10,19 @@ function Navigation({isLoaded}) {
 
 	return (
 		<div id="navigation-container">
-			{/* <img alt="poleIcon" className="barberPole" src={barberPole} /> */}
+			<NavLink exact to="/">
+				<img alt="poleIcon" className="barberPole" src={barberPole} />
+			</NavLink>
 			<div className="nav-wrapper">
 				<div className="home-icon">
 					<div className="shopSign">
-					<h1>Empire BarberShop</h1>
+						<h2>Clean Cuts Sharp Lines Close Shaves</h2>
 					</div>
 
 					<div className="components">
-					<h2>Book</h2>
+						{/* <h2>Clean Cuts Sharp Lines Close Shaves</h2> */}
 
-					<NavLink exact to="/">
+						<NavLink exact to="/">
 							{isLoaded && (
 								<>
 									<ProfileButton user={sessionUser} />
