@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {NavLink} from "react-router-dom";
 import "./landingPage.css";
-import logo from "../Images/logo2.JPG";
+import logo from "../Images/Logo.JPG";
 import ProfileButton from "../Navigation/ProfileButton";
 
 
@@ -27,7 +27,7 @@ const LandingPage = () => {
 		<div className="fullPage">
 			<div className="bookNow">
 				<div>
-					<NavLink to={"/barbers"}>
+					<NavLink to={"/locations"}>
 						<button className="book">
 							<h1>Book Now</h1>
 						</button>

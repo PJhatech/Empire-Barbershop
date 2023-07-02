@@ -1,10 +1,11 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import session from './session'
-import appointmentReducer from './appointment'
-import serviceReducer from './service'
-import barberReducer from './barber'
+import appointmentReducer from './appointment';
+import serviceReducer from './service';
+import barberReducer from './barber';
 import clientReducer from './client';
+import locationReducer from './location';
 
 
 const rootReducer = combineReducers({
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   serviceReducer,
   barberReducer,
   clientReducer,
+  locationReducer,
 });
 
 

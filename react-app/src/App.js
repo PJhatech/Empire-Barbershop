@@ -13,6 +13,7 @@ import Clients from "./components/Clients";
 import AppointmentForm from "./components/AppointmentForm";
 import Services from "./components/Services";
 import ServiceIndex from "./components/ServiceIndex";
+import LocationPage from "./components/LocationPage";
 // import CreateAppointmentAsClient from "./components/CreateAppointmentAsClient";
 
 
@@ -55,6 +56,10 @@ function App() {
           <Route exact path="/services/:id">
             <ServiceIndex />
           </Route>
+          <Route exact path="/locations">
+            <LocationPage />
+          </Route>
+
         </Switch>
       )}
     </>
