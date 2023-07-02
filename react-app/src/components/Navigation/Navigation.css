@@ -47,13 +47,13 @@
   color: #32cd32;
 	position: fixed;
   z-index: 1;
-  left: 70px;
-  font-size: 12px;
-  letter-spacing: 10px;
+  left: 350px;
+  font-size: 20px;
+  letter-spacing: 15px;
   font-style: italic;
 	/* letter-spacing: 18px; */
 	/* font-weight: lighter; */
-	padding-top: 15px;
+	/* padding-top: px; */
   /* text-transform: uppercase; */
 }
 

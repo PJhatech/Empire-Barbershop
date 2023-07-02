@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {NavLink} from "react-router-dom";
 import "./landingPage.css";
-import logo from "../Images/Logo.JPG";
+import logo from "../Images/whiteIcon.jpeg";
 import ProfileButton from "../Navigation/ProfileButton";
 
 
@@ -35,7 +35,7 @@ const LandingPage = () => {
 				</div>
 			</div>
 			<div className="sign">
-				hi
+
 				<NavLink exact to="/">
 					{isLoaded && (
 						<>

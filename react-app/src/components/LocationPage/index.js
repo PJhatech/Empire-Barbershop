@@ -7,6 +7,9 @@ import herculesShop from "../Images/herculesShop.jpg";
 import ProfileButton from "../Navigation/ProfileButton";
 import {fetchLocations, addLocation} from "../../store/location";
 import "./LocationPage.css";
+import OpenModalButton from "../OpenModalButton";
+import ComingSoon from "../ComingSoon";
+import {ModalProvider, useModal} from "../../context/Modal";
 
 const LocationPage = () => {
 	const dispatch = useDispatch();
@@ -14,7 +17,7 @@ const LocationPage = () => {
 	const locations = Object.values(locationReducer);
 
 	const [isLoaded, setIsLoaded] = useState(true);
-	// console.log("<-------check------->", client);
+	const {setModalContent} = useModal();
 
 	useEffect(() => {
 		dispatch(fetchLocations());
@@ -22,24 +25,24 @@ const LocationPage = () => {
 
 	return (
 		<div className="">
-			LOCATION PAGE
 			<div className="">
-				<div>
-					{/* <NavLink to={"/barbers"}>
-						<button className="">
-							<h1>Location</h1>
-						</button>
-					</NavLink> */}
-				</div>
+				<div></div>
 			</div>
 			<div className="locationImg">
 				<NavLink to={"/barbers"}>
-				<img alt="concordImg" className="concordImg" src={concordImg} />
+					<img
+						alt="concordImg"
+						className="concordImg"
+						src={concordImg}
+					/>
 				</NavLink>
-				<img alt="herculesShop" className="herculesShop" src={herculesShop} />
+				<img
+					alt="herculesShop"
+					className="herculesShop"
+					src={herculesShop}
+					onClick={() => setModalContent(<ComingSoon />)}
+				/>
 				<img alt="locationLog" className="locationLogo" src={logo} />
-				{/* <img alt="logoImg" className="logoimg" src={logo} /> */}
-				{/* <ProfileButton user={sessionUser} /> */}
 			</div>
 		</div>
 	);

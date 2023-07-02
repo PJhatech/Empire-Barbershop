@@ -1,5 +1,5 @@
 import React from "react";
-import {NavLink} from "react-router-dom";
+import {NavLink, useLocation} from "react-router-dom";
 import {useSelector} from "react-redux";
 import ProfileButton from "./ProfileButton";
 import barberPole from "../Images/barberPoleLogo.JPG";
@@ -7,21 +7,29 @@ import "./Navigation.css";
 
 function Navigation({isLoaded}) {
 	const sessionUser = useSelector((state) => state.session.user);
+	const location = useLocation();
+	let navColor = location.pathname === "/" ? "black" : "initial";
 
 	return (
-		<div id="navigation-container">
+		<div id="navigation-container" style={{backgroundColor: navColor}}>
 			<NavLink exact to="/">
-				<img alt="poleIcon" className="barberPole" src={barberPole} />
+				{location.pathname !== "/" && (
+					<img
+						alt="poleIcon"
+						className="barberPole"
+						src={barberPole}
+					/>
+				)}
 			</NavLink>
 			<div className="nav-wrapper">
 				<div className="home-icon">
 					<div className="shopSign">
-						<h2>Clean Cuts Sharp Lines Close Shaves</h2>
+						{/* {location.pathname === "/" && (
+							<h2>Welcome to Empire BarberShop</h2>
+						)} */}
 					</div>
 
 					<div className="components">
-						{/* <h2>Clean Cuts Sharp Lines Close Shaves</h2> */}
-
 						<NavLink exact to="/">
 							{isLoaded && (
 								<>
@@ -31,10 +39,6 @@ function Navigation({isLoaded}) {
 						</NavLink>
 					</div>
 				</div>
-
-				{/* <NavLink to={"/barbers"}>
-				<button type="button">Book Now</button>
-			</NavLink> */}
 			</div>
 		</div>
 	);

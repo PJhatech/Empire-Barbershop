@@ -75,6 +75,7 @@ def delete_appointment(id):
         return jsonify({'message': 'Appointment deleted successfully'}), 204
     return jsonify({'message': 'Appointment not found'}), 404
 
+
 # @appointment_routes.route('/api/appointments', methods=['POST'])
 # def create_appointment():
 #     # Extract the JSON data from the request

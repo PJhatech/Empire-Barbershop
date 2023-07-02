@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, login_manager
-from app.models import User, User_Type, db
+from app.models import User, User_Type, db, Appointment
 
 user_routes = Blueprint('users', __name__)
 
@@ -31,6 +31,24 @@ def get_all_barbers():
     barbers = User.query.filter_by(user_type='barber').all()
     return jsonify([user.to_dict() for user in barbers])
 
+
+@user_routes.route('/barbers/<int:barber_id>/appointments', methods=['GET'])
+def get_barber_appointments(barber_id):
+    # Fetch the barber
+    barber = User.query.get(barber_id)
+
+    # Check if the barber exists and is indeed a barber
+    if barber is None or barber.user_type != 'barber':
+        return jsonify({'error': 'Barber not found'}), 404
+
+    # Fetch the barber's appointments
+    appointments = Appointment.query.filter_by(barber_id=barber.id).all()
+
+    # Convert the appointments to dictionary format for JSON serialization
+    appointments_dict = [appointment.to_dict() for appointment in appointments]
+
+    # Return the appointments
+    return jsonify(appointments_dict), 200
 
 # @user_routes.route('/barbers/<int:id>/')
 # def get_barber_index(id):
