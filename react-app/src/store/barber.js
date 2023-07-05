@@ -1,5 +1,6 @@
 const GET_BARBER = "barber/GET_BARBER";
 const GET_BARBER_BY_ID = "barber/GET_BARBER_BY_ID";
+const GET_BARBER_APPOINTMENTS = "barber/GET_BARBER_APPOINTMENTS"
 const ADD_BARBER = "barber/ADD_BARBER";
 
 const getBarbers = (barbers) => ({
@@ -8,6 +9,11 @@ const getBarbers = (barbers) => ({
 });
 
 const getBarberById = (barber) => ({
+	type: GET_BARBER_BY_ID,
+	barber,
+});
+
+const getBarberAppointments = (barber) => ({
 	type: GET_BARBER_BY_ID,
 	barber,
 });
@@ -36,6 +42,16 @@ export const fetchBarberIndex = (id) => async (dispatch) => {
 	console.log("<--------fetchBarberIndex-------->", response)
 };
 
+export const fetchBarberAppointments = (id) => async (dispatch) => {
+	const response = await fetch(`/api/users/barbers/${id}/appointments`);
+	if (response.ok) {
+		const barberAppointments = await response.json();
+		dispatch(getBarberAppointments(barberAppointments));
+	}
+
+	console.log("<--------fetchBarberAppointments-------->", response)
+};
+
 export const createBarber = (barber) => async (dispatch) => {
 	const response = await fetch("/api/barbers/", {
 		method: "POST",
@@ -61,6 +77,10 @@ export default function barberReducer(state = initialState, action) {
 			return {...newState};
 		}
 		case GET_BARBER_BY_ID: {
+            newState[action.barber.id] = action.barber
+            return {...newState}
+        }
+		case GET_BARBER_APPOINTMENTS: {
             newState[action.barber.id] = action.barber
             return {...newState}
         }
