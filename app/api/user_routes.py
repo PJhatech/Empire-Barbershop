@@ -32,7 +32,7 @@ def get_all_barbers():
     return jsonify([user.to_dict() for user in barbers])
 
 
-@user_routes.route('/barbers/<int:barber_id>/appointments', methods=['GET'])
+@user_routes.route('/barbers/<int:barber_id>/appointments/', methods=['GET'])
 def get_barber_appointments(barber_id):
     # Fetch the barber
     barber = User.query.get(barber_id)
@@ -43,9 +43,9 @@ def get_barber_appointments(barber_id):
 
     # Fetch the barber's appointments
     appointments = Appointment.query.filter_by(barber_id=barber.id).all()
-
+    print(appointments)
     # Convert the appointments to dictionary format for JSON serialization
-    appointments_dict = [appointment.to_dict() for appointment in appointments]
+    appointments_dict = [appointment.to_appointment_dict() for appointment in appointments]
 
     # Return the appointments
     return jsonify(appointments_dict), 200

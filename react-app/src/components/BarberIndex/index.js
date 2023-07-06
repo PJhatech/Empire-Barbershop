@@ -11,7 +11,7 @@ const BarberIndex = () => {
 	const barberReducer = useSelector((state) => state.barberReducer);
 	const barber = Object.values(barberReducer);
 
-	console.log("<-------BarberIndex------->", barberReducer);
+	// console.log("<-------BarberIndex------->", barberReducer);
 
 	useEffect(() => {
 		dispatch(fetchBarberIndex(id));

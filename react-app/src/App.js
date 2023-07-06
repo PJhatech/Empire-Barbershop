@@ -14,6 +14,7 @@ import AppointmentForm from "./components/AppointmentForm";
 import Services from "./components/Services";
 import ServiceIndex from "./components/ServiceIndex";
 import LocationPage from "./components/LocationPage";
+import BarberAppointments from "./components/BarberAppointments";
 // import CreateAppointmentAsClient from "./components/CreateAppointmentAsClient";
 
 
@@ -43,6 +44,9 @@ function App() {
           </Route>
           <Route exact path="/barbers/:id">
             <BarberIndex />
+          </Route>
+          <Route exact path="/barbers/:id/appointments">
+            <BarberAppointments />
           </Route>
           <Route path="/clients">
             <Clients />

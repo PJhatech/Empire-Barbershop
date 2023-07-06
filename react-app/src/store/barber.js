@@ -14,7 +14,7 @@ const getBarberById = (barber) => ({
 });
 
 const getBarberAppointments = (barber) => ({
-	type: GET_BARBER_BY_ID,
+	type: GET_BARBER_APPOINTMENTS,
 	barber,
 });
 
@@ -39,17 +39,17 @@ export const fetchBarberIndex = (id) => async (dispatch) => {
 		dispatch(getBarberById(barber));
 	}
 
-	console.log("<--------fetchBarberIndex-------->", response)
+	// console.log("<--------fetchBarberIndex-------->", response)
 };
 
 export const fetchBarberAppointments = (id) => async (dispatch) => {
-	const response = await fetch(`/api/users/barbers/${id}/appointments`);
+	const response = await fetch(`/api/users/barbers/${id}/appointments/`);
 	if (response.ok) {
 		const barberAppointments = await response.json();
 		dispatch(getBarberAppointments(barberAppointments));
 	}
 
-	console.log("<--------fetchBarberAppointments-------->", response)
+	console.log("<--------fetchBarberAppointments-------->", id)
 };
 
 export const createBarber = (barber) => async (dispatch) => {
