@@ -37,15 +37,14 @@ def get_barber_appointments(barber_id):
     # Fetch the barber
     barber = User.query.get(barber_id)
 
-    # Check if the barber exists and is indeed a barber
     if barber is None or barber.user_type != 'barber':
         return jsonify({'error': 'Barber not found'}), 404
 
-    # Fetch the barber's appointments
     appointments = Appointment.query.filter_by(barber_id=barber.id).all()
-    print(appointments)
-    # Convert the appointments to dictionary format for JSON serialization
-    appointments_dict = [appointment.to_appointment_dict() for appointment in appointments]
+
+    appointments_dict = {appointment.id: appointment.to_appointment_dict()for appointment in appointments}
+
+    # appointments_dict = ([appointment.to_appointment_dict() for appointment in appointments])
 
     # Return the appointments
     return jsonify(appointments_dict), 200

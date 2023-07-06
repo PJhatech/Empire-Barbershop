@@ -10,13 +10,16 @@ const BarberAppointments = () => {
 	const barberReducer = useSelector((state) => state.barberReducer);
 	const barberAppointments = Object.values(barberReducer);
 
+	// const object = barberAppointments.reduce((accumulator, current) => {
+	// 	return {...accumulator, ...current};
+	// }, {});
 
     useEffect(() => {
 		dispatch(fetchBarberAppointments(id))
 		// dispatch(fetchBarberIndex(id));
 	}, [dispatch, id]);
 
-	console.log("<-------BarberAppointments------->", fetchBarberAppointments);
+	// console.log("<-------BarberAppointments------->", object);
 	// const userTransactions = Object.values(allTransactions).filter(
 	//     (transaction) => transaction.user_id === userId
 	// );
