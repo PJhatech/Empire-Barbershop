@@ -1,4 +1,5 @@
 const GET_APPOINTMENT = "appointment/GET_APPOINTMENT";
+const GET_APPOINTMENT_BY_ID = "appointment/GET_APPOINTMENT_BY_ID";
 const ADD_APPOINTMENT = "appointment/ADD_APPOINTMENT";
 const DELETE_APPOINTMENT = "appointment/DELETE_APPOINTMENT";
 const UPDATE_APPOINTMENT = "appointment/UPDATE_APPOINTMENT";
@@ -6,6 +7,10 @@ const UPDATE_APPOINTMENT = "appointment/UPDATE_APPOINTMENT";
 const getAppointment = (appointments) => ({
 	type: GET_APPOINTMENT,
 	appointments,
+});
+const getAppointmentById = (appointment) => ({
+	type: GET_APPOINTMENT_BY_ID,
+	appointment,
 });
 
 const addAppointment = (appointment) => ({
@@ -30,6 +35,16 @@ export const fetchAppointments = () => async (dispatch) => {
 		dispatch(getAppointment(appointments));
 	}
 };
+
+export const fetchAppointmentById = (id) => async (dispatch) => {
+	const response = await fetch(`/api/appoiuntments/${id}`);
+	if (response.ok) {
+		const appointment = await response.json();
+		dispatch(getAppointmentById(appointment));
+		return appointment;
+	}
+};
+
 export const createAppointment = (appointment) => async (dispatch) => {
 	console.log("<----createAppointmentFetch--->", appointment);
 	console.log("Appointment data being sent:", JSON.stringify(appointment));
@@ -79,6 +94,9 @@ export default function appointmentReducer(state = initialState, action) {
 				newState[appointment.id] = appointment;
 			});
 			return {...newState};
+		}
+		case GET_APPOINTMENT_BY_ID: {
+			return {...state, [action.appointment.id]: action.appointment};
 		}
 		case ADD_APPOINTMENT: {
 			newState[action.appointment.id] = action.appointment;
