@@ -42,15 +42,15 @@ export const fetchBarberIndex = (id) => async (dispatch) => {
 	// console.log("<--------fetchBarberIndex-------->", response)
 };
 
-export const fetchBarberAppointments = (id) => async (dispatch) => {
-	const response = await fetch(`/api/users/barbers/${id}/appointments/`);
-	if (response.ok) {
-		const barberAppointments = await response.json();
-		dispatch(getBarberAppointments(barberAppointments));
-	}
+// export const fetchBarberAppointments = (id) => async (dispatch) => {
+// 	const response = await fetch(`/api/users/barbers/${id}/appointments/`);
+// 	if (response.ok) {
+// 		const barberAppointments = await response.json();
+// 		dispatch(getBarberAppointments(barberAppointments));
+// 	}
 
-	console.log("<--------fetchBarberAppointments-------->", id)
-};
+// 	console.log("<--------fetchBarberAppointments-------->", id)
+// };
 
 export const createBarber = (barber) => async (dispatch) => {
 	const response = await fetch("/api/barbers/", {

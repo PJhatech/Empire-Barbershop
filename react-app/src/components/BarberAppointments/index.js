@@ -3,11 +3,14 @@ import {useDispatch, useSelector} from "react-redux";
 import {NavLink} from "react-router-dom";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { fetchBarberAppointments,fetchBarberIndex } from "../../store/barber";
+import { fetchAppointmentById } from "../../store/appointment";
 
 const BarberAppointments = () => {
 	const dispatch = useDispatch();
 	const { id } = useParams();
 	const barberReducer = useSelector((state) => state.barberReducer);
+	const appointmentReducer = useSelector((state) => state.appointmentReducer)
+	// const barberAppointments = Object.values(appointmentReducer)
 	const barberAppointments = Object.values(barberReducer);
 
 	// const object = barberAppointments.reduce((accumulator, current) => {
@@ -15,11 +18,12 @@ const BarberAppointments = () => {
 	// }, {});
 
     useEffect(() => {
-		dispatch(fetchBarberAppointments(id))
+		// dispatch(fetchAppointmentById(id))
+		// dispatch(fetchBarberAppointment(id));
 		// dispatch(fetchBarberIndex(id));
 	}, [dispatch, id]);
 
-	// console.log("<-------BarberAppointments------->", object);
+	console.log("<-------BarberAppointments------->", barberAppointments);
 	// const userTransactions = Object.values(allTransactions).filter(
 	//     (transaction) => transaction.user_id === userId
 	// );
@@ -34,8 +38,8 @@ const BarberAppointments = () => {
 
 							{barberAppointments.id}
 							<br/>
+                           {/* { console.log("<-------BarberAppointments------->", barberAppointments)} */}
 						    {barberAppointments.last_name}
-                           { console.log("<-------BarberAppointments------->", barberAppointments)}
 
 					</div>
 				))}

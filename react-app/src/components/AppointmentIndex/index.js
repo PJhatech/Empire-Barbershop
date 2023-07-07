@@ -11,7 +11,11 @@ const AppointmentIndex = () => {
 	const appointmentReducer = useSelector((state) => state.appointmentReducer);
 	const appointment = Object.values(appointmentReducer);
 
-	console.log("<-------AppointmentIndex------->", appointment);
+	const barberAppointment = appointment.reduce((accumulator, current) => {
+		return {...accumulator, ...current};
+	}, {});
+
+	console.log("<-------AppointmentIndex------->", barberAppointment);
 
 	useEffect(() => {
 		dispatch(fetchAppointmentById(id));
@@ -26,13 +30,11 @@ const AppointmentIndex = () => {
 			AppointmentIndex
 			<h1>{appointment.barber_id}</h1>
 			<div>
-				{appointment.map((appointment) => (
-					<div key={appointment.id}>
-						<NavLink exact to={`/barbers/${appointment.id}`}>
-							{appointment.barber_id}
-							<br />
-							{/* {appointment.last_name} */}
-						</NavLink>
+				{Object.keys(barberAppointment).map((key) => (
+					<div key={key}>
+						<p>Id: {barberAppointment[key].barber.first_name}</p>
+						{/* <p>Date: {appointment[key].date}</p>
+						<p>Service: {appointment[key].service}</p> */}
 					</div>
 				))}
 			</div>
