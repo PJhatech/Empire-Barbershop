@@ -25,11 +25,11 @@ const AppointmentForm = () => {
 		dispatch(fetchClients())
 	}, [dispatch]);
 
-	const [selectedService, setSelectedService] = useState();
+	const [selectedService, setSelectedService] = useState('');
 	const [date, setDate] = useState("");
 	const [time, setTime] = useState("");
 	const [repeat, setRepeat] = useState("None");
-	const [client, setClient] = useState();
+	const [client, setClient] = useState('');
 
 	console.log("<-------AppointmentComponent------->", selectedService);
 	const handleSubmit = async (e) => {
@@ -55,7 +55,9 @@ const AppointmentForm = () => {
 						<select
 							value={selectedService}
 							onChange={(e) => setSelectedService(e.target.value)}
+							required
 						>
+							<option value="">Select a service</option>
 							{services.map((service) => (
 								<option key={service.id} value={service.id}>
 									{service.service_name}
@@ -70,7 +72,9 @@ const AppointmentForm = () => {
 					<select
 						value={client}
 						onChange={(e) => setClient(e.target.value)}
+						required
 					>
+						<option value="">Select a Client</option>
 						{clients.map((client) => (
 							<option key={client.id} value={client.id}>
 								{client.first_name}
@@ -87,6 +91,7 @@ const AppointmentForm = () => {
 						id="date"
 						value={date}
 						onChange={(e) => setDate(e.target.value)}
+						required
 					/>
 				</label>
 

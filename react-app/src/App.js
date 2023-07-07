@@ -10,7 +10,8 @@ import LandingPage from "./components/LandingPage";
 import Barbers from "./components/Barbers";
 import BarberIndex from "./components/BarberIndex";
 import Clients from "./components/Clients";
-import AppointmentForm from "./components/AppointmentForm";
+// import AppointmentForm from "./components/AppointmentForm";
+import AppointmentIndex from "./components/AppointmentIndex";
 import Services from "./components/Services";
 import ServiceIndex from "./components/ServiceIndex";
 import LocationPage from "./components/LocationPage";
@@ -51,8 +52,11 @@ function App() {
           <Route path="/clients">
             <Clients />
           </Route>
-          <Route path="/appointments">
+          <Route exact path="/appointments">
             <Appointments />
+          </Route>
+          <Route exact path="/appointments/:id">
+            <AppointmentIndex />
           </Route>
           <Route exact path="/services">
             <Services />

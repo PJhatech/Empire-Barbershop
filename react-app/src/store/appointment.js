@@ -37,7 +37,7 @@ export const fetchAppointments = () => async (dispatch) => {
 };
 
 export const fetchAppointmentById = (id) => async (dispatch) => {
-	const response = await fetch(`/api/appoiuntments/${id}`);
+	const response = await fetch(`/api/appointments/${id}`);
 	if (response.ok) {
 		const appointment = await response.json();
 		dispatch(getAppointmentById(appointment));

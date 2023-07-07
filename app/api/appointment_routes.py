@@ -14,15 +14,32 @@ def get_appointments():
     # print(appointments)
     return jsonify([appointment.to_appointment_dict() for appointment in appointments])
 
+
 @appointment_routes.route('/')
 @login_required
 def handle_appointments():
-        barber_appointments = Appointment.query.filter_by(barber=current_user.id).first()
+        barber_appointments = Appointment.query.filter_by(
+            barber=current_user.id).first()
         if barber_appointments is None:
             pass
         else:
             return barber_appointments.to_appointment_dict()
 
+
+@appointment_routes.route('/<int:id>')
+@login_required
+def get_appointment_by_id(id):
+#     appointment = Appointment.query.get(id)
+#     return appointment.to_appointment_dict()
+    barber = User.query.get(id)
+
+    if barber is None or barber.user_type != 'barber':
+        return jsonify({'error': 'Barber not found'}), 404
+
+    appointments = Appointment.query.filter_by(barber_id=barber.id).all()
+
+    appointments_dict = {appointment.id: appointment.to_appointment_dict() for appointment in appointments}
+    return jsonify(appointments_dict), 200
 
 @appointment_routes.route('/', methods=['POST'])
 @login_required
