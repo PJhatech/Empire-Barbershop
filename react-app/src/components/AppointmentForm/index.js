@@ -42,7 +42,9 @@ const AppointmentForm = () => {
 			time,
 			repeat,
 		};
-		const newAppointment = await dispatch(createAppointment(appointment));
+		if (appointment) {
+			const newAppointment = await dispatch(createAppointment(appointment));
+		}
 	};
 
 	return (
