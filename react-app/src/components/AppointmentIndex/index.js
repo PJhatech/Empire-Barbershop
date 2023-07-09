@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {NavLink} from "react-router-dom";
 import {useParams} from "react-router-dom/cjs/react-router-dom.min";
 import { fetchAppointmentById } from "../../store/appointment";
+import AvailableDates from "../AvailableDates";
 
 
 const AppointmentIndex = () => {
@@ -28,7 +29,7 @@ const AppointmentIndex = () => {
 	return (
 		<>
 			AppointmentIndex
-			<h1>{appointment.barber_id}</h1>
+			{/* <h1>{appointment.barber_id}</h1>b */}
 			<div>
 				{Object.keys(barberAppointment).map((key) => (
 					<div key={key}>
@@ -38,6 +39,9 @@ const AppointmentIndex = () => {
 					</div>
 				))}
 			</div>
+			<>
+				{<AvailableDates />}
+			</>
 			{/* <NavLink to={`/appointments/${.id}/edit`}>
 				<button type="submit">Update</button>
 			</NavLink> */}
