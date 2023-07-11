@@ -55,13 +55,14 @@ const AvailableDates = () => {
 		dispatch(fetchClients());
 	}, [dispatch]);
 
-	useEffect(() => {
-		setAvailableDates((prevDates) =>
-			prevDates.filter(
-				(date) => !appointments.some((app) => app.date === date)
-			)
-		);
-	}, [appointments]);
+	// this useEffect is causing a infinite loop
+	// useEffect(() => {
+	// 	setAvailableDates((prevDates) =>
+	// 		prevDates.filter(
+	// 			(date) => !appointments.some((app) => app.date === date)
+	// 		)
+	// 	);
+	// }, [appointments]);
 
 	useEffect(() => {
 		const start = new Date();
