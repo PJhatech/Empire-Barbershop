@@ -11,7 +11,7 @@ function Navigation({isLoaded}) {
 	let navColor = location.pathname === "/" ? "black" : "initial";
 
 	return (
-		<div id="navigation-container" style={{backgroundColor: navColor}}>
+		<div className="navigation-container" style={{backgroundColor: navColor}}>
 			<NavLink exact to="/">
 				{location.pathname !== "/" && (
 					<img

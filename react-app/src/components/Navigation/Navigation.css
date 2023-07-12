@@ -9,7 +9,7 @@
 #navigation-container {
 	display: flex;
 	font-family: Arial, sans-serif;
-	justify-content: flex-end;
+	/* justify-content: flex-end; */
 	padding-bottom: 8px;
 	width: 100%;
 	align-items: center;
@@ -24,49 +24,56 @@
 }
 
 .barberPole {
-	position: absolute;
-	align-content: center;
+	position: fixed;
+	/* align-content: center; */
+
 	z-index: 1;
-	top: 50%;
+	top: 0;
 	left: 50%;
-	transform: translate(-50%, -50%);
-	height: 85px;
+	/* transform: translate( -50%); */
+	height: 10%;
 }
 
 .nav-wrapper {
 	display: flex;
+	/* position: absolute; */
 	flex-direction: row;
-	justify-content: flex-end;
-	margin-left: 45px;
+	justify-content: flex-start;
+	/* top: 0; */
+	/* left: 0; */
+	z-index: 1;
+	/* position: fixed; */
+	width: 100%;
+	/* margin-left: 45px; */
 	gap: 16px;
+	height: 80px;
 }
 
-
-
 .shopSign {
-  color: #32cd32;
+	color: #32cd32;
 	position: fixed;
-  z-index: 1;
-  left: 350px;
-  font-size: 20px;
-  letter-spacing: 15px;
-  font-style: italic;
+	z-index: 1;
+	left: 350px;
+	font-size: 20px;
+	letter-spacing: 15px;
+	font-style: italic;
 	/* letter-spacing: 18px; */
 	/* font-weight: lighter; */
 	/* padding-top: px; */
-  /* text-transform: uppercase; */
+	/* text-transform: uppercase; */
 }
 
 .components {
 	display: flex;
-  padding-top: 38px;
-  /* flex-direction: row; */
-  font-size: 10px;
-  letter-spacing: 5px;
-  font-style: italic;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+	left: 0;
+	/* padding-top: 38px; */
+	/* flex-direction: row; */
+	font-size: 10px;
+	letter-spacing: 5px;
+	font-style: italic;
+	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+		"Lucida Sans", Arial, sans-serif;
 }
-
 
 a:link {
 	text-decoration: none;

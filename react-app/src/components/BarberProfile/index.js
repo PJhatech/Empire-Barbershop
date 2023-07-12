@@ -44,17 +44,10 @@ const BarberProfile = () => {
 					</NavLink>
 				</div>
 			</div>
-			<div className="sign">
+			<div className="barberProfile">
 				{isLoaded && (
 					<>
-						{/* {
-							<BarberIndex
-								className="barberName"
-								barberId={barberId}
-							/>
-						} */}
-
-						<img alt="logoImg" className="logoimg" src={logo} />
+						<img alt="logo" className="barberimg" src={logo} />
 					</>
 				)}
 			</div>
