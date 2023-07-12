@@ -5,7 +5,7 @@ import { fetchBarberIndex } from "../../store/barber";
 import "./barberIndex.css";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
-const BarberIndex = () => {
+const BarberIndex = ({barberId}) => {
 	const dispatch = useDispatch();
 	const { id } = useParams();
 	const barberReducer = useSelector((state) => state.barberReducer);
@@ -13,6 +13,9 @@ const BarberIndex = () => {
 
 	// console.log("<-------BarberIndex------->", barberReducer);
 
+	useEffect(() => {
+		dispatch(fetchBarberIndex(barberId));
+	}, [dispatch, barberId]);
 	useEffect(() => {
 		dispatch(fetchBarberIndex(id));
 	}, [dispatch, id]);
@@ -28,11 +31,9 @@ const BarberIndex = () => {
 			<div>
 				{barber.map((barber) => (
 					<div key={barber.id}>
-                        <NavLink exact to={`/barbers/${barber.id}`}>
 							{barber.first_name}
-							<br/>
+							
 						    {barber.last_name}
-						</NavLink>
 					</div>
 				))}
 			</div>

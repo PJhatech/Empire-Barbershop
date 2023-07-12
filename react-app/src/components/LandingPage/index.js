@@ -36,12 +36,12 @@ const LandingPage = () => {
 			</div>
 			<div className="sign">
 
-				<NavLink exact to="/">
+				<NavLink exact to="/barberprofile">
 					{isLoaded && (
 						<>
 							<img alt="logoImg" className="logoimg" src={logo} />
 							{/* <img alt="logoImg" className="logoimg" src={logo} /> */}
-							<ProfileButton user={sessionUser} />
+							{/* <ProfileButton user={sessionUser} /> */}
 						</>
 					)}
 				</NavLink>

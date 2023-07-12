@@ -16,6 +16,7 @@ import Services from "./components/Services";
 import ServiceIndex from "./components/ServiceIndex";
 import LocationPage from "./components/LocationPage";
 import BarberAppointments from "./components/BarberAppointments";
+import BarberProfile from "./components/BarberProfile";
 // import CreateAppointmentAsClient from "./components/CreateAppointmentAsClient";
 
 
@@ -33,6 +34,9 @@ function App() {
         <Switch>
           <Route exact path="/" >
             <LandingPage />
+          </Route>
+          <Route exact path="/barberprofile" >
+            <BarberProfile />
           </Route>
           <Route path="/login" >
             <LoginFormPage />
