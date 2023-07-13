@@ -30,7 +30,7 @@ function Navigation({isLoaded}) {
 					</div>
 
 					<div className="components">
-						<NavLink exact to="/">
+						<NavLink  to="/barberprofile">
 							{isLoaded && (
 								<>
 									<ProfileButton user={sessionUser} />
