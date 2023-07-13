@@ -37,31 +37,29 @@
 
 @keyframes scroll {
 	0% {
-		transform: translateX(100%);
+		transform: translateX(0);
 	}
 	100% {
 		transform: translateX(-100%);
 	}
 }
 
-div.scroll-container {
+.scroll-container {
 	background-color: #333;
 	overflow: hidden;
 	white-space: nowrap;
 	padding: 10px;
-	/* position: relative; */
+	/* width: 300%; */
 	/* display: inline-block; */
 	float: left;
-	animation: scroll 60s linear infinite
+	animation: scroll 60s linear infinite;
 }
 
-/* div.scroll-container div {
-	display: inline-block;
-	animation: scroll 20s linear infinite;
-} */
 
-div.scroll-container img {
+.scroll-container img {
 	padding: 10px;
+	/* float: left; */
+	/* animation: scroll 10s linear infinite; */
 }
 
 button.book {
