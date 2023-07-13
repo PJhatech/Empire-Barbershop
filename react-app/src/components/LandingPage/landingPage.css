@@ -1,23 +1,19 @@
-.sign {
+.imgContainer {
 	background-color: white;
-	width: 100%;
+	width: 100vw;
 	height: 65%;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	z-index: -1;
+	/* position: absolute; */
+	/* top: 50%; */
+	/* left: 50%;
+	transform: translate(-50%, -50%); */
+	/* z-index: -1; */
 }
 
-/* .fullPage {
-	background-color: black;
-} */
+.fullPage {
+	overflow-y: auto;
+}
 
 .bookNow {
-	/* width: 525px;
-    height: 400px; */
-
-	/* Add these */
 	position: absolute;
 	bottom: 11%;
 	left: 50%;
@@ -39,22 +35,39 @@
     height: 50%; */
 }
 
-div.scroll-container {
-  background-color: #333;
-  overflow: auto;
-  white-space: nowrap;
-  padding: 10px;
+@keyframes scroll {
+	0% {
+		transform: translateX(100%);
+	}
+	100% {
+		transform: translateX(-100%);
+	}
 }
 
+div.scroll-container {
+	background-color: #333;
+	overflow: hidden;
+	white-space: nowrap;
+	padding: 10px;
+	/* position: relative; */
+	/* display: inline-block; */
+	float: left;
+	animation: scroll 60s linear infinite
+}
+
+/* div.scroll-container div {
+	display: inline-block;
+	animation: scroll 20s linear infinite;
+} */
+
 div.scroll-container img {
-  padding: 10px;
+	padding: 10px;
 }
 
 button.book {
 	background: none;
 	border: none;
 	padding: 0;
-
 	cursor: pointer;
 	font: inherit;
 	outline: inherit;
