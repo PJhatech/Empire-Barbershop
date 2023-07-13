@@ -1,5 +1,6 @@
 .imgContainer {
 	background-color: white;
+	padding-top: 20px;
 	width: 100vw;
 	height: 65%;
 	/* position: absolute; */
@@ -48,18 +49,19 @@
 	background-color: #333;
 	overflow: hidden;
 	white-space: nowrap;
+
 	padding: 10px;
 	/* width: 300%; */
 	/* display: inline-block; */
 	float: left;
-	animation: scroll 60s linear infinite;
+	animation: scroll 80s linear
 }
 
 
 .scroll-container img {
 	padding: 10px;
 	/* float: left; */
-	/* animation: scroll 10s linear infinite; */
+	/* animation: scroll 70s linear infinite; */
 }
 
 button.book {

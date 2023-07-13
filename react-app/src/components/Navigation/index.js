@@ -11,16 +11,21 @@ function Navigation({isLoaded}) {
 	let navColor = location.pathname === "/" ? "black" : "initial";
 
 	return (
-		<div className="navigation-container" style={{backgroundColor: navColor}}>
-			<NavLink exact to="/">
-				{location.pathname !== "/" && (
-					<img
-						alt="poleIcon"
-						className="barberPole"
-						src={barberPole}
-					/>
-				)}
-			</NavLink>
+		<div
+			className="navigation-container"
+			style={{backgroundColor: navColor}}
+		>
+			<>
+				<NavLink exact to="/">
+					{location.pathname !== "/" && (
+						<img
+							alt="poleIcon"
+							className="barberPole"
+							src={barberPole}
+						/>
+					)}
+				</NavLink>
+			</>
 			<div className="nav-wrapper">
 				<div className="home-icon">
 					<div className="shopSign">
@@ -30,7 +35,8 @@ function Navigation({isLoaded}) {
 					</div>
 
 					<div className="components">
-						<NavLink  to="/barberprofile">
+						<h1> Empire BarberShop </h1>
+						<NavLink to="/barberprofile">
 							{isLoaded && (
 								<>
 									<ProfileButton user={sessionUser} />

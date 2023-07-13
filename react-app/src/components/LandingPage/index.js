@@ -8,7 +8,6 @@ import cut4 from "../Images/cut4.jpg";
 import whitechair from "../Images/whitechar.jpg";
 import cut6 from "../Images/cut6.JPG";
 import cut3 from "../Images/cut3.jpg";
-import cut5 from "../Images/cut5.jpg";
 import cut9 from "../Images/cut9.jpg";
 import cut10 from "../Images/cut10.jpg";
 import cut11 from "../Images/cut11.jpg";
@@ -16,11 +15,10 @@ import cut12 from "../Images/cut12.JPG";
 import cut14 from "../Images/cut14.jpg";
 import cut15 from "../Images/cut15.jpg";
 import cut16 from "../Images/cut16.jpg";
-import cut17 from "../Images/cut17.jpg";
 import cut18 from "../Images/cut18.jpg";
 import cut19 from "../Images/cut19.jpg";
-import cut20 from "../Images/cut20.jpg";
-import pin from "../Images/pin.jpg";
+import cut21 from "../Images/cut21.JPG";
+import cut22 from "../Images/cut22.jpg";
 import logo from "../Images/whiteIcon.jpeg";
 import bestofeast from "../Images/bestofeast.jpg";
 import ProfileButton from "../Navigation/ProfileButton";
@@ -57,30 +55,27 @@ const LandingPage = () => {
 				{/* <NavLink exact to="/barber"> */}
 				{isLoaded && (
 					<div class="scroll-container">
-						<img alt="hottowel" width="375" height="300" src={cut16} />
-						<img
-							alt="bestoftheeast"
-							className="logoimg"
-							src={bestofeast}
-						/>
 
+						<img alt="hottowel" width="375" height="300" src={cut16} />
+						<img alt="bestoftheeast" className="logoimg" src={bestofeast} />
+						<img alt="dariocut" width="290" height="300" src={cut19} />
 						<img alt="cape" className="logoimg" src={cut9} />
 						<img alt="cut2" className="logoimg" src={cut2} />
-						<img alt="tape" className="logoimg" src={cut4} />
-						<img alt="tape" className="logoimg" src={cut1} />
-						<img alt="jhaCut" className="logoimg" src={cut12} />
-						<img alt="hassan" width="280" height="300" src={cut15} />
-						<img alt="dariocut" width="290" height="300" src={cut19} />
-						<img alt="cut4" width="310" height="300" src={cut3} />
-						<img alt="cut4" className="logoimg" src={cut10} />
-						{/* <img alt="cut4" width="310" height="300" src={cut5} /> */}
 						<img alt="chris" width="425" height="300" src={cut11} />
-						{/* <img alt="pin" className="logoimg" src={pin} /> */}
-						<img alt="cut4" className="logoimg" src={whitechair} />
-						{/* <img alt="ronecut" className="logoimg" src={cut20} /> */}
+						<img alt="jhaCut" className="logoimg" src={cut12} />
+						<img alt="jhaCut3" width="375" height="300" src={cut21} />
+						<img alt="jhaCut2" width="300" height="300" src={cut22} />
+						<img alt="whitechair" className="logoimg" src={whitechair} />
+						<img alt="tape" className="logoimg" src={cut1} />
+						<img alt="cut4" className="logoimg" src={cut10} />
+						<img alt="tape" className="logoimg" src={cut4} />
+						<img alt="hassan" width="280" height="300" src={cut15} />
 						<img alt="justin" width="310" height="300" src={cut14} />
+						{/* <img alt="blonde" width="310" height="300" src={cut3} /> */}
+						{/* <img alt="pin" className="logoimg" src={pin} /> */}
+						{/* <img alt="ronecut" className="logoimg" src={cut20} /> */}
 						{/* <img alt="cut4" className="logoimg" src={cut17} /> */}
-						{/* <img alt="logoImg" className="logoimg" src={logo} /> */}
+						<img alt="logoImg"  width="400" height="300"src={logo} />
 						{/* <ProfileButton user={sessionUser} /> */}
 					</div>
 				)}
