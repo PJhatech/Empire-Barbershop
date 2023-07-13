@@ -3,9 +3,11 @@ import {NavLink, useLocation} from "react-router-dom";
 import {useSelector} from "react-redux";
 import ProfileButton from "./ProfileButton";
 import barberPole from "../Images/barberPoleLogo.JPG";
+import whitePole from "../Images/whitepole.PNG"
 import "./Navigation.css";
 
-function Navigation({isLoaded}) {
+function Navigation({ isLoaded }) {
+	
 	const sessionUser = useSelector((state) => state.session.user);
 	const location = useLocation();
 	let navColor = location.pathname === "/" ? "black" : "initial";
@@ -15,18 +17,22 @@ function Navigation({isLoaded}) {
 			className="navigation-container"
 			style={{backgroundColor: navColor}}
 		>
-			<>
+			<div className="nav-wrapper">
+			<div>
 				<NavLink exact to="/">
-					{location.pathname !== "/" && (
+					{location.pathname !== "/" ? (
 						<img
 							alt="poleIcon"
 							className="barberPole"
 							src={barberPole}
 						/>
-					)}
+					) : <img
+							alt="poleIcon"
+							className="barberPole"
+							src={whitePole}
+						/>}
 				</NavLink>
-			</>
-			<div className="nav-wrapper">
+			</div>
 				<div className="home-icon">
 					<div className="shopSign">
 						{/* {location.pathname === "/" && (

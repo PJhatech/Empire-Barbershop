@@ -3,6 +3,7 @@
 } */
 
 #root {
+    margin-top: 65px;
     overflow-x: clip;
     /* width: max-content; */
 }

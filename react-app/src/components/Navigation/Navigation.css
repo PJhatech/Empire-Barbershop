@@ -6,47 +6,30 @@
 	display: none;
 }
 
-#navigation-container {
-	display: flex;
-	font-family: Arial, sans-serif;
-	/* justify-content: flex-end; */
-	padding-bottom: 8px;
-	width: 100%;
-	align-items: center;
-	background-color: white;
-	position: fixed;
-	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-	font-style: normal;
+.navigation-container {
 	text-decoration: none;
+	overflow: hidden;
+	background-color: #333;
+	position: fixed;
 	top: 0;
 	left: 0;
+	width: 100%;
+	justify-content: flex-start;
+	height: 77px;
+	background-color: white;
 	z-index: 1;
-}
-
-.barberPole {
-	position: fixed;
-	/* align-content: center; */
-
-	z-index: 1;
-	top: 0;
-	/* left: 1; */
-	/* transform: translate( -50%); */
-	height: 10%;
 }
 
 .nav-wrapper {
 	display: flex;
-	/* position: absolute; */
 	flex-direction: row;
 	justify-content: flex-start;
-	/* top: 0; */
-	/* left: 0; */
-	z-index: 1;
-	/* position: fixed; */
-	width: 100%;
-	/* margin-left: 45px; */
 	gap: 16px;
-	height: 80px;
+}
+
+.barberPole {
+	padding-left: 10px;
+	height: 75px;
 }
 
 .shopSign {
@@ -56,7 +39,7 @@
 	left: 350px;
 	font-size: 20px;
 	letter-spacing: 15px;
-	font-style: italic;
+	/* font-style: italic; */
 	/* letter-spacing: 18px; */
 	/* font-weight: lighter; */
 	/* padding-top: px; */
@@ -65,15 +48,14 @@
 
 .components {
 	display: flex;
-	left: 0;
 	justify-content: space-between;
-	/* padding-top: 38px; */
-	/* flex-direction: row; */
-	font-size: 10px;
-	letter-spacing: 5px;
-	font-style: italic;
-	font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-		"Lucida Sans", Arial, sans-serif;
+	flex-direction: row;
+	font-size: 13px;
+	font-style: normal;
+	font-family: "Futura PT", sans-serif;
+	text-transform: uppercase;
+    font-style: normal;
+    letter-spacing: 14px;
 }
 
 a:link {
@@ -81,7 +63,7 @@ a:link {
 }
 
 h1 {
-	color: #32cd32;
+	color: white;
 }
 h2 {
 	display: flex;
