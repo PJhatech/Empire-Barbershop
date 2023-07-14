@@ -20,10 +20,12 @@ import cut19 from "../Images/cut19.jpg";
 import cut21 from "../Images/cut21.JPG";
 import cut22 from "../Images/cut22.jpg";
 import logo from "../Images/whiteIcon.jpeg";
-import presChair from "../Images/presChair.jpeg"
-import concordChairs from "../Images/chairImg.jpeg"
+import presChair from "../Images/presChair.jpeg";
+import concordChairs from "../Images/chairImg.jpeg";
 import bestofeast from "../Images/bestofeast.jpg";
 import blackBackground from "../Images/wallpaper.jpg";
+import stateofmind from "../Images/stateofmind.jpg";
+
 import ProfileButton from "../Navigation/ProfileButton";
 
 const LandingPage = () => {
@@ -45,20 +47,7 @@ const LandingPage = () => {
 
 	return (
 		<div className="fullPage">
-			<div className="logoContainer">
-				<img alt="logo" className="logo" src={blackBackground} /></div>
-			{/* <div className="bookNow">
-				<div>
-					<NavLink to={"/locations"}>
-						<button className="book">
-							<h1>Book Now</h1>
-						</button>
-					</NavLink>
-				</div>
-			</div> */}
 			<div className="imgContainer">
-				{/* <NavLink exact to="/barber"> */}
-
 				<div class="scroll-container">
 					<img alt="hottowel" width="475" height="400" src={cut16} />
 					<img alt="bestoftheeast" className="logoimg" src={bestofeast} />
@@ -81,6 +70,9 @@ const LandingPage = () => {
 					{/* <img alt="cut4" className="logoimg" src={cut17} /> */}
 					{/* <img alt="logoImg" width="400" height="300" src={logo} /> */}
 					{/* <ProfileButton user={sessionUser} /> */}
+				</div>
+				<div className="stateofmindContainer">
+					<img alt="logo" className="stateofmind" src={stateofmind} />
 				</div>
 
 				{/* </NavLink> */}
