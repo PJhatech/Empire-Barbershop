@@ -10,34 +10,23 @@ function Navigation({isLoaded}) {
 	const sessionUser = useSelector((state) => state.session.user);
 	const location = useLocation();
 	let navColor = location.pathname === "/" ? "black" : "initial";
+	let shopNameColor = location.pathname === "/locations" ? "black" : "white";
 
 	return (
-		<div
-			className="navigation-container"
-			style={{backgroundColor: navColor}}
-		>
+		<div className="navigation-container" style={{backgroundColor: navColor}}>
 			<div className="barberPole-wrapper">
 				<div>
 					<NavLink exact to="/">
 						{location.pathname !== "/" ? (
-							<img
-								alt="poleIcon"
-								className="barberPole"
-								src={barberPole}
-							/>
+							<img alt="poleIcon" className="barberPole" src={barberPole} />
 						) : (
-							<img
-								alt="poleIcon"
-								className="barberPole"
-								src={whitePole}
-							/>
+							<img alt="poleIcon" className="barberPole" src={whitePole} />
 						)}
 					</NavLink>
 				</div>
 				<div className="components">
-					<div className="shopName">
-					<h1> Empire BarberShop </h1>
-
+					<div className="shopName" style={{color: shopNameColor}}>
+						<h1> Empire BarberShop </h1>
 					</div>
 					{isLoaded && (
 						<div className="userButton">

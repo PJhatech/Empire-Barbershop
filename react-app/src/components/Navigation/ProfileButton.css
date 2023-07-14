@@ -1,5 +1,10 @@
 .profileButtonContainer {
     display: flex;
+	color: #32cd32;
+}
+
+.userInfo {
+	/* color: #32cd32; */
 }
 
 button.profileButton {

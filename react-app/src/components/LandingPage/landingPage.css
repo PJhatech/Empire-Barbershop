@@ -1,8 +1,14 @@
+.fullPage {
+	max-height: 100vh;
+	overflow: auto;
+}
+
 .imgContainer {
+	/* bottom: 0; */
 	background-color: white;
-	padding-top: 20px;
+
 	width: 100vw;
-	height: 65%;
+	height: 10px;
 	/* position: absolute; */
 	/* top: 50%; */
 	/* left: 50%;
@@ -25,15 +31,13 @@
 .logoimg {
 	width: 300px;
 	height: 300px;
-	/* Add these */
-	/* position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%); */
-	/* position:absolute;
-    align-content: center;
-    width: 50;
-    height: 50%; */
+}
+
+.presChair {
+	/* z-index: -1; */
+	width: 100%;
+	/* max-height: 100vh; */
+	/* overflow: auto; */
 }
 
 @keyframes scroll {
@@ -54,9 +58,8 @@
 	/* width: 300%; */
 	/* display: inline-block; */
 	float: left;
-	animation: scroll 80s linear
+	animation: scroll 80s linear;
 }
-
 
 .scroll-container img {
 	padding: 10px;

@@ -20,6 +20,7 @@ import cut19 from "../Images/cut19.jpg";
 import cut21 from "../Images/cut21.JPG";
 import cut22 from "../Images/cut22.jpg";
 import logo from "../Images/whiteIcon.jpeg";
+import presChair from "../Images/presChair.jpeg"
 import bestofeast from "../Images/bestofeast.jpg";
 import ProfileButton from "../Navigation/ProfileButton";
 
@@ -53,9 +54,8 @@ const LandingPage = () => {
 			</div>
 			<div className="imgContainer">
 				{/* <NavLink exact to="/barber"> */}
-				{isLoaded && (
-					<div class="scroll-container">
 
+					<div class="scroll-container">
 						<img alt="hottowel" width="375" height="300" src={cut16} />
 						<img alt="bestoftheeast" className="logoimg" src={bestofeast} />
 						<img alt="dariocut" width="290" height="300" src={cut19} />
@@ -75,11 +75,14 @@ const LandingPage = () => {
 						{/* <img alt="pin" className="logoimg" src={pin} /> */}
 						{/* <img alt="ronecut" className="logoimg" src={cut20} /> */}
 						{/* <img alt="cut4" className="logoimg" src={cut17} /> */}
-						<img alt="logoImg"  width="400" height="300"src={logo} />
+						<img alt="logoImg" width="400" height="300" src={logo} />
 						{/* <ProfileButton user={sessionUser} /> */}
 					</div>
-				)}
+
 				{/* </NavLink> */}
+			</div>
+			<div>
+				{/* <img alt="presChair" className="presChair" src={logo} /> */}
 			</div>
 		</div>
 	);

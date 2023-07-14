@@ -33,7 +33,6 @@
 	height: 75px;
 }
 
-
 .components {
 	display: flex;
 	justify-content: space-between;
@@ -42,14 +41,16 @@
 	font-style: normal;
 	font-family: "Futura PT", sans-serif;
 	text-transform: uppercase;
-    font-style: normal;
-    letter-spacing: 14px;
+	font-style: normal;
+	letter-spacing: 14px;
 	padding-top: 6px;
 	width: 100%;
 }
 
 .shopName {
 	width: 100%;
+	color: white;
+	/* color: black; */
 }
 
 .userButton {
@@ -60,9 +61,6 @@ a:link {
 	text-decoration: none;
 }
 
-h1 {
-	color: white;
-}
 h2 {
 	display: flex;
 	flex-direction: row;
