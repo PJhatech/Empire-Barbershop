@@ -47,7 +47,7 @@ const LandingPage = () => {
 		<div className="fullPage">
 			<div className="logoContainer">
 				<img alt="logo" className="logo" src={blackBackground} /></div>
-			<div className="bookNow">
+			{/* <div className="bookNow">
 				<div>
 					<NavLink to={"/locations"}>
 						<button className="book">
@@ -55,7 +55,7 @@ const LandingPage = () => {
 						</button>
 					</NavLink>
 				</div>
-			</div>
+			</div> */}
 			<div className="imgContainer">
 				{/* <NavLink exact to="/barber"> */}
 

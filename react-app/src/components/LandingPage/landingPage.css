@@ -1,23 +1,16 @@
 .fullPage {
-	overflow-y: auto;
+	/* overflow-y: auto; */
 }
 
 .imgContainer {
-	/* top: 0; */
-	background-color: white;
-	padding-top: 135px;
+	/* bottom: 7; */
+	/* background-color: white; */
+	margin-top: 120px;
 	width: 100%;
 	/* height: 10px; */
-	/* position: absolute; */
+	position: fixed;
 }
 
-.bookNow {
-	position: absolute;
-	bottom: 11%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	z-index: 1;
-}
 
 .logoimg {
 	width: 400px;
@@ -25,18 +18,14 @@
 }
 
 .logoContainer {
-	height: 150px;
+	/* height: 10px; */
 	position: fixed;
-	bottom: 0;
+	top: 0;
+	left: 0;
 }
 
 .logo {
-	/* position: fixed; */
-	/* bottom: 0; */
-	/* z-index: -1; */
-	width: 100%;
-	/* max-height: 100vh; */
-	/* overflow: auto; */
+	width: 100vw;
 }
 
 @keyframes scroll {
@@ -66,7 +55,7 @@
 	/* animation: scroll 70s linear infinite; */
 }
 
-button.book {
+/* button.book {
 	background: none;
 	border: none;
 	padding: 0;
@@ -84,4 +73,4 @@ button.book {
 button.book:hover {
 	color: #32cd32;
 	font-size: 18px;
-}
+} */
