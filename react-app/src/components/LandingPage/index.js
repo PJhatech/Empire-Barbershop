@@ -23,6 +23,7 @@ import logo from "../Images/whiteIcon.jpeg";
 import presChair from "../Images/presChair.jpeg"
 import concordChairs from "../Images/chairImg.jpeg"
 import bestofeast from "../Images/bestofeast.jpg";
+import blackBackground from "../Images/wallpaper.jpg";
 import ProfileButton from "../Navigation/ProfileButton";
 
 const LandingPage = () => {
@@ -44,7 +45,8 @@ const LandingPage = () => {
 
 	return (
 		<div className="fullPage">
-			<div>{/* <img alt="logo" className="logo" src={} /> */}</div>
+			<div className="logoContainer">
+				<img alt="logo" className="logo" src={blackBackground} /></div>
 			<div className="bookNow">
 				<div>
 					<NavLink to={"/locations"}>

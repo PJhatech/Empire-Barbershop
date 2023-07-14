@@ -13,7 +13,7 @@ function Navigation({isLoaded}) {
 	let shopNameColor = location.pathname === "/locations" ? "black" : "white";
 
 	return (
-		<div className="navigation-container" style={{backgroundColor: navColor}}>
+		<div className="navigation-container" style={{ backgroundColor: navColor }}>
 			<div className="barberPole-wrapper">
 				<div>
 					<NavLink exact to="/">
@@ -27,6 +27,12 @@ function Navigation({isLoaded}) {
 				<div className="components">
 					<div className="shopName" style={{color: shopNameColor}}>
 						<h1> Empire BarberShop </h1>
+					</div>
+					<div className="h2Tags">
+						<h2> Home</h2>
+						<h2> Gift Cards</h2>
+						<h2> Shop</h2>
+						<h2> Join Our Team</h2>
 					</div>
 					{isLoaded && (
 						<div className="userButton">

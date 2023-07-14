@@ -37,20 +37,37 @@
 	display: flex;
 	justify-content: space-between;
 	flex-direction: row;
-	font-size: 13px;
+	font-size: 10px;
 	font-style: normal;
 	font-family: "Futura PT", sans-serif;
 	text-transform: uppercase;
-	font-style: normal;
-	letter-spacing: 14px;
+	font-style:oblique;
+	letter-spacing: 4px;
 	padding-top: 6px;
 	width: 100%;
+	color: #32cd32;;
 }
 
 .shopName {
+	display: flex;
 	width: 100%;
 	color: white;
+	letter-spacing: 14px;
+	font-size: 13px;
+	/* margin-right: 10px; */
 	/* color: black; */
+}
+
+.h2Tags {
+	width: 100%;
+	display:flex;
+	flex-direction: row;
+	/* margin-left: 60px; */
+	justify-content:flex-end;
+	/* direction: rtl; */
+	gap: 50px;
+	padding-top: 15px;
+	/* text-align: justify */
 }
 
 .userButton {
