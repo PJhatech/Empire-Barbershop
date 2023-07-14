@@ -12,7 +12,7 @@ function ComingSoon() {
 
 	return (
 		<div className="page">
-            <h1>Hercules Location Coming Soon!</h1>
+            <h1>Coming Soon!</h1>
 		</div>
 	);
 }

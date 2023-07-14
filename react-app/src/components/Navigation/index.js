@@ -4,11 +4,17 @@ import {useSelector} from "react-redux";
 import ProfileButton from "./ProfileButton";
 import barberPole from "../Images/barberPoleLogo.JPG";
 import whitePole from "../Images/whitepole.PNG";
+import OpenModalButton from "../OpenModalButton";
+import ComingSoon from "../ComingSoon";
+import {ModalProvider, useModal} from "../../context/Modal";
 import "./Navigation.css";
 
 function Navigation({isLoaded}) {
 	const sessionUser = useSelector((state) => state.session.user);
 	const location = useLocation();
+
+	const {setModalContent} = useModal();
+
 	let navColor = location.pathname === "/" ? "black" : "initial";
 	let shopNameColor = location.pathname === "/locations" ? "black" : "white";
 
@@ -29,21 +35,24 @@ function Navigation({isLoaded}) {
 						<h1> Empire BarberShop </h1>
 					</div>
 					<div className="h2Tags">
-						<h2> Home</h2>
-						<div className="bookNow">
-								<NavLink to={"/locations"}>
-										<h2>Book Now</h2>
-								</NavLink>
-						</div>
-						<h2> Gift Cards</h2>
-						<h2> Shop</h2>
-						<h2> Join Our Team</h2>
+						<NavLink exact to="/">
+							<h2> Home</h2>
+						</NavLink>
+						<NavLink to={"/locations"}>
+							<h2>Book Now</h2>
+						</NavLink>
+						<h2 onClick={() => setModalContent(<ComingSoon />)}> Gift Cards</h2>
+						<h2 onClick={() => setModalContent(<ComingSoon />)}> Shop</h2>
+						<NavLink to={"/barberprofile"}>
+							<h2> Barber Profile</h2>
+						</NavLink>
+						{isLoaded && (
+							<div className="userButton">
+								{/* <h2>Barber Profile</h2> */}
+								<ProfileButton user={sessionUser} />
+							</div>
+						)}
 					</div>
-					{isLoaded && (
-						<div className="userButton">
-							<ProfileButton user={sessionUser} />
-						</div>
-					)}
 				</div>
 			</div>
 		</div>
