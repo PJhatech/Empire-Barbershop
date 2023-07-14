@@ -21,6 +21,7 @@ import cut21 from "../Images/cut21.JPG";
 import cut22 from "../Images/cut22.jpg";
 import logo from "../Images/whiteIcon.jpeg";
 import presChair from "../Images/presChair.jpeg"
+import concordChairs from "../Images/chairImg.jpeg"
 import bestofeast from "../Images/bestofeast.jpg";
 import ProfileButton from "../Navigation/ProfileButton";
 
@@ -43,6 +44,9 @@ const LandingPage = () => {
 
 	return (
 		<div className="fullPage">
+			<div>
+				{/* <img alt="logo" className="logo" src={} /> */}
+			</div>
 			<div className="bookNow">
 				<div>
 					<NavLink to={"/locations"}>
@@ -75,14 +79,11 @@ const LandingPage = () => {
 						{/* <img alt="pin" className="logoimg" src={pin} /> */}
 						{/* <img alt="ronecut" className="logoimg" src={cut20} /> */}
 						{/* <img alt="cut4" className="logoimg" src={cut17} /> */}
-						<img alt="logoImg" width="400" height="300" src={logo} />
+						{/* <img alt="logoImg" width="400" height="300" src={logo} /> */}
 						{/* <ProfileButton user={sessionUser} /> */}
 					</div>
 
 				{/* </NavLink> */}
-			</div>
-			<div>
-				{/* <img alt="presChair" className="presChair" src={logo} /> */}
 			</div>
 		</div>
 	);

@@ -1,19 +1,15 @@
 .fullPage {
 	max-height: 100vh;
-	overflow: auto;
+	/* overflow: auto; */
 }
 
 .imgContainer {
-	/* bottom: 0; */
+	/* top: 0; */
 	background-color: white;
-
-	width: 100vw;
-	height: 10px;
+	padding-top: 20px;
+	width: 100%;
+	/* height: 10px; */
 	/* position: absolute; */
-	/* top: 50%; */
-	/* left: 50%;
-	transform: translate(-50%, -50%); */
-	/* z-index: -1; */
 }
 
 .fullPage {
@@ -33,9 +29,9 @@
 	height: 300px;
 }
 
-.presChair {
+.logo {
 	/* z-index: -1; */
-	width: 100%;
+	width: 60vh
 	/* max-height: 100vh; */
 	/* overflow: auto; */
 }
