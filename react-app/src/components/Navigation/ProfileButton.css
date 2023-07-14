@@ -1,5 +1,5 @@
 .profileButtonContainer {
-    padding-top: 5px;
+    display: flex;
 }
 
 button.profileButton {

@@ -7,6 +7,7 @@
 }
 
 .navigation-container {
+	/* display: flex; */
 	text-decoration: none;
 	overflow: hidden;
 	background-color: #333;
@@ -15,16 +16,16 @@
 	left: 0;
 	width: 100%;
 	justify-content: flex-start;
-	height: 77px;
+	/* height: 10%; */
 	background-color: white;
 	z-index: 1;
 }
 
-.nav-wrapper {
+.barberPole-wrapper {
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
-	gap: 16px;
+	gap: 14px;
 }
 
 .barberPole {
@@ -32,19 +33,6 @@
 	height: 75px;
 }
 
-.shopSign {
-	color: #32cd32;
-	position: fixed;
-	z-index: 1;
-	left: 350px;
-	font-size: 20px;
-	letter-spacing: 15px;
-	/* font-style: italic; */
-	/* letter-spacing: 18px; */
-	/* font-weight: lighter; */
-	/* padding-top: px; */
-	/* text-transform: uppercase; */
-}
 
 .components {
 	display: flex;
@@ -56,6 +44,16 @@
 	text-transform: uppercase;
     font-style: normal;
     letter-spacing: 14px;
+	padding-top: 6px;
+	width: 100%;
+}
+
+.shopName {
+	width: 100%;
+}
+
+.userButton {
+	display: flex;
 }
 
 a:link {
