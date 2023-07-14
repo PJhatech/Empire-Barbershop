@@ -15,7 +15,19 @@ function Navigation({isLoaded}) {
 
 	const {setModalContent} = useModal();
 
-	let navColor = location.pathname === "/" ? "black" : "initial";
+	let navColor;
+	switch (location.pathname) {
+		case "/":
+			navColor = "black";
+			break;
+		case "/appointments":
+			navColor = "black";
+			break;
+		default:
+			navColor = "initial";
+	}
+
+
 	let shopNameColor = location.pathname === "/" ? "white" : "black";
 
 	return (
@@ -23,11 +35,11 @@ function Navigation({isLoaded}) {
 			<div className="barberPole-wrapper">
 				<div>
 					<NavLink exact to="/">
-						{location.pathname !== "/" ? (
-							<img alt="poleIcon" className="barberPole" src={barberPole} />
-						) : (
+						{location.pathname === "/" || location.pathname === "/appointments" ? (
 							<img alt="poleIcon" className="barberPole" src={whitePole} />
-						)}
+							) : (
+								<img alt="poleIcon" className="barberPole" src={barberPole} />
+								)}
 					</NavLink>
 				</div>
 				<div className="components">
