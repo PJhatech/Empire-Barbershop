@@ -16,7 +16,7 @@ function Navigation({isLoaded}) {
 	const {setModalContent} = useModal();
 
 	let navColor = location.pathname === "/" ? "black" : "initial";
-	let shopNameColor = location.pathname === "/locations" ? "black" : "white";
+	let shopNameColor = location.pathname === "/" ? "white" : "black";
 
 	return (
 		<div className="navigation-container" style={{backgroundColor: navColor}}>
