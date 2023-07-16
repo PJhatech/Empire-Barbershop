@@ -5,11 +5,13 @@ import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import "./ProfileButton.css";
+import { useModal } from "../../context/Modal";
 
 function ProfileButton({user}) {
 	const dispatch = useDispatch();
 	const [showMenu, setShowMenu] = useState(false);
 	const ulRef = useRef();
+	const modalRef = useModal()
 
 	const openMenu = () => {
 		if (showMenu) return;
@@ -35,16 +37,15 @@ function ProfileButton({user}) {
 		dispatch(logout());
 	};
 
+	   const {setModalContent, closeModal} = useModal();
+
 	const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
 	const closeMenu = () => setShowMenu(false);
 
 	return (
 		<div className="profileButtonContainer">
-			<button className="profileButton"onClick={openMenu}>
-				<i
-					class="fa-solid fa-scissors fa-xl"
-					style={{color: "#32cd32"}}
-				></i>
+			<button className="profileButton" onClick={openMenu}>
+				<i class="fa-solid fa-scissors fa-xl" style={{color: "#32cd32"}}></i>
 			</button>
 			<div className={ulClassName} ref={ulRef}>
 				{user ? (
