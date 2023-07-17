@@ -23,16 +23,16 @@ def seed():
         undo_users()
 
 
-    seed_appointment()
-    seed_service()
     seed_user()
+    seed_service()
+    seed_appointment()
     # Add other seed functions here
 
 
 # Creates the `flask seed undo` command
 @seed_commands.command('undo')
 def undo():
-    undo_users()
     undo_appointments()
     undo_services()
+    undo_users()
     # Add other undo functions here
