@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { login } from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
+import * as sessionActions from "../../store/session";
 import { Redirect } from "react-router-dom";
 import './LoginForm.css';
 
@@ -13,6 +14,12 @@ function LoginFormPage() {
 
   if (sessionUser) return <Redirect to="/" />;
 
+  const demoSubmit = (e) => {
+		setEmail("ronesmith@example.com");
+		setPassword("password");
+		return dispatch(sessionActions.login(email, password));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
@@ -22,35 +29,37 @@ function LoginFormPage() {
   };
 
   return (
-    <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul>
-        <label>
-          Email
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Log In</button>
-      </form>
-    </>
+		<>
+			<h1>Log In</h1>
+			<button onClick={demoSubmit}>DemoBarber</button>
+			<form onSubmit={handleSubmit}>
+				<ul>
+					{errors.map((error, idx) => (
+						<li key={idx}>{error}</li>
+					))}
+				</ul>
+				<label>
+					Email
+					<input
+						type="text"
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
+						required
+					/>
+				</label>
+				<label>
+					Password
+					<input
+						type="password"
+						value={password}
+						onChange={(e) => setPassword(e.target.value)}
+						required
+					/>
+				</label>
+
+				<button type="submit">Log In</button>
+			</form>
+		</>
   );
 }
 

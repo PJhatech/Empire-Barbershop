@@ -55,7 +55,8 @@ export const createAppointment = (appointment) => async (dispatch) => {
 	});
 	if (response.ok) {
 		const apppointment = await response.json();
-		dispatch(addAppointment(apppointment));
+		dispatch(addAppointment(apppointment))
+		dispatch(fetchAppointments())
 	} else {
 		console.error("Response not OK", await response.text());
 	}

@@ -8,6 +8,7 @@ import AppointmentUpdateModal from "../AppointmentUpdateModal";
 import AppointmentDeleteModal from "../AppointmentDeleteModal";
 import AppointmentForm from "../AppointmentForm"
 import { fetchClientIndex, fetchClients } from "../../store/client";
+import {useModal} from "../../context/Modal";
 
 function formatDate(dateString) {
         const date = new Date(dateString);
@@ -36,8 +37,10 @@ function formatDate(dateString) {
 const Appointments = () => {
     const dispatch = useDispatch();
     const appointmentReducer = useSelector((state) => state.appointmentReducer);
+	const closeModal = useModal();
+	const appointment = Object.values(appointmentReducer);
+	
 
-    const appointment = Object.values(appointmentReducer);
 
     useEffect(() => {
         dispatch(fetchAppointments())
@@ -70,7 +73,7 @@ const Appointments = () => {
 			<div>
 				<OpenModalButton
 					buttonText="Create New Appointment"
-					modalComponent={<AppointmentForm />}
+					modalComponent={<AppointmentForm onClose={closeModal} />}
 				/>
 			</div>
 		</>

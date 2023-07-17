@@ -3,33 +3,36 @@ import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {NavLink} from "react-router-dom";
 import {createAppointment, fetchAppointments} from "../../store/appointment";
-import { fetchServicekById, fetchServices } from "../../store/service";
+import {fetchServicekById, fetchServices} from "../../store/service";
 import Clients from "../Clients";
-import { fetchClients } from "../../store/client";
+import {fetchClients} from "../../store/client";
+import {Redirect} from "react-router-dom/cjs/react-router-dom.min";
+import {useHistory} from "react-router-dom";
 
 const AppointmentForm = () => {
 	const dispatch = useDispatch();
-	const { id } = useParams();
-	const user = useSelector(state => state.session.user)
+	const {id} = useParams();
+	const user = useSelector((state) => state.session.user);
 	const appointmentReducer = useSelector((state) => state.appointmentReducer);
 	const serviceReducer = useSelector((state) => state.serviceReducer);
 	const appointments = Object.values(appointmentReducer);
 	const clientReducer = useSelector((state) => state.clientReducer);
 	const clients = Object.values(clientReducer);
 	const services = Object.values(serviceReducer);
-
+	const history = useHistory();
 
 	useEffect(() => {
-		dispatch(createAppointment())
+		dispatch(createAppointment());
 		dispatch(fetchServices());
-		dispatch(fetchClients())
+		dispatch(fetchClients());
+		dispatch(fetchAppointments);
 	}, [dispatch]);
 
-	const [selectedService, setSelectedService] = useState('');
+	const [selectedService, setSelectedService] = useState("");
 	const [date, setDate] = useState("");
 	const [time, setTime] = useState("");
 	const [repeat, setRepeat] = useState("None");
-	const [client, setClient] = useState('');
+	const [client, setClient] = useState("");
 
 	console.log("<-------AppointmentComponent------->", selectedService);
 	const handleSubmit = async (e) => {
@@ -43,8 +46,9 @@ const AppointmentForm = () => {
 			repeat,
 		};
 		if (appointment) {
-			const newAppointment = await dispatch(createAppointment(appointment));
+			return dispatch(createAppointment(appointment)).then(dispatch(fetchAppointments()))
 		}
+
 	};
 
 	return (
@@ -71,11 +75,7 @@ const AppointmentForm = () => {
 
 				<label>
 					Client:
-					<select
-						value={client}
-						onChange={(e) => setClient(e.target.value)}
-						required
-					>
+					<select value={client} onChange={(e) => setClient(e.target.value)} required>
 						<option value="">Select a Client</option>
 						{clients.map((client) => (
 							<option key={client.id} value={client.id}>
@@ -85,7 +85,6 @@ const AppointmentForm = () => {
 						))}
 					</select>
 				</label>
-
 
 				<label>
 					Date:
@@ -111,10 +110,7 @@ const AppointmentForm = () => {
 
 				<label>
 					Repeat:
-					<select
-						value={repeat}
-						onChange={(e) => setRepeat(e.target.value)}
-					>
+					<select value={repeat} onChange={(e) => setRepeat(e.target.value)}>
 						<option value="None">None</option>
 						<option value="1 Week">1 Week</option>
 						<option value="2 Week">2 Week</option>

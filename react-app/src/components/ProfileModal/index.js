@@ -14,6 +14,7 @@ function ProfileButton({user}) {
     const {setModalContent, closeModal} = useModal();
 
 
+
 	const handleLogout = (e) => {
 		e.preventDefault();
 		dispatch(logout());

@@ -4,19 +4,28 @@ import {logout} from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import * as sessionActions from "../../store/session";
 import "./ProfileButton.css";
-import { useModal } from "../../context/Modal";
+import {useModal} from "../../context/Modal";
 
 function ProfileButton({user}) {
 	const dispatch = useDispatch();
 	const [showMenu, setShowMenu] = useState(false);
+	// const [email, setEmail] = useState("");
+	// const [password, setPassword] = useState("");
 	const ulRef = useRef();
-	const modalRef = useModal()
+	const modalRef = useModal();
 
 	const openMenu = () => {
 		if (showMenu) return;
 		setShowMenu(true);
 	};
+
+	// const demoSubmit = (e) => {
+	// 	setEmail("ronesmith@example.com");
+	// 	setPassword("password");
+	// 	return dispatch(sessionActions.login(email, password));
+	// };
 
 	useEffect(() => {
 		if (!showMenu) return;
@@ -37,7 +46,7 @@ function ProfileButton({user}) {
 		dispatch(logout());
 	};
 
-	   const {setModalContent, closeModal} = useModal();
+	const {setModalContent, closeModal} = useModal();
 
 	const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
 	const closeMenu = () => setShowMenu(false);
@@ -65,6 +74,8 @@ function ProfileButton({user}) {
 							onItemClick={closeMenu}
 							modalComponent={<LoginFormModal />}
 						/>
+
+						{/* <button onClick={demoSubmit}>DemoBarber</button> */}
 
 						<OpenModalButton
 							buttonText="Sign Up"
