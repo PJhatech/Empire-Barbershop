@@ -18,7 +18,7 @@ class Service(db.Model, UserMixin):
 
     # Relationships
     appointments = db.relationship('Appointment', back_populates='services')
-    cash_register = db.relationship('Cash_Register', back_populates='services')
+    # cash_register = db.relationship('Cash_Register', back_populates='services')
 
     def to_service_dict(self):
         return {
