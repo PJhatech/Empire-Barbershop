@@ -28,7 +28,7 @@ def user(id):
 @user_routes.route('/barbers/')
 @login_required
 def get_all_barbers():
-    barbers = User.query.filter_by(user_type='barber').all()
+    barbers = User.query.filter_by(user_type=1).all()
     return jsonify([user.to_dict() for user in barbers])
 
 
@@ -105,7 +105,7 @@ def create_user():
 @user_routes.route('/clients/')
 @login_required
 def get_clients():
-    clients = User.query.filter_by(user_type='client').all()
+    clients = User.query.filter_by(user_type=2).all()
     return jsonify([user.to_dict() for user in clients])
 
 

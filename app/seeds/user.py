@@ -6,6 +6,10 @@ def seed_user():
     # Create user_types
     barber = User_Type(type='barber')
     client = User_Type(type='client')
+    db.session.add(barber)
+    db.session.commit()
+    db.session.add(client)
+    db.session.commit()
 
     # Barbers
     DemoBarber = User(
@@ -14,7 +18,7 @@ def seed_user():
         phone_number=123456789,
         username='barber',
         email='barber@example.com',
-        user_type=barber.type,
+        user_type=barber.id,
         password='password'
     )
     Christian = User(
@@ -23,7 +27,7 @@ def seed_user():
         phone_number=123456789,
         username='chaveez',
         email='chavez@example.com',
-        user_type=barber.type,
+        user_type=barber.id,
         password='password'
     )
     Aaron = User(
@@ -32,7 +36,7 @@ def seed_user():
         phone_number=123456789,
         username='ronesmith',
         email='ronesmith@example.com',
-        user_type=barber.type,
+        user_type=barber.id,
         password='password'
     )
     # Clients
@@ -42,7 +46,7 @@ def seed_user():
         phone_number=123456789,
         username='jha123',
         email='client@example.com',
-        user_type=client.type,
+        user_type=client.id,
         password='password'
     )
     Jake = User(
@@ -51,7 +55,7 @@ def seed_user():
         phone_number=123456789,
         username='jake123',
         email='jake@example.com',
-        user_type=client.type,
+        user_type=client.id,
         password='password'
     )
     Justin = User(
@@ -60,7 +64,7 @@ def seed_user():
         phone_number=123456789,
         username='bondoc123',
         email='justin@example.com',
-        user_type=client.type,
+        user_type=client.id,
         password='password'
     )
 
