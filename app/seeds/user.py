@@ -11,7 +11,7 @@ def seed_user():
     DemoBarber = User(
         first_name='Demo2',
         last_name='demo2',
-        phone_number='1234567890',
+        phone_number=123456789,
         username='barber',
         email='barber@example.com',
         user_type=barber.type,
@@ -20,7 +20,7 @@ def seed_user():
     Christian = User(
         first_name='Chris',
         last_name='Chavez',
-        phone_number='1234567890',
+        phone_number=123456789,
         username='chaveez',
         email='chavez@example.com',
         user_type=barber.type,
@@ -29,7 +29,7 @@ def seed_user():
     Aaron = User(
         first_name='Aaron',
         last_name='Smith',
-        phone_number='1234567890',
+        phone_number=123456789,
         username='ronesmith',
         email='ronesmith@example.com',
         user_type=barber.type,
@@ -39,7 +39,7 @@ def seed_user():
     Jha = User(
         first_name='Jha',
         last_name='Hutalla',
-        phone_number='9876543210',
+        phone_number=123456789,
         username='jha123',
         email='client@example.com',
         user_type=client.type,
@@ -48,7 +48,7 @@ def seed_user():
     Jake = User(
         first_name='Jake',
         last_name='Fumar',
-        phone_number='9876543210',
+        phone_number=123456789,
         username='jake123',
         email='jake@example.com',
         user_type=client.type,
@@ -57,7 +57,7 @@ def seed_user():
     Justin = User(
         first_name='Justin',
         last_name='Bondoc',
-        phone_number='9876543210',
+        phone_number=123456789,
         username='bondoc123',
         email='justin@example.com',
         user_type=client.type,
