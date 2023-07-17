@@ -21,6 +21,7 @@ def seed():
         undo_users()
         undo_appointments()
         undo_services()
+        
 
     seed_user()
     seed_appointment()
