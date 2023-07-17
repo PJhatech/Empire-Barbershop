@@ -39,7 +39,7 @@ const Appointments = () => {
     const appointmentReducer = useSelector((state) => state.appointmentReducer);
 	const closeModal = useModal();
 	const appointment = Object.values(appointmentReducer);
-	
+
 
 
     useEffect(() => {
@@ -50,7 +50,7 @@ const Appointments = () => {
 
     return (
 		<>
-			<h1>All Appointments</h1>
+			<h2>Appointments</h2>
 			{appointment.map((appointment) => (
 				<div key={appointment.id}>
 					Client: {appointment.client.first_name}

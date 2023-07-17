@@ -47,7 +47,7 @@ const AppointmentUpdateModal = (selectedAppointment) => {
 		};
 
 		await dispatch(updateAppointment(appointment[0].id, appointmentData));
-		fetchAppointments();
+		dispatch(fetchAppointments());
 		closeModal();
 	};
 

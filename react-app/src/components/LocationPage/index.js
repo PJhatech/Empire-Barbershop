@@ -29,13 +29,14 @@ const LocationPage = () => {
 				<div></div>
 			</div>
 			<div className="locationImg">
-				<NavLink to={"/barbers"}>
-					<img
-						alt="concordImg"
-						className="concordImg"
-						src={concordImg}
-					/>
-				</NavLink>
+				{/* <NavLink to={"/barbers"}> */}
+				<img
+					alt="concordImg"
+					className="concordImg"
+					src={concordImg}
+					onClick={() => setModalContent(<ComingSoon />)}
+				/>
+				{/* </NavLink> */}
 				<img
 					alt="herculesShop"
 					className="herculesShop"

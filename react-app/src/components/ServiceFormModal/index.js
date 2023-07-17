@@ -33,7 +33,7 @@ const ServiceFormModal = () => {
 
 		if (service) {
 			dispatch(createService(service));
-			fetchServices();
+			dispatch(fetchServices());
 			closeModal();
 		}
 
