@@ -55,8 +55,8 @@ export const createAppointment = (appointment) => async (dispatch) => {
 	});
 	if (response.ok) {
 		const apppointment = await response.json();
-		dispatch(addAppointment(apppointment))
-		dispatch(fetchAppointments())
+		dispatch(addAppointment(apppointment));
+		dispatch(fetchAppointments());
 	} else {
 		console.error("Response not OK", await response.text());
 	}
@@ -81,6 +81,7 @@ export const updateAppointment = (id, appointmenteData) => async (dispatch) => {
 	if (response.ok) {
 		const appointment = await response.json();
 		dispatch(reviseAppointment(appointment));
+		dispatch(fetchAppointments());
 	}
 };
 

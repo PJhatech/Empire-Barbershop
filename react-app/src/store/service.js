@@ -58,6 +58,7 @@ export const createService = (service) => async (dispatch) => {
 	if (response.ok) {
 		const service = await response.json();
 		dispatch(addService(service));
+		dispatch(fetchServices());
 	}
 };
 
@@ -80,6 +81,7 @@ export const updateService = (id, serviceData) => async (dispatch) => {
 	if (response.ok) {
 		const service = await response.json();
 		dispatch(reviseService(service));
+		dispatch(fetchServices());
 	}
 };
 
