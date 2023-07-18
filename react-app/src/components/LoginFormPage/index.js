@@ -14,27 +14,27 @@ function LoginFormPage() {
 
   if (sessionUser) return <Redirect to="/" />;
 
-	const demoSubmit = (e) => {
-		// e.preventDefault();
-		setEmail("ronesmith@example.com");
-		setPassword("password");
-		return dispatch(sessionActions.login(email, password));
-	};
-	
+
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const data = await dispatch(login(email, password));
-    if (data) {
-      setErrors(data);
-    }
-  };
+	  e.preventDefault();
+	  const data = await dispatch(login(email, password));
+	  if (data) {
+		  setErrors(data);
+		}
+	};
+	// const demoSubmit = (e) => {
+	// 	// e.preventDefault();
+	// 	setEmail("ronesmith@example.com");
+	// 	setPassword("password");
+	// 	return dispatch(login(email, password));
+	// };
 
   return (
 		<>
 			<h1>Log In</h1>
-		  <button onClick={demoSubmit}>DemoBarber</button>
-		  {console.log(demoSubmit)}
+		  {/* <button onClick={demoSubmit}>DemoBarber</button>
+		  {console.log(demoSubmit)} */}
 			<form onSubmit={handleSubmit}>
 				<ul>
 					{errors.map((error, idx) => (
