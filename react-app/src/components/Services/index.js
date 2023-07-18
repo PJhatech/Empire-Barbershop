@@ -14,6 +14,8 @@ const Services = () => {
 	const serviceReducer = useSelector((state) => state.serviceReducer);
 	const service = Object.values(serviceReducer);
 
+	
+
 	// console.log("<-------Services------->", serviceReducer);
 	const [isLoaded, setIsLoaded] = useState(false);
 
@@ -60,7 +62,7 @@ const Services = () => {
 					/>
 				</div>
 			</div>
-		
+
 		</>
 	);
 };

@@ -11,7 +11,7 @@ class Service(db.Model, UserMixin):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    service_name = db.Column(db.String(50), nullable=False)
+    service_name = db.Column(db.String(50),  nullable=False)
     description = db.Column(db.String(300), nullable=False)
     price = db.Column(db.Integer, nullable=False)
     time_frame = db.Column(db.String(50), nullable=False)

@@ -9,7 +9,7 @@ def service_exists(form, field):
     service_name = field.data
     service = Service.query.filter(Service.service_name == service_name).first()
     if service:
-        raise ValidationError('Service address is already in use.')
+        raise ValidationError('Service Name is already in use.')
 
 
 class ServiceForm(FlaskForm):

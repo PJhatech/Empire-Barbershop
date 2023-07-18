@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request, session
 from flask_login import login_required, current_user
 from flask_login import current_user, login_required
 from app.models import Service, db
@@ -38,19 +38,20 @@ def get_service_by_id(id):
 @login_required
 def post_new_service():
     form = ServiceForm()
-    data = request.json
-    price_int = int(data["price"])
     form['csrf_token'].data = request.cookies['csrf_token']
+    data = request.json
     if form.validate_on_submit():
+        price_int = data["price"]
         service = Service(
             service_name=data['service_name'],
             description=data['description'],
-            price=price_int,
+            price=int(price_int),
             time_frame=data['time_frame']
         )
         db.session.add(service)
         db.session.commit()
         return jsonify(service.to_service_dict()), 201
+    print(validation_errors_to_error_messages(form.errors), "<<--------flaaggg----->")
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 

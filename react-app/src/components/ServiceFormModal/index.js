@@ -4,12 +4,11 @@ import {NavLink} from "react-router-dom";
 import {fetchServices, createService} from "../../store/service";
 import {useModal} from "../../context/Modal";
 
-
 const ServiceFormModal = () => {
 	const dispatch = useDispatch();
 	const serviceReducer = useSelector((state) => state.serviceReducer);
 	const services = Object.values(serviceReducer);
-    const {closeModal} = useModal();
+	const {closeModal} = useModal();
 
 	// console.log("<-------CreateServiceComponent------->", services);
 
@@ -22,32 +21,49 @@ const ServiceFormModal = () => {
 	const [description, setDescription] = useState("");
 	const [price, setPrice] = useState();
 	const [timeFrame, setTimeFrame] = useState("30 Mins");
+	const [errors, setErrors] = useState([]);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const service = {
 			service_name: serviceName,
-			description, price,
-			time_frame: timeFrame
+			description,
+			price,
+			time_frame: timeFrame,
 		};
 
+		// let service;
 		if (service) {
-			dispatch(createService(service));
-			dispatch(fetchServices());
-			closeModal();
+			dispatch(createService(service)).then(service => {
+				if (!service.errors) {
+					closeModal();
+				} else {
+					setErrors(service.errors)
+				}
+			})
+			// dispatch(fetchServices());
 		}
-
-	};
+	}
 
 	return (
 		<form onSubmit={handleSubmit}>
+			{errors && (
+				<div>
+					{errors.map((error) => (
+						<p>{error}</p>
+					))}
+				</div>
+			)}
 			<label>
 				Service Name:
 				<input
 					type="text"
 					id="serviceName"
 					value={serviceName}
-					onChange={(e) => setServiceName(e.target.value)}
+					onChange={(e) => {
+						setServiceName(e.target.value)
+						setErrors([])
+					}}
 					required
 				/>
 			</label>
@@ -75,11 +91,7 @@ const ServiceFormModal = () => {
 
 			<label>
 				Time Frame:
-				<select
-					value={timeFrame}
-					onChange={(e) => setTimeFrame(e.target.value)}
-					required
-				>
+				<select value={timeFrame} onChange={(e) => setTimeFrame(e.target.value)} required>
 					<option value="30 Mins">30 Mins</option>
 					<option value="45 Mins">45 Mins</option>
 					<option value="60 Mins">60 Mins</option>

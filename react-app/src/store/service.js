@@ -59,7 +59,15 @@ export const createService = (service) => async (dispatch) => {
 	if (response.ok) {
 		const service = await response.json();
 		dispatch(addService(service));
-		dispatch(fetchServices());
+		return dispatch(fetchServices());
+	} else if (response.status < 500) {
+		const data = await response.json();
+		console.log("<----createService---->", data);
+		if (data.errors) {
+			return data;
+		}
+	} else {
+		return ["An error occurred. Please try again."];
 	}
 };
 
