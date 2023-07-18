@@ -71,10 +71,15 @@ def sign_up():
     """
     Creates a new user and logs them in
     """
+    print(request.data, "<-----here---->")
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         user = User(
+            first_name=form.data['first_name'],
+            last_name=form.data['last_name'],
+            user_type=int(form.data['user_type']),
+            phone_number=int(form.data['phone_number']),
             username=form.data['username'],
             email=form.data['email'],
             password=form.data['password']
@@ -83,6 +88,7 @@ def sign_up():
         db.session.commit()
         login_user(user)
         return user.to_dict()
+    print(validation_errors_to_error_messages(form.errors), "<-----here---->")
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 

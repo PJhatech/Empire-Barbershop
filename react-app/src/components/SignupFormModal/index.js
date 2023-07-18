@@ -8,6 +8,10 @@ function SignupFormModal() {
 	const dispatch = useDispatch();
 	const [email, setEmail] = useState("");
 	const [username, setUsername] = useState("");
+	const [userType, setUserType] = useState("");
+	const [firstName, setFirstName] = useState("");
+	const [lastName, setLastName] = useState("");
+	const [number, setNumber] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [errors, setErrors] = useState([]);
@@ -16,7 +20,8 @@ function SignupFormModal() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (password === confirmPassword) {
-			const data = await dispatch(signUp(username, email, password));
+			const userTypeNum = userType === 'barber' ? 1 : 2
+			const data = await dispatch(signUp({"first_name":firstName, "last_name":lastName, "user_type": userTypeNum,"phone_number": number , username ,  email, password}));
 			if (data) {
 				setErrors(data);
 			} else {
@@ -46,6 +51,44 @@ function SignupFormModal() {
 						onChange={(e) => setEmail(e.target.value)}
 						required
 					/>
+				</label>
+				<label>
+					First Name
+					<input
+						type="text"
+						value={firstName}
+						onChange={(e) => setFirstName(e.target.value)}
+						required
+					/>
+				</label>
+				<label>
+					Last Name
+					<input
+						type="text"
+						value={lastName}
+						onChange={(e) => setLastName(e.target.value)}
+						required
+					/>
+				</label>
+				<label>
+					Phone Number
+					<input
+						type="number"
+						value={number}
+						onChange={(e) => setNumber(e.target.value)}
+						required
+					/>
+				</label>
+				<label>
+					User Type
+					<select type="text" value={userType} onChange={(e) => setUserType(e.target.value)}required>
+						<option value="barber">
+							Barber
+						</option>
+						<option value="client">
+							Client
+						</option>
+					</select>
 				</label>
 				<label>
 					Username
