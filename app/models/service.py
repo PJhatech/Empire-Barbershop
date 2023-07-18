@@ -14,7 +14,7 @@ class Service(db.Model, UserMixin):
     service_name = db.Column(db.String(50), nullable=False)
     description = db.Column(db.String(300), nullable=False)
     price = db.Column(db.Integer, nullable=False)
-    time_frame = db.Column(db.Integer, nullable=False)
+    time_frame = db.Column(db.String(50), nullable=False)
 
     # Relationships
     appointments = db.relationship('Appointment', back_populates='services')

@@ -21,7 +21,7 @@ const ServiceFormModal = () => {
 	const [serviceName, setServiceName] = useState("");
 	const [description, setDescription] = useState("");
 	const [price, setPrice] = useState();
-	const [timeFrame, setTimeFrame] = useState("");
+	const [timeFrame, setTimeFrame] = useState("30 Mins");
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();

@@ -26,7 +26,7 @@ def upgrade():
     sa.Column('service_name', sa.String(length=50), nullable=False),
     sa.Column('description', sa.String(length=300), nullable=False),
     sa.Column('price', sa.Integer(), nullable=False),
-    sa.Column('time_frame', sa.Integer(), nullable=False),
+    sa.Column('time_frame', sa.String(length=50), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('user_types',
