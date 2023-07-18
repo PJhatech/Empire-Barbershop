@@ -2,9 +2,21 @@ from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from flask_login import current_user, login_required
 from app.models import Service, db
+from app.forms import ServiceForm
 
 
 service_routes = Blueprint('services', __name__)
+
+
+def validation_errors_to_error_messages(validation_errors):
+    """
+    Simple function that turns the WTForms validation errors into a simple list
+    """
+    errorMessages = []
+    for field in validation_errors:
+        for error in validation_errors[field]:
+            errorMessages.append(f'{field} : {error}')
+    return errorMessages
 
 
 @service_routes.route('/')
@@ -25,18 +37,21 @@ def get_service_by_id(id):
 @service_routes.route('/', methods=['POST'])
 @login_required
 def post_new_service():
+    form = ServiceForm()
     data = request.json
     price_int = int(data["price"])
-    # print(price_int, "<--------here------>")
-    service = Service(
-        service_name=data['service_name'],
-        description=data['description'],
-        price=price_int,
-        time_frame=data['time_frame']
-    )
-    db.session.add(service)
-    db.session.commit()
-    return jsonify(service.to_service_dict()), 201
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        service = Service(
+            service_name=data['service_name'],
+            description=data['description'],
+            price=price_int,
+            time_frame=data['time_frame']
+        )
+        db.session.add(service)
+        db.session.commit()
+        return jsonify(service.to_service_dict()), 201
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 @service_routes.route('/<int:service_id>', methods=['PUT'])
