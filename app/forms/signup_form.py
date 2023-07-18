@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField
 
-from wtforms.validators import DataRequired, Email, ValidationError
+from wtforms.validators import DataRequired, Email, ValidationError, NumberRange
 from app.models import User
 
 
@@ -22,6 +22,7 @@ def username_exists(form, field):
 
 
 def valid_phone_number(form, field):
+
     if len(str(field.data)) > 11:
         raise ValidationError('Invalid phone number.')
     if len(str(field.data)) <= 9:
@@ -62,5 +63,5 @@ class SignUpForm(FlaskForm):
     password = StringField('password', validators=[DataRequired(), validate_password])
     first_name = StringField('firstName', validators=[DataRequired(), validate_first_name])
     last_name = StringField('lastName', validators=[DataRequired(), validate_last_name])
-    phone_number = IntegerField('phone number', validators=[DataRequired(), valid_phone_number])
+    phone_number = IntegerField('phone number', validators=[DataRequired(), NumberRange(min=10**9, max=10**10 - 1, message='Must be a 10-digit integer')])
     user_type = IntegerField('user type', validators=[DataRequired(), validate_user_type])
