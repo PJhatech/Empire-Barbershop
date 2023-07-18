@@ -65,7 +65,7 @@ const ServiceFormModal = () => {
 			<label>
 				Price:
 				<input
-					type="text"
+					type="number"
 					id="price"
 					value={price}
 					onChange={(e) => setPrice(e.target.value)}
