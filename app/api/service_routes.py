@@ -26,10 +26,12 @@ def get_service_by_id(id):
 @login_required
 def post_new_service():
     data = request.json
+    price_int = int(data["price"])
+    # print(price_int, "<--------here------>")
     service = Service(
         service_name=data['service_name'],
         description=data['description'],
-        price=data['price'],
+        price=price_int,
         time_frame=data['time_frame']
     )
     db.session.add(service)
