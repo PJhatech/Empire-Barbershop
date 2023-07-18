@@ -52,7 +52,6 @@ def validate_user_type(form, field):
         raise ValidationError('User type is invalid.')
 
 def validate_password(form, field):
-    password = field.data
     if len(str(field.data)) < 6:
         raise ValidationError('Password must be at least 6 characters long')
 
