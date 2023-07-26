@@ -12,10 +12,10 @@ const BarberProfile = () => {
 	// const appointments = Object.values(appointmentReducer);
 	const client = useSelector((state) => state.session.user);
 	const barber = useSelector((state) => state.session.user);
-	const barberId = barber.id;
+	// const barberId = barber.id;
 
 	const [isLoaded, setIsLoaded] = useState(true);
-	console.log("<-------check------->", barberId);
+	// console.log("<-------check------->", barberId);
 
 	// useEffect(() => {
 	// 	dispatch(fetchAppointments());
