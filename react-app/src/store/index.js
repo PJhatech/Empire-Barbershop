@@ -6,6 +6,7 @@ import serviceReducer from './service';
 import barberReducer from './barber';
 import clientReducer from './client';
 import locationReducer from './location';
+import cashRegisterReducer from './cashRegister';
 
 
 const rootReducer = combineReducers({
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   barberReducer,
   clientReducer,
   locationReducer,
+  cashRegisterReducer
 });
 
 

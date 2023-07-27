@@ -26,20 +26,27 @@ const BarberProfile = () => {
 	// );
 
 	return (
-		<div className="fullPage">
-			<div className="book">
+		<div className="pageContainer">
+			<div className="componentContainter">
 				<div className="barberName">{barber.first_name} {barber.last_name }</div>
 				<div>
 					<NavLink to={"/appointments"}>
-						<button className="appointments">
+						<button className="barberComponents">
 							<h1>Appointments</h1>
 						</button>
 					</NavLink>
 				</div>
 				<div>
 					<NavLink to={"/services"}>
-						<button className="services">
+						<button className="barberComponents">
 							<h1>services</h1>
+						</button>
+					</NavLink>
+				</div>
+				<div>
+					<NavLink to={"/register"}>
+						<button className="barberComponents">
+							<h1>register</h1>
 						</button>
 					</NavLink>
 				</div>

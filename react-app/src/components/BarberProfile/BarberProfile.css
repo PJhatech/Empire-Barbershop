@@ -1,16 +1,26 @@
-.barberProfile {
+.pageContainer {
+	display: flex;
+	flex-direction: column;
 	background-color: black;
 	width: 100%;
 	height: 80%;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
 }
 
-/* .fullPage {
-	background-color: black;
-} */
+.barberProfile {
+	/* background-color: black;
+	display: flex;
+	width: 100%;
+	height: 80%; */
+	/* position: absolute; */
+	/* top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%); */
+}
+.componentContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
 
 .barberName {
     /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
@@ -18,39 +28,48 @@
 	font-size: 14px;
     color: white;
     font-size: 40px;
-    letter-spacing: 5px;
-	position: absolute;
-	top: 20%;
+    /* letter-spacing: 5px; */
+	/* position: absolute; */
+	/* top: 20%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	z-index: 1;
+	z-index: 1; */
 }
-.appointments {
-	position: absolute;
-	bottom: 11%;
+.barberComponents{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* bottom: 11%;
 	left: 40%;
 	transform: translate(-50%, -50%);
-	z-index: 1;
+	z-index: 1; */
 }
-.services {
+/* .services {
 	position: absolute;
 	bottom: 11%;
 	left: 60%;
 	transform: translate(-50%, -50%);
 	z-index: 1;
 }
+.register {
+	position: absolute;
+	bottom: 11%;
+	left: 60%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+} */
 
 .barberimg {
 	width: 425px;
 	height: 300px;
-	position: absolute;
+	/* position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%); */
 }
 
 
-button.appointments {
+button.barberComponents {
 	background: none;
 	border: none;
 	padding: 0;
@@ -66,7 +85,7 @@ button.appointments {
 	letter-spacing: 5px;
 }
 
-button.services {
+/* button.services {
 	background: none;
 	border: none;
 	padding: 0;
@@ -81,12 +100,31 @@ button.services {
 	font-style: oblique;
 	letter-spacing: 5px;
 }
+button.register {
+	background: none;
+	border: none;
+	padding: 0;
+    color: white;
+	cursor: pointer;
+	font: inherit;
+	outline: inherit;
+	font-size: 14px;
+	transition: color 2s, font-size 1s;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	text-transform: uppercase;
+	font-style: oblique;
+	letter-spacing: 5px;
+} */
 
-button.appointments:hover {
+button.compoments:hover {
 	color: #32cd32;
 	font-size: 18px;
 }
-button.services:hover {
+/* button.services:hover {
 	color: #32cd32;
 	font-size: 18px;
 }
+button.register:hover {
+	color: #32cd32;
+	font-size: 18px;
+} */

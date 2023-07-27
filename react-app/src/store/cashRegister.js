@@ -1,6 +1,6 @@
-const GET_REGISTER = "service/GET_REGISTER";
+const GET_REGISTER = "register/GET_REGISTER";
 
-const getRegister = (register) = ({
+const getRegister = (register) => ({
     type: GET_REGISTER,
     register
 });
@@ -15,7 +15,7 @@ export const fetchRegister = () => async (dispatch) => {
 
 const initialState = {};
 
-export default function serviceReducer(state = initialState, action) {
+export default function cashRegisterReducer(state = initialState, action) {
 	let newState = {};
 	switch (action.type) {
         case GET_REGISTER: {
