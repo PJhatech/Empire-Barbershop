@@ -13,7 +13,7 @@ class Cash_Register(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     barber_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
     service_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('services.id')))
-    charge = db.Column(Enum('charge', name='transaction_type_enum'))
+    # charge = db.Column(Enum('charge', name='transaction_type_enum'))
     total_items = db.Column(db.Integer, nullable=False)
     total_price = db.Column(db.Integer, nullable=False)
     created_at = db.Column(db.Date, default=datetime.datetime.now())
@@ -29,7 +29,7 @@ class Cash_Register(db.Model, UserMixin):
             'id': self.id,
             'barber_id': self.barber_id,
             'service_id': self.service_id,
-            'charge': self.charge,
+            # 'charge': self.charge,
             'total_items': self.total_items,
             'total_price': self.total_price,
             'created_at': self.created_at,
