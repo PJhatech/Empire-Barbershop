@@ -43,9 +43,11 @@ function Navigation({isLoaded}) {
 						</NavLink>
 						<h2 onClick={() => setModalContent(<ComingSoon />)}> Gift Cards</h2>
 						<h2 onClick={() => setModalContent(<ComingSoon />)}> Shop</h2>
-						<NavLink to={"/barberprofile"}>
-							<h2> Barber Profile</h2>
-						</NavLink>
+						{sessionUser ? (
+							<NavLink to={"/barberprofile"}>
+								<h2> Barber Profile</h2>
+							</NavLink>
+						) : null}
 						{isLoaded && (
 							<div className="userButton">
 								{/* <h2>Barber Profile</h2> */}
