@@ -54,7 +54,7 @@ const LandingPage = () => {
 					<img alt="dariocut" width="390" height="400" src={cut19} />
 					<img alt="cape" className="logoimg" src={cut9} />
 					<img alt="cut2" className="logoimg" src={cut2} />
-					<img alt="chris" width="525" height="400" src={cut11} />
+					<img alt="chris" width="550" height="400" src={cut11} />
 					<img alt="jhaCut" className="logoimg" src={cut12} />
 					<img alt="jhaCut3" width="475" height="400" src={cut21} />
 					<img alt="jhaCut2" width="400" height="400" src={cut22} />
