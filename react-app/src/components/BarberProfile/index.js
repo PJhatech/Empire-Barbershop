@@ -5,6 +5,7 @@ import logo from "../Images/remove.png";
 import ProfileButton from "../Navigation/ProfileButton";
 import "./BarberProfile.css";
 import BarberIndex from "../BarberIndex";
+import {Redirect} from "react-router-dom";
 
 const BarberProfile = () => {
 	// const dispatch = useDispatch();
@@ -15,6 +16,11 @@ const BarberProfile = () => {
 	// const barberId = barber.id;
 
 	const [isLoaded, setIsLoaded] = useState(true);
+
+	if (!barber) {
+		return <Redirect to="/" />;
+	}
+
 	// console.log("<-------check------->", barberId);
 
 	// useEffect(() => {
@@ -28,7 +34,9 @@ const BarberProfile = () => {
 	return (
 		<div className="pageContainer">
 			<div className="componentContainter">
-				<div className="barberName">{barber.first_name} {barber.last_name }</div>
+				<div className="barberName">
+					{barber.first_name} {barber.last_name}
+				</div>
 				<div>
 					<NavLink to={"/appointments"}>
 						<button className="barberComponents">
