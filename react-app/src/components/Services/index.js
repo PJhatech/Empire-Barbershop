@@ -7,6 +7,7 @@ import DeleteService from "../ServiceDeleteModal";
 import ServiceFormModal from "../ServiceFormModal";
 import ServiceUpdateModal from "../ServiceUpdateModal";
 import ServiceIndex from "../ServiceIndex";
+import CashRegister from "../Register";
 
 const Services = () => {
 	const dispatch = useDispatch();
@@ -58,6 +59,13 @@ const Services = () => {
 								/>
 							</div>
 						) : null}
+						<CashRegister service={service} />
+						{/* {location.pathname === "/register" ? (
+								<div>
+									<button>Add Service</button>
+								</div>
+							) : null} */}
+
 					</div>
 				))}
 			</div>

@@ -6,16 +6,18 @@ import {useModal} from "../../context/Modal";
 import Services from "../Services";
 
 
-const CashRegister = () => {
+const CashRegister = ({service}) => {
     const dispatch = useDispatch();
     const {closeModal} = useModal();
     const registerReducer = useSelector((state) => state.cashRegisterReducer)
 
 
+    console.log(service)
+
     return (
         <div>
             Cash Register
-            <Services />
+           {service}
         </div>
     );
 }
