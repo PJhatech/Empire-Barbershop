@@ -14,18 +14,16 @@ def get_register():
     return register.to_cash_register_dict
 
 # Create a new transaction
-# @cash_register_routes.route('', methods=['POST'])
-# @login_required
-# def create_transaction():
-#     data = request.get_json()
-#     register = Cash_Register(
-#         stock_id=data['stock_id'],
-#         user_id=data['user_id'],
-#         portfolio_id=data['portfolio_id'],
-#         transaction_type=data['transaction_type'],
-#         total_shares=data['total_shares'],
-#         total_price=data['total_price']
-#     )
-#     db.session.add(register)
-#     db.session.commit()
-#     return jsonify(register.to_transaction_dict()), 201
+@cash_register_routes.route('', methods=['POST'])
+@login_required
+def create_transaction():
+    data = request.get_json()
+    register = Cash_Register(
+        barber_id=data['barber_id'],
+        service_id=data['service_id'],
+        total_items=data['total_items'],
+        total_price=data['total_price'],
+    )
+    db.session.add(register)
+    db.session.commit()
+    return jsonify(register.to_cash_register_dict()), 201
