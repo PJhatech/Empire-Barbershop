@@ -63,7 +63,7 @@ const CashRegister = () => {
 				))}
 				<div>
 					<PostTransactionModal service={selectedService} />
-					{console.log(selectedService)}
+					{/* {console.log(selectedService)} */}
 				</div>
 			</div>
 		</div>

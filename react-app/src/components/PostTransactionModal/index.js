@@ -16,7 +16,7 @@ const PostTransactionModal = ({service}) => {
 	const [totalPrice, setTotalPrice] = useState(0);
 	const [errors, setErrors] = useState([]);
 
-	// console.log(selectedService);
+	console.log(service);
 	const handleServiceSelection = () => {
 		setSelectedService([...selectedService, service]);
 		setTotalItems(totalItems + 1);
@@ -49,8 +49,8 @@ const PostTransactionModal = ({service}) => {
 			<form onSubmit={handleSubmit}>
 				<div>
 					{/* {service.service_name} */}
-					{selectedService.map((selectedService, index) => (
-						<div key={index}>{selectedService.service_name}</div>
+					{service.map((service, index) => (
+						<div key={index}>{service.service_name}</div>
 					))}
 					{/* <button onClick={handleServiceSelection}>Add Another Service</button> */}
 				</div>
