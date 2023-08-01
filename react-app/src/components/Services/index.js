@@ -59,13 +59,12 @@ const Services = () => {
 								/>
 							</div>
 						) : null}
-					
+
 						{/* {location.pathname === "/register" ? (
 								<div>
 									<button>Add Service</button>
 								</div>
 							) : null} */}
-
 					</div>
 				))}
 			</div>

@@ -17,8 +17,7 @@ import ServiceIndex from "./components/ServiceIndex";
 import LocationPage from "./components/LocationPage";
 import BarberAppointments from "./components/BarberAppointments";
 import BarberProfile from "./components/BarberProfile";
-import CashRegister from "./components/Register";
-
+import CashRegister from "./components/CashRegister";
 // import CreateAppointmentAsClient from "./components/CreateAppointmentAsClient";
 
 

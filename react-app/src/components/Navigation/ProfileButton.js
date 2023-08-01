@@ -77,7 +77,7 @@ function ProfileButton({user}) {
 						/>
 
 							<button onClick={demoSubmit}>DemoBarber</button>
-							{console.log(demoSubmit)}
+					
 
 						<OpenModalButton
 							buttonText="Sign Up"
