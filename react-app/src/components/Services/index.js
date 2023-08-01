@@ -59,7 +59,7 @@ const Services = () => {
 								/>
 							</div>
 						) : null}
-						<CashRegister service={service} />
+					
 						{/* {location.pathname === "/register" ? (
 								<div>
 									<button>Add Service</button>
