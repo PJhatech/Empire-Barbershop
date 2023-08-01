@@ -5,7 +5,7 @@ import {fetchRegister} from "../../store/cashRegister";
 import {useModal} from "../../context/Modal";
 import {fetchServices} from "../../store/service";
 import Services from "../Services";
-import PostTransactionModal from "../PostTransactionModal";
+import Transaction from "../Transaction";
 import OpenModalButton from "../OpenModalButton";
 
 const CashRegister = () => {
@@ -57,12 +57,12 @@ const CashRegister = () => {
 						{/* <OpenModalButton
 							buttonText="Add Service"
 							// onClick={() => setSelectedService(service)}
-							modalComponent={<PostTransactionModal service={service} />}
+							modalComponent={<Transaction service={service} />}
 						/> */}
 					</div>
 				))}
 				<div>
-					<PostTransactionModal service={selectedService} />
+					<Transaction service={selectedService} />
 					{/* {console.log(selectedService)} */}
 				</div>
 			</div>
