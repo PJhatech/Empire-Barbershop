@@ -15,27 +15,27 @@ const CashRegister = () => {
 	const serviceReducer = useSelector((state) => state.serviceReducer);
 	const register = Object.values(registerReducer);
 	const service = Object.values(serviceReducer);
-	console.log("<-----register----->", register);
+	// console.log("<-----register----->", register);
 
 	const [isLoaded, setIsLoaded] = useState(false);
+	const [clicked, setClick] = useState();
 
-	const [selectedService, setSelectedService] = useState("");
+	const [selectedService, setSelectedService] = useState([]);
 	const [totalItems, setTotalItems] = useState(0);
 	const [totalPrice, setTotalPrice] = useState(0);
 	const [errors, setErrors] = useState([]);
 
 	const handleServiceSelection = (service) => {
-
-		setSelectedService(service.id);
-		setTotalItems(totalItems+1);
-		setTotalPrice(totalPrice+service.price);
+		setSelectedService([...selectedService, service]);
+		setTotalItems(totalItems + 1);
+		setTotalPrice(totalPrice + service.price);
 	};
 
 	useEffect(() => {
 		dispatch(fetchServices()).then(() => setIsLoaded(true));
 	}, [dispatch]);
 
-	console.log(service);
+	// console.log(service);
 
 	return (
 		<div>
@@ -51,13 +51,20 @@ const CashRegister = () => {
 						{service.description}
 						<br />
 						{service.time_frame}
-						<OpenModalButton
+						<button type="button" onClick={() => handleServiceSelection(service)}>
+							Add Service
+						</button>
+						{/* <OpenModalButton
 							buttonText="Add Service"
 							// onClick={() => setSelectedService(service)}
 							modalComponent={<PostTransactionModal service={service} />}
-						/>
+						/> */}
 					</div>
 				))}
+				<div>
+					<PostTransactionModal service={selectedService} />
+					{console.log(selectedService)}
+				</div>
 			</div>
 		</div>
 	);

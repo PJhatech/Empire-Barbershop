@@ -11,24 +11,24 @@ const PostTransactionModal = ({service}) => {
 	const barberUser = useSelector((state) => state.session.user);
 	const {closeModal} = useModal();
 
-	const [selectedService, setSelectedService] = useState(service);
+	const [selectedService, setSelectedService] = useState([service]);
 	const [totalItems, setTotalItems] = useState(0);
 	const [totalPrice, setTotalPrice] = useState(0);
 	const [errors, setErrors] = useState([]);
 
-	console.log(service);
-	// const handleServiceSelection = (service, selectedService) => {
-	// 	selectedService
-	// 	setTotalItems(totalItems + 1);
-	// 	setTotalPrice(totalPrice + service.price);
-	// };
+	// console.log(selectedService);
+	const handleServiceSelection = () => {
+		setSelectedService([...selectedService, service]);
+		setTotalItems(totalItems + 1);
+		setTotalPrice(totalPrice + service.price);
+	};
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
 		const transaction = {
 			barber_id: barberUser.id,
-			service_id: selectedService,
+			service_id: selectedService.map((s) => s.id),
 			total_items: totalItems,
 			total_price: totalPrice,
 		};
@@ -47,23 +47,13 @@ const PostTransactionModal = ({service}) => {
 	return (
 		<div>
 			<form onSubmit={handleSubmit}>
-				{errors && (
-					<div>
-						{errors.map((error) => (
-							<p>{error}</p>
-						))}
-					</div>
-				)}
-				<>
-					Service:
-
-					{/* <button
-					type="button"
-					text=
-					onClick={handleServiceSelection}
-				/> */}
-				</>
-
+				<div>
+					{/* {service.service_name} */}
+					{selectedService.map((selectedService, index) => (
+						<div key={index}>{selectedService.service_name}</div>
+					))}
+					{/* <button onClick={handleServiceSelection}>Add Another Service</button> */}
+				</div>
 				<button type="submit">Charge</button>
 			</form>
 		</div>
