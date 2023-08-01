@@ -6,7 +6,7 @@ import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import * as sessionActions from "../../store/session";
 import "./ProfileButton.css";
-import {useModal} from "../../context/Modal";
+import { useModal } from "../../context/Modal";
 import {login} from "../../store/session";
 
 function ProfileButton({user}) {
@@ -76,8 +76,8 @@ function ProfileButton({user}) {
 							modalComponent={<LoginFormModal />}
 						/>
 
-						<button onClick={demoSubmit}>DemoBarber</button>
-						{console.log(demoSubmit)}
+							<button onClick={demoSubmit}>DemoBarber</button>
+							{console.log(demoSubmit)}
 
 						<OpenModalButton
 							buttonText="Sign Up"
