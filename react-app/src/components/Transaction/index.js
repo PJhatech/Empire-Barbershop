@@ -16,7 +16,6 @@ const Transaction = ({service}) => {
 	const [totalPrice, setTotalPrice] = useState(0);
 	const [errors, setErrors] = useState([]);
 
-
 	useEffect(() => {
 		setTotalItems(service.length);
 		setTotalPrice(service.reduce((total, currentService) => total + currentService.price, 0));
@@ -46,14 +45,22 @@ const Transaction = ({service}) => {
 		<div>
 			<form onSubmit={handleSubmit}>
 				<div>
-					{/* {service.service_name} */}
-					{service.map((service, index) => (
-						<div key={index}>{service.service_name}</div>
-					))}
-					{totalPrice}
+					<label>
+						Current Sale:
+						{service.map((service, index) => (
+							<div key={index}>
+								<input type="text" id="serviceName" value={service.service_name} required />
+							</div>
+						))}
+					</label>
+
+					<label>
+						Total Items:
+						<input type="text" id="totalItems" value={totalItems} />
+					</label>
+						<input type="text" id="totalPrice" value={totalPrice} />
 				</div>
-				{totalItems}
-				<button type="submit">Charge</button>
+				<button type="submit">Charge ${totalPrice}</button>
 			</form>
 		</div>
 	);
