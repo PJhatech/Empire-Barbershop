@@ -10,6 +10,8 @@ const Transaction = ({service}) => {
 	const dispatch = useDispatch();
 	const barberUser = useSelector((state) => state.session.user);
 	const {closeModal} = useModal();
+	const [isLoaded, setIsLoaded] = useState(false);
+
 
 	// const [selectedService, setSelectedService] = useState([service]);
 	const [totalItems, setTotalItems] = useState(0);
@@ -31,6 +33,7 @@ const Transaction = ({service}) => {
 		};
 
 		if (transaction) {
+			console.log(transaction)
 			dispatch(createTransaction(transaction)).then((transaction) => {
 				if (!transaction.errors) {
 					closeModal();
@@ -43,25 +46,33 @@ const Transaction = ({service}) => {
 
 	return (
 		<div>
-			<form onSubmit={handleSubmit}>
-				<div>
-					<label>
-						Current Sale:
-						{service.map((service, index) => (
-							<div key={index}>
-								<input type="text" id="serviceName" value={service.service_name} required />
-							</div>
-						))}
-					</label>
-
-					<label>
-						Total Items:
-						<input type="text" id="totalItems" value={totalItems} />
-					</label>
-						<input type="text" id="totalPrice" value={totalPrice} />
-				</div>
-				<button type="submit">Charge ${totalPrice}</button>
-			</form>
+			{service.length > 0 ? (
+				<form onSubmit={handleSubmit}>
+					<div>
+						<label>
+							Current Sale:
+							{service.map((service, index) => (
+								<div key={index}>
+									{service.service_name}
+									{/* <input
+										type="text"
+										id="serviceName"
+										value={service.service_name}
+										required
+									/> */}
+								</div>
+							))}
+						</label>
+						<label>
+							Total Items:
+							{/* <input type="text" id="totalItems" value={totalItems} /> */}
+						{totalItems}
+						</label>
+						{/* {isLoaded ? <input type="text" id="totalPrice" value={totalPrice} /> : null} */}
+					</div>
+					<button type="submit">Charge ${totalPrice}</button>
+				</form>
+			) : null}
 		</div>
 	);
 };
