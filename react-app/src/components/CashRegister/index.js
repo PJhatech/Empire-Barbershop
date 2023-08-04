@@ -25,6 +25,23 @@ const CashRegister = () => {
 	const [totalPrice, setTotalPrice] = useState(0);
 	const [errors, setErrors] = useState([]);
 
+	// useEffect(() => {
+	// 	setSelectedService(service);
+	// }, [service]);
+
+	console.log(selectedService);
+	const removeItem = (itemToRemove) => {
+		const itemArr = selectedService.filter((item) => item !== itemToRemove);
+		setSelectedService(itemArr);
+	};
+
+	useEffect(() => {
+		setTotalItems(selectedService.length);
+		setTotalPrice(
+			selectedService.reduce((total, currentService) => total + currentService.price, 0)
+		);
+	}, [selectedService]);
+
 	const handleServiceSelection = (service) => {
 		setSelectedService([...selectedService, service]);
 		setTotalItems(totalItems + 1);
@@ -61,10 +78,25 @@ const CashRegister = () => {
 						/> */}
 					</div>
 				))}
+				<br/>
+				<br/>
 				<div>
-					<Transaction service={selectedService} />
-					{/* {console.log(selectedService)} */}
+					Current Sale:
+					{selectedService.map((service, index) => (
+						<div key={index}>
+							{service.service_name}
 
+							<button onClick={() => removeItem(service)}>Remove</button>
+							{/* <OpenModalButton buttonText="Remove" modalComponent={<RemoveItem itemToRemove={service} />} /> */}
+						</div>
+					))}
+					<div>
+						Total Items:
+						{totalItems}
+					</div>
+						<button type="submit">Charge ${totalPrice}</button>
+					{/* <Transaction service={selectedService} /> */}
+					{/* {console.log(selectedService)} */}
 					{/* {console.log(selectedService)} */}
 				</div>
 			</div>
