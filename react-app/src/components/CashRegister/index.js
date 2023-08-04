@@ -31,7 +31,7 @@ const CashRegister = () => {
 
 	console.log(selectedService);
 	const removeItem = (itemToRemove) => {
-		const itemArr = selectedService.filter((item) => item !== itemToRemove);
+		const itemArr = selectedService.filter((_,item) => item !== itemToRemove);
 		setSelectedService(itemArr);
 	};
 
@@ -86,7 +86,7 @@ const CashRegister = () => {
 						<div key={index}>
 							{service.service_name}
 
-							<button onClick={() => removeItem(service)}>Remove</button>
+							<button onClick={() => removeItem(index)}>Remove</button>
 							{/* <OpenModalButton buttonText="Remove" modalComponent={<RemoveItem itemToRemove={service} />} /> */}
 						</div>
 					))}
