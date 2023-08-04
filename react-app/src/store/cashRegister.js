@@ -1,5 +1,6 @@
 const GET_REGISTER = "register/GET_REGISTER";
 const ADD_TRANSACTION = "register/ADD_TRANSACTION";
+const DELETE_ITEM = "register/DELETE_ITEM";
 
 const getRegister = (register) => ({
     type: GET_REGISTER,
@@ -10,6 +11,11 @@ const getRegister = (register) => ({
 const addTransaction = (transaction) => ({
 	type: ADD_TRANSACTION,
 	transaction,
+});
+
+const deleteItem = (item) => ({
+	type: DELETE_ITEM,
+	item,
 });
 
 export const fetchRegister = () => async (dispatch) => {
@@ -32,6 +38,15 @@ export const createTransaction = (transaction) => async (dispatch) => {
 	}
 };
 
+export const destroyItem = (item) => async (dispatch) => {
+	const response = await fetch(`/api/register/${item}`, {
+		method: "DELETE",
+	});
+	if (response.ok) {
+		dispatch(deleteItem(item));
+	}
+};
+
 const initialState = {};
 
 export default function cashRegisterReducer(state = initialState, action) {
@@ -47,6 +62,11 @@ export default function cashRegisterReducer(state = initialState, action) {
 			newState = {...state};
 			newState[action.transaction.id] = action.transaction;
 			return {...newState};
+		}
+		case DELETE_ITEM: {
+			newState = {...state};
+			delete newState[action.item];
+			return newState;
 		}
 		default:
 			return state;

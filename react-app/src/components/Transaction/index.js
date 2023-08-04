@@ -5,6 +5,11 @@ import {createTransaction, fetchRegister} from "../../store/cashRegister";
 import {useModal} from "../../context/Modal";
 import {fetchServices} from "../../store/service";
 import Services from "../Services";
+import RemoveItem from "../RemoveItem";
+import CashRegister from "../Register";
+import { destroyItem } from "../../store/cashRegister";
+import OpenModalButton from "../OpenModalButton";
+
 
 const Transaction = ({service}) => {
 	const dispatch = useDispatch();
@@ -13,15 +18,26 @@ const Transaction = ({service}) => {
 	const [isLoaded, setIsLoaded] = useState(false);
 
 
-	// const [selectedService, setSelectedService] = useState([service]);
+	const [selectedService, setSelectedService] = useState([]);
 	const [totalItems, setTotalItems] = useState(0);
 	const [totalPrice, setTotalPrice] = useState(0);
 	const [errors, setErrors] = useState([]);
 
 	useEffect(() => {
-		setTotalItems(service.length);
-		setTotalPrice(service.reduce((total, currentService) => total + currentService.price, 0));
-	}, [service]);
+		setSelectedService (service)
+	}, [service])
+
+	console.log(selectedService);
+	const removeItem = (itemToRemove) => {
+		const itemArr = selectedService.filter((item) => item !== itemToRemove);
+		setSelectedService(itemArr);
+	};
+
+	useEffect(() => {
+		setTotalItems(selectedService.length);
+		setTotalPrice(selectedService.reduce((total, currentService) => total + currentService.price, 0));
+	}, [selectedService]);
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
@@ -33,14 +49,8 @@ const Transaction = ({service}) => {
 		};
 
 		if (transaction) {
-			console.log(transaction)
-			dispatch(createTransaction(transaction)).then((transaction) => {
-				if (!transaction.errors) {
-					closeModal();
-				} else {
-					setErrors(transaction.errors);
-				}
-			});
+			// console.log(transaction)
+			dispatch(createTransaction(transaction))
 		}
 	};
 
@@ -51,22 +61,19 @@ const Transaction = ({service}) => {
 					<div>
 						<label>
 							Current Sale:
-							{service.map((service, index) => (
+							{selectedService.map((service, index) => (
 								<div key={index}>
 									{service.service_name}
-									{/* <input
-										type="text"
-										id="serviceName"
-										value={service.service_name}
-										required
-									/> */}
+
+									<button onClick={() => removeItem(service)}>Remove</button>
+									{/* <OpenModalButton buttonText="Remove" modalComponent={<RemoveItem itemToRemove={service} />} /> */}
 								</div>
 							))}
 						</label>
 						<label>
 							Total Items:
 							{/* <input type="text" id="totalItems" value={totalItems} /> */}
-						{totalItems}
+							{totalItems}
 						</label>
 						{/* {isLoaded ? <input type="text" id="totalPrice" value={totalPrice} /> : null} */}
 					</div>

@@ -27,3 +27,13 @@ def create_transaction():
     db.session.add(register)
     db.session.commit()
     return jsonify(register.to_cash_register_dict()), 201
+
+@cash_register_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_service(id):
+    item = Cash_Register.query.get(id)
+    if item:
+        db.session.delete(item)
+        db.session.commit()
+        return jsonify({'message': 'Item Removed successfully'}), 204
+    return jsonify({'message': 'Item not found'}), 404
