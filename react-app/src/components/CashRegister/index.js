@@ -52,7 +52,7 @@ const CashRegister = () => {
 		dispatch(fetchServices()).then(() => setIsLoaded(true));
 	}, [dispatch]);
 
-	// console.log(service);
+
 
 	return (
 		<div>
@@ -78,8 +78,8 @@ const CashRegister = () => {
 						/> */}
 					</div>
 				))}
-				<br/>
-				<br/>
+				<br />
+				<br />
 				<div>
 					Current Sale:
 					{selectedService.map((service, index) => (
@@ -87,15 +87,22 @@ const CashRegister = () => {
 							{service.service_name}
 
 							<button onClick={() => removeItem(index)}>Remove</button>
-							{/* <OpenModalButton buttonText="Remove" modalComponent={<RemoveItem itemToRemove={service} />} /> */}
 						</div>
 					))}
 					<div>
 						Total Items:
 						{totalItems}
 					</div>
-						<button type="submit">Charge ${totalPrice}</button>
-					{/* <Transaction service={selectedService} /> */}
+						Total Price:
+					${totalPrice}
+					<div>
+					<OpenModalButton
+						buttonText="Charge"
+						modalComponent={
+							<Transaction service={{selectedService, totalItems, totalPrice}} />
+						}
+					/>
+					</div>
 					{/* {console.log(selectedService)} */}
 					{/* {console.log(selectedService)} */}
 				</div>

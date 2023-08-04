@@ -46,8 +46,6 @@ const Transaction = ({service}) => {
 							{service.map((service, index) => (
 								<div key={index}>
 									{service.service_name}
-
-									{/* <OpenModalButton buttonText="Remove" modalComponent={<RemoveItem itemToRemove={service} />} /> */}
 								</div>
 							))}
 						</label>
@@ -55,7 +53,6 @@ const Transaction = ({service}) => {
 							Total Items:
 							{totalItems}
 						</label>
-						{/* {isLoaded ? <input type="text" id="totalPrice" value={totalPrice} /> : null} */}
 					</div>
 					<button type="submit">Charge ${totalPrice}</button>
 				</form>
