@@ -57,7 +57,6 @@ const CashRegister = () => {
 	return (
 		<div>
 			Cash Register
-			{/* <button onButtonClick={handleServiceSelection}>Add Service </button> */}
 			<div className="serviceContainer">
 				{service.map((service) => (
 					<div key={service.id}>
@@ -71,11 +70,6 @@ const CashRegister = () => {
 						<button type="button" onClick={() => handleServiceSelection(service)}>
 							Add Service
 						</button>
-						{/* <OpenModalButton
-							buttonText="Add Service"
-							// onClick={() => setSelectedService(service)}
-							modalComponent={<Transaction service={service} />}
-						/> */}
 					</div>
 				))}
 				<br />
