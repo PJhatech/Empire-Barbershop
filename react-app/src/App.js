@@ -15,6 +15,7 @@ import AppointmentIndex from "./components/AppointmentIndex";
 import Services from "./components/Services";
 import ServiceIndex from "./components/ServiceIndex";
 import LocationPage from "./components/LocationPage";
+import Locations from "./components/Locations";
 import BarberAppointments from "./components/BarberAppointments";
 import BarberProfile from "./components/BarberProfile";
 import CashRegister from "./components/CashRegister";
@@ -70,7 +71,8 @@ function App() {
             <ServiceIndex />
           </Route>
           <Route exact path="/locations">
-            <LocationPage />
+            {/* <LocationPage /> */}
+            <Locations />
           </Route>
           <Route exact path="/register">
             <CashRegister />
