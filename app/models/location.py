@@ -15,11 +15,11 @@ class Location(db.Model, UserMixin):
     address = db.Column(db.String(100), unique=True, nullable=False)
     city = db.Column(db.String(100), nullable=False)
     state = db.Column(db.String(50), nullable=False)
+    zipCode = db.Column(db.Integer, nullable=False)
     country = db.Column(db.String(50), nullable=False)
     lat = db.Column(db.Integer, nullable=False)
     lng = db.Column(db.Integer, nullable=False)
     name = db.Column(db.String(100), nullable=False)
-    description = db.Column(db.String(500))
 
     # Relationships
     users = db.relationship('User', back_populates='locations')
@@ -31,9 +31,9 @@ class Location(db.Model, UserMixin):
             'address': self.address,
             'city': self.city,
             'state': self.state,
+            'zipCode': self.zipCode,
             'country': self.country,
             'lat': self.lat,
             'lng': self.lng,
             'name': self.name,
-            'description': self.description
         }
