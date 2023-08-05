@@ -4,27 +4,31 @@ import {NavLink} from "react-router-dom";
 import {fetchLocations, fetchServices, updateService} from "../../store/location";
 import {useModal} from "../../context/Modal";
 
-const LocationUpdateModal = ({location}) => {
+const LocationUpdateModal = ({locationProp}) => {
 	const dispatch = useDispatch();
 	const locationReducer = useSelector((state) => state.locationReducer);
-	const location = Object.values(selectedService);
+	const location = Object.values(locationProp);
 	const {closeModal} = useModal();
 
-	console.log("<-------CreateServiceComponent------->", location[0]);
+	console.log("<-------CreateServiceComponent------->", locationProp.id);
 
+	useEffect(() => {
+	dispatch(fetchLocations());
+	// dispatch(fetchLocationById(id));
+}, [dispatch]);
 	// useEffect(() => {
 	// 	dispatch(updateService());
-	// 	dispatch(fetchServices());
+	// 	dispatch(fetchServices());Prop
 	// }, [dispatch]);
 
-	const [address, setAddress] = useState(location.address);
-	const [city, setCity] = useState(location.city);
-	const [state, setState] = useState(location.state);
-	const [zipCode, setZipCode] = useState(location.zipCode);
-	const [country, setCountry] = useState(location.country);
-	const [lat, setLat] = useState(location.lat);
-	const [lng, setLng] = useState(location.lng);
-	const [name, setName] = useState(location.name);
+	const [address, setAddress] = useState(locationProp.address);
+	const [city, setCity] = useState(locationProp.city);
+	const [state, setState] = useState(locationProp.state);
+	const [zipCode, setZipCode] = useState(locationProp.zipCode);
+	const [country, setCountry] = useState(locationProp.country);
+	const [lat, setLat] = useState(locationProp.lat);
+	const [lng, setLng] = useState(locationProp.lng);
+	const [name, setName] = useState(locationProp.name);
 
 
 	const handleSubmit = async (e) => {
@@ -39,8 +43,8 @@ const LocationUpdateModal = ({location}) => {
 			lng: lng,
 			name: name,
 		};
-
-		await dispatch(updateService(location.id, locationData));
+		console.log(locationData)
+		await dispatch(updateService(locationProp.id, locationData));
 		fetchLocations();
 		closeModal();
 	};
@@ -118,15 +122,6 @@ const LocationUpdateModal = ({location}) => {
 				/>
 			</label>
 
-			<label>
-				Longitude:
-				<input
-					type="text"
-					id="lng"
-					value={lng}
-					onChange={(e) => setLng(e.target.value)}
-				/>
-			</label>
 
 			<label>
 				Name:

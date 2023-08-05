@@ -69,15 +69,16 @@ export const destroyService = (id) => async (dispatch) => {
 	}
 };
 
-export const updateService = (id, serviceData) => async (dispatch) => {
+export const updateService = (id, locationData) => async (dispatch) => {
 	const response = await fetch(`/api/locations/${id}`, {
 		method: "PUT",
 		headers: {"Content-Type": "application/json"},
-		body: JSON.stringify(serviceData),
+		body: JSON.stringify(locationData),
 	});
 	if (response.ok) {
 		const location = await response.json();
 		dispatch(reviseService(location));
+		return dispatch(fetchLocations())
 	}
 };
 

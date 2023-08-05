@@ -1,7 +1,9 @@
 import React, {useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {NavLink, useParams} from "react-router-dom";
-import {fetchLocations, fetchLocationById} from "../../store/location";
+import { fetchLocations, fetchLocationById } from "../../store/location";
+import LocationUpdateModal from "../LocationUpdateModal";
+import OpenModalButton from "../OpenModalButton";
 
 const Locations = () => {
 	const dispatch = useDispatch();
@@ -10,12 +12,12 @@ const Locations = () => {
 	const authUser = useSelector((state) => state.session.user)
 	const location = Object.values(locationReducer);
 
-	console.log("<-------LOCATIONS------->", location);
+	// console.log("<-------LOCATIONS------->", location);
 
 	useEffect(() => {
 		dispatch(fetchLocations());
 		// dispatch(fetchLocationById(id));
-	}, [dispatch, id]);
+	}, [dispatch]);
 
 	// const userTransactions = Object.values(allTransactions).filter(
 	//     (transaction) => transaction.user_id === userId
@@ -28,9 +30,11 @@ const Locations = () => {
 				{location.map((location) => (
 					<div key={location.id}>
 						{authUser ? (
-							<NavLink exact to={`/location/${location.id}`}>
+							<div>
 								{location.name}
-							</NavLink>
+								{location.address}
+							<OpenModalButton buttonText="update" modalComponent={<LocationUpdateModal locationProp={location} />} />
+							</div>
 						) : location.name }
 					</div>
 				))}
