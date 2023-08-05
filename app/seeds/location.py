@@ -4,7 +4,6 @@ from sqlalchemy.sql import text
 
 def seed_location():
     locationSeeder = Location(
-         barber_id=1,
          address='114 Sunvalley Mall',
          city='Concord',
          state='California',

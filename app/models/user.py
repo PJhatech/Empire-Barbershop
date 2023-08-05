@@ -26,7 +26,7 @@ class User(UserMixin, db.Model):
     appointments_as_client = db.relationship('Appointment', foreign_keys='Appointment.client_id', back_populates='client')
     # client_wallet = db.relationship('Wallet', foreign_keys='Wallet.client_id', back_populates='client', uselist=False)
     cash_register = db.relationship('Cash_Register', foreign_keys='Cash_Register.barber_id', back_populates='barber')
-    locations = db.relationship('Location', back_populates='users')
+    # locations = db.relationship('Location', back_populates='users')
 
 
     @property

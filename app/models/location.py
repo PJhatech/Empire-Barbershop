@@ -11,7 +11,7 @@ class Location(db.Model, UserMixin):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    barber_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
+    # barber_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
     address = db.Column(db.String(100), unique=True, nullable=False)
     city = db.Column(db.String(100), nullable=False)
     state = db.Column(db.String(50), nullable=False)
@@ -22,12 +22,12 @@ class Location(db.Model, UserMixin):
     name = db.Column(db.String(100), nullable=False)
 
     # Relationships
-    users = db.relationship('User', back_populates='locations')
+    # users = db.relationship('User', back_populates='locations')
 
-    def to_locations_dict(self):
+    def to_location_dict(self):
         return {
             'id': self.id,
-            'barber_id': self.barber_id,
+            # 'barber_id': self.barber_id,
             'address': self.address,
             'city': self.city,
             'state': self.state,
