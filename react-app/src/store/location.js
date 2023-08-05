@@ -59,7 +59,7 @@ export const createLocation = (location) => async (dispatch) => {
 	}
 };
 
-export const destroyService = (id) => async (dispatch) => {
+export const destroyLocation = (id) => async (dispatch) => {
 	console.log(id);
 	const response = await fetch(`/api/locations/${id}`, {
 		method: "DELETE",

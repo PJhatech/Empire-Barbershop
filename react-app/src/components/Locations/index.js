@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {NavLink, useParams} from "react-router-dom";
 import { fetchLocations, fetchLocationById } from "../../store/location";
 import LocationUpdateModal from "../LocationUpdateModal";
+import DeleteLocation from "../LocationDeleteModal";
 import OpenModalButton from "../OpenModalButton";
 
 const Locations = () => {
@@ -34,7 +35,9 @@ const Locations = () => {
 								{location.name}
 								{location.address}
 							<OpenModalButton buttonText="update" modalComponent={<LocationUpdateModal locationProp={location} />} />
+							<OpenModalButton buttonText="Delete" modalComponent={<DeleteLocation location={location} /> } />
 							</div>
+							
 						) : location.name }
 					</div>
 				))}
