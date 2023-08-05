@@ -1,8 +1,8 @@
 const GET_LOCATIONS = "location/GET_LOCATIONS";
 const GET_LOCATION_BY_ID = "location/GET_LOCATION_BY_ID";
 const ADD_LOCATION = "location/ADD_LOCATION";
-const DELETE_SERVICE = "location/DELETE_SERVICE";
-const UPDATE_SERVICE = "location/UPDATE_SERVICE";
+const DELETE_LOCATION = "location/DELETE_LOCATION";
+const UPDATE_LOCATION = "location/UPDATE_LOCATION";
 
 const getLocations = (locations) => ({
 	type: GET_LOCATIONS,
@@ -19,13 +19,13 @@ const addLocation = (location) => ({
 	location,
 });
 
-const deleteService = (location) => ({
-	type: DELETE_SERVICE,
+const deleteLocation = (location) => ({
+	type: DELETE_LOCATION,
 	location,
 });
 
-const reviseService = (location) => ({
-	type: UPDATE_SERVICE,
+const reviseLocation = (location) => ({
+	type: UPDATE_LOCATION,
 	location,
 });
 
@@ -65,11 +65,11 @@ export const destroyService = (id) => async (dispatch) => {
 		method: "DELETE",
 	});
 	if (response.ok) {
-		dispatch(deleteService(id));
+		dispatch(deleteLocation(id));
 	}
 };
 
-export const updateService = (id, locationData) => async (dispatch) => {
+export const updateLocation = (id, locationData) => async (dispatch) => {
 	const response = await fetch(`/api/locations/${id}`, {
 		method: "PUT",
 		headers: {"Content-Type": "application/json"},
@@ -77,7 +77,7 @@ export const updateService = (id, locationData) => async (dispatch) => {
 	});
 	if (response.ok) {
 		const location = await response.json();
-		dispatch(reviseService(location));
+		dispatch(reviseLocation(location));
 		return dispatch(fetchLocations())
 	}
 };
@@ -101,11 +101,11 @@ export default function locationReducer(state = initialState, action) {
 			newState[action.locations.id] = action.locations;
 			return {...newState};
 		}
-		case UPDATE_SERVICE: {
+		case UPDATE_LOCATION: {
 			newState[action.location.id] = action.location;
 			return {...newState};
 		}
-		case DELETE_SERVICE: {
+		case DELETE_LOCATION: {
 			newState = {...state};
 			delete newState[action.location];
 			return newState;

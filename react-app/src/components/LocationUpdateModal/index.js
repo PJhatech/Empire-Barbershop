@@ -1,25 +1,18 @@
 import React, {useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {NavLink} from "react-router-dom";
-import {fetchLocations, fetchServices, updateService} from "../../store/location";
+import {fetchLocations, updateLocation} from "../../store/location";
 import {useModal} from "../../context/Modal";
 
 const LocationUpdateModal = ({locationProp}) => {
 	const dispatch = useDispatch();
-	const locationReducer = useSelector((state) => state.locationReducer);
-	const location = Object.values(locationProp);
 	const {closeModal} = useModal();
 
 	console.log("<-------CreateServiceComponent------->", locationProp.id);
 
 	useEffect(() => {
-	dispatch(fetchLocations());
-	// dispatch(fetchLocationById(id));
-}, [dispatch]);
-	// useEffect(() => {
-	// 	dispatch(updateService());
-	// 	dispatch(fetchServices());Prop
-	// }, [dispatch]);
+		dispatch(fetchLocations());
+	}, [dispatch]);
 
 	const [address, setAddress] = useState(locationProp.address);
 	const [city, setCity] = useState(locationProp.city);
@@ -29,7 +22,6 @@ const LocationUpdateModal = ({locationProp}) => {
 	const [lat, setLat] = useState(locationProp.lat);
 	const [lng, setLng] = useState(locationProp.lng);
 	const [name, setName] = useState(locationProp.name);
-
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -43,8 +35,8 @@ const LocationUpdateModal = ({locationProp}) => {
 			lng: lng,
 			name: name,
 		};
-		console.log(locationData)
-		await dispatch(updateService(locationProp.id, locationData));
+		console.log(locationData);
+		await dispatch(updateLocation(locationProp.id, locationData));
 		fetchLocations();
 		closeModal();
 	};
@@ -64,12 +56,7 @@ const LocationUpdateModal = ({locationProp}) => {
 
 			<label>
 				City:
-				<input
-					type="text"
-					id="city"
-					value={city}
-					onChange={(e) => setCity(e.target.value)}
-				/>
+				<input type="text" id="city" value={city} onChange={(e) => setCity(e.target.value)} />
 			</label>
 
 			<label>
@@ -104,33 +91,17 @@ const LocationUpdateModal = ({locationProp}) => {
 
 			<label>
 				Latitude:
-				<input
-					type="text"
-					id="lat"
-					value={lat}
-					onChange={(e) => setLat(e.target.value)}
-				/>
+				<input type="text" id="lat" value={lat} onChange={(e) => setLat(e.target.value)} />
 			</label>
 
 			<label>
 				Longitude:
-				<input
-					type="text"
-					id="lng"
-					value={lng}
-					onChange={(e) => setLng(e.target.value)}
-				/>
+				<input type="text" id="lng" value={lng} onChange={(e) => setLng(e.target.value)} />
 			</label>
-
 
 			<label>
 				Name:
-				<input
-					type="text"
-					id="name"
-					value={name}
-					onChange={(e) => setName(e.target.value)}
-				/>
+				<input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} />
 			</label>
 
 			<button type="submit">Update Service</button>
@@ -138,5 +109,4 @@ const LocationUpdateModal = ({locationProp}) => {
 	);
 };
 
-export default LocationUpdateModal
-;
+export default LocationUpdateModal;
