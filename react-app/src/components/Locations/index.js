@@ -7,6 +7,7 @@ const Locations = () => {
 	const dispatch = useDispatch();
 	const {id} = useParams();
 	const locationReducer = useSelector((state) => state.locationReducer);
+	const authUser = useSelector((state) => state.session.user)
 	const location = Object.values(locationReducer);
 
 	console.log("<-------LOCATIONS------->", location);
@@ -26,15 +27,14 @@ const Locations = () => {
 			<div>
 				{location.map((location) => (
 					<div key={location.id}>
-						<NavLink exact to={`/location/${location.id}`}>
-							{location.name}
-						</NavLink>
+						{authUser ? (
+							<NavLink exact to={`/location/${location.id}`}>
+								{location.name}
+							</NavLink>
+						) : location.name }
 					</div>
 				))}
 			</div>
-			{/* <NavLink to={`/appointments/${.id}/edit`}>
-				<button type="submit">Update</button>
-			</NavLink> */}
 		</>
 	);
 };

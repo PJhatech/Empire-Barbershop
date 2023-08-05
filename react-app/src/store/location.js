@@ -1,8 +1,8 @@
 const GET_LOCATIONS = "location/GET_LOCATIONS";
 const GET_LOCATION_BY_ID = "location/GET_LOCATION_BY_ID";
 const ADD_LOCATION = "location/ADD_LOCATION";
-// const DELETE_SERVICE = "location/DELETE_SERVICE";
-// const UPDATE_SERVICE = "location/UPDATE_SERVICE";
+const DELETE_SERVICE = "location/DELETE_SERVICE";
+const UPDATE_SERVICE = "location/UPDATE_SERVICE";
 
 const getLocations = (locations) => ({
 	type: GET_LOCATIONS,
@@ -19,15 +19,15 @@ const addLocation = (location) => ({
 	location,
 });
 
-// const deleteService = (location) => ({
-// 	type: DELETE_SERVICE,
-// 	location,
-// });
+const deleteService = (location) => ({
+	type: DELETE_SERVICE,
+	location,
+});
 
-// const reviseService = (location) => ({
-// 	type: UPDATE_SERVICE,
-// 	location,
-// });
+const reviseService = (location) => ({
+	type: UPDATE_SERVICE,
+	location,
+});
 
 export const fetchLocations = () => async (dispatch) => {
 	const response = await fetch("/api/locations/");
@@ -59,27 +59,27 @@ export const createLocation = (location) => async (dispatch) => {
 	}
 };
 
-// export const destroyService = (id) => async (dispatch) => {
-// 	console.log(id);
-// 	const response = await fetch(`/api/locations/${id}`, {
-// 		method: "DELETE",
-// 	});
-// 	if (response.ok) {
-// 		dispatch(deleteService(id));
-// 	}
-// };
+export const destroyService = (id) => async (dispatch) => {
+	console.log(id);
+	const response = await fetch(`/api/locations/${id}`, {
+		method: "DELETE",
+	});
+	if (response.ok) {
+		dispatch(deleteService(id));
+	}
+};
 
-// export const updateService = (id, serviceData) => async (dispatch) => {
-// 	const response = await fetch(`/api/locations/${id}`, {
-// 		method: "PUT",
-// 		headers: {"Content-Type": "application/json"},
-// 		body: JSON.stringify(serviceData),
-// 	});
-// 	if (response.ok) {
-// 		const location = await response.json();
-// 		dispatch(reviseService(location));
-// 	}
-// };
+export const updateService = (id, serviceData) => async (dispatch) => {
+	const response = await fetch(`/api/locations/${id}`, {
+		method: "PUT",
+		headers: {"Content-Type": "application/json"},
+		body: JSON.stringify(serviceData),
+	});
+	if (response.ok) {
+		const location = await response.json();
+		dispatch(reviseService(location));
+	}
+};
 
 const initialState = {};
 
@@ -100,15 +100,15 @@ export default function locationReducer(state = initialState, action) {
 			newState[action.locations.id] = action.locations;
 			return {...newState};
 		}
-		// case UPDATE_SERVICE: {
-		// 	newState[action.location.id] = action.location;
-		// 	return {...newState};
-		// }
-		// case DELETE_SERVICE: {
-		// 	newState = {...state};
-		// 	delete newState[action.location];
-		// 	return newState;
-		// }
+		case UPDATE_SERVICE: {
+			newState[action.location.id] = action.location;
+			return {...newState};
+		}
+		case DELETE_SERVICE: {
+			newState = {...state};
+			delete newState[action.location];
+			return newState;
+		}
 		default:
 			return state;
 	}
