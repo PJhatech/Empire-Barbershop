@@ -38,16 +38,18 @@ def get_location_by_id(id):
 @login_required
 def post_new_location():
    data = request.json
+   zipCode_int = data["zipCode"]
    new_location = Location(
-      address=['114 Sunvalley Mall'],
-      city=['Concord'],
-      state=['California'],
-      zipCode=['94520'],
-      country=['United States'],
-      lat=['123445689'],
-      lng=['987654321'],
-      name=["Concord Location"]
+      address=['address'],
+      city=['city'],
+      state=['state'],
+      zipCode=int(zipCode_int),
+      country=['country'],
+      lat=['lat'],
+      lng=['lng'],
+      name=["name"]
    )
+   print("<---------APIHEREE------->", new_location)
    db.session.add(new_location)
    db.session.commit()
    return jsonify(new_location.to_location_dict()), 201

@@ -47,15 +47,23 @@ export const fetchLocationById = (id) => async (dispatch) => {
 };
 
 export const createLocation = (location) => async (dispatch) => {
-	// console.log('<----createLocation---->', location)
+	console.log('<----createLocation---->', location)
 	const response = await fetch(`/api/locations/`, {
 		method: "POST",
 		headers: {"Content-Type": "application/json"},
 		body: JSON.stringify(location),
 	});
 	if (response.ok) {
+		response.status("Successfully created location.")
 		const location = await response.json();
 		dispatch(addLocation(location));
+	} else if (response.status < 500) {
+		const data = await response.json();
+		if (data.errors) {
+			return data;
+		}
+	} else {
+		return ["An error occurred. Please try again."];
 	}
 };
 

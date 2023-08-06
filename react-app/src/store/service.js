@@ -49,8 +49,6 @@ export const fetchServiceById = (id) => async (dispatch) => {
 };
 
 export const createService = (service) => async (dispatch) => {
-	console.log('<----createService---->', service)
-	// service.price = service.price*1
 	const response = await fetch(`/api/services/`, {
 		method: "POST",
 		headers: {"Content-Type": "application/json"},
@@ -62,7 +60,6 @@ export const createService = (service) => async (dispatch) => {
 		return dispatch(fetchServices());
 	} else if (response.status < 500) {
 		const data = await response.json();
-		console.log("<----createService---->", data);
 		if (data.errors) {
 			return data;
 		}

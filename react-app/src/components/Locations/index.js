@@ -4,7 +4,9 @@ import {NavLink, useParams} from "react-router-dom";
 import { fetchLocations, fetchLocationById } from "../../store/location";
 import LocationUpdateModal from "../LocationUpdateModal";
 import DeleteLocation from "../LocationDeleteModal";
+import CreateLocation from "../LocationAddModal";
 import OpenModalButton from "../OpenModalButton";
+
 
 const Locations = () => {
 	const dispatch = useDispatch();
@@ -37,10 +39,13 @@ const Locations = () => {
 							<OpenModalButton buttonText="update" modalComponent={<LocationUpdateModal locationProp={location} />} />
 							<OpenModalButton buttonText="Delete" modalComponent={<DeleteLocation location={location} /> } />
 							</div>
-							
+
 						) : location.name }
 					</div>
 				))}
+			</div>
+			<div>
+				<OpenModalButton buttonText="Create A New Location?" modalComponent={<CreateLocation />} />
 			</div>
 		</>
 	);
