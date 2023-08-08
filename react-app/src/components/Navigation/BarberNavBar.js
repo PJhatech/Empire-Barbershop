@@ -14,10 +14,10 @@ function BarberNavBar({isLoaded}) {
 
 	return (
 		<div className="barberNavContainer">
-			<div className="componentWrapper">
-				<div className="barberPole">
+			<div className="barberPole-wrapper">
+				<div>
 					<NavLink exact to="/">
-						<img alt="poleIcon" src={barberPole} />
+						<img alt="poleIcon" className="barberPole" src={barberPole} />
 					</NavLink>
 				</div>
 				<div className="barberNavLinks">

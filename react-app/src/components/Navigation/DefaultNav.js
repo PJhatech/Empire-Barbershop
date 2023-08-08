@@ -39,21 +39,20 @@ function DefaultNavBar({isLoaded}) {
 						<h1> Empire BarberShop </h1>
 					</div>
 					<div className="h2Tags">
-						<NavLink to={"/locations"}>
-							{" "}
-							<h2>Book Now</h2>{" "}
-						</NavLink>
 						<NavLink exact to="/">
 							<h2> Home</h2>
+						</NavLink>
+						<NavLink to={"/locations"}>
+							<h2>Book Now</h2>
 						</NavLink>
 						<h2 onClick={() => setModalContent(<ComingSoon />)}> Gift Cards</h2>
 
 						<h2 onClick={() => setModalContent(<ComingSoon />)}> Shop</h2>
-						{sessionUser ? (
+						{sessionUser ?
 							<NavLink to={"/barberprofile"}>
 								<h2> Barber Profile</h2>
 							</NavLink>
-						) : null}
+						 : null}
 						{isLoaded && (
 							<div className="userButton">
 								{/* <h2>Barber Profile</h2> */}
