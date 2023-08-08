@@ -13,16 +13,17 @@ function BarberNavBar({isLoaded}) {
 	const {setModalContent} = useModal();
 
 	return (
-		<div className="barberNavContainer">
-			<div className="barberPole-wrapper">
+		<div className="navigation-container">
+			<div className="barbercontainer">
 				<div>
 					<NavLink exact to="/">
 						<img alt="poleIcon" className="barberPole" src={barberPole} />
 					</NavLink>
 				</div>
 				<div className="barberNavLinks">
-					<div className="shopName">
+					<div className="profileName">
 						<h1>
+							askjdfhkjsadfh
 							{sessionUser.first_name} {sessionUser.last_name}
 						</h1>
 					</div>

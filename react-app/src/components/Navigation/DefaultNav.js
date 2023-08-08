@@ -12,15 +12,20 @@ function DefaultNavBar({isLoaded}) {
 	const sessionUser = useSelector((state) => state.session.user);
 	const location = useLocation();
 
-	const { setModalContent } = useModal();
+	const {setModalContent} = useModal();
 
 	let navColor =
 		location.pathname === "/" ||
 		location.pathname === "/appointments" ||
-		location.pathname === "/barberprofile" ? "black" : "white";
+		location.pathname === "/barberprofile"
+			? "black"
+			: "white";
 	let shopNameColor =
 		location.pathname === "/" ||
-		location.pathname === "/appointments" ? "white" : "black";
+		location.pathname === "/appointments" ||
+		location.pathname === "/barberprofile"
+			? "white"
+			: "black";
 
 	return (
 		<div className="navigation-container" style={{backgroundColor: navColor}}>
@@ -48,11 +53,11 @@ function DefaultNavBar({isLoaded}) {
 						<h2 onClick={() => setModalContent(<ComingSoon />)}> Gift Cards</h2>
 
 						<h2 onClick={() => setModalContent(<ComingSoon />)}> Shop</h2>
-						{sessionUser ?
+						{sessionUser ? (
 							<NavLink to={"/barberprofile"}>
 								<h2> Barber Profile</h2>
 							</NavLink>
-						 : null}
+						) : null}
 						{isLoaded && (
 							<div className="userButton">
 								{/* <h2>Barber Profile</h2> */}

@@ -20,7 +20,7 @@ function Navigation({isLoaded}) {
 
 
 	return (
-		<div className="navigation-container">
+		<div>
 			{location.pathname !== "/barberprofile" ? <DefaultNavBar isLoaded={isLoaded}/> : <BarberNavBar isLoaded={isLoaded} />}
 
 		</div>

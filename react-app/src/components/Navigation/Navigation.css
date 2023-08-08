@@ -16,10 +16,12 @@
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100px;
 	background-color: black;
-	/* background-color: white; */
+	background-color: white;
 	z-index: 1;
+	@media only screen and (min-width: 1224px) {
+		height: 100px;
+	}
 }
 
 .componentWrapper {
@@ -31,20 +33,21 @@
 
 .barberPole {
 	padding-left: 10px;
-	height: 95px;
+	height: 97px;
+	object-fit: cover;
 }
 
 .components {
 	display: flex;
 	justify-content: flex-end;
 	/* flex-direction: row; */
-	font-size:10px;
+	font-size: 8px;
 	font-style: normal;
 	font-family: "Futura PT", sans-serif;
 	text-transform: uppercase;
 	font-style: oblique;
 	letter-spacing: 4px;
-	padding-top: 14px;
+	padding-top: 18px;
 	width: 100%;
 	color: #32cd32;
 }
@@ -53,12 +56,39 @@
 	display: flex;
 	width: 100%;
 	color: white;
-	letter-spacing: 16px;
-	font-size: 15.5px;
+	letter-spacing: 18px;
+	font-size: 12px;
+	padding-top: 5px;
 	/* margin-right: 10px; */
 	/* color: black; */
 }
 
+@media (min-width: 1442px) {
+	.components {
+		display: flex;
+		justify-content: flex-end;
+		font-size: 11px;
+		font-style: normal;
+		font-family: "Futura PT", sans-serif;
+		text-transform: uppercase;
+		font-style: oblique;
+		letter-spacing: 5px;
+		padding-top: 14px;
+		width: 100%;
+		color: #32cd32;
+	}
+
+	.shopName {
+		display: flex;
+		width: 100%;
+		color: white;
+		letter-spacing: 16px;
+		font-size: 15.5px;
+		margin-top: -5px;
+		/* margin-right: 10px; */
+		/* color: black; */
+	}
+}
 .h2Tags {
 	width: 100%;
 	display: flex;
@@ -78,7 +108,6 @@ a:link {
 	text-decoration: none;
 }
 
-
 a:-webkit-any-link {
 	color: #32cd32;
 	cursor: pointer;
@@ -88,8 +117,8 @@ h2 {
 }
 
 a:-webkit-any-link:hover {
-	color: #787878
+	color: #787878;
 }
-h2:hover{
-	color: #787878
+h2:hover {
+	color: #787878;
 }
