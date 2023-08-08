@@ -20,6 +20,7 @@ import BarberAppointments from "./components/BarberAppointments";
 import BarberProfile from "./components/BarberProfile";
 import CashRegister from "./components/CashRegister";
 import BarberNavBar from "./components/BarberNavBar";
+
 // import CreateAppointmentAsClient from "./components/CreateAppointmentAsClient";
 
 
@@ -31,65 +32,57 @@ function App() {
   }, [dispatch]);
 
   return (
-		<>
-			{isLoaded && (
-				<Switch>
-					<Route exact path="/">
-						<Navigation isLoaded={isLoaded} />
-						<LandingPage />
-					</Route>
-          <Route exact path="/barberprofile">
-            <BarberNavBar isLoaded={isLoaded}/>
-						<BarberProfile />
-					</Route>
-					<Route path="/login">
-						<LoginFormPage />
-					</Route>
-					<Route path="/signup">
-						<SignupFormPage />
-					</Route>
-					<Route exact path="/barbers">
-						<Navigation isLoaded={isLoaded} />
-						<Barbers />
-					</Route>
-					<Route exact path="/barbers/:id">
-						<Navigation isLoaded={isLoaded} />
-						<BarberIndex />
-					</Route>
-					<Route exact path="/barbers/:id/appointments">
-						<Navigation isLoaded={isLoaded} />
-						<BarberAppointments />
-					</Route>
-					<Route path="/clients">
-						<Navigation isLoaded={isLoaded} />
-						<Clients />
-					</Route>
-					<Route exact path="/appointments">
-						<Navigation isLoaded={isLoaded} />
-						<Appointments />
-					</Route>
-					<Route exact path="/appointments/:id">
-						<Navigation isLoaded={isLoaded} />
-						<AppointmentIndex />
-					</Route>
-					<Route exact path="/services">
-						<Services />
-					</Route>
-					<Route exact path="/services/:id">
-						<ServiceIndex />
-					</Route>
-					<Route exact path="/locations">
-						<Navigation isLoaded={isLoaded} />
-						{/* <LocationPage /> */}
-						<Locations />
-					</Route>
-					<Route exact path="/register">
-						<Navigation isLoaded={isLoaded} />
-						<CashRegister />
-					</Route>
-				</Switch>
-			)}
-		</>
+    <>
+      <Navigation isLoaded={isLoaded} />
+      {isLoaded && (
+        <Switch>
+          <Route exact path="/" >
+            <LandingPage />
+          </Route>
+          <Route exact path="/barberprofile" >
+            <BarberProfile />
+          </Route>
+          <Route path="/login" >
+            <LoginFormPage />
+          </Route>
+          <Route path="/signup">
+            <SignupFormPage />
+          </Route>
+          <Route exact path="/barbers">
+            <Barbers />
+          </Route>
+          <Route exact path="/barbers/:id">
+            <BarberIndex />
+          </Route>
+          <Route exact path="/barbers/:id/appointments">
+            <BarberAppointments />
+          </Route>
+          <Route path="/clients">
+            <Clients />
+          </Route>
+          <Route exact path="/appointments">
+            <Appointments />
+          </Route>
+          <Route exact path="/appointments/:id">
+            <AppointmentIndex />
+          </Route>
+          <Route exact path="/services">
+            <Services />
+          </Route>
+          <Route exact path="/services/:id">
+            <ServiceIndex />
+          </Route>
+          <Route exact path="/locations">
+            {/* <LocationPage /> */}
+            <Locations />
+          </Route>
+          <Route exact path="/register">
+            <CashRegister />
+          </Route>
+
+        </Switch>
+      )}
+    </>
   );
 }
 
