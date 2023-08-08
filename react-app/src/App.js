@@ -19,7 +19,6 @@ import Locations from "./components/Locations";
 import BarberAppointments from "./components/BarberAppointments";
 import BarberProfile from "./components/BarberProfile";
 import CashRegister from "./components/CashRegister";
-import BarberNavBar from "./components/BarberNavBar";
 
 // import CreateAppointmentAsClient from "./components/CreateAppointmentAsClient";
 

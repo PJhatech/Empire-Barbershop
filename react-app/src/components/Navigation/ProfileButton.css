@@ -11,7 +11,8 @@
 button.profileButton {
 	background: none;
 	border: none;
-	padding-left: 10px;
+
+	margin-left: 10px;
 	/* display: flex; */
 	/* flex-direction: row; */
 	/* justify-content: flex-start; */
