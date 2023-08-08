@@ -6,6 +6,7 @@ import ProfileButton from "../Navigation/ProfileButton";
 import "./BarberProfile.css";
 import BarberIndex from "../BarberIndex";
 import {Redirect} from "react-router-dom";
+import BarberNavBar from "../BarberNavBar";
 
 const BarberProfile = () => {
 	// const dispatch = useDispatch();

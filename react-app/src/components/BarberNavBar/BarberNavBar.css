@@ -1,0 +1,23 @@
+.BarberNavContainer {
+	background-color: black;
+	text-decoration: none;
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1;
+}
+
+.BarberNavLinks {
+   display: flex;
+	font-size: 9px;
+	font-style: normal;
+	font-family: "Futura PT", sans-serif;
+	text-transform: uppercase;
+	font-style: oblique;
+	letter-spacing: 4px;
+	padding-top: 6px;
+	width: 100%;
+	color: #32cd32;
+}
