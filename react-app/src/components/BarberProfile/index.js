@@ -6,6 +6,8 @@ import ProfileButton from "../Navigation/ProfileButton";
 import "./BarberProfile.css";
 import BarberIndex from "../BarberIndex";
 import {Redirect} from "react-router-dom";
+import aaron from "../Images/aaron.jpeg";
+import video from "../Images/video.mov";
 
 const BarberProfile = () => {
 	// const dispatch = useDispatch();
@@ -33,8 +35,20 @@ const BarberProfile = () => {
 
 	return (
 		<div className="pageContainer">
-			<div className="componentContainter">
-				<div className="barberName">
+			<div className="row">
+				<div className="column">
+					<img alt="barberPicture" className="barberProfilePic" src={aaron} />
+					<button className="barberComponents">
+						<h1>Appointments</h1>
+					</button>
+				</div>
+				<div className="column">
+					<h1>test</h1>
+					<NavLink to={"/appointments"}></NavLink>
+				</div>
+
+				{/* <video src={video} width="600" height="300" muted="true" autoplay="true" loop="true" /> */}
+				{/* <div className="barberName">
 					{barber.first_name} {barber.last_name}
 				</div>
 				<div>
@@ -64,7 +78,7 @@ const BarberProfile = () => {
 					<>
 						<img alt="logo" className="barberimg" src={logo} />
 					</>
-				)}
+				)} */}
 			</div>
 		</div>
 	);

@@ -13,14 +13,13 @@ function BarberNavBar({isLoaded}) {
 	const {setModalContent} = useModal();
 
 	return (
-		<div className="navigation-container">
 			<div className="barbercontainer">
 				<div>
 					<NavLink exact to="/">
 						<img alt="poleIcon" className="barberPole" src={barberPole} />
 					</NavLink>
 				</div>
-				<div className="barberNavLinks">
+				<div>
 					<div className="profileName">
 						<h1>
 							askjdfhkjsadfh
@@ -40,7 +39,7 @@ function BarberNavBar({isLoaded}) {
 					</div>
 				</div>
 			</div>
-		</div>
+
 	);
 }
 
