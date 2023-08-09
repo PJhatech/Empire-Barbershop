@@ -50,7 +50,6 @@ const Appointments = () => {
 
     return (
 		<>
-			<h2>Appointments</h2>
 			{appointment.map((appointment) => (
 				<div key={appointment.id}>
 					Client: {appointment.client.first_name}

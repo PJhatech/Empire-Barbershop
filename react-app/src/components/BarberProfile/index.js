@@ -6,6 +6,9 @@ import shop from "../Images/shopimg.jpeg";
 import background from "../Images/blkBackGround.jpeg";
 import "./BarberProfile.css";
 import Appointments from "../Appointments";
+import Services from "../Services";
+import CashRegister from "../Register";
+import Locations from "../Locations"
 import stateofmind from "../Images/stateofmind.jpg";
 import video from "../Images/video.mov";
 
@@ -45,8 +48,15 @@ const BarberProfile = () => {
 		<div className="pageContainer">
 			<div className="row">
 				<div className="leftColumn">
-					<video id='video' src={video} className="video" muted="true" autoplay="true" loop="true" />
-o
+					<video
+						id="video"
+						src={video}
+						className="video"
+						muted="true"
+						autoplay="true"
+						loop="true"
+					/>
+					o
 					<img alt="lo" className="barberProfilePic" src={stateofmind} />
 					<img alt="concordShop" className="shop" src={shop} />
 					{/* <img alt="barberPicture" className="barberProfilePic" src={aaron} /> */}
@@ -55,41 +65,44 @@ o
 					<button
 						className="tablink"
 						onClick={(e) => openPage("Appointments", e.target, "#30cd30")}
+						id="defaultOpen"
 					>
 						Appointments
 					</button>
 					<button
 						className="tablink"
-						onClick={(e) => openPage("News", e.target, "#32cd32")}
-						id="defaultOpen"
+						onClick={(e) => openPage("Services", e.target, "#32cd32")}
 					>
 						Services
 					</button>
 					<button
 						className="tablink"
-						onClick={(e) => openPage("Contact", e.target, "#32cd32")}
+						onClick={(e) => openPage("Register", e.target, "#32cd32")}
 					>
 						Register
 					</button>
+					<button className="tablink" onClick={(e) => openPage("Locations", e.target)}>
+						Locations
+					</button>
 
 					<div id="Appointments" className="tabcontent">
-						<h3>Home</h3>
-						<p>Home is where the heart is..</p>
 						{Appointments()}
 					</div>
 
-					<div id="News" className="tabcontent">
-						<h3>News</h3>
-						<p>Some news this fine day!</p>
+					<div id="Services" className="tabcontent">
+						{Services()}
 					</div>
 
-					<div id="Contact" className="tabcontent">
-						<h3>Contact</h3>
-						<p>Get in touch, or swing by for a cup of coffee.</p>
+					<div id="Register" className="tabcontent">
+						{CashRegister()}
 					</div>
 
-					<div id="About" className="tabcontent">
-						<h3>About</h3>
+					<div id="Locations" className="tabcontent">
+						{Locations()}
+					</div>
+
+					<div id="Locations" className="tabcontent">
+						<h3>Locations</h3>
 						<p>Who we are and what we do.</p>
 					</div>
 				</div>
@@ -166,14 +179,14 @@ export default BarberProfile;
 // 				<button class="tablink" onClick={openPage('Home', this, 'red')}>
 // 					Appointments
 // 				</button>
-// 				<button class="tablink" onclick="openPage('News', this, 'green')" id="defaultOpen">
+// 				<button class="tablink" onclick="openPage('Services', this, 'green')" id="defaultOpen">
 // 					Services
 // 				</button>
-// 				<button class="tablink" onclick="openPage('Contact', this, 'blue')">
+// 				<button class="tablink" onclick="openPage('Register', this, 'blue')">
 // 					Register
 // 				</button>
-// 				<button class="tablink" onclick="openPage('About', this, 'orange')">
-// 					About
+// 				<button class="tablink" onclick="openPage('Locations', this, 'orange')">
+// 					Locations
 // 				</button>
 
 // 				<div id="Appointments" class="tabcontent">
@@ -181,18 +194,18 @@ export default BarberProfile;
 // 					<p>Home is where the heart is..</p>
 // 				</div>
 
-// 				<div id="News" class="tabcontent">
-// 					<h3>News</h3>
+// 				<div id="Services" class="tabcontent">
+// 					<h3>Services</h3>
 // 					<p>Some news this fine day!</p>
 // 				</div>
 
-// 				<div id="Contact" class="tabcontent">
-// 					<h3>Contact</h3>
+// 				<div id="Register" class="tabcontent">
+// 					<h3>Register</h3>
 // 					<p>Get in touch, or swing by for a cup of coffee.</p>
 // 				</div>
 
-// 				<div id="About" class="tabcontent">
-// 					<h3>About</h3>
+// 				<div id="Locations" class="tabcontent">
+// 					<h3>Locations</h3>
 // 					<p>Who we are and what we do.</p>
 // 				</div>
 

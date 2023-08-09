@@ -9,7 +9,6 @@ import ComingSoon from "../ComingSoon";
 import {ModalProvider, useModal} from "../../context/Modal";
 import "./Navigation.css";
 import BarberNavBar from "./BarberNavBar";
-import DefaultNavBar from "./DefaultNav";
 
 function Navigation({isLoaded}) {
 	const sessionUser = useSelector((state) => state.session.user);
