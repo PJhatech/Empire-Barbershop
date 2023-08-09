@@ -45,8 +45,8 @@ const BarberProfile = () => {
 		<div className="pageContainer">
 			<div className="row">
 				<div className="leftColumn">
-					<video src={video} className="video" muted="true" autoplay="true" loop="true" />
-
+					<video id='video' src={video} className="video" muted="true" autoplay="true" loop="true" />
+o
 					<img alt="lo" className="barberProfilePic" src={stateofmind} />
 					<img alt="concordShop" className="shop" src={shop} />
 					{/* <img alt="barberPicture" className="barberProfilePic" src={aaron} /> */}
