@@ -7,7 +7,7 @@ import background from "../Images/blkBackGround.jpeg";
 import "./BarberProfile.css";
 import Appointments from "../Appointments";
 import Services from "../Services";
-import CashRegister from "../Register";
+import CashRegister from "../CashRegister";
 import Locations from "../Locations"
 import stateofmind from "../Images/stateofmind.jpg";
 import video from "../Images/video.mov";
@@ -94,11 +94,12 @@ const BarberProfile = () => {
 					</div>
 
 					<div id="Register" className="tabcontent">
-						{CashRegister()}
+						{<CashRegister />}
+						{/* {<Transaction />} */}
 					</div>
 
 					<div id="Locations" className="tabcontent">
-						{Locations()}
+						{<Locations />}
 					</div>
 
 					<div id="Locations" className="tabcontent">
