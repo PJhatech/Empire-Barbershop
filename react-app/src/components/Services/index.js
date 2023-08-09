@@ -7,7 +7,7 @@ import DeleteService from "../ServiceDeleteModal";
 import ServiceFormModal from "../ServiceFormModal";
 import ServiceUpdateModal from "../ServiceUpdateModal";
 import ServiceIndex from "../ServiceIndex";
-import CashRegister from "../Register";
+
 
 const Services = () => {
 	const dispatch = useDispatch();
@@ -42,7 +42,7 @@ const Services = () => {
 						{service.description}
 						<br />
 						{service.time_frame}
-						{location.pathname === "/services" ? (
+						{location.pathname === "/barberprofile" || location.pathname === "/services" ? (
 							<div>
 								<OpenModalButton
 									buttonText="Delete"

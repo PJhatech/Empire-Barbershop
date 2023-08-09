@@ -6,7 +6,6 @@ import {useModal} from "../../context/Modal";
 import {fetchServices} from "../../store/service";
 import Services from "../Services";
 import RemoveItem from "../RemoveItem";
-import CashRegister from "../Register";
 import {destroyItem} from "../../store/cashRegister";
 import OpenModalButton from "../OpenModalButton";
 
