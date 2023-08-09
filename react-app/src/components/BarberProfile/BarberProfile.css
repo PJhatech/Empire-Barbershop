@@ -1,12 +1,16 @@
 /* * {
   box-sizing: border-box;
 } */
-/* .pageContainer {
-	width: 100%;
-
-
-	background-color: rebeccapurple;
-} */
+.pageContainer {
+  position: fixed;
+  /* top: 0; */
+  left: 0;
+  /* bottom: 0; */
+  right: 0;
+  /* overflow: auto; */
+  background: lime; /* Just to visualize the extent */
+	/* background-color: rebeccapurple; */
+}
 
 .barberProfile {
 	/* background-color: black;
@@ -18,25 +22,68 @@
 	left: 50%;
 	transform: translate(-50%, -50%); */
 }
-.row{
+.row {
 	display: flex;
+	height: 100%;
+	/* margin: 0; */
 	/* justify-content: flex-start; */
 	/* flex-direction: row; */
 
 	/* height: 100vh; */
 	/* margin-left: 500px; */
-
 }
 
-.column{
-	flex: 50%;
+.leftColumn {
+	display: flex;
+	flex-direction: column;
+	/* justify-content: flex-end; */
+	justify-content: center;
+	height: 100vh;
+	width: 600px;
+	background-image: url("../Images/blkBackGround.jpeg");
+	overflow: hidden;
+}
+
+.rightColumn {
+	width: 100%;
 	/* justify-content: flex-start; */
 }
 
-/* .column {
-	display: flex;
-	justify-self: flex-end;
-} */
+.tablink {
+	background-color: #555;
+	color: white;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	font-size: 17px;
+	width: 25%;
+}
+
+.tablink:hover {
+	background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+	color: black;
+	display: none;
+	padding: 100px 20px;
+	height: 100%;
+	width: 100%;
+}
+@keyframes scroll {
+	0% {
+		transform: translateX(0);
+	}
+	50% {
+		transform: translateX(-50%);
+	}
+	-30% {
+		transform: translateX(30%);
+	}
+}
 
 .barberName {
 	/* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
@@ -82,11 +129,23 @@
 }
 
 .barberProfilePic {
-	width: 300px;
-	height: 285px;
-	border-radius: 50%;
+	width: 280px;
+	height: 350px;
+	border-radius: 40%;
 	object-fit: cover;
 	object-position: top;
+}
+.shop {
+	display: flex;
+	width: 680px;
+	height: 100vh;
+	object-fit:scale-down;
+	/* object-position: 5%; */
+	overflow: hidden;
+	white-space: nowrap;
+	float: left;
+	animation: scroll 200s linear infinite;
+	/* opacity: 0.8; */
 }
 
 button.barberComponents {
