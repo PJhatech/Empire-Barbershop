@@ -1,0 +1,32 @@
+.fullPageContainer {
+	height: 60px;
+	width: 600px;
+	background-image: url("../Images/background.jpeg");
+	background-size: cover;
+   border-radius: 12%;
+   box-shadow: 0 1px 60px 0 #777;
+}
+
+.comingSoonContainer {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   /* border-radius: 20%; */
+   color: #1ec51e;
+}
+.content {
+   display: flex;
+   cursor: pointer;
+	font: inherit;
+	font-size: 12px;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	/* text-transform: uppercase; */
+	font-style: oblique;
+	letter-spacing: 8px;
+   margin-top: -5px;
+}
+
+/* .backgroundImg {
+	height: 120px;
+	width: 400px;
+} */

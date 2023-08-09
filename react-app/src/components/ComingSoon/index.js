@@ -11,8 +11,13 @@ function ComingSoon() {
 
 
 	return (
-		<div className="page">
-            <h1>Coming Soon!</h1>
+		<div className="fullPageContainer">
+			<div className="comingSoonContainer">
+				<div className="content">
+				<h1>Content Coming Soon!</h1>
+
+				</div>
+			</div>
 		</div>
 	);
 }
