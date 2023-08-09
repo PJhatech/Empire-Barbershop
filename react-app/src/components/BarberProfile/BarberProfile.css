@@ -28,8 +28,12 @@
 	/* justify-content: flex-start; */
 }
 
+.tablink:hover {
+	background-color: #777;
+}
 .tablink {
 	background-image: url("../Images/background.jpeg");
+	background-color: black;
 	background-size: cover;
 	color: white;
 	float: left;
@@ -41,9 +45,11 @@
 	width: 25%;
 }
 
-.tablink:hover {
-	background-color: #777;
+.tablink.active {
+    background-image: none;
+    background-color: black
 }
+
 
 .tabcontent {
 	color: black;
