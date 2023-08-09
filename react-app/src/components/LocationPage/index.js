@@ -25,9 +25,6 @@ const LocationPage = () => {
 
 	return (
 		<div className="">
-			<div className="">
-				<div></div>
-			</div>
 			<div className="locationImg">
 				{/* <NavLink to={"/barbers"}> */}
 				<img

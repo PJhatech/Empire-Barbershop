@@ -57,9 +57,9 @@ const BarberProfile = () => {
 						loop="true"
 					/>
 					o
-					<img alt="lo" className="barberProfilePic" src={stateofmind} />
+					<img alt="lo" className="stateofmind" src={stateofmind} />
 					<img alt="concordShop" className="shop" src={shop} />
-					{/* <img alt="barberPicture" className="barberProfilePic" src={aaron} /> */}
+					{/* <img alt="barberPicture" className="stateofmind" src={aaron} /> */}
 				</div>
 				<div className="rightColumn">
 					<button
@@ -174,7 +174,7 @@ export default BarberProfile;
 
 // 	return (
 // 		<div className="pageContainer">
-// 				<img alt="barberPicture" className="barberProfilePic" src={aaron} />
+// 				<img alt="barberPicture" className="stateofmind" src={aaron} />
 // 			<div className="row">
 // 				<button class="tablink" onClick={openPage('Home', this, 'red')}>
 // 					Appointments
@@ -210,7 +210,7 @@ export default BarberProfile;
 // 				</div>
 
 // 				{/* <div className="column">
-// 					<img alt="barberPicture" className="barberProfilePic" src={aaron} />
+// 					<img alt="barberPicture" className="stateofmind" src={aaron} />
 // 					<button className="barberComponents">
 // 						<h1>Appointments</h1>
 // 					</button>

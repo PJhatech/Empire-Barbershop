@@ -72,8 +72,8 @@ function App() {
             <ServiceIndex />
           </Route>
           <Route exact path="/locations">
-            {/* <LocationPage /> */}
-            <Locations />
+            <LocationPage />
+            {/* <Locations /> */}
           </Route>
           <Route exact path="/register">
             <CashRegister />

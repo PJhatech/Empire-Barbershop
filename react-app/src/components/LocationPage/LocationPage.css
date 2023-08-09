@@ -76,3 +76,27 @@
 		transform: translateX(0);
 	}
 }
+@media (min-width: 1442px) {
+	.concordImg {
+		width: 880px;
+		height: 98%;
+		position: fixed;
+		top: 1%;
+		right: 2%;
+		transform: translate(-50%, -50%);
+		animation: fade-left 2s ease-in-out forwards;
+		transition: all 0.3s ease;
+		opacity: 0.3;
+	}
+	.herculesShop {
+		/* display: block; */
+		width: 955px;
+		height: 98%;
+		position: fixed;
+		top: 1%;
+		/* left: 1%; */
+		transform: translate(-50%, -50%);
+		animation: fade-right 2s ease-in-out forwards;
+		opacity: 0.3;
+	}
+}
