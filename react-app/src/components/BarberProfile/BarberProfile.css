@@ -17,6 +17,7 @@
 	align-items: center;
 	height: 100vh;
 	width: 600px;
+	box-shadow: 0 20px 20px 0px #777;
 	background-color: black;
 	/* background-image: url("../Images/blkBackGround.jpeg"); */
 	overflow: hidden;
@@ -28,7 +29,8 @@
 }
 
 .tablink {
-	background-color: black;
+	background-image: url("../Images/background.jpeg");
+	background-size: cover;
 	color: white;
 	float: left;
 	border: none;
@@ -96,7 +98,7 @@
 	overflow: hidden;
 	white-space: nowrap;
 	float: left;
-	animation: scroll2 130s linear infinite;
+	animation: scroll2 100s linear infinite;
 }
 
 button.tablink {
