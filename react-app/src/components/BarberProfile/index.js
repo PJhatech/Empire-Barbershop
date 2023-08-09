@@ -1,11 +1,14 @@
 import React, {useState, useEffect} from "react";
 import {useSelector} from "react-redux";
 import {Redirect} from "react-router-dom";
-import aaron from "../Images/aaron.jpeg";
+import aaron from "../Images/remove.png";
 import shop from "../Images/shopimg.jpeg";
 import background from "../Images/blkBackGround.jpeg";
 import "./BarberProfile.css";
 import Appointments from "../Appointments";
+import stateofmind from "../Images/stateofmind.jpg";
+import video from "../Images/video.mov";
+
 
 const BarberProfile = () => {
 	const client = useSelector((state) => state.session.user);
@@ -42,28 +45,31 @@ const BarberProfile = () => {
 		<div className="pageContainer">
 			<div className="row">
 				<div className="leftColumn">
-					<img alt="barberPicture" className="barberProfilePic" src={aaron} />
+					<video src={video} className="video" muted="true" autoplay="true" loop="true" />
+
+					<img alt="lo" className="barberProfilePic" src={stateofmind} />
 					<img alt="concordShop" className="shop" src={shop} />
+					{/* <img alt="barberPicture" className="barberProfilePic" src={aaron} /> */}
 				</div>
 				<div className="rightColumn">
 					<button
 						className="tablink"
-						onClick={(e) => openPage("Appointments", e.target, "red")}
+						onClick={(e) => openPage("Appointments", e.target, "#30cd30")}
 					>
 						Appointments
 					</button>
 					<button
 						className="tablink"
-						onClick={(e) => openPage("News", e.target, "green")}
+						onClick={(e) => openPage("News", e.target, "#32cd32")}
 						id="defaultOpen"
 					>
 						Services
 					</button>
-					<button className="tablink" onClick={(e) => openPage("Contact", e.target, "blue")}>
+					<button
+						className="tablink"
+						onClick={(e) => openPage("Contact", e.target, "#32cd32")}
+					>
 						Register
-					</button>
-					<button className="tablink" onClick={(e) => openPage("About", e.target, "orange")}>
-						About
 					</button>
 
 					<div id="Appointments" className="tabcontent">

@@ -8,7 +8,6 @@
   /* bottom: 0; */
   right: 0;
   /* overflow: auto; */
-  background: lime; /* Just to visualize the extent */
 	/* background-color: rebeccapurple; */
 }
 
@@ -36,11 +35,11 @@
 .leftColumn {
 	display: flex;
 	flex-direction: column;
-	/* justify-content: flex-end; */
-	justify-content: center;
+	align-items: center;
 	height: 100vh;
 	width: 600px;
-	background-image: url("../Images/blkBackGround.jpeg");
+	background-color: black;
+	/* background-image: url("../Images/blkBackGround.jpeg"); */
 	overflow: hidden;
 }
 
@@ -50,7 +49,7 @@
 }
 
 .tablink {
-	background-color: #555;
+	background-color: black;
 	color: white;
 	float: left;
 	border: none;
@@ -73,15 +72,15 @@
 	height: 100%;
 	width: 100%;
 }
-@keyframes scroll {
+@keyframes scroll2{
 	0% {
-		transform: translateX(0);
+		transform: translateX(0%);
 	}
 	50% {
-		transform: translateX(-50%);
+		transform: translateX(0%);
 	}
-	-30% {
-		transform: translateX(30%);
+	50% {
+		transform: translateX(20%);
 	}
 }
 
@@ -125,26 +124,60 @@
 .barberimg {
 	width: 300px;
 	height: 100px;
+	margin-top: -100px;
+
 	/* border-radius: 150px; */
 }
+/*
+.barberProfilePic {
+	display: flex;
+	align-items: center;
+	width: 287px;
+	height: 200px;
+	margin-top: -348px;
+	z-index: 1;
+	/* padding-top: 60px; */
+	/* border-radius: 40%; */
+	/* object-fit: cover; */
+	/* object-position: top; */
+
+.video{
+	padding-top: 48px;
+	width:475px;
+	height: 300px;
+}
+
+
 
 .barberProfilePic {
-	width: 280px;
-	height: 350px;
-	border-radius: 40%;
-	object-fit: cover;
-	object-position: top;
+	display: flex;
+	align-items: center;
+	width: 450px;
+	height: 70px;
+	z-index: 1;
+	padding-top: 2px;
+
+	/* margin-top: -270px; */
+	/* z-index: 1; */
+	/* padding-top: 60px; */
+	/* border-radius: 40%; */
+	/* object-fit: cover; */
+	/* object-position: top; */
 }
 .shop {
-	display: flex;
-	width: 680px;
+	/* display: flex; */
+	/* justify-content: flex-end; */
+	/* padding-top:10px; */
+	margin-top: -100px;
+
+	width: 780px;
 	height: 100vh;
 	object-fit:scale-down;
 	/* object-position: 5%; */
 	overflow: hidden;
 	white-space: nowrap;
 	float: left;
-	animation: scroll 200s linear infinite;
+	animation: scroll2 150s linear infinite;
 	/* opacity: 0.8; */
 }
 
