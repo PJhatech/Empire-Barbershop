@@ -1,0 +1,10 @@
+.rbc-calander{
+   /* background-color: blue; */
+   height: 500px !important;
+   width: 500px !important;
+}
+
+.calandercontainer {
+   height: 400px  !important;
+   width: 700px;
+}

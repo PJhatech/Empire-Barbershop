@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from "react";
+import React, {useState, useEffect, useRef, Component} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {NavLink, useLocation} from "react-router-dom";
 import {fetchServices} from "../../store/service";
@@ -8,6 +8,9 @@ import ServiceFormModal from "../ServiceFormModal";
 import ServiceUpdateModal from "../ServiceUpdateModal";
 import ServiceIndex from "../ServiceIndex";
 import './Services.css'
+import {Calendar, momentLocalizer} from "react-big-calendar";
+import moment from "moment";
+import "react-big-calendar/lib/css/react-big-calendar.css";
 
 const Services = () => {
 	const dispatch = useDispatch();
@@ -33,46 +36,45 @@ const Services = () => {
 
 		document.addEventListener("mousedown", handleClickOutside);
 		return () => document.removeEventListener("mousedown", handleClickOutside);
-	}, []);
+    }, []);
+
+
 
 	return (
 		<>
-            {service.map((service) => (
-                <div key={service.id} className="dropdown">
+			{service.map((service) => (
+				<div key={service.id} className="dropdown">
+					{/* service.name as a button to trigger the dropdown */}
+					<button className="dropbtn" onClick={() => setDropdownVisible(!dropdownVisible)}>
+						{service.service_name}
+					</button>
 
-                    {/* service.name as a button to trigger the dropdown */}
-                    <button
-                        className="dropbtn"
-                        onClick={() => setDropdownVisible(!dropdownVisible)}
-                    >
-                        {service.service_name}
-                    </button>
+					{/* The dropdown content contains the modal buttons */}
+					<div className={`dropdown-content ${dropdownVisible ? "show" : ""}`}>
+						<OpenModalButton
+							buttonText="Delete"
+							modalComponent={<DeleteService prop={service.id} />}
+						/>
+						<OpenModalButton
+							buttonText="Update"
+							modalComponent={<ServiceUpdateModal prop={service} />}
+						/>
+						<OpenModalButton
+							buttonText="Create New Service"
+							modalComponent={<ServiceFormModal />}
+						/>
+					</div>
 
-                    {/* The dropdown content contains the modal buttons */}
-                    <div className={`dropdown-content ${dropdownVisible ? 'show' : ''}`}>
-                        <OpenModalButton
-                            buttonText="Delete"
-                            modalComponent={<DeleteService prop={service.id} />}
-                        />
-                        <OpenModalButton
-                            buttonText="Update"
-                            modalComponent={<ServiceUpdateModal prop={service} />}
-                        />
-                        <OpenModalButton
-                            buttonText="Create New Service"
-                            modalComponent={<ServiceFormModal />}
-                        />
-                    </div>
+					<br />
+					{service.price}
+					<br />
+					{service.description}
+					<br />
+					{service.time_frame}
+				</div>
+			))}
 
-                    <br />
-                    {service.price}
-                    <br />
-                    {service.description}
-                    <br />
-                    {service.time_frame}
-                </div>
-            ))}
-        </>
+		</>
 	);
 };
 

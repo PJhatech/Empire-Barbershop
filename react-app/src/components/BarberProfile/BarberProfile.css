@@ -21,6 +21,10 @@
 	background-color: black;
 	/* background-image: url("../Images/blkBackGround.jpeg"); */
 	overflow: hidden;
+	/* overflow-x: hidden; */
+	left: 0;
+  	right: 0; 
+	/* position: fixed; */
 }
 
 .rightColumn {

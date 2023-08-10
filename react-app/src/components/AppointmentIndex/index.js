@@ -16,7 +16,6 @@ const AppointmentIndex = () => {
 		return {...accumulator, ...current};
 	}, {});
 
-	console.log("<-------AppointmentIndex------->", barberAppointment);
 
 	useEffect(() => {
 		dispatch(fetchAppointmentById(id));
