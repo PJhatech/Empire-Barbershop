@@ -37,7 +37,13 @@ const BarberProfile = () => {
 		<div className="pageContainer">
 			<div className="row">
 				<div className="leftColumn">
-					<video id="video" src={video} className="video" muted={true} autoPlay={true} loop={true}
+					<video
+						id="video"
+						src={video}
+						className="video"
+						muted={true}
+						autoPlay={true}
+						loop={true}
 					/>
 					<img alt="lo" className="stateofmind" src={stateofmind} />
 					<img alt="concordShop" className="shop" src={shop} />
@@ -47,7 +53,7 @@ const BarberProfile = () => {
 						<button
 							key={index}
 							className={`tablink ${activePage === pageName ? "active" : ""}`}
-							onClick={() => openPage(pageName, index === 0 ? "#30cd30" : "#32cd32")}
+							onClick={() => openPage(pageName, index === 0 ? "" : "#30cd30")}
 							style={{backgroundColor: activePage === pageName ? activeColor : ""}}
 							id={pageName === "Appointments" ? "defaultOpen" : ""}
 						>
