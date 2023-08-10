@@ -67,6 +67,24 @@ def seed_user():
         user_type=client.id,
         password='password'
     )
+    Vince = User(
+        first_name='Vince',
+        last_name='Sarto',
+        phone_number=123456789,
+        username='vince123',
+        email='vince@example.com',
+        user_type=client.id,
+        password='password'
+    )
+    Nick = User(
+        first_name='Nick',
+        last_name='Oatley',
+        phone_number=123456789,
+        username='Nick123',
+        email='Nick@example.com',
+        user_type=client.id,
+        password='password'
+    )
 
     # Add users to the session and commit changes to the database
     db.session.add(barber)
@@ -77,6 +95,8 @@ def seed_user():
     db.session.add(Jha)
     db.session.add(Jake)
     db.session.add(Justin)
+    db.session.add(Vince)
+    db.session.add(Nick)
     db.session.commit()
 
 

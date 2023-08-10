@@ -5,6 +5,7 @@ import { fetchServices } from "../../store/service";
 import { fetchClients } from "../../store/client"
 import { fetchBarbers } from "../../store/barber";
 import {useModal} from "../../context/Modal";
+import Clients from "../Clients";
 
 const AppointmentUpdateModal = (selectedAppointment) => {
 	const dispatch = useDispatch();
@@ -18,7 +19,7 @@ const AppointmentUpdateModal = (selectedAppointment) => {
 	// const barbers = Object.values(barberReducer);
 	const {closeModal} = useModal();
 
-	// console.log("<-------UpdateAppointmentComponent------->", barbers);
+	console.log("<-------UpdateAppointmentComponent------->", clients);
 
 
 	useEffect(() => {

@@ -46,7 +46,7 @@ const Appointments = () => {
         dispatch(fetchAppointments())
     }, [dispatch])
 
-    console.log("<-------AppointmentComponent------->", appointment)
+   //  console.log("<-------AppointmentComponent------->", appointment)
 
     return (
 		<>

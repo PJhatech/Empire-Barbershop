@@ -25,7 +25,7 @@ const AppointmentForm = () => {
 		dispatch(createAppointment());
 		dispatch(fetchServices());
 		dispatch(fetchClients());
-		dispatch(fetchAppointments);
+		dispatch(fetchAppointments());
 	}, [dispatch]);
 
 	const [selectedService, setSelectedService] = useState("");
@@ -34,7 +34,7 @@ const AppointmentForm = () => {
 	const [repeat, setRepeat] = useState("None");
 	const [client, setClient] = useState("");
 
-	console.log("<-------AppointmentComponent------->", selectedService);
+	// console.log("<-------AppointmentComponent------->", clientReducer);
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const appointment = {
@@ -81,6 +81,7 @@ const AppointmentForm = () => {
 							<option key={client.id} value={client.id}>
 								{client.first_name}
 								{client.last_name}
+								{/* {console.log(clients)} */}
 							</option>
 						))}
 					</select>
