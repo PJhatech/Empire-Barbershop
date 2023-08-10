@@ -14,39 +14,38 @@ const MyCalendar = () => {
 	const appointment = React.useMemo(() => Object.values(appointmentReducer), [appointmentReducer]);
 
 	const [date, setDate] = useState([]);
-	const [time, setTime] = useState({});
+	const [time, setTime] = useState([]);
+	const [clientName, setClientName] = useState([]);
 
 	useEffect(() => {
 		let dateArr = [];
 		let timeArr = [];
+		let clientNameArr = [];
 
 		appointment.forEach((app) => {
 			dateArr.push(app.date);
 			timeArr.push(app.time);
+			clientNameArr.push(`${app.client.first_name} ${app.client.last_name}`);
 		});
 
 		setDate(dateArr);
 		setTime(timeArr);
+		setClientName(clientNameArr);
 	}, [appointment]);
 
+	const events = date.map((dateItem, index) => {
+		const inputDateString = `${dateItem}${time[index]}`;
+		const startDate = new Date(`${inputDateString.slice(0, 10)}T${inputDateString.slice(10)}:00`);
 
+		const endDate = new Date(startDate);
+		endDate.setMinutes(endDate.getMinutes() + 45);
 
-
-const event = date.map((dateItem, index) => {
-	const inputDateString = `${dateItem}${time[index]}`;
-	const startDate = new Date(`${inputDateString.slice(0, 10)}T${inputDateString.slice(10)}:00`);
-
-
-	const endDate = new Date(startDate);
-	endDate.setMinutes(endDate.getMinutes() + 45);
-
-	return {
-		start: startDate,
-		end: endDate,
-		title: "Test Event",
-	};
-});
-	// console.log("<----here--->", moment().format(appointments.date));
+		return {
+			start: startDate,
+			end: endDate,
+			title: clientName[index] ,
+		};
+	});
 
 	return (
 		<>
@@ -55,7 +54,7 @@ const event = date.map((dateItem, index) => {
 					localizer={localizer}
 					defaultDate={new Date()}
 					defaultView="day"
-					events={event}
+					events={events}
 					views={["day", "week", "month"]}
 					style={{height: "400px"}}
 				/>
