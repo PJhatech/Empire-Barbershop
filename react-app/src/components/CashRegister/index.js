@@ -62,9 +62,9 @@ const CashRegister = () => {
 	}, [dispatch]);
 
 	return (
-		<div>
-			<div className="row">
-				<div className="dropDownContainer">
+		<div className="register-page">
+			<div className="registerContainer">
+				<div>
 					<div className="left-column">
 						<div className="service-container" onClick={handleDropClick}>
 							Services

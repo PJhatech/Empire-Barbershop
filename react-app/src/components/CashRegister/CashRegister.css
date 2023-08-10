@@ -1,6 +1,39 @@
-.row {
+.register-page {
+   height: 85%;
+    width: 100%; /* You may want to specify a unit here, e.g., 100% */
+
+}
+
+.register-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-image: url("../Images/backgroundJus.jpeg");
+   background-size: 550px;
+   background-repeat: no-repeat;
+   background-position: right bottom;
+    opacity: 0.8;
+}
+
+
+
+
+
+
+
+.registerContainer {
+   width: 100vh;
 	display: flex;
-	/* height: 100%; */
+	flex-wrap: wrap;
+	letter-spacing: 3px;
+	/* justify-content: space-evenly; */
+	/* width: 100%; */
+	margin-left: 50px;
+	gap: 300px;
 }
 
 .left-column {
@@ -9,13 +42,7 @@
 	height: 500px;
 	width: 300px;
 	box-shadow: 0 0px 0px 0px #777;
-	margin-left: -20px;
-	/* padding-right: 30px; */
 
-	/* background-image: url("../Images/blkBackGround.jpeg"); */
-	/* overflow: hidden; */
-	/* overflow-x: hidden; */
-	/* left: 0; */
 }
 .service-container {
 	background-color: #4caf50;
@@ -36,8 +63,8 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	width: 40%;
-	margin-left: -430px;
+	width: 200px;
+	/* margin-left: -430px; */
 	font-style: normal;
 	font-family: "Futura PT", sans-serif;
 	border-radius: 4px;
@@ -79,7 +106,7 @@
 }
 .containitems {
 	display: flex;
-	flex-direction: column ;
+	flex-direction: column;
 	justify-content: flex-start;
 }
 .service-container:hover,
