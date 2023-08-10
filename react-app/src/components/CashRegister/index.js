@@ -7,6 +7,7 @@ import {fetchServices} from "../../store/service";
 import Services from "../Services";
 import Transaction from "../Transaction";
 import OpenModalButton from "../OpenModalButton";
+import "./CashRegister.css";
 
 const CashRegister = () => {
 	const dispatch = useDispatch();
@@ -15,8 +16,7 @@ const CashRegister = () => {
 	const serviceReducer = useSelector((state) => state.serviceReducer);
 	const register = Object.values(registerReducer);
 	const service = Object.values(serviceReducer);
-	// console.log("<-----register----->", register);
-
+	const [dropdownVisible, setDropdownVisible] = useState(true);
 	const [isLoaded, setIsLoaded] = useState(false);
 	const [clicked, setClick] = useState();
 
@@ -31,8 +31,16 @@ const CashRegister = () => {
 
 	console.log(selectedService);
 	const removeItem = (itemToRemove) => {
-		const itemArr = selectedService.filter((_,item) => item !== itemToRemove);
+		const itemArr = selectedService.filter((_, item) => item !== itemToRemove);
 		setSelectedService(itemArr);
+	};
+	const handleDropClick = async (e) => {
+		e.preventDefault();
+		if (dropdownVisible) {
+			setDropdownVisible(false);
+		} else {
+			setDropdownVisible(true);
+		}
 	};
 
 	useEffect(() => {
@@ -52,50 +60,65 @@ const CashRegister = () => {
 		dispatch(fetchServices()).then(() => setIsLoaded(true));
 	}, [dispatch]);
 
-
-
 	return (
 		<div>
-			Cash Register
-			<div className="serviceContainer">
-				{service.map((service) => (
-					<div key={service.id}>
-						{service.service_name}
-						<br />
-						{service.price}
-						<br />
-						{service.description}
-						<br />
-						{service.time_frame}
-						<button type="button" onClick={() => handleServiceSelection(service)}>
-							Add Service
-						</button>
+			<div className="row">
+				<div className="dropDownContainer">
+					<div className="left-column">
+						<div className="service-container" onClick={handleDropClick}>
+							Services
+							<div
+								className={`dropdown-content ${
+									dropdownVisible === false ? "show" : ""
+								}`}
+							>
+								{service.map((service) => (
+									<div key={service.id}>
+										<div className="service-content">
+											<p>{service.price}</p>
+											<p>{service.description}</p>
+											<p>{service.time_frame}</p>
+											<button
+												type="button"
+												onClick={() => handleServiceSelection(service)}
+											>
+												Add Service
+											</button>
+										</div>
+									</div>
+								))}
+							</div>
+						</div>
 					</div>
-				))}
-				<br />
-				<br />
-				<div>
+				</div>
+				<div className="right-column">
+					<div className="currentsale">
 					Current Sale:
 					{selectedService.map((service, index) => (
 						<div key={index}>
 							{service.service_name}
-
 							<button onClick={() => removeItem(index)}>Remove</button>
 						</div>
 					))}
+					</div>
 					<div>
+					</div>
+					<div className="modalbutton">
+						<div>
 						Total Items:
 						{totalItems}
-					</div>
-						Total Price:
-					${totalPrice}
-					<div>
-					<OpenModalButton
-						buttonText="Charge"
-						modalComponent={
-							<Transaction service={{selectedService, totalItems, totalPrice}} />
-						}
-					/>
+						</div>
+						<div>
+						Total Price: ${totalPrice}
+						</div>
+						<div>
+							<OpenModalButton
+								buttonText="Charge"
+								modalComponent={
+									<Transaction service={{selectedService, totalItems, totalPrice}} />
+								}
+							/>
+						</div>
 					</div>
 					{/* {console.log(selectedService)} */}
 					{/* {console.log(selectedService)} */}

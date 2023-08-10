@@ -8,10 +8,16 @@
     /* width: max-content; */
 }
 
-button{
-    /* background: none; */
-    /* border:none; */
-    color:darkslategray;
 
+button{
+    background: none;
+    border:none;
+    color:darkslategray;
+    box-shadow: -5px 2px 5px 0px #777;
+	font-style: normal;
+	font-family: "Futura PT", sans-serif;
+	border-radius: 1px;
+	font-style: oblique;
+	letter-spacing: 5px;
     /* padding-left: 20px; */
 }

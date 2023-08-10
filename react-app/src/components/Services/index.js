@@ -44,9 +44,9 @@ const Services = () => {
 			<div className="dropDownContainer">
 				{service.map((service) => (
 					<div key={service.id} className="dropdown">
-						<di>
+						<div>
 							{service.service_name}${service.price}
-						</di>
+						</div>
 						<button
 							className="dropbtn"
 							onClick={() => {
@@ -58,14 +58,14 @@ const Services = () => {
 							}}
 						>
 							<div className="serviceContainer">
-							
+
 								<div>{service.description}</div>
 								<div>{service.time_frame}</div>
 							</div>
 						</button>
 
 						<div
-							className={`dropdown-content ${dropdownVisible === service.id ? "show" : ""}`}
+							className={`dropdownContent ${dropdownVisible === service.id ? "show" : ""}`}
 						>
 							<OpenModalButton
 								buttonText="Delete"
