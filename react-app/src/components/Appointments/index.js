@@ -42,18 +42,32 @@ const Appointments = () => {
 	const dispatch = useDispatch();
 	const appointmentReducer = useSelector((state) => state.appointmentReducer);
 	const closeModal = useModal();
-	const appointment = Object.values(appointmentReducer);
+	const appointment = React.useMemo(() => Object.values(appointmentReducer), [appointmentReducer])
 	const localizer = momentLocalizer(moment);
 
 	const [date, setDate] = useState()
+	const [time, setTime] = useState()
 
 	useEffect(() => {
 		dispatch(fetchAppointments());
 	}, [dispatch]);
 
+	useEffect(() => {
+		const mapDate = appointment.map(app => {
+			let data = app.date
+			return data
+		})
+		const mapTime = appointment.map(app => {
+			let data = app.time
+			return data
+		})
 
+		setDate(mapDate)
+		setTime(mapTime)
+	},[appointment])
 
-	//  console.log("<-------AppointmentComponent------->", appointment.date)
+	// console.log("<-----here---->",time)
+
 
 	return (
 		<>
@@ -61,8 +75,7 @@ const Appointments = () => {
 				<div key={appointment.id}>
 					Client: {appointment.client.first_name}
 					<br />
-					{/* Date: {appointment.date} */}
-					{/* {console.log(`${appointment.date}T${appointment.time}`)} */}
+
 					Date: {appointment.date}
 					<br />
 					Time: {appointment.time}
@@ -75,12 +88,12 @@ const Appointments = () => {
 						buttonText="Update"
 						modalComponent={<AppointmentUpdateModal prop={appointment} />}
 					/>
-			<div className="calandercontainer">
-				<MyCalendar appointments={appointment} />
-			</div>
 				</div>
 			))}
 			<div>
+			<div className="calandercontainer">
+				<MyCalendar/>
+			</div>
 				<OpenModalButton
 					buttonText="Create New Appointment"
 					modalComponent={<AppointmentForm onClose={closeModal} />}
