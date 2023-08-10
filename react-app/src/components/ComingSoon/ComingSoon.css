@@ -3,7 +3,7 @@
 	width: 600px;
 	background-image: url("../Images/background.jpeg");
 	background-size: cover;
-   border-radius: 12%;
+   border-radius: 10px;
    box-shadow: 0 1px 60px 0 #777;
 }
 
