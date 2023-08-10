@@ -50,7 +50,8 @@ const CashRegister = () => {
 		);
 	}, [selectedService]);
 
-	const handleServiceSelection = (service) => {
+	const handleServiceSelection = (e, service) => {
+		e.stopPropagation();
 		setSelectedService([...selectedService, service]);
 		setTotalItems(totalItems + 1);
 		setTotalPrice(totalPrice + service.price);
@@ -67,11 +68,7 @@ const CashRegister = () => {
 					<div className="left-column">
 						<div className="service-container" onClick={handleDropClick}>
 							Services
-							<div
-								className={`dropdown-content ${
-									dropdownVisible === false ? "show" : ""
-								}`}
-							>
+							<div className={`dropdown-content ${dropdownVisible === false ? "show" : ""}`}>
 								{service.map((service) => (
 									<div key={service.id}>
 										<div className="service-content">
@@ -80,7 +77,7 @@ const CashRegister = () => {
 											<p>{service.time_frame}</p>
 											<button
 												type="button"
-												onClick={() => handleServiceSelection(service)}
+												onClick={(e) => handleServiceSelection(e,service)}
 											>
 												Add Service
 											</button>
@@ -93,24 +90,21 @@ const CashRegister = () => {
 				</div>
 				<div className="right-column">
 					<div className="currentsale">
-					Current Sale:
-					{selectedService.map((service, index) => (
-						<div key={index}>
-							{service.service_name}
-							<button onClick={() => removeItem(index)}>Remove</button>
-						</div>
-					))}
+						Current Sale:
+						{selectedService.map((service, index) => (
+							<div key={index}>
+								{service.service_name}
+								<button onClick={() => removeItem(index)}>Remove</button>
+							</div>
+						))}
 					</div>
-					<div>
-					</div>
+					<div></div>
 					<div className="modalbutton">
 						<div>
-						Total Items:
-						{totalItems}
+							Total Items:
+							{totalItems}
 						</div>
-						<div>
-						Total Price: ${totalPrice}
-						</div>
+						<div>Total Price: ${totalPrice}</div>
 						<div>
 							<OpenModalButton
 								buttonText="Charge"
