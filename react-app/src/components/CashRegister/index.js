@@ -89,17 +89,19 @@ const CashRegister = () => {
 					</div>
 				</div>
 				<div className="right-column">
-					<div className="currentsale">
 						Current Sale:
+					<div className="currentsale">
+						<div className="containitems">
 						{selectedService.map((service, index) => (
 							<div key={index}>
 								{service.service_name}
 								<button onClick={() => removeItem(index)}>Remove</button>
 							</div>
 						))}
+						</div>
 					</div>
-					<div></div>
 					<div className="modalbutton">
+					<div className="containitems">
 						<div>
 							Total Items:
 							{totalItems}
@@ -113,6 +115,7 @@ const CashRegister = () => {
 								}
 							/>
 						</div>
+					</div>
 					</div>
 					{/* {console.log(selectedService)} */}
 					{/* {console.log(selectedService)} */}
