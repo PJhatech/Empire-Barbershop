@@ -44,8 +44,12 @@ const Services = () => {
 			<div className="dropDownContainer">
 				{service.map((service) => (
 					<div key={service.id} className="dropdown">
-						<div>
-							{service.service_name}${service.price}
+						<div id="service-name">
+							<p>
+							${service.price}-
+							{service.service_name}
+
+							</p>
 						</div>
 						<button
 							className="dropbtn"
@@ -58,14 +62,13 @@ const Services = () => {
 							}}
 						>
 							<div className="serviceContainer">
-
 								<div>{service.description}</div>
 								<div>{service.time_frame}</div>
 							</div>
 						</button>
 
 						<div
-							className={`dropdownContent ${dropdownVisible === service.id ? "show" : ""}`}
+							className={`dropdown-content ${dropdownVisible === service.id ? "show" : ""}`}
 						>
 							<OpenModalButton
 								buttonText="Delete"
