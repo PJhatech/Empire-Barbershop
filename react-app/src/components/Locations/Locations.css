@@ -1,0 +1,29 @@
+.Locations-container {
+   display: flex;
+
+}
+
+.img-row {
+   display: flex;
+   flex-direction: row;
+}
+
+.left-img{
+   display: flex;
+	flex-direction: column;
+   text-align: center;
+	height: 200px;
+	width: 200px;
+	box-shadow: 0 0px 0px 0px #777;
+   /* gap: 50px; */
+}
+
+.right-img {
+   display: flex;
+	flex-direction: column;
+   text-align: center;
+	height: 200px;
+	width: 200px;
+	box-shadow: 0 0px 0px 0px #777;
+   /* gap: 50px; */
+}

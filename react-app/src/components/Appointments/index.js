@@ -12,7 +12,7 @@ import {useModal} from "../../context/Modal";
 import {Calendar, momentLocalizer} from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import './appointments.css'
+import "./appointments.css";
 import MyCalendar from "../Calendar";
 
 function formatDate(dateString) {
@@ -42,62 +42,71 @@ const Appointments = () => {
 	const dispatch = useDispatch();
 	const appointmentReducer = useSelector((state) => state.appointmentReducer);
 	const closeModal = useModal();
-	const appointment = React.useMemo(() => Object.values(appointmentReducer), [appointmentReducer])
+	const appointment = React.useMemo(() => Object.values(appointmentReducer), [appointmentReducer]);
 	const localizer = momentLocalizer(moment);
 
-	const [date, setDate] = useState()
-	const [time, setTime] = useState()
+	const [date, setDate] = useState();
+	const [time, setTime] = useState();
 
 	useEffect(() => {
 		dispatch(fetchAppointments());
 	}, [dispatch]);
 
 	useEffect(() => {
-		const mapDate = appointment.map(app => {
-			let data = app.date
-			return data
-		})
-		const mapTime = appointment.map(app => {
-			let data = app.time
-			return data
-		})
+		const mapDate = appointment.map((app) => {
+			let data = app.date;
+			return data;
+		});
+		const mapTime = appointment.map((app) => {
+			let data = app.time;
+			return data;
+		});
 
-		setDate(mapDate)
-		setTime(mapTime)
-	},[appointment])
+		setDate(mapDate);
+		setTime(mapTime);
+	}, [appointment]);
 
 	// console.log("<-----here---->",time)
 
-
 	return (
 		<>
-			{appointment.map((appointment) => (
-				<div key={appointment.id}>
-					Client: {appointment.client.first_name}
-					<br />
-
-					Date: {appointment.date}
-					<br />
-					Time: {appointment.time}
-					<br />
+			<div className="appointment-container">
+				<div className="appointment-row">
+					<div className="calandercontainer">
+						<MyCalendar />
+					</div>
 					<OpenModalButton
-						buttonText="Delete"
-						modalComponent={<AppointmentDeleteModal prop={appointment.id} />}
-					/>
-					<OpenModalButton
-						buttonText="Update"
-						modalComponent={<AppointmentUpdateModal prop={appointment} />}
+						buttonText="Create New Appointment"
+						modalComponent={<AppointmentForm onClose={closeModal} />}
 					/>
 				</div>
-			))}
-			<div>
-			<div className="calandercontainer">
-				<MyCalendar/>
-			</div>
-				<OpenModalButton
-					buttonText="Create New Appointment"
-					modalComponent={<AppointmentForm onClose={closeModal} />}
-				/>
+				<div className="info-column">
+					{appointment.map((appointment) => (
+						<div key={appointment.id}>
+							<div className="client-appointment">
+								<h3>Client:</h3>
+								<p>
+									{appointment.client.first_name}
+									{appointment.client.last_name}
+								</p>
+								<p>
+								
+									Date: {formatDate(appointment.date)}
+									<br />
+									Time: {appointment.time}
+								</p>
+								<OpenModalButton
+									buttonText="Delete"
+									modalComponent={<AppointmentDeleteModal prop={appointment.id} />}
+								/>
+								<OpenModalButton
+									buttonText="Update"
+									modalComponent={<AppointmentUpdateModal prop={appointment} />}
+								/>
+							</div>
+						</div>
+					))}
+				</div>
 			</div>
 		</>
 	);

@@ -4,7 +4,8 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import React, {useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {NavLink} from "react-router-dom";
-import {fetchAppointments} from "../../store/appointment";
+import { fetchAppointments } from "../../store/appointment";
+import './Calendar.css'
 
 const MyCalendar = () => {
 	const localizer = momentLocalizer(moment);
@@ -56,7 +57,7 @@ const MyCalendar = () => {
 					defaultView="day"
 					events={events}
 					views={["day", "week", "month"]}
-					style={{height: "400px"}}
+					style={{height: "700px"}}
 				/>
 			</div>
 		</>

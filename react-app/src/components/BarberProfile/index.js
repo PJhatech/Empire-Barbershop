@@ -11,6 +11,7 @@ import CashRegister from "../CashRegister";
 import Locations from "../Locations";
 import stateofmind from "../Images/stateofmind.jpg";
 import video from "../Images/video.mov";
+import LocationPage from "../LocationPage";
 
 const BarberProfile = () => {
 	const client = useSelector((state) => state.session.user);
@@ -53,7 +54,7 @@ const BarberProfile = () => {
 						<button
 							key={index}
 							className={`tablink ${activePage === pageName ? "active" : ""}`}
-							onClick={() => openPage(pageName, index === 0 ? "" : "#30cd30")}
+							onClick={() => openPage(pageName, index === 0 ? "#30cd30" : "#30cd30")}
 							style={{backgroundColor: activePage === pageName ? activeColor : ""}}
 							id={pageName === "Appointments" ? "defaultOpen" : ""}
 						>
