@@ -1,11 +1,11 @@
 .Locations-container {
-   display: flex;
-   width: 100%;
-   height: 100vh;
+	display: flex;
+	width: 100%;
+	height: 100vh;
 }
 
-.img-container-row{
-   /* display: flex;
+.img-container-row {
+	/* display: flex;
    flex-direction: row;
    width: 100%;
    height: ;
@@ -14,25 +14,31 @@
 }
 
 .dropdown-container {
-   display: flex;
+	display: flex;
 	flex-direction: column;
-   text-align: center;
+   margin-top: -20px;
+	/* text-align: center; */
 	height: 500px;
 	width: 100%;
 	box-shadow: 0 0px 0px 0px #777;
-   gap: 50px;
-   /* float:left; */
+	/* float:left; */
 	letter-spacing: 5px;
 }
 
 .leftside-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.leftsidecontent{
    display: flex;
-   flex-direction: row;
-   justify-content:space-between;
+   flex-direction: column;
+   margin-left: 50px;
+   gap: 50px;
 }
 
-.left-side{
-   background-color: #4caf50;
+.left-side {
+	background-color: #4caf50;
 	color: black;
 	padding: 16px;
 	font-size: 18px;
@@ -45,29 +51,35 @@
 	font-style: oblique;
 }
 
-
 .dropbtn:hover,
 .dropbtn:focus {
 	background-color: #333;
 }
-.locationdropdown-container{
-   display: flex;
-   justify-self: flex-end;
-   flex-direction: column;
-   width: 300px;
+.locationdropdown-container {
+	display: flex;
+   text-align: center;
+	justify-self: flex-end;
+	flex-direction: column;
+	width: 920px;
+	height: auto;
+	background-size: 450px;
+	background-repeat: no-repeat;
 }
-/* Dropdown Content (Hidden by Default) */
+
 .locationdropdown {
 	display: none;
-   display: flex;
-   flex-direction: column;
-   /* right: 0; */
-   margin-left: 15%;
+	display: flex;
+	flex-direction: column;
+   top:0;
+	/* right: 0; */
+	margin-left: 18%;
+	margin-top: 80px;
 	background-color: #f1f1f1;
 	/* min-width: 160px; */
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-   position: absolute;
-	z-index: 1;
+	position: absolute;
+
+	/* z-index: 1; */
 }
 
 /* Links inside the locationdropdown */
@@ -84,10 +96,10 @@
 }
 
 .locationdropdown {
-    display: none;
-    /* other styles */
+	display: none;
+	/* other styles */
 }
 
 .locationdropdown.show {
-    display: flex;
+	display: flex;
 }
