@@ -20,12 +20,10 @@ const Locations = () => {
 	const authUser = useSelector((state) => state.session.user)
 	const location = Object.values(locationReducer);
 
-
+	const [dropdownVisible, setDropdownVisible] = useState(true);
 	const [isLoaded, setIsLoaded] = useState(true);
 	const {setModalContent} = useModal();
 
-
-	// console.log("<-------LOCATIONS------->", location);
 
 	useEffect(() => {
 		dispatch(fetchLocations());
@@ -39,50 +37,59 @@ const Locations = () => {
 	return (
 		<>
 			<div className="locations-container">
-				<div className="img-row">
-					<img
-						alt="concordImg"
-						className="left-img"
-						src={concordImg}
-						onClick={() => setModalContent(<ComingSoon />)}
-					/>
-					{/* </NavLink> */}
-					<img
-						alt="herculesShop"
-						className="right-img"
-						src={herculesShop}
-						onClick={() => setModalContent(<ComingSoon />)}
-					/>
-					<img alt="locationLog" className="" src={logo} />
-				</div>
-
-				<div>
-					{location.map((location) => (
-						<div key={location.id}>
-							{authUser ? (
-								<div>
+				<div className="img-container-row">
+					<div className="dropdown-container">
+						{location.map((location) => (
+							<div key={location.id}>
+								<div className="leftside-container">
+								<div
+									className="left-side"
+									onClick={() => {
+										if (dropdownVisible === location.id) {
+											setDropdownVisible(null);
+										} else {
+											setDropdownVisible(location.id);
+										}
+									}}
+								>
 									{location.name}
-									{location.address}
-									<OpenModalButton
-										buttonText="update"
-										modalComponent={<LocationUpdateModal locationProp={location} />}
-									/>
-									<OpenModalButton
-										buttonText="Delete"
-										modalComponent={<DeleteLocation location={location} />}
-									/>
 								</div>
-							) : (
-								location.name
-							)}
-						</div>
-					))}
-				</div>
-				<div>
-					<OpenModalButton
-						buttonText="Create A New Location?"
-						modalComponent={<CreateLocation />}
-					/>
+								<div
+									className={`locationdropdown ${
+										dropdownVisible === location.id ? "show" : ""
+									}`}
+								>
+									<div className="locationdropdown-container">
+										{location.address}
+										<OpenModalButton
+											buttonText="update"
+											modalComponent={<LocationUpdateModal locationProp={location} />}
+										/>
+										<OpenModalButton
+											buttonText="Delete"
+											modalComponent={<DeleteLocation location={location} />}
+										/>
+									</div>
+								</div>
+								</div>
+
+							</div>
+						))}
+					</div>
+					<div>
+						<OpenModalButton
+							buttonText="Create A New Location?"
+							modalComponent={<CreateLocation />}
+						/>
+					</div>
+					{/* </NavLink> */}
+					{/* <img alt="locationLog" className="mid-img" src={logo} /> */}
+					{/* <img
+							alt="herculesShop"
+							className="right-img"
+							src={herculesShop}
+							onClick={() => setModalContent(<ComingSoon />)}
+						/> */}
 				</div>
 			</div>
 		</>

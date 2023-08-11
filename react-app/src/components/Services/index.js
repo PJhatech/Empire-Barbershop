@@ -22,12 +22,10 @@ const Services = () => {
 
 	const dropdownRef = useRef(null);
 
-	// Fetch services on component mount
 	useEffect(() => {
 		dispatch(fetchServices()).then(() => setIsLoaded(true));
 	}, [dispatch]);
 
-	// Event listener for clicks outside dropdown
 	useEffect(() => {
 		const handleClickOutside = (event) => {
 			if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
