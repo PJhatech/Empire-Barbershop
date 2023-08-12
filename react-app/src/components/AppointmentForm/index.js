@@ -8,6 +8,7 @@ import Clients from "../Clients";
 import {fetchClients} from "../../store/client";
 import {Redirect} from "react-router-dom/cjs/react-router-dom.min";
 import {useHistory} from "react-router-dom";
+import {useModal} from "../../context/Modal";
 
 const AppointmentForm = () => {
 	const dispatch = useDispatch();
@@ -20,6 +21,7 @@ const AppointmentForm = () => {
 	const clients = Object.values(clientReducer);
 	const services = Object.values(serviceReducer);
 	const history = useHistory();
+	const {closeModal} = useModal();
 
 	useEffect(() => {
 		dispatch(createAppointment());
@@ -46,84 +48,101 @@ const AppointmentForm = () => {
 			repeat,
 		};
 		if (appointment) {
-			return dispatch(createAppointment(appointment)).then(dispatch(fetchAppointments()))
+			return dispatch(createAppointment(appointment)).then(dispatch(fetchAppointments()));
 		}
-
 	};
 
 	return (
-		<>
-			<h1>Create Appointment</h1>
+		<div>
+			<button id="close-button" onClick={closeModal}>
+				X
+			</button>
+
 			<form onSubmit={handleSubmit}>
-				<div>
-					<label>
-						Service Name:
-						<select
-							value={selectedService}
-							onChange={(e) => setSelectedService(e.target.value)}
-							required
-						>
-							<option value="">Select a service</option>
-							{services.map((service) => (
-								<option key={service.id} value={service.id}>
-									{service.service_name}
-								</option>
-							))}
-						</select>
-					</label>
+				<div className="create-app-modal-container">
+					<div className="create-modal-row">
+						<p>Service:</p>
+						<div className="create-modal-row2">
+							<label>
+								<select
+									value={selectedService}
+									onChange={(e) => setSelectedService(e.target.value)}
+									required
+								>
+									<option value="">Select a service</option>
+									{services.map((service) => (
+										<option key={service.id} value={service.id}>
+											{service.service_name}
+										</option>
+									))}
+								</select>
+							</label>
+						</div>
+
+						<p>Client:</p>
+						<div className="create-modal-row2">
+							<label>
+								<select value={client} onChange={(e) => setClient(e.target.value)} required>
+									<option value="">Select a Client</option>
+									{clients.map((client) => (
+										<option key={client.id} value={client.id}>
+											{client.first_name}
+											{client.last_name}
+											{/* {console.log(clients)} */}
+										</option>
+									))}
+								</select>
+							</label>
+						</div>
+					</div>
+
+					<div>
+						<div className="create-modal-row">
+							<p>Date:</p>
+							<div className="create-modal-row2">
+								<label>
+									<input
+										type="date"
+										id="date"
+										value={date}
+										onChange={(e) => setDate(e.target.value)}
+										required
+									/>
+								</label>
+							</div>
+							<p>Time:</p>
+							<div className="create-modal-row2">
+								<label>
+									<input
+										type="time"
+										id="time"
+										value={time}
+										onChange={(e) => setTime(e.target.value)}
+										required
+									/>
+								</label>
+							</div>
+						</div>
+						<div className="create-modal-row">
+							<p>Repeat:</p>
+							<div className="create-modal-row2">
+								<label>
+									<select value={repeat} onChange={(e) => setRepeat(e.target.value)}>
+										<option value="None">None</option>
+										<option value="1 Week">1 Week</option>
+										<option value="2 Week">2 Week</option>
+										<option value="3 Week">3 week</option>
+										<option value="1 Month">1 Month</option>
+										<option value="2 Month">2 Month</option>
+									</select>
+								</label>
+							</div>
+							<button id="createappointment-button"type="submit">Submit</button>
+						</div>
+					</div>
 				</div>
-
-				<label>
-					Client:
-					<select value={client} onChange={(e) => setClient(e.target.value)} required>
-						<option value="">Select a Client</option>
-						{clients.map((client) => (
-							<option key={client.id} value={client.id}>
-								{client.first_name}
-								{client.last_name}
-								{/* {console.log(clients)} */}
-							</option>
-						))}
-					</select>
-				</label>
-
-				<label>
-					Date:
-					<input
-						type="date"
-						id="date"
-						value={date}
-						onChange={(e) => setDate(e.target.value)}
-						required
-					/>
-				</label>
-
-				<label>
-					Time:
-					<input
-						type="time"
-						id="time"
-						value={time}
-						onChange={(e) => setTime(e.target.value)}
-						required
-					/>
-				</label>
-
-				<label>
-					Repeat:
-					<select value={repeat} onChange={(e) => setRepeat(e.target.value)}>
-						<option value="None">None</option>
-						<option value="1 Week">1 Week</option>
-						<option value="2 Week">2 Week</option>
-						<option value="3 Week">3 week</option>
-						<option value="1 Month">1 Month</option>
-						<option value="2 Month">2 Month</option>
-					</select>
-				</label>
-
-				<button type="submit">Submit</button>
 			</form>
-		</>
+		</div>
 	);
 };
 
