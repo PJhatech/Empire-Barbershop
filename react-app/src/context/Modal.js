@@ -50,9 +50,6 @@ export function Modal() {
       <div id="modal-background" onClick={closeModal} />
 			<div id="modal-content">
 				{modalContent}
-				<button id="close-button" onClick={closeModal}>
-					X
-				</button>
 			</div>
 		</div>,
 		modalRef.current

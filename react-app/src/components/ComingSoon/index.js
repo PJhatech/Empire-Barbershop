@@ -12,10 +12,12 @@ function ComingSoon() {
 
 	return (
 		<div id="comingsoon-modal" className="fullPageContainer">
+			<button id="close-button" onClick={closeModal}>
+				X
+			</button>
 			<div className="comingSoonContainer">
 				<div className="content">
-				<h1>Content Coming Soon!</h1>
-
+					<h1>Content Coming Soon!</h1>
 				</div>
 			</div>
 		</div>
