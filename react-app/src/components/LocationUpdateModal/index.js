@@ -44,7 +44,7 @@ const LocationUpdateModal = ({locationProp}) => {
 	return (
 		<form onSubmit={handleSubmit}>
 			<div id="locationupdate-modal" className="updatemodal-container">
-				<div className="updatemodal-row">
+
 					<p>Address:</p>
 					<div className="updatemodal-row2">
 						<label>
@@ -57,6 +57,7 @@ const LocationUpdateModal = ({locationProp}) => {
 							/>
 						</label>
 					</div>
+
 					<p>City:</p>
 					<div className="updatemodal-row2">
 						<label>
@@ -68,8 +69,7 @@ const LocationUpdateModal = ({locationProp}) => {
 							/>
 						</label>
 					</div>
-				</div>
-				<div className="updatemodal-row">
+
 					<p>State:</p>
 					<div className="updatemodal-row2">
 						<label>
@@ -91,9 +91,8 @@ const LocationUpdateModal = ({locationProp}) => {
 								onChange={(e) => setZipCode(e.target.value)}
 							/>
 						</label>
-					</div>
+
 				</div>
-				<div className="updatemodal-row">
 					<p>Country:</p>
 					<div className="updatemodal-row2">
 						<label>
@@ -116,8 +115,7 @@ const LocationUpdateModal = ({locationProp}) => {
 							/>
 						</label>
 					</div>
-				</div>
-				<div className="updatemodal-row">
+
 					<p>Latitude:</p>
 					<div className="updatemodal-row2">
 						<label>
@@ -140,10 +138,10 @@ const LocationUpdateModal = ({locationProp}) => {
 							/>
 						</label>
 					</div>
-				</div>
+
+			<button id='updatelocation-button'type="submit">Update Service</button>
 			</div>
 
-			<button type="submit">Update Service</button>
 		</form>
 	);
 };
