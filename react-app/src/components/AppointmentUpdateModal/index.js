@@ -13,10 +13,8 @@ const AppointmentUpdateModal = (selectedAppointment) => {
 	const serviceReducer = useSelector((state) => state.serviceReducer);
 	const appointment = Object.values(appointmentReducer);
 	const clientReducer = useSelector((state) => state.clientReducer);
-	// const barberReducer = useSelector((state) => state.barberReducer);
 	const clients = Object.values(clientReducer);
 	const services = Object.values(serviceReducer);
-	// const barbers = Object.values(barberReducer);
 	const {closeModal} = useModal();
 
 	console.log("<-------UpdateAppointmentComponent------->", clients);
@@ -52,9 +50,13 @@ const AppointmentUpdateModal = (selectedAppointment) => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<div className="updatemodal-container">
-				{/* <div>
+		<div>
+			<button id="close-button" onClick={closeModal}>
+				X
+			</button>
+			<form onSubmit={handleSubmit}>
+				<div className="updatemodal-container">
+					{/* <div>
 				<label>
 					Barber:
 					<select
@@ -69,84 +71,84 @@ const AppointmentUpdateModal = (selectedAppointment) => {
 					</select>
 				</label>
 			</div> */}
-				<div className="updatemodal-row">
-					<p>Service:</p>
-					<div className="updatemodal-row2">
-						<label>
-							<select
-								value={selectedService}
-								onChange={(e) => setSelectedService(e.target.value)}
-							>
-								{services.map((service) => (
-									<option key={service.id} value={service.id}>
-										{service.service_name}
-									</option>
-								))}
-							</select>
-						</label>
+					<div className="updatemodal-row">
+						<p>Service:</p>
+						<div className="updatemodal-row2">
+							<label>
+								<select
+									value={selectedService}
+									onChange={(e) => setSelectedService(e.target.value)}
+								>
+									{services.map((service) => (
+										<option key={service.id} value={service.id}>
+											{service.service_name}
+										</option>
+									))}
+								</select>
+							</label>
+						</div>
+						<p>Client:</p>
+						<div className="updatemodal-row2">
+							<label>
+								<select value={client} onChange={(e) => setClient(e.target.value)}>
+									{clients.map((client) => (
+										<option key={client.id} value={client.id}>
+											{`${client.first_name} ${client.last_name}`}
+										</option>
+									))}
+								</select>
+							</label>
+						</div>
+					</div>
+					<div className="updatemodal-row"></div>
+					<div className="updatemodal-row">
+						<p>Date:</p>
+						<div className="updatemodal-row2">
+							<label>
+								<input
+									type="date"
+									id="date"
+									value={date}
+									onChange={(e) => setDate(e.target.value)}
+								/>
+							</label>
+						</div>
+						<p>Time:</p>
+						<div className="updatemodal-row2">
+							<label>
+								<input
+									type="time"
+									id="time"
+									step="1800"
+									value={time}
+									onChange={(e) => setTime(e.target.value)}
+									required
+								/>
+							</label>
+						</div>
+					</div>
+					<div className="updatemodal-row"></div>
+					<div className="updatemodal-row">
+						<p>Repeat:</p>
+						<div className="updatemodal-row2">
+							<label>
+								<select value={repeat} onChange={(e) => setRepeat(e.target.value)}>
+									<option value="None">None</option>
+									<option value="1 Week">1 Week</option>
+									<option value="2 Week">2 Week</option>
+									<option value="3 Week">3 week</option>
+									<option value="1 Month">1 Month</option>
+									<option value="2 Month">2 Month</option>
+								</select>
+							</label>
+							<button id="update-button" type="submit">
+								Submit
+							</button>
+						</div>
 					</div>
 				</div>
-				<div className="updatemodal-row">
-					<p>Client:</p>
-					<div className="updatemodal-row2">
-						<label>
-							<select value={client} onChange={(e) => setClient(e.target.value)}>
-								{clients.map((client) => (
-									<option key={client.id} value={client.id}>
-
-										{`${client.first_name} ${client.last_name}`}
-
-									</option>
-								))}
-							</select>
-						</label>
-					</div>
-				</div>
-				<div className="updatemodal-row">
-					<p>Date:</p>
-					<div className="updatemodal-row2">
-						<label>
-							<input
-								type="date"
-								id="date"
-								value={date}
-								onChange={(e) => setDate(e.target.value)}
-							/>
-						</label>
-					</div>
-				</div>
-				<div className="updatemodal-row">
-					<p>Time:</p>
-					<div className="updatemodal-row2">
-						<label>
-							<input
-								type="time"
-								id="time"
-								value={time}
-								onChange={(e) => setTime(e.target.value)}
-								required
-							/>
-						</label>
-					</div>
-				</div>
-				<div className="updatemodal-row">
-					<p>Repeat:</p>
-					<div className="updatemodal-row2">
-						<label>
-							<select value={repeat} onChange={(e) => setRepeat(e.target.value)}>
-								<option value="None">None</option>
-								<option value="1 Week">1 Week</option>
-								<option value="2 Week">2 Week</option>
-								<option value="3 Week">3 week</option>
-								<option value="1 Month">1 Month</option>
-								<option value="2 Month">2 Month</option>
-							</select>
-						</label>
-					</div>
-				</div>
-			</div>
-			<button type="submit">Submit</button>
-		</form>
+			</form>
+		</div>
 	);
 };
 
