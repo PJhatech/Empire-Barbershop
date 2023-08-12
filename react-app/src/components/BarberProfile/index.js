@@ -38,14 +38,14 @@ const BarberProfile = () => {
 		<div className="pageContainer">
 			<div className="row">
 				<div className="leftColumn">
-					<video
+					{/* <video
 						id="video"
 						src={video}
 						className="video"
 						muted={true}
 						autoPlay={true}
 						loop={true}
-					/>
+					/> */}
 					<img alt="lo" className="stateofmind" src={stateofmind} />
 					<img alt="concordShop" className="shop" src={shop} />
 				</div>
