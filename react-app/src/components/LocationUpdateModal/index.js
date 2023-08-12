@@ -43,66 +43,105 @@ const LocationUpdateModal = ({locationProp}) => {
 
 	return (
 		<form onSubmit={handleSubmit}>
-			<label>
-				Address:
-				<input
-					type="text"
-					id="address"
-					value={address}
-					onChange={(e) => setAddress(e.target.value)}
-					required
-				/>
-			</label>
-
-			<label>
-				City:
-				<input type="text" id="city" value={city} onChange={(e) => setCity(e.target.value)} />
-			</label>
-
-			<label>
-				State:
-				<input
-					type="text"
-					id="state"
-					value={state}
-					onChange={(e) => setState(e.target.value)}
-				/>
-			</label>
-
-			<label>
-				Zip Code:
-				<input
-					type="text"
-					id="zipCode"
-					value={zipCode}
-					onChange={(e) => setZipCode(e.target.value)}
-				/>
-			</label>
-
-			<label>
-				Country:
-				<input
-					type="text"
-					id="country"
-					value={country}
-					onChange={(e) => setCountry(e.target.value)}
-				/>
-			</label>
-
-			<label>
-				Latitude:
-				<input type="text" id="lat" value={lat} onChange={(e) => setLat(e.target.value)} />
-			</label>
-
-			<label>
-				Longitude:
-				<input type="text" id="lng" value={lng} onChange={(e) => setLng(e.target.value)} />
-			</label>
-
-			<label>
-				Name:
-				<input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} />
-			</label>
+			<div id="locationupdate-modal" className="updatemodal-container">
+				<div className="updatemodal-row">
+					<p>Address:</p>
+					<div className="updatemodal-row2">
+						<label>
+							<input
+								type="text"
+								id="address"
+								value={address}
+								onChange={(e) => setAddress(e.target.value)}
+								required
+							/>
+						</label>
+					</div>
+					<p>City:</p>
+					<div className="updatemodal-row2">
+						<label>
+							<input
+								type="text"
+								id="city"
+								value={city}
+								onChange={(e) => setCity(e.target.value)}
+							/>
+						</label>
+					</div>
+				</div>
+				<div className="updatemodal-row">
+					<p>State:</p>
+					<div className="updatemodal-row2">
+						<label>
+							<input
+								type="text"
+								id="state"
+								value={state}
+								onChange={(e) => setState(e.target.value)}
+							/>
+						</label>
+					</div>
+					<p>Zip Code:</p>
+					<div className="updatemodal-row2">
+						<label>
+							<input
+								type="text"
+								id="zipCode"
+								value={zipCode}
+								onChange={(e) => setZipCode(e.target.value)}
+							/>
+						</label>
+					</div>
+				</div>
+				<div className="updatemodal-row">
+					<p>Country:</p>
+					<div className="updatemodal-row2">
+						<label>
+							<input
+								type="text"
+								id="country"
+								value={country}
+								onChange={(e) => setCountry(e.target.value)}
+							/>
+						</label>
+					</div>
+					<p>Name:</p>
+					<div className="updatemodal-row2">
+						<label>
+							<input
+								type="text"
+								id="name"
+								value={name}
+								onChange={(e) => setName(e.target.value)}
+							/>
+						</label>
+					</div>
+				</div>
+				<div className="updatemodal-row">
+					<p>Latitude:</p>
+					<div className="updatemodal-row2">
+						<label>
+							<input
+								type="text"
+								id="lat"
+								value={lat}
+								onChange={(e) => setLat(e.target.value)}
+							/>
+						</label>
+					</div>
+					<p>Longitude:</p>
+					<div className="updatemodal-row2">
+						<label>
+							<input
+								type="text"
+								id="lng"
+								value={lng}
+								onChange={(e) => setLng(e.target.value)}
+							/>
+						</label>
+					</div>
+				</div>
+			</div>
 
 			<button type="submit">Update Service</button>
 		</form>
