@@ -39,18 +39,40 @@ const AppointmentForm = () => {
 	// console.log("<-------AppointmentComponent------->", clientReducer);
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		const appointment = {
-			barber_id: user.id,
-			service_id: Number(selectedService),
-			client_id: Number(client),
-			date,
-			time,
-			repeat,
-		};
-		if (appointment) {
-			return dispatch(createAppointment(appointment)).then(dispatch(fetchAppointments()));
+		if (time) {
+			   const [hour, minute] = time.split(" ")[0].split(":");
+				const formattedTime = `${hour.padStart(2, "0")}:${minute}`;
+			const appointment = {
+				barber_id: user.id,
+				service_id: Number(selectedService),
+				client_id: Number(client),
+				date,
+				time: formattedTime,
+				repeat,
+			};
+			if (appointment) {
+				return dispatch(createAppointment(appointment)).then(dispatch(fetchAppointments()));
+			}
 		}
 	};
+
+	function getTimeOptions() {
+		const times = [];
+
+		for (let i = 8; i <= 22; i++) {
+			let hour = i > 12 ? i - 12 : i;
+			const meridian = i < 12 ? "AM" : "PM";
+
+			times.push(`${hour}:00 ${meridian}`);
+			if (i !== 22) times.push(`${hour}:30 ${meridian}`);
+		}
+
+		return times.map((time, index) => (
+			<option key={index} value={time}>
+				{time}
+			</option>
+		));
+	}
 
 	return (
 		<div>
@@ -112,16 +134,9 @@ const AppointmentForm = () => {
 							</div>
 							<p>Time:</p>
 							<div className="create-modal-row2">
-								<label>
-									<input
-										type="time"
-										id="time"
-										value={time}
-										onChange={(e) => setTime(e.target.value)}
-										required
-									/>
-									{/* {console.log("<----testing--->", time)} */}
-								</label>
+								<select value={time} onChange={(e) => setTime(e.target.value)}>
+									{getTimeOptions()}
+								</select>
 							</div>
 						</div>
 						<div className="create-modal-row">
@@ -138,7 +153,9 @@ const AppointmentForm = () => {
 									</select>
 								</label>
 							</div>
-							<button id="createappointment-button"type="submit">Submit</button>
+							<button id="createappointment-button" type="submit">
+								Submit
+							</button>
 						</div>
 					</div>
 				</div>
