@@ -121,8 +121,8 @@ const CashRegister = () => {
 							<div>
 								<OpenModalButton
 									buttonText="Charge"
-									modalComponent={
-										<Transaction service={{selectedService, totalItems, totalPrice}} />
+									modalComponent={<ComingSoon/>
+										// <Transaction service={{selectedService, totalItems, totalPrice}} />
 									}
 								/>
 							</div>
