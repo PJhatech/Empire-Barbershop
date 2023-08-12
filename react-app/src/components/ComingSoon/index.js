@@ -11,7 +11,7 @@ function ComingSoon() {
 
 
 	return (
-		<div className="fullPageContainer">
+		<div id="comingsoon-modal" className="fullPageContainer">
 			<div className="comingSoonContainer">
 				<div className="content">
 				<h1>Content Coming Soon!</h1>

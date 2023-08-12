@@ -28,21 +28,18 @@
 #modal-content {
 	display: flex;
 	flex-direction: column;
-	/* justify-content: center; */
-	/* align-items: center; */
+	/* justify-content: center;
+	align-items: center; */
 	position: absolute;
 
 	/* background-color: #32cd32; */
 }
-button{
-    /* background: none; */
-    /* border:none;
-    color:darkslategray;
-    box-shadow: -5px 5px 5px 0px #777;
-	font-style: normal;
-	font-family: "Futura PT", sans-serif;
-	border-radius: 1px;
-	font-style: oblique;
-	letter-spacing: 5px; */
-    /* padding-left: 20px; */
+
+#location-delete-modal{
+	margin-left: -100%;
+}
+
+#comingsoon-modal{
+	margin-top: 50%;
+	margin-left: -50%;
 }
