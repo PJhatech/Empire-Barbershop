@@ -120,6 +120,7 @@ const AppointmentForm = () => {
 										onChange={(e) => setTime(e.target.value)}
 										required
 									/>
+									{/* {console.log("<----testing--->", time)} */}
 								</label>
 							</div>
 						</div>

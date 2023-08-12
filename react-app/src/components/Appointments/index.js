@@ -66,7 +66,7 @@ const Appointments = () => {
 		setTime(mapTime);
 	}, [appointment]);
 
-	// console.log("<-----here---->",time)
+	console.log("<-----here---->",time)
 
 	return (
 		<>
@@ -76,6 +76,7 @@ const Appointments = () => {
 						<MyCalendar />
 					</div>
 					<OpenModalButton
+						className="appointmentform-button"
 						buttonText="Create New Appointment"
 						modalComponent={<AppointmentForm onClose={closeModal} />}
 					/>
@@ -90,7 +91,6 @@ const Appointments = () => {
 									{appointment.client.last_name}
 								</p>
 								<p>
-								
 									Date: {formatDate(appointment.date)}
 									<br />
 									Time: {appointment.time}

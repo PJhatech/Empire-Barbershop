@@ -17,7 +17,6 @@ const AppointmentUpdateModal = (selectedAppointment) => {
 	const services = Object.values(serviceReducer);
 	const {closeModal} = useModal();
 
-	console.log("<-------UpdateAppointmentComponent------->", clients);
 
 	useEffect(() => {
 		dispatch(updateAppointment());
@@ -35,37 +34,43 @@ const AppointmentUpdateModal = (selectedAppointment) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		const appointmentData = {
-			barber_id: selectedBarber,
-			service_id: selectedService,
-			client_id: client,
-			date: date,
-			time: time,
-			repeat: repeat,
-		};
+		if (time) {
+		    const [hour, minute] = time.split(" ")[0].split(":");
+				const formattedTime = `${hour.padStart(2, "0")}:${minute}`;
+				console.log("<-------UpdateAppointmentComponent------->", formattedTime);
+				const appointmentData = {
+					barber_id: selectedBarber,
+					service_id: selectedService,
+					client_id: client,
+					date: date,
+					time: formattedTime,
+					repeat: repeat,
+				};
+				await dispatch(updateAppointment(appointment[0].id, appointmentData));
+				dispatch(fetchAppointments());
+				closeModal();
+		}
 
-		await dispatch(updateAppointment(appointment[0].id, appointmentData));
-		dispatch(fetchAppointments());
-		closeModal();
 	};
-function getTimeOptions() {
-	const times = [];
 
-	for (let i = 8; i <= 22; i++) {
-		let hour = i > 12 ? i - 12 : i;
-		const meridian = i < 12 ? "AM" : "PM";
+	function getTimeOptions() {
+		const times = [];
 
-		times.push(`${hour}:00 ${meridian}`);
-		if (i !== 22) times.push(`${hour}:30 ${meridian}`);
+		for (let i = 8; i <= 22; i++) {
+			let hour = i > 12 ? i - 12 : i;
+			const meridian = i < 12 ? "AM" : "PM";
+
+			times.push(`${hour}:00 ${meridian}`);
+			if (i !== 22) times.push(`${hour}:30 ${meridian}`);
+		}
+
+
+		return times.map((time, index) => (
+			<option key={index} value={time}>
+				{time}
+			</option>
+		));
 	}
-
-	return times.map((time, index) => (
-		<option key={index} value={time}>
-			{time}
-		</option>
-	));
-}
-	// console.log("<---here--->",times)
 
 	return (
 		<div>
@@ -103,7 +108,7 @@ function getTimeOptions() {
 							</label>
 						</div>
 					</div>
-				
+
 					<div className="updatemodal-row">
 						<p>Date:</p>
 						<div className="updatemodal-row2">
@@ -118,7 +123,10 @@ function getTimeOptions() {
 						</div>
 						<p>Time:</p>
 						<div className="updatemodal-row2">
-							<select value={time} onChange={(e) => setTime(e.target.value)}>
+							<select
+								value={time}
+								onChange={(e) => setTime(e.target.value)}
+							>
 								{getTimeOptions()}
 							</select>
 						</div>
