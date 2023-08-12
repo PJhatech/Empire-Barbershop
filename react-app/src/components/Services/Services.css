@@ -1,11 +1,11 @@
 .dropDownContainer {
 	display: flex;
-  flex-wrap: wrap;
+	flex-wrap: wrap;
 	letter-spacing: 3px;
-  /* justify-content: space-evenly; */
-  width: 100%;
-  margin-left: 50px;
-  	gap: 50px;
+	/* justify-content: space-evenly; */
+	width: 100%;
+	margin-left: 50px;
+	gap: 50px;
 }
 
 .dropdown {
@@ -20,13 +20,13 @@
 	text-transform: uppercase;
 	font-style: oblique;
 	letter-spacing: 5px;
-  margin-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 .dropbtn {
 	display: flex;
 	flex-direction: column;
-  justify-content: flex-start;
+	justify-content: flex-start;
 	color: white;
 	background-color: black;
 	/* padding: 16px; */
@@ -42,13 +42,14 @@
 	border-radius: 4px;
 	font-style: oblique;
 	letter-spacing: 5px;
-  box-shadow: -20px 30px 20px 0px #777;
+	box-shadow: -20px 30px 20px 0px #777;
 }
 
 .serviceContainer {
 	display: flex;
 	flex-direction: column;
 	letter-spacing: 2px;
+	min-width: 355px;
 }
 
 .dropbtn:hover,
@@ -84,7 +85,6 @@
 	display: block;
 }
 
-
 #service-name {
-   letter-spacing: 3px;
+	letter-spacing: 3px;
 }

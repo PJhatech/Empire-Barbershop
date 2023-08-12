@@ -48,7 +48,6 @@ def post_new_service():
             price=int(price_int),
             time_frame=data['time_frame']
         )
-        print('<-----HEEERRE---->', service)
         db.session.add(service)
         db.session.commit()
         return jsonify(service.to_service_dict()), 201

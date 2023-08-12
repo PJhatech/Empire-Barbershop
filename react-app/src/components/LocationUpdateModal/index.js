@@ -141,7 +141,7 @@ const LocationUpdateModal = ({locationProp}) => {
 				</div>
 
 				<button id="updatelocation-button" type="submit">
-					Update Service
+					Update Location
 				</button>
 			</div>
 		</form>
