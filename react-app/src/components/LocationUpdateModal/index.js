@@ -43,105 +43,107 @@ const LocationUpdateModal = ({locationProp}) => {
 
 	return (
 		<form onSubmit={handleSubmit}>
+			<button id="locationclose-button" onClick={closeModal}>
+				X
+			</button>
 			<div id="locationupdate-modal" className="updatemodal-container">
-
-					<p>Address:</p>
-					<div className="updatemodal-row2">
-						<label>
-							<input
-								type="text"
-								id="address"
-								value={address}
-								onChange={(e) => setAddress(e.target.value)}
-								required
-							/>
-						</label>
-					</div>
-
-					<p>City:</p>
-					<div className="updatemodal-row2">
-						<label>
-							<input
-								type="text"
-								id="city"
-								value={city}
-								onChange={(e) => setCity(e.target.value)}
-							/>
-						</label>
-					</div>
-
-					<p>State:</p>
-					<div className="updatemodal-row2">
-						<label>
-							<input
-								type="text"
-								id="state"
-								value={state}
-								onChange={(e) => setState(e.target.value)}
-							/>
-						</label>
-					</div>
-					<p>Zip Code:</p>
-					<div className="updatemodal-row2">
-						<label>
-							<input
-								type="text"
-								id="zipCode"
-								value={zipCode}
-								onChange={(e) => setZipCode(e.target.value)}
-							/>
-						</label>
-
+				<p>Address:</p>
+				<div className="updatemodal-row2">
+					<label>
+						<input
+							type="text"
+							id="address"
+							value={address}
+							onChange={(e) => setAddress(e.target.value)}
+							required
+						/>
+					</label>
 				</div>
-					<p>Country:</p>
-					<div className="updatemodal-row2">
-						<label>
-							<input
-								type="text"
-								id="country"
-								value={country}
-								onChange={(e) => setCountry(e.target.value)}
-							/>
-						</label>
-					</div>
-					<p>Name:</p>
-					<div className="updatemodal-row2">
-						<label>
-							<input
-								type="text"
-								id="name"
-								value={name}
-								onChange={(e) => setName(e.target.value)}
-							/>
-						</label>
-					</div>
 
-					<p>Latitude:</p>
-					<div className="updatemodal-row2">
-						<label>
-							<input
-								type="text"
-								id="lat"
-								value={lat}
-								onChange={(e) => setLat(e.target.value)}
-							/>
-						</label>
-					</div>
-					<p>Longitude:</p>
-					<div className="updatemodal-row2">
-						<label>
-							<input
-								type="text"
-								id="lng"
-								value={lng}
-								onChange={(e) => setLng(e.target.value)}
-							/>
-						</label>
-					</div>
+				<p>City:</p>
+				<div className="updatemodal-row2">
+					<label>
+						<input
+							type="text"
+							id="city"
+							value={city}
+							onChange={(e) => setCity(e.target.value)}
+						/>
+					</label>
+				</div>
 
-			<button id='updatelocation-button'type="submit">Update Service</button>
+				<p>State:</p>
+				<div className="updatemodal-row2">
+					<label>
+						<input
+							type="text"
+							id="state"
+							value={state}
+							onChange={(e) => setState(e.target.value)}
+						/>
+					</label>
+				</div>
+				<p>Zip Code:</p>
+				<div className="updatemodal-row2">
+					<label>
+						<input
+							type="text"
+							id="zipCode"
+							value={zipCode}
+							onChange={(e) => setZipCode(e.target.value)}
+						/>
+					</label>
+				</div>
+				<p>Country:</p>
+				<div className="updatemodal-row2">
+					<label>
+						<input
+							type="text"
+							id="country"
+							value={country}
+							onChange={(e) => setCountry(e.target.value)}
+						/>
+					</label>
+				</div>
+				<p>Name:</p>
+				<div className="updatemodal-row2">
+					<label>
+						<input
+							type="text"
+							id="name"
+							value={name}
+							onChange={(e) => setName(e.target.value)}
+						/>
+					</label>
+				</div>
+
+				<p>Latitude:</p>
+				<div className="updatemodal-row2">
+					<label>
+						<input
+							type="text"
+							id="lat"
+							value={lat}
+							onChange={(e) => setLat(e.target.value)}
+						/>
+					</label>
+				</div>
+				<p>Longitude:</p>
+				<div className="updatemodal-row2">
+					<label>
+						<input
+							type="text"
+							id="lng"
+							value={lng}
+							onChange={(e) => setLng(e.target.value)}
+						/>
+					</label>
+				</div>
+
+				<button id="updatelocation-button" type="submit">
+					Update Service
+				</button>
 			</div>
-
 		</form>
 	);
 };
