@@ -35,6 +35,17 @@
 	/* background-color: #32cd32; */
 }
 
+#close-button {
+    position: absolute;
+    top: 75%;
+    right: 45%;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+}
+
 #location-delete-modal{
 	margin-left: -100%;
 }
