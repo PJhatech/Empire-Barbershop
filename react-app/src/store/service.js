@@ -49,6 +49,7 @@ export const fetchServiceById = (id) => async (dispatch) => {
 };
 
 export const createService = (service) => async (dispatch) => {
+	console.log("<----tesatingasldjkfsadlif-->",service)
 	const response = await fetch(`/api/services/`, {
 		method: "POST",
 		headers: {"Content-Type": "application/json"},

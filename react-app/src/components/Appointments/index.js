@@ -66,8 +66,6 @@ const Appointments = () => {
 		setTime(mapTime);
 	}, [appointment]);
 
-	console.log("<-----here---->",time)
-
 	return (
 		<>
 			<div className="appointment-container">

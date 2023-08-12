@@ -89,7 +89,7 @@ const Locations = () => {
 							<div>
 								<OpenModalButton
 									buttonText="Create A New Location?"
-									modalComponent={<CreateLocation />}
+									modalComponent={<ComingSoon />}
 								/>
 							</div>
 						</div>

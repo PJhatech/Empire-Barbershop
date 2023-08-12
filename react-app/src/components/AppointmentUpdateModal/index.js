@@ -37,7 +37,6 @@ const AppointmentUpdateModal = (selectedAppointment) => {
 		if (time) {
 		    const [hour, minute] = time.split(" ")[0].split(":");
 				const formattedTime = `${hour.padStart(2, "0")}:${minute}`;
-				console.log("<-------UpdateAppointmentComponent------->", formattedTime);
 				const appointmentData = {
 					barber_id: selectedBarber,
 					service_id: selectedService,

@@ -10,7 +10,6 @@ const ServiceUpdateModal = (selectedService) => {
 	const service = Object.values(selectedService);
 	const {closeModal} = useModal();
 
-	console.log("<-------CreateServiceComponent------->", service[0]);
 
 	// useEffect(() => {
 	// 	dispatch(updateService());
