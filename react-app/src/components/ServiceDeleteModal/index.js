@@ -21,12 +21,12 @@ const DeleteService = (service) => {
     };
 
     return (
-        <div>
-            <h1>Confirm Delete</h1>
+        <div className="deletemodal">
+            <h1 className='confirm-delete-txt'>Confirm Delete</h1>
             <p>
                 Are you sure you want to delete this Service?
             </p>
-            <button className="button-class-submit" type="submit" onClick={handleSubmit}>
+            <button className="deletesubmit-button" type="submit" onClick={handleSubmit}>
                 Delete Service
             </button>
             <button onClick={closeModal}>

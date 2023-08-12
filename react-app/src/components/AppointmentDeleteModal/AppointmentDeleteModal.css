@@ -1,10 +1,11 @@
-#deletemodal{
+.deletemodal{
    display: flex;
    flex-direction: column;
    justify-content: center;
    margin-top: 80px ;
    padding-top: 15px;
    padding-left: 15px;
+   font-size: 14px;
    color: white;
    box-shadow: -6px 2px 5px 0px #777;
 	font-style: normal;
@@ -18,12 +19,12 @@
    border-radius: 5px;
 }
 
-#confirm-delete-txt{
+.confirm-delete-txt{
    margin-top: 40px;
    color: red;
 }
 
-#deletesubmit-button{
+.deletesubmit-button{
    margin-top: 30px;
    margin-left:-10px;
 }

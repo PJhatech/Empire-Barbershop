@@ -23,12 +23,11 @@ const AppointmentDeleteModal = (appointment) => {
 	};
 
 	return (
-		<div id="deletemodal">
-			<h2 id="confirm-delete-txt">Confirm Delete</h2>
+		<div className="deletemodal">
+			<h2 className="confirm-delete-txt">Confirm Delete</h2>
 			Are you sure you want to delete this Appointment?
 			<button
-				id="deletesubmit-button"
-				className="button-class-submit"
+				className="deletesubmit-button"
 				type="submit"
 				onClick={handleSubmit}
 			>

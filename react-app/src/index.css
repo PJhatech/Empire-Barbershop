@@ -12,6 +12,7 @@
 button{
     background: none;
     border:none;
+    
     color:darkslategray;
     box-shadow: -2px 2px 5px 0 rgba(63, 62, 62, 0.52);
 	font-style: normal;
