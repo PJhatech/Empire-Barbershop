@@ -36,41 +36,42 @@
 }
 
 #close-button {
-    position: absolute;
-	 color: black;
-	 background-color: rgb(255, 255, 255);
-	 border-radius: 4px;
-    /* top: -10%; */
-    /* left: 45%; */
-    /* background: transparent; */
-    /* border: none; */
-    font-size: 10px;
-    cursor: pointer;
-    /* outline: none; */
-	 /* z-index: 1; */
+	position: absolute;
+	color: black;
+	background-color: rgb(255, 255, 255);
+	border-radius: 4px;
+	/* top: -10%; */
+	/* left: 45%; */
+	/* background: transparent; */
+	/* border: none; */
+	font-size: 10px;
+	cursor: pointer;
+	/* outline: none; */
+	/* z-index: 1; */
 }
 
-#location-delete-modal{
+#location-delete-modal {
 	margin-left: -100%;
 }
 
-#comingsoon-modal{
+#comingsoon-modal {
 	margin-top: 50%;
 	margin-left: -50%;
 }
 
-.updatemodal-container{
+.updatemodal-container {
 	/* margin-top: -40%; */
 	display: flex;
 	flex-direction: column;
-	/* justify-content: flex-start; */
+	justify-content: center;
 	align-content: center;
 	text-align: center;
 	height: 200px;
 	width: 500px;
-	background-color: rgba(18, 18, 18, 0.769);
+	background-color: #232323c2;
 	/* padding-top: 10px; */
 	padding-left: 10px;
+	padding-right: 10px;
 	font-style: normal;
 	font-family: "Futura PT", sans-serif;
 	border-radius: 4px;
@@ -79,28 +80,73 @@
 	box-shadow: -5px 8px 12px 0px black;
 }
 
-.updatemodal-row{
+.updatemodal-description {
+	/* display: flex;
+	flex-direction: wrap; */
+	/* flex-direction: row; */
+	justify-content: center;
+	align-content: flex-start;
+	text-align: start;
+	font-style: normal;
+	font-family: "Futura PT", sans-serif;
+	border-radius: 4px;
+	font-style: oblique;
+	letter-spacing: 4px;
+	font-size: 20px;
+	box-shadow: -5px 8px 12px 0px black;
+}
+
+#serviceupdate-modal {
+	margin-left: 20%;
+	display: flex;
+	justify-content: flex-start;
+	justify-content: flex-start;
+	height: 275px;
+	width: 520px;
+	/* align-items: center; */
+	background-color: #343434;
+}
+#serviceupdate-button {
+	/* z-index: 1 !important; */
+	display: flex;
+	justify-content: center;
+	align-self: center;
+	background: white;
+	/* width: 120px; */
+	border-radius: 6px;
+}
+
+#serviceclose-button{
+	position: absolute;
+	color: black;
+	background-color: rgb(255, 255, 255);
+	border-radius: 4px;
+	/* margin-top: 12%; */
+	margin-left: 20%;
+	font-size: 10px;
+	cursor: pointer;
+}
+
+.updatemodal-row {
 	color: white;
-	display: flex ;
+	display: flex;
 	flex-direction: row;
 	/* margin-bottom: 10px;  */
 	font-size: 20px;
-	justify-content:space-around;
+	justify-content: space-between;
 	align-items: center;
 	text-align: center;
-
 }
 
-.updatemodal-row2{
+.updatemodal-row2 {
 	display: flex;
-	/* justify-content: flex-start; */
-	/* align-content: center; */
+	justify-content: space-evenly;
+	align-content: center;
 	/* text-align: center; */
 	gap: 15px;
-
 }
 
-select{
+select {
 	border: none;
 	font-style: normal;
 	font-family: "Futura PT", sans-serif;
@@ -110,8 +156,8 @@ select{
 	width: 140px;
 }
 
-input{
-		border: none;
+input {
+	border: none;
 	font-style: normal;
 	font-family: "Futura PT", sans-serif;
 	border-radius: 4px;
@@ -120,10 +166,9 @@ input{
 	width: 140px;
 }
 
-
-
-#update-button{
+#update-button {
 	z-index: 1 !important;
 	background: white;
 	border-radius: 6px;
+
 }

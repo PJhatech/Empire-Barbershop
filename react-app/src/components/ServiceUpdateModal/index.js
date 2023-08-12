@@ -7,7 +7,7 @@ import {useModal} from "../../context/Modal";
 const ServiceUpdateModal = (selectedService) => {
 	const dispatch = useDispatch();
 	const serviceReducer = useSelector((state) => state.serviceReducer);
-	const service= Object.values(selectedService);
+	const service = Object.values(selectedService);
 	const {closeModal} = useModal();
 
 	console.log("<-------CreateServiceComponent------->", service[0]);
@@ -37,63 +37,76 @@ const ServiceUpdateModal = (selectedService) => {
 	};
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<label>
-				Service Name:
-				<input
-					type="text"
-					id="serviceName"
-					value={serviceName}
-					onChange={(e) => setServiceName(e.target.value)}
-					required
-				/>
-			</label>
+		<div>
+			<form onSubmit={handleSubmit}>
+			<button id="serviceclose-button" onClick={closeModal}>
+				X
+			</button>
+				<div id="serviceupdate-modal" className="updatemodal-container">
+					<div className="updatemodal-row">
+						<p>Service:</p>
+						<div className="updatemodal-row2">
+							<label>
+								<input
+									type="text"
+									id="serviceName"
+									value={serviceName}
+									onChange={(e) => setServiceName(e.target.value)}
+									required
+								/>
+							</label>
+						</div>
+						<p>Price:</p>
+						<div className="updatemodal-row2">
+							<label>
+								<input
+									type="text"
+									id="price"
+									value={price}
+									onChange={(e) => setPrice(e.target.value)}
+									required
+								/>
+							</label>
+						</div>
+					</div>
 
-			<label>
-				Description:
-				<input
-					type="text"
-					id="description"
-					value={description}
-					onChange={(e) => setDescription(e.target.value)}
-				/>
-			</label>
+					<div className="updatemodal-row">
+						<p>Description:</p>
+						<p>Time Frame:</p>
+						<div className="updatemodal-row2">
+							<label>
+								<select
+									value={timeFrame}
+									onChange={(e) => setTimeFrame(e.target.value)}
+									required
+								>
+									<option value="30 Mins">30 Mins</option>
+									<option value="45 Mins">45 Mins</option>
+									<option value="60 Mins">60 Mins</option>
+									<option value="90 Mins">90 Mins</option>
+									<option value="90 Mins">90 Mins</option>
+								</select>
+							</label>
+						</div>
+					</div>
+					<div className="updatemodal-description">
+						<label>
+							<textarea
+								style={{height: "100px", width: "515px", fontSize: "20px"}}
+								type="text"
+								id="description"
+								value={description}
+								onChange={(e) => setDescription(e.target.value)}
+							/>
+						</label>
+					</div>
 
-			<label>
-				Price:
-				<input
-					type="text"
-					id="price"
-					value={price}
-					onChange={(e) => setPrice(e.target.value)}
-					required
-				/>
-			</label>
-
-			<label>
-				Time Frame:
-				<select
-					value={timeFrame}
-					onChange={(e) => setTimeFrame(e.target.value)}
-					required
-				>
-					<option value="30 Mins">30 Mins</option>
-					<option value="45 Mins">45 Mins</option>
-					<option value="60 Mins">60 Mins</option>
-					<option value="90 Mins">90 Mins</option>
-					<option value="90 Mins">90 Mins</option>
-				</select>
-			</label>
-			{/* <input
-				type="text"
-				id="timeFrame"
-				value={timeFrame}
-				onChange={(e) => setTimeFrame(e.target.value)}
-				required
-			/> */}
-
-			<button type="submit">Update Service</button>
-		</form>
+					<button id="serviceupdate-button" type="submit">
+						Update Service
+					</button>
+				</div>
+			</form>
+		</div>
 	);
 };
 

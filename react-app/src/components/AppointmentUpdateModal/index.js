@@ -74,21 +74,6 @@ function getTimeOptions() {
 			</button>
 			<form onSubmit={handleSubmit}>
 				<div className="updatemodal-container">
-					{/* <div>
-				<label>
-					Barber:
-					<select
-						value={selectedBarber}
-						onChange={(e) => setSelectedBarber(e.target.value)}
-					>
-						{barbers.map((barbers) => (
-							<option key={barbers.id} value={barbers.id}>
-								{barbers.first_name}
-							</option>
-						))}
-					</select>
-				</label>
-			</div> */}
 					<div className="updatemodal-row">
 						<p>Service:</p>
 						<div className="updatemodal-row2">
@@ -118,7 +103,7 @@ function getTimeOptions() {
 							</label>
 						</div>
 					</div>
-					<div className="updatemodal-row"></div>
+				
 					<div className="updatemodal-row">
 						<p>Date:</p>
 						<div className="updatemodal-row2">
@@ -138,7 +123,7 @@ function getTimeOptions() {
 							</select>
 						</div>
 					</div>
-					<div className="updatemodal-row"></div>
+
 					<div className="updatemodal-row">
 						<p>Repeat:</p>
 						<div className="updatemodal-row2">
