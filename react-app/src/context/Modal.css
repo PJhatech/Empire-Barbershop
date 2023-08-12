@@ -1,30 +1,36 @@
 #modal {
 	position: fixed;
 	top: 60%;
-	right: 0;
-	left: 0;
-	bottom: 0;
+	right: 50%;
+	left: 50%;
+	bottom: 50%;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	flex-direction: column;
+	/* justify-content: center; */
+	/* align-items: center; */
 	z-index: 1;
-	background: none;
+	width: 400px;
+	height: 100px;
+	/* background-color: blueviolet; */
+	/* background: none; */
 }
 
 #modal-background {
 	position: fixed;
-	top: 0;
+	/* top: 0;
 	right: 0;
 	left: 0;
-	bottom: 0;
+	bottom: 0; */
 	/* background-color: 'rgba(0, 0, 0, 0.5)' */
 }
 
 #modal-content {
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	flex-direction: column;
+	/* justify-content: center; */
+	/* align-items: center; */
 	position: absolute;
+
 	/* background-color: #32cd32; */
 }
 button{

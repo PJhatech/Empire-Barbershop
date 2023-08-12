@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useModal} from "../../context/Modal";
 import {NavLink, useParams} from "react-router-dom";
 import { destroyAppointment } from "../../store/appointment";
+import './AppointmentDeleteModal.css'
 
 
 const AppointmentDeleteModal = (appointment) => {
@@ -22,10 +23,11 @@ const AppointmentDeleteModal = (appointment) => {
 	};
 
 	return (
-		<div>
-			<h1>Confirm Delete</h1>
-			<p>Are you sure you want to delete this Appointment?</p>
+		<div id="deletemodal">
+			<h2 id="confirm-delete-txt">Confirm Delete</h2>
+			Are you sure you want to delete this Appointment?
 			<button
+				id="deletesubmit-button"
 				className="button-class-submit"
 				type="submit"
 				onClick={handleSubmit}
