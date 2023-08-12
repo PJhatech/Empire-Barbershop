@@ -48,6 +48,24 @@ const AppointmentUpdateModal = (selectedAppointment) => {
 		dispatch(fetchAppointments());
 		closeModal();
 	};
+function getTimeOptions() {
+	const times = [];
+
+	for (let i = 8; i <= 22; i++) {
+		let hour = i > 12 ? i - 12 : i;
+		const meridian = i < 12 ? "AM" : "PM";
+
+		times.push(`${hour}:00 ${meridian}`);
+		if (i !== 22) times.push(`${hour}:30 ${meridian}`);
+	}
+
+	return times.map((time, index) => (
+		<option key={index} value={time}>
+			{time}
+		</option>
+	));
+}
+	// console.log("<---here--->",times)
 
 	return (
 		<div>
@@ -115,16 +133,9 @@ const AppointmentUpdateModal = (selectedAppointment) => {
 						</div>
 						<p>Time:</p>
 						<div className="updatemodal-row2">
-							<label>
-								<input
-									type="time"
-									id="time"
-									step="1800"
-									value={time}
-									onChange={(e) => setTime(e.target.value)}
-									required
-								/>
-							</label>
+							<select value={time} onChange={(e) => setTime(e.target.value)}>
+								{getTimeOptions()}
+							</select>
 						</div>
 					</div>
 					<div className="updatemodal-row"></div>
