@@ -8,7 +8,6 @@ import OpenModalButton from "../OpenModalButton";
 import ComingSoon from "../ComingSoon";
 import {ModalProvider, useModal} from "../../context/Modal";
 import "./Navigation.css";
-import BarberNavBar from "./BarberNavBar";
 
 function Navigation({isLoaded}) {
 	const sessionUser = useSelector((state) => state.session.user);
@@ -65,6 +64,7 @@ function Navigation({isLoaded}) {
 							<div className="userButton">
 								{/* <h2>Barber Profile</h2> */}
 								<ProfileButton user={sessionUser} />
+								{console.log(ProfileButton)}
 							</div>
 						)}
 					</div>

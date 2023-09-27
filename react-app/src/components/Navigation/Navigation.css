@@ -99,6 +99,7 @@
 
 .userButton {
 	display: flex;
+	color: white;
 }
 
 a:link {
