@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useMemo} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {NavLink} from "react-router-dom";
 import OpenModalButton from "../OpenModalButton";
@@ -42,7 +42,7 @@ const Appointments = () => {
 	const dispatch = useDispatch();
 	const appointmentReducer = useSelector((state) => state.appointmentReducer);
 	const closeModal = useModal();
-	const appointment = React.useMemo(() => Object.values(appointmentReducer), [appointmentReducer]);
+	const appointment = useMemo(() => Object.values(appointmentReducer), [appointmentReducer]);
 	const localizer = momentLocalizer(moment);
 
 	const [date, setDate] = useState();

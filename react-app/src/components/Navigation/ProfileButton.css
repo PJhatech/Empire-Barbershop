@@ -4,13 +4,11 @@
 	color: #32cd32;
 }
 
-.userInfo {
-	/* color: #32cd32; */
-}
+
 
 button.profileButton {
-	background: none;
-	border: none;
+	/* background: none; */
+	/* border: none; */
 
 	margin-left: 10px;
 	/* display: flex; */

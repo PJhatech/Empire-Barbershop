@@ -1,7 +1,7 @@
 import {Calendar, momentLocalizer} from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useMemo} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {NavLink} from "react-router-dom";
 import { fetchAppointments } from "../../store/appointment";
@@ -12,7 +12,7 @@ const MyCalendar = () => {
 	const dispatch = useDispatch();
 	const appointmentReducer = useSelector((state) => state.appointmentReducer);
 
-	const appointment = React.useMemo(() => Object.values(appointmentReducer), [appointmentReducer]);
+	const appointment = useMemo(() => Object.values(appointmentReducer), [appointmentReducer]);
 
 	const [date, setDate] = useState([]);
 	const [time, setTime] = useState([]);
