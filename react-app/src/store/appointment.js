@@ -95,6 +95,7 @@ export default function appointmentReducer(state = initialState, action) {
 			action.appointments.forEach((appointment) => {
 				newState[appointment.id] = appointment;
 			});
+			console.log("<-------here------>",newState)
 			return {...newState};
 		}
 		case GET_APPOINTMENT_BY_ID: {
