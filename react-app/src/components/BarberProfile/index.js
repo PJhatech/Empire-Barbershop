@@ -62,13 +62,13 @@ const BarberProfile = () => {
 						</button>
 					))}
 
-					<div
+					{/* <div
 						id="Appointments"
 						className="tabcontent"
 						style={{display: activePage === "Appointments" ? "block" : "none"}}
 					>
 						{Appointments()}
-					</div>
+					</div> */}
 					<div
 						id="Services"
 						className="tabcontent"
