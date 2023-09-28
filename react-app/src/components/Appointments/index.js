@@ -42,29 +42,31 @@ const Appointments = () => {
 	const dispatch = useDispatch();
 	const appointmentReducer = useSelector((state) => state.appointmentReducer);
 	const closeModal = useModal();
-	// const appointment = useMemo(() => Object.values(appointmentReducer), [appointmentReducer]);
+
+	const appointment = Object.values((appointmentReducer), [appointmentReducer]);
 	const localizer = momentLocalizer(moment);
 
 	const [date, setDate] = useState();
 	const [time, setTime] = useState();
 
+
 	useEffect(() => {
 		dispatch(fetchAppointments());
 	}, [dispatch]);
 
-	// useEffect(() => {
-	// 	const mapDate = appointment.map((app) => {
-	// 		let data = app.date;
-	// 		return data;
-	// 	});
-	// 	const mapTime = appointment.map((app) => {
-	// 		let data = app.time;
-	// 		return data;
-	// 	});
+	useEffect(() => {
+		const mapDate = appointment.map((app) => {
+			let data = app.date;
+			return data;
+		});
+		const mapTime = appointment.map((app) => {
+			let data = app.time;
+			return data;
+		});
 
-	// 	setDate(mapDate);
-	// 	setTime(mapTime);
-	// }, [appointment]);
+		setDate(mapDate);
+		setTime(mapTime);
+	}, [appointment]);
 
 	return (
 		<>
@@ -80,7 +82,7 @@ const Appointments = () => {
 					/>
 				</div>
 				<div className="info-column">
-					{/* {appointment.map((appointment) => (
+					{appointment.map((appointment) => (
 						<div key={appointment.id}>
 							<div className="client-appointment">
 								<h3>Client:</h3>
@@ -103,7 +105,7 @@ const Appointments = () => {
 								/>
 							</div>
 						</div>
-					))} */}
+					))}
 				</div>
 			</div>
 		</>

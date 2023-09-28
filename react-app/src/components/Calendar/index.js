@@ -12,7 +12,7 @@ const MyCalendar = () => {
 	const dispatch = useDispatch();
 	const appointmentReducer = useSelector((state) => state.appointmentReducer);
 
-	const appointment = useMemo(() => Object.values(appointmentReducer), [appointmentReducer]);
+	const appointment = Object.values((appointmentReducer), [appointmentReducer]);
 
 	const [date, setDate] = useState([]);
 	const [time, setTime] = useState([]);
