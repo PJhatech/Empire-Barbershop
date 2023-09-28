@@ -42,7 +42,7 @@ const Appointments = () => {
 	const dispatch = useDispatch();
 	const appointmentReducer = useSelector((state) => state.appointmentReducer);
 	const closeModal = useModal();
-	const appointment = useMemo(() => Object.values(appointmentReducer), [appointmentReducer]);
+	const appointment = useMemo(() => Object.values(appointmentReducer), []);
 	const localizer = momentLocalizer(moment);
 
 	const [date, setDate] = useState();
