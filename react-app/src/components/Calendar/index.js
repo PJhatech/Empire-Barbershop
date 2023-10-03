@@ -57,7 +57,7 @@ const MyCalendar = () => {
 					defaultView="day"
 					events={events}
 					views={["day", "week", "month"]}
-					style={{height: "700px"}}
+					// style={{height: "700px"}}
 				/>
 			</div>
 		</>

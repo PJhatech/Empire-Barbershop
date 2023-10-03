@@ -1,14 +1,12 @@
-
 .pageContainer {
-  position: fixed;
-  left: 0;
-  right: 0;
+	position: fixed;
+	left: 0;
+	right: 0;
 }
 
 .row {
 	display: flex;
 	height: 100%;
-
 }
 
 .leftColumn {
@@ -16,14 +14,14 @@
 	flex-direction: column;
 	align-items: center;
 	height: 100vh;
-	width: 600px;
+	width: 500px;
 	box-shadow: 0 20px 20px 0px #777;
 	background-color: black;
 	/* background-image: url("../Images/blkBackGround.jpeg"); */
 	overflow: hidden;
 	/* overflow-x: hidden; */
 	left: 0;
-  	right: 0;
+	right: 0;
 	/* position: fixed; */
 }
 
@@ -50,10 +48,9 @@
 }
 
 .tablink.active {
-    background-image: none;
-    background-color: black
+	background-image: none;
+	background-color: black;
 }
-
 
 .tabcontent {
 	color: black;
@@ -62,7 +59,7 @@
 	height: 100%;
 	width: 100%;
 }
-@keyframes scroll2{
+@keyframes scroll2 {
 	0% {
 		transform: translateX(0%);
 	}
@@ -74,7 +71,6 @@
 	}
 }
 
-
 .barberimg {
 	width: 300px;
 	height: 100px;
@@ -83,14 +79,11 @@
 	/* border-radius: 150px; */
 }
 
-
-.video{
+.video {
 	padding-top: 48px;
-	width:475px;
+	width: 475px;
 	height: 300px;
 }
-
-
 
 .stateofmind {
 	display: flex;
@@ -104,7 +97,7 @@
 	margin-top: -100px;
 	width: 780px;
 	height: 100vh;
-	object-fit:scale-down;
+	object-fit: scale-down;
 	overflow: hidden;
 	white-space: nowrap;
 	float: left;
@@ -122,6 +115,96 @@ button.tablink {
 }
 
 button.tablink:hover {
-
 	font-size: 18px;
+}
+
+@media (min-width: 1442px) {
+	.leftColumn {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		height: 100vh;
+		width: 600px;
+		box-shadow: 0 20px 20px 0px #777;
+		background-color: black;
+		/* background-image: url("../Images/blkBackGround.jpeg"); */
+		overflow: hidden;
+		/* overflow-x: hidden; */
+		left: 0;
+		right: 0;
+		/* position: fixed; */
+	}
+	.tablink {
+		background-image: url("../Images/background.jpeg");
+		background-color: black;
+		background-size: cover;
+		color: white;
+		float: left;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		padding: 14px 16px;
+		font-size: 17px;
+		width: 25%;
+	}
+
+	.tablink.active {
+		background-image: none;
+		background-color: black;
+	}
+
+	.tabcontent {
+		color: black;
+		display: none;
+		padding: 100px 20px;
+		height: 100%;
+		width: 100%;
+	}
+
+	.barberimg {
+		width: 300px;
+		height: 100px;
+		margin-top: -100px;
+
+		/* border-radius: 150px; */
+	}
+
+	.video {
+		padding-top: 48px;
+		width: 475px;
+		height: 300px;
+	}
+
+	.stateofmind {
+		display: flex;
+		align-items: center;
+		width: 450px;
+		height: 63px;
+		z-index: 1;
+		padding-bottom: 30px;
+	}
+	.shop {
+		margin-top: -100px;
+		width: 780px;
+		height: 100vh;
+		object-fit: scale-down;
+		overflow: hidden;
+		white-space: nowrap;
+		float: left;
+		animation: scroll2 100s linear infinite;
+	}
+
+	button.tablink {
+		cursor: pointer;
+		font: inherit;
+		font-size: 14px;
+		font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+		text-transform: uppercase;
+		font-style: oblique;
+		letter-spacing: 5px;
+	}
+
+	button.tablink:hover {
+		font-size: 18px;
+	}
 }
