@@ -27,11 +27,6 @@ const CashRegister = () => {
 	const [totalPrice, setTotalPrice] = useState(0);
 	const [errors, setErrors] = useState([]);
 
-	// useEffect(() => {
-	// 	setSelectedService(service);
-	// }, [service]);
-
-	console.log(selectedService);
 	const removeItem = (itemToRemove) => {
 		const itemArr = selectedService.filter((_, item) => item !== itemToRemove);
 		setSelectedService(itemArr);
