@@ -35,7 +35,7 @@ const LandingPage = () => {
 	const client = useSelector((state) => state.session.user);
 	const sessionUser = useSelector((state) => state.session.user);
 	const [isLoaded, setIsLoaded] = useState(true);
-	console.log("<-------check------->", client);
+	
 
 	// useEffect(() => {
 	// 	dispatch(fetchAppointments());

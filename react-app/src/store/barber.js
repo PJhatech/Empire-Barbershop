@@ -29,7 +29,7 @@ export const fetchBarbers = () => async (dispatch) => {
 		const barbers = await response.json();
 		dispatch(getBarbers(barbers));
     }
-    console.log("<--------fetchBarbers-------->", response)
+   //  console.log("<--------fetchBarbers-------->", response)
 };
 
 export const fetchBarberIndex = (id) => async (dispatch) => {

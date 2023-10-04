@@ -13,7 +13,7 @@ const CreateAppointmentAsClient = () => {
 
     // const barbe
 
-    console.log("<-------createAppopintment------->", client)
+    // console.log("<-------createAppopintment------->", client)
 
 
     useEffect(() => {

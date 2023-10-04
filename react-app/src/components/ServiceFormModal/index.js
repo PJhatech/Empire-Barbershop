@@ -32,7 +32,7 @@ const ServiceFormModal = () => {
 			price:Number(price),
 			time_frame: timeFrame,
 		};
-		console.log('<------3----.>',service)
+		// console.log('<------3----.>',service)
 		if (service) {
 			dispatch(createService(service))
 			.then((service) => {

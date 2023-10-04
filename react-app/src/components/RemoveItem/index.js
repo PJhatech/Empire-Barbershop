@@ -11,7 +11,7 @@ const RemoveItem = ({itemToRemove}) => {
 	const {closeModal} = useModal();
 	const register = Object.values(cashRegisterReducer);
 
-	console.log("<-------Services------->", itemToRemove);
+	// console.log("<-------Services------->", itemToRemove);
 
 	const handleRemoveItem = (itemToRemove) => {
 	// 	const itemArr = selectedService.filter((item) => item === itemToRemove);

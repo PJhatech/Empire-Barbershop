@@ -23,7 +23,7 @@ const BarberAppointments = () => {
 		// dispatch(fetchBarberIndex(id));
 	}, [dispatch, id]);
 
-	console.log("<-------BarberAppointments------->", barberAppointments);
+
 	// const userTransactions = Object.values(allTransactions).filter(
 	//     (transaction) => transaction.user_id === userId
 	// );

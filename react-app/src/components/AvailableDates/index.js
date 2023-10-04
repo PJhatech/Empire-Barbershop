@@ -71,7 +71,6 @@ const AvailableDates = () => {
 		setAvailableDates(generateDates(start, end, "week"));
 	}, []);
 
-	console.log("<-------AppointmentComponent------->", selectedService);
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const appointment = {

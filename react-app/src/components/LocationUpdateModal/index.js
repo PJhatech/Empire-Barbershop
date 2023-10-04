@@ -8,7 +8,7 @@ const LocationUpdateModal = ({locationProp}) => {
 	const dispatch = useDispatch();
 	const {closeModal} = useModal();
 
-	console.log("<-------CreateServiceComponent------->", locationProp.id);
+	// console.log("<-------CreateServiceComponent------->", locationProp.id);
 
 	useEffect(() => {
 		dispatch(fetchLocations());
@@ -35,7 +35,7 @@ const LocationUpdateModal = ({locationProp}) => {
 			lng: lng,
 			name: name,
 		};
-		console.log(locationData);
+		// console.log(locationData);
 		await dispatch(updateLocation(locationProp.id, locationData));
 		fetchLocations();
 		closeModal();
