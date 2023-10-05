@@ -12,11 +12,7 @@ const MyCalendar = () => {
 	const dispatch = useDispatch();
 	const appointmentReducer = useSelector((state) => state.appointmentReducer);
 	const appointment = useMemo(() => Object.values(appointmentReducer), [appointmentReducer]);
-<<<<<<< HEAD
 	console.log('<---usememo-->', useMemo)
-=======
-	// const appointment = Object.values((appointmentReducer), [appointmentReducer]);
->>>>>>> frontend-redo
 
 	const [date, setDate] = useState([]);
 	const [time, setTime] = useState([]);
