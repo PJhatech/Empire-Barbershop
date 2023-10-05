@@ -110,9 +110,9 @@ const AppointmentForm = () => {
 										<option key={client.id} value={client.id}>
 											{client.first_name}
 											{client.last_name}
-											{console.log(client)}
 										</option>
 									))}
+									{console.log(clients)}
 								</select>
 							</label>
 						</div>

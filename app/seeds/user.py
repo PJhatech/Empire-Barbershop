@@ -18,7 +18,8 @@ def seed_user():
         phone_number=123456789,
         username='barber',
         email='barber@example.com',
-        user_type=barber.id,
+        # user_type=barber.id,
+        user_type=1,
         password='password'
     )
     Christian = User(
@@ -27,7 +28,8 @@ def seed_user():
         phone_number=123456789,
         username='chaveez',
         email='chavez@example.com',
-        user_type=barber.id,
+        # user_type=barber.id,
+        user_type=1,
         password='password'
     )
     Aaron = User(
@@ -36,7 +38,8 @@ def seed_user():
         phone_number=123456789,
         username='ronesmith',
         email='ronesmith@example.com',
-        user_type=barber.id,
+        # user_type=barber.id,
+        user_type=1,
         password='password'
     )
     # Clients
@@ -46,7 +49,7 @@ def seed_user():
         phone_number=123456789,
         username='jha123',
         email='client@example.com',
-        user_type=client.id,
+        user_type=2,
         password='password'
     )
     Jake = User(
@@ -55,7 +58,7 @@ def seed_user():
         phone_number=123456789,
         username='jake123',
         email='jake@example.com',
-        user_type=client.id,
+        user_type=2,
         password='password'
     )
     Justin = User(
@@ -64,7 +67,7 @@ def seed_user():
         phone_number=123456789,
         username='bondoc123',
         email='justin@example.com',
-        user_type=client.id,
+        user_type=2,
         password='password'
     )
     Vince = User(
@@ -73,7 +76,7 @@ def seed_user():
         phone_number=123456789,
         username='vince123',
         email='vince@example.com',
-        user_type=client.id,
+        user_type=2,
         password='password'
     )
     Nick = User(
@@ -82,7 +85,7 @@ def seed_user():
         phone_number=123456789,
         username='Nick123',
         email='Nick@example.com',
-        user_type=client.id,
+        user_type=2,
         password='password'
     )
 
