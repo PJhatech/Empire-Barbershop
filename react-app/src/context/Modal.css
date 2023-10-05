@@ -104,7 +104,6 @@
 	border-radius: 6px;
 }
 
-
 .updatemodal-container {
 	display: flex;
 	flex-direction: column;
@@ -240,9 +239,14 @@ input {
 	background: white;
 	border-radius: 6px;
 }
-@media (min-width: 1442px){
-	#comingsoon-modal {
-	margin-top: 50%;
+
+#comingsoon-modal {
+	margin-top: 27%;
 	margin-left: -50%;
 }
+@media (min-width: 1442px) {
+	#comingsoon-modal {
+		margin-top: 50%;
+		margin-left: -50%;
+	}
 }
