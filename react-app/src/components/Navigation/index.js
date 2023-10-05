@@ -64,7 +64,7 @@ function Navigation({isLoaded}) {
 							<div className="userButton">
 								{/* <h2>Barber Profile</h2> */}
 								<ProfileButton user={sessionUser} />
-								{console.log(ProfileButton)}
+								{/* {console.log(ProfileButton)} */}
 							</div>
 						)}
 					</div>

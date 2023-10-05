@@ -9,7 +9,7 @@ const Clients = () => {
 	const clientReducer = useSelector((state) => state.clientReducer);
 	const clients = Object.values(clientReducer);
 
-	console.log("<-------ClientComponenet------->", clientReducer);
+	
 
 	useEffect(() => {
 		dispatch(fetchClients());

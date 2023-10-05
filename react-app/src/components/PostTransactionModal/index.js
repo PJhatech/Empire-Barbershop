@@ -16,7 +16,7 @@ const PostTransactionModal = ({service}) => {
 	const [totalPrice, setTotalPrice] = useState(0);
 	const [errors, setErrors] = useState([]);
 
-	console.log(service);
+	// console.log(service);
 	const handleServiceSelection = () => {
 		setSelectedService([...selectedService, service]);
 		setTotalItems(totalItems + 1);

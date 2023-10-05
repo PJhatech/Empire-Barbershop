@@ -16,7 +16,7 @@
 .dropdown-container {
 	display: flex;
 	flex-direction: column;
-   margin-top: -20px;
+	margin-top: -20px;
 	/* text-align: center; */
 	height: 500px;
 	width: 100%;
@@ -30,11 +30,11 @@
 	flex-direction: row;
 	justify-content: space-between;
 }
-.leftsidecontent{
-   display: flex;
-   flex-direction: column;
-   margin-left: 50px;
-   gap: 50px;
+.leftsidecontent {
+	display: flex;
+	flex-direction: column;
+	margin-left: 50px;
+	gap: 50px;
 }
 
 .left-side {
@@ -57,10 +57,10 @@
 }
 .locationdropdown-container {
 	display: flex;
-   text-align: center;
+	text-align: center;
 	justify-self: flex-end;
 	flex-direction: column;
-	width: 920px;
+	width: 700px;
 	height: auto;
 	background-size: 450px;
 	background-repeat: no-repeat;
@@ -70,16 +70,12 @@
 	display: none;
 	display: flex;
 	flex-direction: column;
-   top:0;
-	/* right: 0; */
-	margin-left: 18%;
+	top: 0;
+	margin-left: 275px;
 	margin-top: 80px;
 	background-color: #f1f1f1;
-	/* min-width: 160px; */
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 	position: absolute;
-
-	/* z-index: 1; */
 }
 
 /* Links inside the locationdropdown */
@@ -102,4 +98,28 @@
 
 .locationdropdown.show {
 	display: flex;
+}
+
+@media (min-width: 1442px) {
+	.locationdropdown-container {
+		display: flex;
+		text-align: center;
+		justify-self: flex-end;
+		flex-direction: column;
+		width: 920px;
+		height: auto;
+		background-size: 450px;
+		background-repeat: no-repeat;
+	}
+	.locationdropdown {
+		display: none;
+		display: flex;
+		flex-direction: column;
+		top: 0;
+		margin-left: 18%;
+		margin-top: 80px;
+		background-color: #f1f1f1;
+		box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+		position: absolute;
+	}
 }

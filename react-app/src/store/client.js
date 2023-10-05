@@ -58,7 +58,7 @@ export default function clientReducer(state = initialState, action) {
 			action.clients.forEach((client) => {
 				newState[client.id] = client;
 			});
-			// newState[action.clients.id] = action.clients
+			// newState[action.clients.id] = action.client
 			return {...newState};
 		}
 		case GET_CLIENT_BY_ID: {

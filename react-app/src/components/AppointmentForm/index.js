@@ -36,7 +36,7 @@ const AppointmentForm = () => {
 	const [repeat, setRepeat] = useState("None");
 	const [client, setClient] = useState("");
 
-	// console.log("<-------AppointmentComponent------->", clientReducer);
+	console.log("<-------CientReducer------->", clients);
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (time) {
@@ -110,7 +110,7 @@ const AppointmentForm = () => {
 										<option key={client.id} value={client.id}>
 											{client.first_name}
 											{client.last_name}
-											{/* {console.log(clients)} */}
+											{console.log(client)}
 										</option>
 									))}
 								</select>

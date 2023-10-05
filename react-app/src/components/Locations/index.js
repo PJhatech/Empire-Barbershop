@@ -69,8 +69,8 @@ const Locations = () => {
 												<p>
 													{`${location.address}, ${location.city}, CA 	${location.zipCode}`}
 												</p>
-												{location.zipCode}
-												<p></p>
+
+											
 												<OpenModalButton
 													buttonText="update"
 													modalComponent={

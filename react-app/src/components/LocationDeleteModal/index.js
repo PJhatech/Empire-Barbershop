@@ -9,7 +9,7 @@ const DeleteLocation = ({location}) => {
 	// const {serviceId} = useParams();
 	const {closeModal} = useModal();
 
-	console.log("<-------delete------->", location);
+	// console.log("<-------delete------->", location);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();

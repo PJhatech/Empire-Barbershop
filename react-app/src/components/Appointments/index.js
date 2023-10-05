@@ -44,10 +44,12 @@ const Appointments = () => {
 	const closeModal = useModal();
 	console.log('<------appointReduercer------>',appointmentReducer)
 	const appointment = useMemo(() => Object.values(appointmentReducer), [appointmentReducer]);
+	// const appointment = Object.values((appointmentReducer), [appointmentReducer]);
 	const localizer = momentLocalizer(moment);
 
 	const [date, setDate] = useState();
 	const [time, setTime] = useState();
+
 
 	useEffect(() => {
 		dispatch(fetchAppointments());

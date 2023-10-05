@@ -4,16 +4,19 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import React, {useState, useEffect, useMemo} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {NavLink} from "react-router-dom";
-import { fetchAppointments } from "../../store/appointment";
-import './Calendar.css'
+import {fetchAppointments} from "../../store/appointment";
+import "./Calendar.css";
 
 const MyCalendar = () => {
 	const localizer = momentLocalizer(moment);
 	const dispatch = useDispatch();
 	const appointmentReducer = useSelector((state) => state.appointmentReducer);
-
 	const appointment = useMemo(() => Object.values(appointmentReducer), [appointmentReducer]);
+<<<<<<< HEAD
 	console.log('<---usememo-->', useMemo)
+=======
+	// const appointment = Object.values((appointmentReducer), [appointmentReducer]);
+>>>>>>> frontend-redo
 
 	const [date, setDate] = useState([]);
 	const [time, setTime] = useState([]);
@@ -45,7 +48,7 @@ const MyCalendar = () => {
 		return {
 			start: startDate,
 			end: endDate,
-			title: clientName[index] ,
+			title: clientName[index],
 		};
 	});
 
@@ -58,7 +61,7 @@ const MyCalendar = () => {
 					defaultView="day"
 					events={events}
 					views={["day", "week", "month"]}
-					style={{height: "700px"}}
+					// style={{height: "700px"}}
 				/>
 			</div>
 		</>

@@ -40,7 +40,7 @@ const CreateLocation = () => {
 			lng: Number(lng),
 			name: name,
 		};
-      console.log(newLocation)
+      // console.log(newLocation)
 		// let newLocation;
 		if (newLocation) {
 			await dispatch(createLocation(newLocation)).then((newLocation) => {

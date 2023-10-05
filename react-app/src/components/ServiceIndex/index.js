@@ -12,7 +12,7 @@ const ServiceIndex = () => {
 	const serviceReducer = useSelector((state) => state.serviceReducer);
 	const service = Object.values(serviceReducer);
 
-	console.log("<-------serviceIndex------->", serviceReducer);
+	// console.log("<-------serviceIndex------->", serviceReducer);
 
 	useEffect(() => {
 		dispatch(fetchServiceById(id))
