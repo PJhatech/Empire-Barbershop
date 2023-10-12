@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from "react";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {logout} from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
@@ -11,11 +11,14 @@ import {login} from "../../store/session";
 
 function ProfileButton({user}) {
 	const dispatch = useDispatch();
+	const sessionUser = useSelector((state) => state.session.user);
+	const ulRef = useRef();
+	const modalRef = useModal();
+
 	const [showMenu, setShowMenu] = useState(false);
 	const [email, setEmail] = useState("ronesmith@example.com");
 	const [password, setPassword] = useState("password");
-	const ulRef = useRef();
-	const modalRef = useModal();
+
 
 	const openMenu = () => {
 		if (showMenu) return;
@@ -55,7 +58,9 @@ function ProfileButton({user}) {
 	return (
 		<div className="profileButtonContainer">
 			<button className="profileButton" onClick={openMenu}>
-				<i class="fa-solid fa-scissors fa-xl" style={{color: "#32cd32"}}></i>
+			{sessionUser ? (
+				<i class="fa-solid fa-scissors fa-xl" ></i>
+			) : <i style={{color: "#32cd32"}}>Login</i> }
 			</button>
 			<div className={ulClassName} ref={ulRef}>
 				{user ? (
@@ -77,7 +82,7 @@ function ProfileButton({user}) {
 						/>
 
 							<button onClick={demoSubmit}>DemoBarber</button>
-					
+
 
 						<OpenModalButton
 							buttonText="Sign Up"
