@@ -8,6 +8,7 @@ import OpenModalButton from "../OpenModalButton";
 import ComingSoon from "../ComingSoon";
 import {ModalProvider, useModal} from "../../context/Modal";
 import "./Navigation.css";
+import AboutMe from "../AboutMe";
 
 function Navigation({isLoaded}) {
 	const sessionUser = useSelector((state) => state.session.user);
@@ -44,6 +45,7 @@ function Navigation({isLoaded}) {
 				<div className="components">
 					<div className="shopName" style={{color: shopNameColor}}>
 						<h1> Empire BarberShop </h1>
+
 					</div>
 					<div className="h2Tags">
 						<NavLink exact to="/">

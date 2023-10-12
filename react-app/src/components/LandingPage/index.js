@@ -25,8 +25,8 @@ import concordChairs from "../Images/chairImg.jpeg";
 import bestofeast from "../Images/bestofeast.jpg";
 import blackBackground from "../Images/wallpaper.jpg";
 import stateofmind from "../Images/stateofmind.jpg";
-
 import ProfileButton from "../Navigation/ProfileButton";
+import AboutMe from "../AboutMe";
 
 const LandingPage = () => {
 	// const dispatch = useDispatch();
@@ -35,7 +35,7 @@ const LandingPage = () => {
 	const client = useSelector((state) => state.session.user);
 	const sessionUser = useSelector((state) => state.session.user);
 	const [isLoaded, setIsLoaded] = useState(true);
-	
+
 
 	// useEffect(() => {
 	// 	dispatch(fetchAppointments());
@@ -71,7 +71,11 @@ const LandingPage = () => {
 					{/* <img alt="logoImg" width="400" height="300" src={logo} /> */}
 					{/* <ProfileButton user={sessionUser} /> */}
 				</div>
+
 				<div className="stateofmindContainer">
+					<div className="aboutme">
+						<AboutMe />
+					</div>
 					<img alt="logo" className="stateofmind" src={stateofmind} />
 				</div>
 
