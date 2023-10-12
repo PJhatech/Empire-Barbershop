@@ -20,7 +20,7 @@
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	max-height: 100vh;
+	max-height: 90px;
 	background-color: black;
 	display: flex;
 	justify-content: center;
@@ -29,12 +29,14 @@
 
 .aboutme {
 	position: absolute;
-	bottom: 0;
+	margin-left: -30px;
+	top: 0;
 	left: 0;
-
 }
 
-.stateofmind {
+.stateofmindimg {
+	bottom: 0;
+	z-index: -1;
 	width: 500px;
 }
 

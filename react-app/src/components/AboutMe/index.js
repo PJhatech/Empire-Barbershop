@@ -12,8 +12,8 @@ const AboutMe = () => {
 					},
 				].map((profile) => (
 					<div className="profile">
-						<h4>{profile.name}</h4>
-						<ul width="500" className="linkicons">
+						{/* <h4>{profile.name}</h4> */}
+						<ul className="linkicons">
 							<>
 								<a href={profile.linkedin} target="_blank" rel="noopener noreferrer">
 									<i className="fab fa-linkedin"></i>

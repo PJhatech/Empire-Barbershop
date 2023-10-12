@@ -76,7 +76,10 @@ const LandingPage = () => {
 					<div className="aboutme">
 						<AboutMe />
 					</div>
-					<img alt="logo" className="stateofmind" src={stateofmind} />
+					<div>
+						<img alt="logo" className="stateofmindimg" src={stateofmind} />
+
+					</div>
 				</div>
 
 				{/* </NavLink> */}
