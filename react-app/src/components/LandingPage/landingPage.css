@@ -40,6 +40,11 @@
 	width: 500px;
 }
 
+.logoimg {
+	width: 400px;
+	height: 400px;
+}
+
 .scroll-container {
 	background-color: #333;
 	overflow: hidden;
@@ -53,7 +58,7 @@
 		position: fixed;
 		bottom: 0;
 		left: 0;
-		height: 150px;
+		height: 120px;
 		width: 100%;
 		max-height: 100vh;
 		background-color: black;
@@ -72,11 +77,40 @@
 
 		z-index: 1;
 	}
-}
 
-.logoimg {
-	width: 400px;
-	height: 400px;
+	.logoimg {
+		width: 600px;
+		height: 600px;
+	}
+
+	img[alt="hottowel"] {
+		height: 600px;
+		width: 660px;
+	}
+	img[alt="dariocut"] {
+		height: 600px;
+		width: auto;
+	}
+	img[alt="chris"] {
+		height: 600px;
+		width: auto;
+	}
+	img[alt="jhaCut3"] {
+		height: 600px;
+		width: auto;
+	}
+	img[alt="jhaCut2"] {
+		height: 600px;
+		width: auto;
+	}
+	img[alt="hassan"] {
+		height: 600px;
+		width: auto;
+	}
+	img[alt="justin"] {
+		height: 600px;
+		width: auto;
+	}
 }
 
 @keyframes scroll {
