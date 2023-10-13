@@ -59,7 +59,7 @@ const AppointmentForm = () => {
 	function getTimeOptions() {
 		const times = [];
 
-		for (let i = 8; i <= 22; i++) {
+		for (let i = 8; i <= 21; i++) {
 			let hour = i > 12 ? i - 12 : i;
 			const meridian = i < 12 ? "AM" : "PM";
 
